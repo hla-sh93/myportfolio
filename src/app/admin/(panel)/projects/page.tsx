@@ -19,7 +19,7 @@ const CATEGORY_LABEL: Record<string, string> = {
 };
 
 export default async function AdminProjectsPage() {
-  const projects = getStoredProjects();
+  const projects = await getStoredProjects();
   const counters = await getCounters("project");
 
   return (

@@ -1,3 +1,4 @@
+import { ViewTracker } from "@/components/features/ViewTracker";
 import { ProjectGrid } from "@/components/features/ProjectGrid";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { PageHeader } from "@/components/ui/PageHeader";
@@ -15,7 +16,7 @@ export default async function ProjectsPage() {
   const t = await getTranslations("projects");
   // live engagement counters (views/likes) merged onto static content
   const counters = await getCounters("project");
-  const projectsWithStats = getPublicProjects().map((p) => ({
+  const projectsWithStats = (await getPublicProjects()).map((p) => ({
     ...p,
     views: counters[p.slug]?.views ?? 0,
     likeCount: counters[p.slug]?.likes ?? 0,
@@ -23,6 +24,7 @@ export default async function ProjectsPage() {
 
   return (
     <>
+      <ViewTracker type="page" slug="projects" />
       <PageHeader
         label={t("subtitle")}
         title={t("heading")}

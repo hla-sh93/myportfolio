@@ -1,26 +1,34 @@
 import { bump } from "@/lib/counter-store";
+import { recordHit } from "@/lib/analytics-store";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
 /**
- * Engagement counters keyed by (type, slug) — works for projects and
- * articles regardless of where their content lives.
+ * Two things happen here, both keyed only by content slug — no IP, no
+ * user-agent, nothing personal is stored:
  *
- * POST /api/track  { type, slug, action: "view" | "like" | "unlike" }
- * → { views, likes }
+ *  1. Engagement counters (cumulative views + likes) per project/article.
+ *  2. Daily traffic aggregates that power the dashboard charts.
  *
- * View dedup is client-side (sessionStorage, one per session per slug);
- * likes dedup is client-side too (localStorage) — good enough for a
- * portfolio, no personal data stored.
+ * POST /api/track
+ *   { type: "project" | "article", slug, action: "view" | "like" | "unlike" }
+ *     → { views, likes }
+ *   { type: "page", slug, action: "view", newSession? }
+ *     → { ok: true }            (routes without a counter, e.g. /about)
+ *
+ * View dedup is client-side (sessionStorage, once per session per slug);
+ * `newSession` marks the first view in a browser session, which is what
+ * separates "visitors" from raw page views.
  */
 const bodySchema = z.object({
-  type: z.enum(["project", "article"]),
+  type: z.enum(["project", "article", "page"]),
   slug: z
     .string()
     .min(1)
-    .max(120)
-    .regex(/^[a-z0-9-]+$/),
+    .max(160)
+    .regex(/^[a-z0-9/_-]+$/i),
   action: z.enum(["view", "like", "unlike"]),
+  newSession: z.boolean().optional(),
 });
 
 export async function POST(req: NextRequest) {
@@ -35,7 +43,17 @@ export async function POST(req: NextRequest) {
   if (!parsed.success) {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }
-  const { type, slug, action } = parsed.data;
+  const { type, slug, action, newSession } = parsed.data;
+
+  // Traffic aggregate — views only; likes are engagement, not traffic.
+  if (action === "view") {
+    await recordHit(type, slug, newSession === true);
+  }
+
+  // Plain page views have no counter row to bump.
+  if (type === "page") {
+    return NextResponse.json({ ok: true });
+  }
 
   const counter = await bump(type, slug, action);
   return NextResponse.json(counter);

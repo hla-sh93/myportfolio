@@ -60,7 +60,7 @@ export async function POST(req: Request) {
         },
       });
     } catch {
-      addMessage({
+      await addMessage({
         name: data.name,
         email: data.email,
         subject: data.subject,

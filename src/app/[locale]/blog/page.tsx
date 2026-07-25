@@ -1,3 +1,4 @@
+import { ViewTracker } from "@/components/features/ViewTracker";
 import { BlogExplorer } from "@/components/features/BlogExplorer";
 import { getCounters } from "@/lib/counters";
 import { getPublicArticles } from "@/lib/content";
@@ -18,13 +19,14 @@ export default async function BlogPage({
   const { locale } = await params;
   const t = await getTranslations("blog");
   const counters = await getCounters("article");
-  const articles = getPublicArticles().map((a) => ({
+  const articles = (await getPublicArticles()).map((a) => ({
     ...a,
     views: counters[a.slug]?.views ?? 0,
   }));
 
   return (
     <>
+      <ViewTracker type="page" slug="blog" />
       <PageHeader
         label={t("subtitle")}
         title={t("heading")}

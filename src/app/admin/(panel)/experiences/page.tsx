@@ -4,8 +4,8 @@ import { ExperiencesEditor } from "./ExperiencesEditor";
 export const metadata = { title: "Experiences | Admin" };
 export const dynamic = "force-dynamic";
 
-export default function AdminExperiencesPage() {
-  const experiences = getStoredExperiences();
+export default async function AdminExperiencesPage() {
+  const experiences = await getStoredExperiences();
 
   return (
     <div className="p-8 max-w-6xl mx-auto space-y-8">

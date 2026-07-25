@@ -13,7 +13,7 @@ export default async function EditProjectPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const project = getStoredProject(id);
+  const project = await getStoredProject(id);
   if (!project) notFound();
 
   return (

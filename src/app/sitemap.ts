@@ -27,10 +27,10 @@ function entry(
   }));
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
-  const projects = getPublicProjects();
-  const articles = getPublicArticles();
+  const projects = await getPublicProjects();
+  const articles = await getPublicArticles();
 
   return [
     ...entry("", now, 1, "weekly"),

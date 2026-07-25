@@ -1,25 +1,22 @@
 "use client";
 
 import { Lightbox } from "@/components/features/Lightbox";
-import certificates from "@/content/certificates.json";
 import { AnimatePresence, motion } from "framer-motion";
 import { Award, ZoomIn } from "lucide-react";
 import { useLocale } from "next-intl";
 import Image from "next/image";
 import { useMemo, useState } from "react";
 
-interface Certificate {
+export interface Certificate {
   url: string;
   width: number;
   height: number;
-  blurDataUrl: string;
+  blurDataUrl: string | null;
   issuer: string | null;
   title: string;
-  date?: string;
+  date?: string | null;
   category?: string;
 }
-
-const items = certificates as Certificate[];
 
 const CATS = ["all", "uiux", "frontend", "marketing", "growth"] as const;
 type Cat = (typeof CATS)[number];
@@ -33,7 +30,7 @@ const LABELS: Record<Cat, { en: string; ar: string }> = {
 };
 
 /* Certificates grouped by discipline — filter pills + zoom-to-Lightbox. */
-export function CertificatesGrid() {
+export function CertificatesGrid({ items }: { items: Certificate[] }) {
   const locale = useLocale();
   const isAr = locale === "ar";
   const [cat, setCat] = useState<Cat>("all");
@@ -41,7 +38,7 @@ export function CertificatesGrid() {
 
   const filtered = useMemo(
     () => (cat === "all" ? items : items.filter((c) => c.category === cat)),
-    [cat]
+    [cat, items]
   );
 
   if (items.length === 0) return null;
@@ -106,8 +103,8 @@ export function CertificatesGrid() {
                   fill
                   className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  placeholder="blur"
-                  blurDataURL={cert.blurDataUrl}
+                  placeholder={cert.blurDataUrl ? "blur" : "empty"}
+                  blurDataURL={cert.blurDataUrl || undefined}
                 />
                 <span className="absolute end-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-black/45 text-white opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
                   <ZoomIn size={16} />

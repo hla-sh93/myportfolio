@@ -5,8 +5,8 @@ import { MessageRow } from "./MessageRow";
 export const metadata = { title: "Messages | Admin" };
 export const dynamic = "force-dynamic";
 
-export default function AdminMessagesPage() {
-  const messages = getStoredMessages();
+export default async function AdminMessagesPage() {
+  const messages = await getStoredMessages();
   const unread = messages.filter((m) => !m.read).length;
 
   return (

@@ -1,3 +1,4 @@
+import { ViewTracker } from "@/components/features/ViewTracker";
 import { ContactForm } from "@/components/features/ContactForm";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Globe, Mail, MapPin } from "lucide-react";
@@ -43,6 +44,7 @@ export default async function ContactPage({
 
   return (
     <>
+      <ViewTracker type="page" slug="contact" />
       <PageHeader
         label={t("subtitle")}
         title={t("title")}

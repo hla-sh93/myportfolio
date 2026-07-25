@@ -23,7 +23,7 @@ import {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string; locale: string }> }) {
   const { slug, locale } = await params;
-  const project = getPublicProject(slug);
+  const project = await getPublicProject(slug);
 
   if (!project) return { title: "Not Found" };
 
@@ -57,7 +57,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   const { slug, locale } = await params;
   const isRtl = locale === "ar";
 
-  const project = getPublicProject(slug);
+  const project = await getPublicProject(slug);
 
   if (!project || !project.published) {
     notFound();
@@ -72,7 +72,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
   // Prev/next within the published set (gallery order) — never dead-end
   const tNav = await getTranslations("projects");
-  const all = getPublicProjects();
+  const all = await getPublicProjects();
   const idx = all.findIndex((p) => p.slug === project.slug);
   const prevProject = idx > 0 ? all[idx - 1] : null;
   const nextProject = idx < all.length - 1 ? all[idx + 1] : null;

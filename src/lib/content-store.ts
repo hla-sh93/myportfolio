@@ -1,17 +1,20 @@
 /**
- * File-backed content store — the same pattern as counter-store.ts, extended
- * to all editable content. Each collection is one JSON file under data/
- * (git-tracked so content survives and deploys with the repo).
+ * Content store — Postgres when DATABASE_URL is reachable, JSON files under
+ * data/ otherwise. Same contract either way, so callers never branch.
  *
- * On first access a collection is seeded from the current hand-written
- * content (src/content/projects.ts, the i18n messages, the launch articles),
- * after which the JSON file is the single source of truth and the admin
- * panel edits it. A future Postgres/Prisma layer can import these files.
+ * Why both: Vercel's filesystem is ephemeral, so the database is the only
+ * durable store in production. Locally (and on a fresh clone with no DB) the
+ * JSON files keep the site fully working, and they double as the seed that
+ * scripts/migrate-to-db.mjs imports.
+ *
+ * Every function is async — the database path cannot be synchronous.
  */
 import "server-only";
 import fs from "node:fs";
 import path from "node:path";
+import { db } from "@/lib/db";
 import { projects as staticProjects } from "@/content/projects";
+import staticCertificates from "@/content/certificates.json";
 import arMessages from "@/messages/ar.json";
 import enMessages from "@/messages/en.json";
 
@@ -90,6 +93,19 @@ export type StoredStat = {
   labelAr: string;
 };
 
+export type StoredCertificate = {
+  id: string;
+  title: string;
+  issuer: string | null;
+  date: string | null;
+  category: string;
+  url: string;
+  width: number;
+  height: number;
+  blurDataUrl: string | null;
+  order: number;
+};
+
 export type StoredMessage = {
   id: string;
   name: string;
@@ -106,17 +122,17 @@ function file(name: string) {
   return path.join(DATA_DIR, `${name}.json`);
 }
 
-function readCollection<T>(name: string, seed: () => T[]): T[] {
+function readFileCollection<T>(name: string, seed: () => T[]): T[] {
   try {
     return JSON.parse(fs.readFileSync(file(name), "utf8")) as T[];
   } catch {
     const seeded = seed();
-    writeCollection(name, seeded);
+    writeFileCollection(name, seeded);
     return seeded;
   }
 }
 
-function writeCollection<T>(name: string, data: T[]) {
+function writeFileCollection<T>(name: string, data: T[]) {
   try {
     fs.mkdirSync(DATA_DIR, { recursive: true });
     fs.writeFileSync(file(name), JSON.stringify(data, null, 1));
@@ -128,6 +144,8 @@ function writeCollection<T>(name: string, data: T[]) {
 export function newId(prefix: string) {
   return `${prefix}-${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
 }
+
+const iso = (d: Date | null | undefined) => (d ?? new Date()).toISOString();
 
 /* ── seeds ────────────────────────────────────────────────────────────── */
 
@@ -201,182 +219,468 @@ function seedStats(): StoredStat[] {
   ];
 }
 
-/* Launch articles — moved here from the page-level mocks so the admin owns
-   them; bodies are markdown. */
-function seedArticles(): StoredArticle[] {
-  return [
-    {
-      id: "a1",
-      slug: "building-with-nextjs-15",
-      titleEn: "Building with Next.js 15",
-      titleAr: "البناء باستخدام Next.js 15",
-      excerptEn:
-        "Exploring the new App Router features and server components in Next.js 15.",
-      excerptAr:
-        "استكشاف ميزات App Router الجديدة ومكونات الخادم في Next.js 15.",
-      bodyEn: `## Introduction\n\nNext.js 15 introduces several groundbreaking features that revolutionize the way we build web applications. From enhanced server components to improved routing capabilities, this version marks a significant step forward.\n\n## The App Router\n\nThe App Router is one of the most significant additions. It provides a new paradigm for building applications with React Server Components at its core.\n\n### Key Features\n\n- **Server Components by Default**: Components are server-rendered unless explicitly marked as client components.\n- **Nested Layouts**: Share UI between routes while preserving state.\n- **Loading States**: Built-in loading UI with React Suspense.\n- **Error Handling**: Automatic error boundaries for graceful error recovery.\n\n## Server Components\n\nServer Components allow you to render components on the server, reducing the JavaScript bundle sent to the client.\n\n### Benefits\n\n1. Reduced bundle size\n2. Direct backend access\n3. Improved SEO\n4. Better performance on low-powered devices\n\n## Conclusion\n\nNext.js 15 represents a major leap forward in web development. The combination of Server Components, the App Router, and improved caching makes it an excellent choice for modern web applications.`,
-      bodyAr: `## مقدمة\n\nيقدم Next.js 15 العديد من الميزات الرائدة التي تحدث ثورة في طريقة بناء تطبيقات الويب.\n\n## موجه التطبيق\n\nموجه التطبيق هو أحد أهم الإضافات. يوفر نموذجًا جديدًا لبناء التطبيقات.\n\n## الخلاصة\n\nيمثل Next.js 15 قفزة كبيرة في تطوير الويب.`,
-      coverImage: "/images/placeholder.jpg",
-      tags: ["Next.js", "React", "TypeScript"],
-      readTime: 8,
-      published: true,
-      publishedAt: "2024-05-20T00:00:00.000Z",
-    },
-    {
-      id: "a2",
-      slug: "glassmorphism-design-guide",
-      titleEn: "Glassmorphism Design Guide",
-      titleAr: "دليل تصميم الزجاج الشفاف",
-      excerptEn:
-        "A comprehensive guide to implementing glassmorphism in modern web design.",
-      excerptAr:
-        "دليل شامل لتنفيذ تأثير الزجاج الشفاف في تصميم الويب الحديث.",
-      bodyEn: `## What is Glassmorphism?\n\nGlassmorphism is a design trend that creates a frosted glass effect using background blur, transparency, and subtle borders.\n\n## Key Properties\n\nThe three main CSS properties that define glassmorphism:\n\n- **backdrop-filter**: Creates the blur effect behind the element\n- **background**: Semi-transparent background color\n- **border**: Subtle border for depth perception\n\n## Implementation\n\nHere's how to implement a basic glass card effect in your CSS.\n\n## Best Practices\n\n1. Use appropriate contrast for readability\n2. Don't overuse the effect\n3. Consider performance implications\n4. Test across different backgrounds\n\n## Conclusion\n\nGlassmorphism adds a modern, elegant touch to web designs when used thoughtfully.`,
-      bodyAr: `## ما هو تأثير الزجاج الشفاف؟\n\nتأثير الزجاج الشفاف هو اتجاه تصميمي يخلق تأثير الزجاج المصنفر.\n\n## الخصائص الرئيسية\n\nالخصائص الثلاث الرئيسية التي تحدد التأثير.\n\n## الخلاصة\n\nيضيف تأثير الزجاج الشفاف لمسة عصرية وأنيقة للتصاميم.`,
-      coverImage: "/images/placeholder.jpg",
-      tags: ["Design", "CSS", "UI"],
-      readTime: 5,
-      published: true,
-      publishedAt: "2024-04-15T00:00:00.000Z",
-    },
-    {
-      id: "a3",
-      slug: "tailwind-v4-whats-new",
-      titleEn: "Tailwind CSS v4: What's New",
-      titleAr: "Tailwind CSS v4: ما الجديد",
-      excerptEn:
-        "Breaking down the biggest changes and improvements in Tailwind CSS version 4.",
-      excerptAr:
-        "تحليل أكبر التغييرات والتحسينات في الإصدار الرابع من Tailwind CSS.",
-      bodyEn: `## Overview\n\nTailwind CSS v4 brings a complete rewrite of the engine with significant performance improvements and new features.\n\n## New Features\n\n### CSS-First Configuration\n\nTailwind v4 introduces a CSS-first configuration approach, moving away from JavaScript config files.\n\n### Lightning CSS\n\nThe new engine is built on Lightning CSS, providing much faster build times.\n\n### Automatic Content Detection\n\nNo more configuring content paths manually — Tailwind v4 automatically detects your template files.\n\n## Performance\n\nBuild times have improved dramatically with the new architecture.\n\n## Conclusion\n\nTailwind CSS v4 is a major upgrade that makes the framework faster and easier to use.`,
-      bodyAr: `## نظرة عامة\n\nيجلب Tailwind CSS v4 إعادة كتابة كاملة للمحرك مع تحسينات كبيرة في الأداء.\n\n## الخلاصة\n\nTailwind CSS v4 ترقية كبيرة تجعل الإطار أسرع وأسهل استخدامًا.`,
-      coverImage: "/images/placeholder.jpg",
-      tags: ["Tailwind", "CSS", "Frontend"],
-      readTime: 6,
-      published: true,
-      publishedAt: "2024-03-10T00:00:00.000Z",
-    },
-  ];
+function seedCertificates(): StoredCertificate[] {
+  return (staticCertificates as any[]).map((c, i) => ({
+    id: `cert-${path.basename(c.url).replace(/\.[a-z0-9]+$/i, "")}`,
+    title: c.title,
+    issuer: c.issuer ?? null,
+    date: c.date ?? null,
+    category: c.category ?? "uiux",
+    url: c.url,
+    width: c.width ?? 1200,
+    height: c.height ?? 900,
+    blurDataUrl: c.blurDataUrl ?? null,
+    order: i,
+  }));
 }
+
+function seedArticles(): StoredArticle[] {
+  return [];
+}
+
+/* ── row mappers (Prisma → Stored) ────────────────────────────────────── */
+
+const toProject = (p: any): StoredProject => ({
+  id: p.id,
+  slug: p.slug,
+  titleEn: p.titleEn,
+  titleAr: p.titleAr,
+  descEn: p.descEn,
+  descAr: p.descAr,
+  bodyEn: p.bodyEn,
+  bodyAr: p.bodyAr,
+  category: p.category,
+  tags: p.tags ?? [],
+  coverImage: p.coverImage,
+  blurDataUrl: p.blurDataUrl,
+  client: p.client,
+  role: p.role,
+  tools: p.tools ?? [],
+  year: p.year,
+  featured: p.featured,
+  published: p.published,
+  publishedAt: iso(p.publishedAt),
+  media: (p.media ?? [])
+    .slice()
+    .sort((a: any, b: any) => a.order - b.order)
+    .map((m: any) => ({
+      id: m.id,
+      url: m.url,
+      type: m.type,
+      altEn: m.altEn ?? "",
+      altAr: m.altAr ?? "",
+      order: m.order,
+      width: m.width ?? 1600,
+      height: m.height ?? 1200,
+    })),
+});
+
+const toArticle = (a: any): StoredArticle => ({
+  id: a.id,
+  slug: a.slug,
+  titleEn: a.titleEn,
+  titleAr: a.titleAr,
+  excerptEn: a.excerptEn ?? "",
+  excerptAr: a.excerptAr ?? "",
+  bodyEn: a.bodyEn,
+  bodyAr: a.bodyAr,
+  coverImage: a.coverImage ?? "/images/placeholder.jpg",
+  tags: a.tags ?? [],
+  readTime: a.readTime ?? 5,
+  published: a.published,
+  publishedAt: iso(a.publishedAt),
+});
+
+const toCertificate = (c: any): StoredCertificate => ({
+  id: c.id,
+  title: c.title,
+  issuer: c.issuer,
+  date: c.date,
+  category: c.category,
+  url: c.url,
+  width: c.width,
+  height: c.height,
+  blurDataUrl: c.blurDataUrl,
+  order: c.order,
+});
+
+const toMessage = (m: any): StoredMessage => ({
+  id: m.id,
+  name: m.name,
+  email: m.email,
+  subject: m.subject,
+  message: m.message,
+  read: m.read,
+  createdAt: iso(m.createdAt),
+});
 
 /* ── projects ─────────────────────────────────────────────────────────── */
 
-export function getStoredProjects(): StoredProject[] {
-  return readCollection<StoredProject>("projects", seedProjects);
+export async function getStoredProjects(): Promise<StoredProject[]> {
+  try {
+    const rows = await db.project.findMany({
+      include: { media: true },
+      orderBy: { publishedAt: "desc" },
+    });
+    if (rows.length > 0) return rows.map(toProject);
+  } catch {
+    /* no database — fall through to the file store */
+  }
+  return readFileCollection<StoredProject>("projects", seedProjects);
 }
 
-export function getStoredProject(idOrSlug: string): StoredProject | null {
-  return (
-    getStoredProjects().find((p) => p.id === idOrSlug || p.slug === idOrSlug) ??
-    null
-  );
+export async function getStoredProject(
+  idOrSlug: string
+): Promise<StoredProject | null> {
+  try {
+    const row = await db.project.findFirst({
+      where: { OR: [{ id: idOrSlug }, { slug: idOrSlug }] },
+      include: { media: true },
+    });
+    if (row) return toProject(row);
+  } catch {
+    /* fall through */
+  }
+  const all = readFileCollection<StoredProject>("projects", seedProjects);
+  return all.find((p) => p.id === idOrSlug || p.slug === idOrSlug) ?? null;
 }
 
-export function upsertProject(project: StoredProject) {
-  const all = getStoredProjects();
+export async function upsertProject(project: StoredProject) {
+  const { media, ...rest } = project;
+  const row = {
+    slug: rest.slug,
+    titleEn: rest.titleEn,
+    titleAr: rest.titleAr,
+    descEn: rest.descEn,
+    descAr: rest.descAr,
+    bodyEn: rest.bodyEn,
+    bodyAr: rest.bodyAr,
+    category: rest.category,
+    tags: rest.tags,
+    coverImage: rest.coverImage,
+    blurDataUrl: rest.blurDataUrl,
+    client: rest.client,
+    role: rest.role,
+    tools: rest.tools,
+    year: rest.year,
+    featured: rest.featured,
+    published: rest.published,
+    publishedAt: new Date(rest.publishedAt),
+  };
+  try {
+    await db.project.upsert({
+      where: { id: project.id },
+      create: { id: project.id, ...row },
+      update: row,
+    });
+    // replace the gallery wholesale — order and membership both come from the form
+    await db.media.deleteMany({ where: { projectId: project.id } });
+    if (media.length > 0) {
+      await db.media.createMany({
+        data: media.map((m) => ({ ...m, projectId: project.id })),
+      });
+    }
+    return;
+  } catch {
+    /* fall through to the file store */
+  }
+  const all = readFileCollection<StoredProject>("projects", seedProjects);
   const i = all.findIndex((p) => p.id === project.id);
   if (i >= 0) all[i] = project;
   else all.unshift(project);
-  writeCollection("projects", all);
+  writeFileCollection("projects", all);
 }
 
-export function deleteProject(id: string) {
-  writeCollection(
+export async function deleteProject(id: string) {
+  try {
+    await db.project.delete({ where: { id } });
+    return;
+  } catch {
+    /* fall through */
+  }
+  const all = readFileCollection<StoredProject>("projects", seedProjects);
+  writeFileCollection(
     "projects",
-    getStoredProjects().filter((p) => p.id !== id)
+    all.filter((p) => p.id !== id)
   );
 }
 
 /* ── articles ─────────────────────────────────────────────────────────── */
 
-export function getStoredArticles(): StoredArticle[] {
-  return readCollection<StoredArticle>("articles", seedArticles);
+export async function getStoredArticles(): Promise<StoredArticle[]> {
+  try {
+    const rows = await db.article.findMany({ orderBy: { publishedAt: "desc" } });
+    if (rows.length > 0) return rows.map(toArticle);
+  } catch {
+    /* fall through */
+  }
+  return readFileCollection<StoredArticle>("articles", seedArticles);
 }
 
-export function getStoredArticle(idOrSlug: string): StoredArticle | null {
-  return (
-    getStoredArticles().find((a) => a.id === idOrSlug || a.slug === idOrSlug) ??
-    null
-  );
+export async function getStoredArticle(
+  idOrSlug: string
+): Promise<StoredArticle | null> {
+  try {
+    const row = await db.article.findFirst({
+      where: { OR: [{ id: idOrSlug }, { slug: idOrSlug }] },
+    });
+    if (row) return toArticle(row);
+  } catch {
+    /* fall through */
+  }
+  const all = readFileCollection<StoredArticle>("articles", seedArticles);
+  return all.find((a) => a.id === idOrSlug || a.slug === idOrSlug) ?? null;
 }
 
-export function upsertArticle(article: StoredArticle) {
-  const all = getStoredArticles();
-  const i = all.findIndex((a) => a.id === article.id);
+export async function upsertArticle(article: StoredArticle) {
+  const { id, publishedAt, ...rest } = article;
+  const row = { ...rest, publishedAt: new Date(publishedAt) };
+  try {
+    await db.article.upsert({
+      where: { id },
+      create: { id, ...row },
+      update: row,
+    });
+    return;
+  } catch {
+    /* fall through */
+  }
+  const all = readFileCollection<StoredArticle>("articles", seedArticles);
+  const i = all.findIndex((a) => a.id === id);
   if (i >= 0) all[i] = article;
   else all.unshift(article);
-  writeCollection("articles", all);
+  writeFileCollection("articles", all);
 }
 
-export function deleteArticle(id: string) {
-  writeCollection(
+export async function deleteArticle(id: string) {
+  try {
+    await db.article.delete({ where: { id } });
+    return;
+  } catch {
+    /* fall through */
+  }
+  const all = readFileCollection<StoredArticle>("articles", seedArticles);
+  writeFileCollection(
     "articles",
-    getStoredArticles().filter((a) => a.id !== id)
+    all.filter((a) => a.id !== id)
   );
 }
 
 /* ── experiences ──────────────────────────────────────────────────────── */
 
-export function getStoredExperiences(): StoredExperience[] {
-  return readCollection<StoredExperience>("experiences", seedExperiences).sort(
+export async function getStoredExperiences(): Promise<StoredExperience[]> {
+  try {
+    const rows = await db.experience.findMany({ orderBy: { order: "asc" } });
+    if (rows.length > 0) {
+      return rows.map((e) => ({
+        id: e.id,
+        roleEn: e.roleEn,
+        roleAr: e.roleAr,
+        companyEn: e.companyEn,
+        companyAr: e.companyAr,
+        periodEn: e.periodEn,
+        periodAr: e.periodAr,
+        descEn: e.descEn,
+        descAr: e.descAr,
+        order: e.order,
+      }));
+    }
+  } catch {
+    /* fall through */
+  }
+  return readFileCollection<StoredExperience>("experiences", seedExperiences).sort(
     (a, b) => a.order - b.order
   );
 }
 
-export function upsertExperience(exp: StoredExperience) {
-  const all = getStoredExperiences();
-  const i = all.findIndex((e) => e.id === exp.id);
+export async function upsertExperience(exp: StoredExperience) {
+  const { id, ...row } = exp;
+  try {
+    await db.experience.upsert({
+      where: { id },
+      create: { id, ...row },
+      update: row,
+    });
+    return;
+  } catch {
+    /* fall through */
+  }
+  const all = readFileCollection<StoredExperience>("experiences", seedExperiences);
+  const i = all.findIndex((e) => e.id === id);
   if (i >= 0) all[i] = exp;
   else all.push(exp);
-  writeCollection("experiences", all);
+  writeFileCollection("experiences", all);
 }
 
-export function deleteExperience(id: string) {
-  writeCollection(
+export async function deleteExperience(id: string) {
+  try {
+    await db.experience.delete({ where: { id } });
+    return;
+  } catch {
+    /* fall through */
+  }
+  const all = readFileCollection<StoredExperience>("experiences", seedExperiences);
+  writeFileCollection(
     "experiences",
-    getStoredExperiences().filter((e) => e.id !== id)
+    all.filter((e) => e.id !== id)
   );
 }
 
 /* ── stats (key highlights) ───────────────────────────────────────────── */
 
-export function getStoredStats(): StoredStat[] {
-  return readCollection<StoredStat>("stats", seedStats);
+export async function getStoredStats(): Promise<StoredStat[]> {
+  try {
+    const rows = await db.highlight.findMany({ orderBy: { order: "asc" } });
+    if (rows.length > 0) {
+      return rows.map((s) => ({
+        id: s.id,
+        value: s.value,
+        suffix: s.suffix,
+        labelEn: s.labelEn,
+        labelAr: s.labelAr,
+      }));
+    }
+  } catch {
+    /* fall through */
+  }
+  return readFileCollection<StoredStat>("stats", seedStats);
 }
 
-export function saveStats(stats: StoredStat[]) {
-  writeCollection("stats", stats);
+export async function saveStats(stats: StoredStat[]) {
+  try {
+    await db.$transaction([
+      db.highlight.deleteMany({ where: { id: { notIn: stats.map((s) => s.id) } } }),
+      ...stats.map((s, i) =>
+        db.highlight.upsert({
+          where: { id: s.id },
+          create: {
+            id: s.id,
+            value: s.value,
+            suffix: s.suffix,
+            labelEn: s.labelEn,
+            labelAr: s.labelAr,
+            order: i,
+          },
+          update: {
+            value: s.value,
+            suffix: s.suffix,
+            labelEn: s.labelEn,
+            labelAr: s.labelAr,
+            order: i,
+          },
+        })
+      ),
+    ]);
+    return;
+  } catch {
+    /* fall through */
+  }
+  writeFileCollection("stats", stats);
+}
+
+/* ── certificates ─────────────────────────────────────────────────────── */
+
+export async function getStoredCertificates(): Promise<StoredCertificate[]> {
+  try {
+    const rows = await db.certificate.findMany({ orderBy: { order: "asc" } });
+    if (rows.length > 0) return rows.map(toCertificate);
+  } catch {
+    /* fall through */
+  }
+  return readFileCollection<StoredCertificate>("certificates", seedCertificates);
+}
+
+export async function upsertCertificate(cert: StoredCertificate) {
+  const { id, ...row } = cert;
+  try {
+    await db.certificate.upsert({
+      where: { id },
+      create: { id, ...row },
+      update: row,
+    });
+    return;
+  } catch {
+    /* fall through */
+  }
+  const all = readFileCollection<StoredCertificate>("certificates", seedCertificates);
+  const i = all.findIndex((c) => c.id === id);
+  if (i >= 0) all[i] = cert;
+  else all.push(cert);
+  writeFileCollection("certificates", all);
+}
+
+export async function deleteCertificate(id: string) {
+  try {
+    await db.certificate.delete({ where: { id } });
+    return;
+  } catch {
+    /* fall through */
+  }
+  const all = readFileCollection<StoredCertificate>("certificates", seedCertificates);
+  writeFileCollection(
+    "certificates",
+    all.filter((c) => c.id !== id)
+  );
 }
 
 /* ── contact messages ─────────────────────────────────────────────────── */
 
-export function getStoredMessages(): StoredMessage[] {
-  return readCollection<StoredMessage>("messages", () => []).sort(
+export async function getStoredMessages(): Promise<StoredMessage[]> {
+  try {
+    const rows = await db.contactMessage.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+    return rows.map(toMessage);
+  } catch {
+    /* fall through */
+  }
+  return readFileCollection<StoredMessage>("messages", () => []).sort(
     (a, b) => +new Date(b.createdAt) - +new Date(a.createdAt)
   );
 }
 
-export function addMessage(msg: Omit<StoredMessage, "id" | "read" | "createdAt">) {
-  const all = getStoredMessages();
+export async function addMessage(
+  msg: Omit<StoredMessage, "id" | "read" | "createdAt">
+) {
+  try {
+    await db.contactMessage.create({ data: { ...msg, read: false } });
+    return;
+  } catch {
+    /* fall through */
+  }
+  const all = readFileCollection<StoredMessage>("messages", () => []);
   all.unshift({
     ...msg,
     id: newId("msg"),
     read: false,
     createdAt: new Date().toISOString(),
   });
-  writeCollection("messages", all);
+  writeFileCollection("messages", all);
 }
 
-export function setMessageRead(id: string, read: boolean) {
-  const all = getStoredMessages();
+export async function setMessageRead(id: string, read: boolean) {
+  try {
+    await db.contactMessage.update({ where: { id }, data: { read } });
+    return;
+  } catch {
+    /* fall through */
+  }
+  const all = readFileCollection<StoredMessage>("messages", () => []);
   const m = all.find((x) => x.id === id);
   if (m) m.read = read;
-  writeCollection("messages", all);
+  writeFileCollection("messages", all);
 }
 
-export function deleteMessage(id: string) {
-  writeCollection(
+export async function deleteMessage(id: string) {
+  try {
+    await db.contactMessage.delete({ where: { id } });
+    return;
+  } catch {
+    /* fall through */
+  }
+  const all = readFileCollection<StoredMessage>("messages", () => []);
+  writeFileCollection(
     "messages",
-    getStoredMessages().filter((m) => m.id !== id)
+    all.filter((m) => m.id !== id)
   );
 }

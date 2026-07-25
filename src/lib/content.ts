@@ -6,6 +6,7 @@
 import "server-only";
 import {
   getStoredArticles,
+  getStoredCertificates,
   getStoredExperiences,
   getStoredProject,
   getStoredProjects,
@@ -44,36 +45,43 @@ function reviveArticle(a: StoredArticle) {
 export type PublicProject = ReturnType<typeof reviveProject>;
 export type PublicArticle = ReturnType<typeof reviveArticle>;
 
-export function getPublicProjects(): PublicProject[] {
-  return getStoredProjects()
-    .filter((p) => p.published)
-    .map(reviveProject);
+export async function getPublicProjects(): Promise<PublicProject[]> {
+  const all = await getStoredProjects();
+  return all.filter((p) => p.published).map(reviveProject);
 }
 
-export function getFeaturedProjects(): PublicProject[] {
-  return getPublicProjects().filter((p) => p.featured).slice(0, 4);
+export async function getFeaturedProjects(): Promise<PublicProject[]> {
+  const all = await getPublicProjects();
+  return all.filter((p) => p.featured).slice(0, 4);
 }
 
-export function getPublicProject(slug: string): PublicProject | null {
-  const p = getStoredProject(slug);
+export async function getPublicProject(
+  slug: string
+): Promise<PublicProject | null> {
+  const p = await getStoredProject(slug);
   return p && p.published ? reviveProject(p) : null;
 }
 
-export function getPublicArticles(): PublicArticle[] {
-  return getStoredArticles()
+export async function getPublicArticles(): Promise<PublicArticle[]> {
+  const all = await getStoredArticles();
+  return all
     .filter((a) => a.published)
     .map(reviveArticle)
     .sort((a, b) => +b.publishedAt - +a.publishedAt);
 }
 
-export function getPublicArticle(slug: string): PublicArticle | null {
-  const a = getStoredArticles().find((x) => x.slug === slug && x.published);
+export async function getPublicArticle(
+  slug: string
+): Promise<PublicArticle | null> {
+  const all = await getStoredArticles();
+  const a = all.find((x) => x.slug === slug && x.published);
   return a ? reviveArticle(a) : null;
 }
 
-export function getExperiences(locale: string) {
+export async function getExperiences(locale: string) {
   const ar = locale === "ar";
-  return getStoredExperiences().map((e) => ({
+  const all = await getStoredExperiences();
+  return all.map((e) => ({
     role: ar ? e.roleAr : e.roleEn,
     company: ar ? e.companyAr : e.companyEn,
     period: ar ? e.periodAr : e.periodEn,
@@ -81,11 +89,16 @@ export function getExperiences(locale: string) {
   }));
 }
 
-export function getHighlights(locale: string) {
+export async function getHighlights(locale: string) {
   const ar = locale === "ar";
-  return getStoredStats().map((s) => ({
+  const all = await getStoredStats();
+  return all.map((s) => ({
     value: s.value,
     suffix: s.suffix,
     label: ar ? s.labelAr : s.labelEn,
   }));
+}
+
+export async function getCertificates() {
+  return getStoredCertificates();
 }

@@ -1,3 +1,4 @@
+import { ViewTracker } from "@/components/features/ViewTracker";
 import { ToolsMarquee } from "@/components/sections/ToolsMarquee";
 import { getCounters } from "@/lib/counters";
 import {
@@ -24,17 +25,17 @@ export default async function Home({
     getCounters("project"),
     getCounters("article"),
   ]);
-  const featured = getFeaturedProjects().map((p) => ({
+  const featured = (await getFeaturedProjects()).map((p) => ({
     ...p,
     views: projCounters[p.slug]?.views ?? 0,
     likeCount: projCounters[p.slug]?.likes ?? 0,
   }));
-  const articles = getPublicArticles()
+  const articles = (await getPublicArticles())
     .slice(0, 3)
     .map((a) => ({ ...a, views: artCounters[a.slug]?.views ?? 0 }));
-  const stats = getHighlights(locale);
+  const stats = await getHighlights(locale);
 
-  const categoryCounts = getPublicProjects().reduce<Record<string, number>>(
+  const categoryCounts = (await getPublicProjects()).reduce<Record<string, number>>(
     (acc, p) => {
       acc[p.category] = (acc[p.category] ?? 0) + 1;
       return acc;
@@ -44,6 +45,7 @@ export default async function Home({
 
   return (
     <>
+      <ViewTracker type="page" slug="home" />
       {/* Drake split shell: fixed identity card + scrolling content column.
           The split only pays off with a wide content column, so it starts
           at xl; below that the card stacks on top at a comfortable width. */}

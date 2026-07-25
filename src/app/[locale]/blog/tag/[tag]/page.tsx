@@ -23,7 +23,7 @@ export default async function BlogTagPage({ params }: { params: Promise<{ locale
   const isRtl = locale === "ar";
 
   // Filter mock articles by tag
-  const articles = getPublicArticles().filter(
+  const articles = (await getPublicArticles()).filter(
     (a) => a.published && a.tags.includes(decodedTag)
   );
 

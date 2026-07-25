@@ -22,7 +22,7 @@ import {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string; locale: string }> }) {
   const { slug, locale } = await params;
-  const article = getPublicArticle(slug);
+  const article = await getPublicArticle(slug);
 
   if (!article) return { title: "Not Found" };
 
@@ -59,7 +59,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const t = await getTranslations("blog");
   const isRtl = locale === "ar";
 
-  const article = getPublicArticle(slug);
+  const article = await getPublicArticle(slug);
 
   if (!article || !article.published) {
     notFound();
@@ -78,7 +78,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const views = counters[article.slug]?.views ?? 0;
 
   // Prev/next within published articles (blog order)
-  const allArticles = getPublicArticles();
+  const allArticles = await getPublicArticles();
   const aIdx = allArticles.findIndex((a) => a.slug === article.slug);
   const prevArticle = aIdx > 0 ? allArticles[aIdx - 1] : null;
   const nextArticle = aIdx < allArticles.length - 1 ? allArticles[aIdx + 1] : null;

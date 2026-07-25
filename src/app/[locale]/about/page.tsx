@@ -1,12 +1,12 @@
+import { ViewTracker } from "@/components/features/ViewTracker";
 import { CertificatesGrid } from "@/components/features/CertificatesGrid";
 import { SkillsGrid } from "@/components/features/SkillsGrid";
-import certificates from "@/content/certificates.json";
 import { Timeline } from "@/components/features/Timeline";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Stats } from "@/components/sections/Stats";
 import type { TimelineEntry } from "@/types";
-import { getExperiences, getHighlights } from "@/lib/content";
+import { getCertificates, getExperiences, getHighlights } from "@/lib/content";
 import { getTranslations } from "next-intl/server";
 
 export default async function AboutPage({
@@ -19,13 +19,15 @@ export default async function AboutPage({
 
   // Career history — admin-managed (seeded from the CV), newest first.
   // "Present"/"الآن" in the period marks the current role.
-  const experiences: TimelineEntry[] = getExperiences(locale).map((e) => ({
+  const experiences: TimelineEntry[] = (await getExperiences(locale)).map((e) => ({
     ...e,
     current: /present|الآن|حتى الان/i.test(e.period),
   }));
+  const certificates = await getCertificates();
 
   return (
     <>
+      <ViewTracker type="page" slug="about" />
       {/* Page hero — editorial: giant faint backdrop word + statement */}
       <header className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0" aria-hidden>
@@ -51,7 +53,7 @@ export default async function AboutPage({
       </header>
 
       {/* The numbers carry the momentum */}
-      <Stats stats={getHighlights(locale)} />
+      <Stats stats={await getHighlights(locale)} />
 
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         {/* Experience — a decade drifting behind the timeline */}
@@ -90,8 +92,7 @@ export default async function AboutPage({
           <SkillsGrid />
         </section>
 
-        {/* Certificates — hidden until images are imported
-            (my portfolio/09 - Certificates → scripts/import-certificates.mjs) */}
+        {/* Certificates — admin-managed; hidden while the list is empty */}
         {certificates.length > 0 && (
           <section className="border-t border-border py-16 md:py-24">
             <SectionHeader
@@ -100,7 +101,7 @@ export default async function AboutPage({
               title={t("certificates.title")}
               description={t("certificates.description")}
             />
-            <CertificatesGrid />
+            <CertificatesGrid items={certificates} />
           </section>
         )}
       </div>

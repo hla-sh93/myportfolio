@@ -4,8 +4,8 @@ import { HighlightsEditor } from "./HighlightsEditor";
 export const metadata = { title: "Key Highlights | Admin" };
 export const dynamic = "force-dynamic";
 
-export default function AdminHighlightsPage() {
-  const stats = getStoredStats();
+export default async function AdminHighlightsPage() {
+  const stats = await getStoredStats();
 
   return (
     <div className="p-8 max-w-4xl mx-auto space-y-8">

@@ -74,7 +74,7 @@ const splitList = (s: string) =>
 export async function saveProjectAction(input: ProjectInput) {
   await requireAdmin();
   const id = input.id || newId("proj");
-  const existing = input.id ? getStoredProject(input.id) : null;
+  const existing = input.id ? await getStoredProject(input.id) : null;
 
   const media: MediaItem[] = input.mediaUrls
     .split("\n")
@@ -94,7 +94,7 @@ export async function saveProjectAction(input: ProjectInput) {
       };
     });
 
-  upsertProject({
+  await upsertProject({
     id,
     slug: input.slug,
     titleEn: input.titleEn,
@@ -133,9 +133,9 @@ export async function toggleProjectAction(
   field: "published" | "featured"
 ) {
   await requireAdmin();
-  const p = getStoredProject(id);
+  const p = await getStoredProject(id);
   if (!p) return { ok: false };
-  upsertProject({ ...p, [field]: !p[field] });
+  await upsertProject({ ...p, [field]: !p[field] });
   revalidateAll();
   return { ok: true };
 }
@@ -160,7 +160,7 @@ export type ArticleInput = {
 export async function saveArticleAction(input: ArticleInput) {
   await requireAdmin();
   const id = input.id || newId("art");
-  const existing = input.id ? getStoredArticle(input.id) : null;
+  const existing = input.id ? await getStoredArticle(input.id) : null;
   const article: StoredArticle = {
     id,
     slug: input.slug,
@@ -176,7 +176,7 @@ export async function saveArticleAction(input: ArticleInput) {
     published: input.published,
     publishedAt: existing?.publishedAt ?? new Date().toISOString(),
   };
-  upsertArticle(article);
+  await upsertArticle(article);
   revalidateAll();
   return { ok: true, id };
 }
@@ -192,7 +192,7 @@ export async function deleteArticleAction(id: string) {
 
 export async function saveExperienceAction(exp: StoredExperience) {
   await requireAdmin();
-  upsertExperience({ ...exp, id: exp.id || newId("exp") });
+  await upsertExperience({ ...exp, id: exp.id || newId("exp") });
   revalidateAll();
   return { ok: true };
 }
@@ -219,7 +219,7 @@ export async function saveStatsAction(stats: StoredStat[]) {
 
 export async function setMessageReadAction(id: string, read: boolean) {
   await requireAdmin();
-  setMessageRead(id, read);
+  await setMessageRead(id, read);
   revalidatePath("/admin/messages");
   return { ok: true };
 }

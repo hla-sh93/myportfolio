@@ -12,9 +12,9 @@ export const metadata = { title: "Dashboard | Admin" };
 export const dynamic = "force-dynamic";
 
 export default async function AdminDashboardPage() {
-  const projects = getStoredProjects();
-  const articles = getStoredArticles();
-  const messages = getStoredMessages();
+  const projects = await getStoredProjects();
+  const articles = await getStoredArticles();
+  const messages = await getStoredMessages();
   const [projCounters, artCounters] = await Promise.all([
     getCounters("project"),
     getCounters("article"),

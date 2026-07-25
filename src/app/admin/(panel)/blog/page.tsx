@@ -10,7 +10,7 @@ export const metadata = { title: "Articles | Admin" };
 export const dynamic = "force-dynamic";
 
 export default async function AdminBlogPage() {
-  const articles = getStoredArticles();
+  const articles = await getStoredArticles();
   const counters = await getCounters("article");
 
   return (

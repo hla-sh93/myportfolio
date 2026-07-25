@@ -110,7 +110,80 @@ model ContactMessage {
   read      Boolean  @default(false)
   createdAt DateTime @default(now())
 
+  @@index([read])
+  @@index([createdAt])
   @@map("contact_messages")
+}
+
+// Career timeline shown on the About page. `order` drives display order.
+model Experience {
+  id        String   @id @default(cuid())
+  roleEn    String
+  roleAr    String
+  companyEn String
+  companyAr String
+  periodEn  String
+  periodAr  String
+  descEn    String   @db.Text
+  descAr    String   @db.Text
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([order])
+  @@map("experiences")
+}
+
+// The numbers strip on the home page (7+ years, 94K+ users, …).
+model Highlight {
+  id        String   @id
+  value     Int
+  suffix    String   @default("")
+  labelEn   String
+  labelAr   String
+  order     Int      @default(0)
+  updatedAt DateTime @updatedAt
+
+  @@index([order])
+  @@map("highlights")
+}
+
+// Courses & certificates grid on the About page.
+model Certificate {
+  id          String   @id @default(cuid())
+  title       String
+  issuer      String?
+  date        String?
+  category    String   @default("uiux")
+  url         String
+  width       Int      @default(1200)
+  height      Int      @default(900)
+  blurDataUrl String?  @db.Text
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([category])
+  @@index([order])
+  @@map("certificates")
+}
+
+// Daily-aggregated traffic. One row per (day, kind, slug) — a counter, not a
+// per-visitor log, so the table stays tiny and stores no personal data.
+model DailyStat {
+  id     String @id @default(cuid())
+  day    String // "YYYY-MM-DD" (UTC)
+  kind   String // "page" | "project" | "article"
+  slug   String // route or content slug
+  views  Int    @default(0)
+  visits Int    @default(0) // first view of a session
+
+  updatedAt DateTime @updatedAt
+
+  @@unique([day, kind, slug])
+  @@index([day])
+  @@index([kind])
+  @@map("daily_stats")
 }
 
 enum Role {

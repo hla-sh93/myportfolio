@@ -13,7 +13,7 @@ export default async function EditArticlePage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const article = getStoredArticle(id);
+  const article = await getStoredArticle(id);
   if (!article) notFound();
 
   return (
