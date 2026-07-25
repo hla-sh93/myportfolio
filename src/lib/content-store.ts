@@ -147,6 +147,21 @@ export function newId(prefix: string) {
 
 const iso = (d: Date | null | undefined) => (d ?? new Date()).toISOString();
 
+const dbConfigured = () => Boolean(process.env.DATABASE_URL);
+
+/**
+ * Called from the catch of every write. When a database IS configured, a
+ * failure is a real fault and must surface — silently writing to the local
+ * filesystem instead would look like success while losing the data on
+ * Vercel, where that filesystem is thrown away.
+ */
+function writeFailed(op: string, error: unknown): void {
+  if (dbConfigured()) {
+    console.error(`[content-store] ${op} failed`, error);
+    throw error;
+  }
+}
+
 /* ── seeds ────────────────────────────────────────────────────────────── */
 
 function seedProjects(): StoredProject[] {
@@ -381,8 +396,8 @@ export async function upsertProject(project: StoredProject) {
       });
     }
     return;
-  } catch {
-    /* fall through to the file store */
+  } catch (e) {
+    writeFailed("write", e);
   }
   const all = readFileCollection<StoredProject>("projects", seedProjects);
   const i = all.findIndex((p) => p.id === project.id);
@@ -395,8 +410,8 @@ export async function deleteProject(id: string) {
   try {
     await db.project.delete({ where: { id } });
     return;
-  } catch {
-    /* fall through */
+  } catch (e) {
+    writeFailed("write", e);
   }
   const all = readFileCollection<StoredProject>("projects", seedProjects);
   writeFileCollection(
@@ -442,8 +457,8 @@ export async function upsertArticle(article: StoredArticle) {
       update: row,
     });
     return;
-  } catch {
-    /* fall through */
+  } catch (e) {
+    writeFailed("write", e);
   }
   const all = readFileCollection<StoredArticle>("articles", seedArticles);
   const i = all.findIndex((a) => a.id === id);
@@ -456,8 +471,8 @@ export async function deleteArticle(id: string) {
   try {
     await db.article.delete({ where: { id } });
     return;
-  } catch {
-    /* fall through */
+  } catch (e) {
+    writeFailed("write", e);
   }
   const all = readFileCollection<StoredArticle>("articles", seedArticles);
   writeFileCollection(
@@ -502,8 +517,8 @@ export async function upsertExperience(exp: StoredExperience) {
       update: row,
     });
     return;
-  } catch {
-    /* fall through */
+  } catch (e) {
+    writeFailed("write", e);
   }
   const all = readFileCollection<StoredExperience>("experiences", seedExperiences);
   const i = all.findIndex((e) => e.id === id);
@@ -516,8 +531,8 @@ export async function deleteExperience(id: string) {
   try {
     await db.experience.delete({ where: { id } });
     return;
-  } catch {
-    /* fall through */
+  } catch (e) {
+    writeFailed("write", e);
   }
   const all = readFileCollection<StoredExperience>("experiences", seedExperiences);
   writeFileCollection(
@@ -548,32 +563,27 @@ export async function getStoredStats(): Promise<StoredStat[]> {
 
 export async function saveStats(stats: StoredStat[]) {
   try {
-    await db.$transaction([
-      db.highlight.deleteMany({ where: { id: { notIn: stats.map((s) => s.id) } } }),
-      ...stats.map((s, i) =>
-        db.highlight.upsert({
-          where: { id: s.id },
-          create: {
-            id: s.id,
-            value: s.value,
-            suffix: s.suffix,
-            labelEn: s.labelEn,
-            labelAr: s.labelAr,
-            order: i,
-          },
-          update: {
-            value: s.value,
-            suffix: s.suffix,
-            labelEn: s.labelEn,
-            labelAr: s.labelAr,
-            order: i,
-          },
-        })
-      ),
-    ]);
+    // Sequential rather than $transaction: the Neon HTTP driver has no
+    // transaction support, and a batch here would fail as a whole.
+    const keep = stats.map((s) => s.id).filter(Boolean);
+    await db.highlight.deleteMany({ where: { id: { notIn: keep } } });
+    for (const [i, s] of stats.entries()) {
+      const row = {
+        value: s.value,
+        suffix: s.suffix,
+        labelEn: s.labelEn,
+        labelAr: s.labelAr,
+        order: i,
+      };
+      await db.highlight.upsert({
+        where: { id: s.id },
+        create: { id: s.id, ...row },
+        update: row,
+      });
+    }
     return;
-  } catch {
-    /* fall through */
+  } catch (e) {
+    writeFailed("saveStats", e);
   }
   writeFileCollection("stats", stats);
 }
@@ -599,8 +609,8 @@ export async function upsertCertificate(cert: StoredCertificate) {
       update: row,
     });
     return;
-  } catch {
-    /* fall through */
+  } catch (e) {
+    writeFailed("write", e);
   }
   const all = readFileCollection<StoredCertificate>("certificates", seedCertificates);
   const i = all.findIndex((c) => c.id === id);
@@ -613,8 +623,8 @@ export async function deleteCertificate(id: string) {
   try {
     await db.certificate.delete({ where: { id } });
     return;
-  } catch {
-    /* fall through */
+  } catch (e) {
+    writeFailed("write", e);
   }
   const all = readFileCollection<StoredCertificate>("certificates", seedCertificates);
   writeFileCollection(
@@ -645,8 +655,8 @@ export async function addMessage(
   try {
     await db.contactMessage.create({ data: { ...msg, read: false } });
     return;
-  } catch {
-    /* fall through */
+  } catch (e) {
+    writeFailed("write", e);
   }
   const all = readFileCollection<StoredMessage>("messages", () => []);
   all.unshift({
@@ -662,8 +672,8 @@ export async function setMessageRead(id: string, read: boolean) {
   try {
     await db.contactMessage.update({ where: { id }, data: { read } });
     return;
-  } catch {
-    /* fall through */
+  } catch (e) {
+    writeFailed("write", e);
   }
   const all = readFileCollection<StoredMessage>("messages", () => []);
   const m = all.find((x) => x.id === id);
@@ -675,8 +685,8 @@ export async function deleteMessage(id: string) {
   try {
     await db.contactMessage.delete({ where: { id } });
     return;
-  } catch {
-    /* fall through */
+  } catch (e) {
+    writeFailed("write", e);
   }
   const all = readFileCollection<StoredMessage>("messages", () => []);
   writeFileCollection(

@@ -9,13 +9,19 @@ export default async function AdminLoginPage() {
   if (session?.user) redirect("/admin");
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-bg-base p-6">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-10">
-          <h1 className="text-3xl font-black text-accent tracking-tighter mb-2">
-            PORTFOLIO<span className="text-text-primary">ADMIN</span>
-          </h1>
-          <p className="text-text-secondary">Sign in to manage your portfolio</p>
+    <div className="admin-shell flex min-h-screen items-center justify-center p-6">
+      <div className="w-full max-w-sm">
+        <div className="mb-8 flex flex-col items-center text-center">
+          <span
+            className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl text-base font-black text-white"
+            style={{ background: "var(--accent)" }}
+          >
+            HS
+          </span>
+          <h1 className="text-lg font-bold">Portfolio admin</h1>
+          <p className="mt-1 text-sm" style={{ color: "var(--ad-muted)" }}>
+            Sign in to manage content.
+          </p>
         </div>
 
         <AdminLoginForm />

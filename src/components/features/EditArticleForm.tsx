@@ -1,8 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/Button";
-import { GlassCard } from "@/components/ui/GlassCard";
-import { Input } from "@/components/ui/Input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Save, Trash } from "lucide-react";
 import Link from "next/link";
@@ -35,8 +32,9 @@ const articleSchema = z.object({
 
 type ArticleFormData = z.infer<typeof articleSchema>;
 
-const textareaCls =
-  "w-full px-4 py-3 bg-bg-elevated border border-border rounded-xl text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all resize-y";
+const textareaCls = "ad-field resize-y";
+const labelCls = "mb-1.5 block text-xs font-semibold text-[var(--ad-muted)]";
+const errCls = "mt-1 block text-xs text-[#ea5455]";
 
 export function EditArticleForm({
   initialData,
@@ -91,36 +89,38 @@ export function EditArticleForm({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      <GlassCard padding="lg" className="space-y-6">
+      <div className="space-y-6">
         {serverError && (
-          <p className="p-3 text-sm text-red-500 bg-red-500/10 rounded-lg">{serverError}</p>
+          <p className="rounded-lg px-3 py-2.5 text-sm text-[#ea5455]" style={{ background: "rgba(234,84,85,.1)" }}>{serverError}</p>
         )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">العنوان (AR)</label>
-            <Input {...register("titleAr")} error={errors.titleAr?.message} dir="rtl" />
+          <div>
+            <label className={labelCls}>العنوان (AR)</label>
+            <input dir="rtl" className="ad-field" {...register("titleAr")} />
+            {errors.titleAr && <span className={errCls}>{errors.titleAr.message}</span>}
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">Title (EN)</label>
-            <Input {...register("titleEn")} error={errors.titleEn?.message} />
+          <div>
+            <label className={labelCls}>Title (EN)</label>
+            <input className="ad-field" {...register("titleEn")} />
+            {errors.titleEn && <span className={errCls}>{errors.titleEn.message}</span>}
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">المقتطف (AR)</label>
+          <div>
+            <label className={labelCls}>المقتطف (AR)</label>
             <textarea {...register("excerptAr")} dir="rtl" rows={2} className={textareaCls} />
             {errors.excerptAr && (
               <span className="text-xs text-red-500">{errors.excerptAr.message}</span>
             )}
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">Excerpt (EN)</label>
+          <div>
+            <label className={labelCls}>Excerpt (EN)</label>
             <textarea {...register("excerptEn")} rows={2} className={textareaCls} />
             {errors.excerptEn && (
               <span className="text-xs text-red-500">{errors.excerptEn.message}</span>
             )}
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">
+          <div>
+            <label className={labelCls}>
               المحتوى (AR — Markdown)
             </label>
             <textarea
@@ -130,8 +130,8 @@ export function EditArticleForm({
               className={`${textareaCls} font-mono text-sm`}
             />
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">
+          <div>
+            <label className={labelCls}>
               Content (EN — Markdown)
             </label>
             <textarea
@@ -143,63 +143,53 @@ export function EditArticleForm({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">Slug</label>
-            <Input {...register("slug")} error={errors.slug?.message} placeholder="my-article" />
+          <div>
+            <label className={labelCls}>Slug</label>
+            <input className="ad-field" placeholder="my-article" {...register("slug")} />
+            {errors.slug && <span className={errCls}>{errors.slug.message}</span>}
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">Read time (minutes)</label>
-            <Input {...register("readTime")} inputMode="numeric" />
+          <div>
+            <label className={labelCls}>Read time (minutes)</label>
+            <input inputMode="numeric" className="ad-field" {...register("readTime")} />
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">Cover Image URL</label>
-            <Input {...register("coverImage")} placeholder="/images/placeholder.jpg" />
+          <div>
+            <label className={labelCls}>Cover Image URL</label>
+            <input className="ad-field" placeholder="/images/placeholder.jpg" {...register("coverImage")} />
           </div>
         </div>
 
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-text-secondary">Tags (comma separated)</label>
-          <Input {...register("tags")} placeholder="Design, RTL, Next.js" />
+        <div>
+          <label className={labelCls}>Tags (comma separated)</label>
+          <input className="ad-field" placeholder="Design, RTL, Next.js" {...register("tags")} />
         </div>
 
-        <label className="flex items-center gap-3 font-medium text-text-primary cursor-pointer select-none pt-4 border-t border-border">
+        <label className="flex cursor-pointer select-none items-center gap-2.5 border-t border-[var(--ad-border)] pt-4 text-sm font-medium">
           <input
             type="checkbox"
             {...register("published")}
-            className="w-5 h-5 rounded border-border text-accent focus:ring-accent/50 bg-bg-elevated cursor-pointer"
+            className="h-4 w-4 cursor-pointer accent-[var(--accent)]"
           />
           Publish publicly
         </label>
-      </GlassCard>
+      </div>
 
       <div className="flex justify-between gap-4">
         {articleId ? (
-          <Button
-            type="button"
-            variant="ghost"
-            onClick={onDelete}
-            className="text-red-500 hover:text-red-400 hover:bg-red-500/10"
-          >
-            <Trash className="w-5 h-5 mr-2" />
-            Delete Article
-          </Button>
+          <button type="button" className="ad-btn ad-btn-danger" onClick={onDelete}>
+            <Trash size={16} />
+            Delete article
+          </button>
         ) : (
           <span />
         )}
-        <div className="flex justify-end gap-4">
-          <Button asChild variant="ghost">
-            <Link href="/admin/blog">Cancel</Link>
-          </Button>
-          <Button type="submit" variant="accent" disabled={isSubmitting} className="min-w-[140px]">
-            {isSubmitting ? (
-              <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-            ) : (
-              <>
-                <Save className="w-5 h-5 mr-2" />
-                {articleId ? "Update Article" : "Create Article"}
-              </>
-            )}
-          </Button>
+        <div className="flex justify-end gap-2">
+          <Link href="/admin/blog" className="ad-btn ad-btn-ghost">
+            Cancel
+          </Link>
+          <button type="submit" className="ad-btn ad-btn-primary" disabled={isSubmitting}>
+            <Save size={16} />
+            {isSubmitting ? "Saving…" : articleId ? "Update article" : "Create article"}
+          </button>
         </div>
       </div>
     </form>

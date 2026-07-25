@@ -1,8 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/Button";
-import { GlassCard } from "@/components/ui/GlassCard";
-import { Input } from "@/components/ui/Input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Save, Trash } from "lucide-react";
 import Image from "next/image";
@@ -40,8 +37,9 @@ const projectSchema = z.object({
 
 type ProjectFormData = z.infer<typeof projectSchema>;
 
-const textareaCls =
-  "w-full px-4 py-3 bg-bg-elevated border border-border rounded-xl text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all resize-y";
+const textareaCls = "ad-field resize-y";
+const labelCls = "mb-1.5 block text-xs font-semibold text-[var(--ad-muted)]";
+const errCls = "mt-1 block text-xs text-[#ea5455]";
 
 export function EditProjectForm({
   initialData,
@@ -103,43 +101,46 @@ export function EditProjectForm({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      <GlassCard padding="lg" className="space-y-6">
+      <div className="space-y-6">
         {serverError && (
-          <p className="p-3 text-sm text-red-500 bg-red-500/10 rounded-lg">{serverError}</p>
+          <p className="rounded-lg px-3 py-2.5 text-sm text-[#ea5455]" style={{ background: "rgba(234,84,85,.1)" }}>{serverError}</p>
         )}
 
         {/* Titles — AR first, side by side (bilingual editing rule) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">العنوان (AR)</label>
-            <Input {...register("titleAr")} error={errors.titleAr?.message} dir="rtl" />
+          <div>
+            <label className={labelCls}>العنوان (AR)</label>
+            <input dir="rtl" className="ad-field" {...register("titleAr")} />
+            {errors.titleAr && <span className={errCls}>{errors.titleAr.message}</span>}
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">Title (EN)</label>
-            <Input {...register("titleEn")} error={errors.titleEn?.message} />
+          <div>
+            <label className={labelCls}>Title (EN)</label>
+            <input className="ad-field" {...register("titleEn")} />
+            {errors.titleEn && <span className={errCls}>{errors.titleEn.message}</span>}
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">الوصف (AR)</label>
+          <div>
+            <label className={labelCls}>الوصف (AR)</label>
             <textarea {...register("descAr")} dir="rtl" rows={5} className={textareaCls} />
             {errors.descAr && <span className="text-xs text-red-500">{errors.descAr.message}</span>}
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">Description (EN)</label>
+          <div>
+            <label className={labelCls}>Description (EN)</label>
             <textarea {...register("descEn")} rows={5} className={textareaCls} />
             {errors.descEn && <span className="text-xs text-red-500">{errors.descEn.message}</span>}
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">Slug</label>
-            <Input {...register("slug")} error={errors.slug?.message} placeholder="my-project" />
+          <div>
+            <label className={labelCls}>Slug</label>
+            <input className="ad-field" placeholder="my-project" {...register("slug")} />
+            {errors.slug && <span className={errCls}>{errors.slug.message}</span>}
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">Category</label>
+          <div>
+            <label className={labelCls}>Category</label>
             <select
               {...register("category")}
-              className="w-full h-11 px-4 bg-bg-elevated border border-border rounded-xl text-text-primary focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all"
+              className="ad-field"
             >
               <option value="UIUX">UI/UX</option>
               <option value="WEBSITES">Websites</option>
@@ -147,52 +148,49 @@ export function EditProjectForm({
               <option value="VIDEOS">Videos</option>
             </select>
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">Year</label>
-            <Input {...register("year")} placeholder="2026" inputMode="numeric" />
+          <div>
+            <label className={labelCls}>Year</label>
+            <input inputMode="numeric" className="ad-field" placeholder="2026" {...register("year")} />
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">Client</label>
-            <Input {...register("client")} placeholder="Client name (optional)" />
+          <div>
+            <label className={labelCls}>Client</label>
+            <input className="ad-field" placeholder="Client name (optional)" {...register("client")} />
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">Role</label>
-            <Input {...register("role")} placeholder="UI/UX Designer" />
+          <div>
+            <label className={labelCls}>Role</label>
+            <input className="ad-field" placeholder="UI/UX Designer" {...register("role")} />
           </div>
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">Tools (comma separated)</label>
-            <Input {...register("tools")} placeholder="Figma, Photoshop" />
+          <div>
+            <label className={labelCls}>Tools (comma separated)</label>
+            <input className="ad-field" placeholder="Figma, Photoshop" {...register("tools")} />
           </div>
         </div>
 
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-text-secondary">Tags (comma separated)</label>
-          <Input {...register("tags")} placeholder="Web Design, RTL, Corporate" />
+        <div>
+          <label className={labelCls}>Tags (comma separated)</label>
+          <input className="ad-field" placeholder="Web Design, RTL, Corporate" {...register("tags")} />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-start">
-          <div className="space-y-2">
-            <label className="text-sm font-medium text-text-secondary">Cover Image URL</label>
-            <Input
-              {...register("coverImage")}
-              error={errors.coverImage?.message}
-              placeholder="/images/projects/my-project/mockup-1.webp"
-            />
-            <p className="text-xs text-text-secondary">
+          <div>
+            <label className={labelCls}>Cover Image URL</label>
+            <input className="ad-field" placeholder="/images/projects/my-project/mockup-1.webp" {...register("coverImage")} />
+            {errors.coverImage && <span className={errCls}>{errors.coverImage.message}</span>}
+            <p className="mt-1 text-xs text-[var(--ad-faint)]">
               Put files under <code>public/images/projects/&lt;slug&gt;/</code> and reference them as{" "}
               <code>/images/projects/&lt;slug&gt;/file.webp</code>.
             </p>
           </div>
           {cover && (
-            <div className="relative w-40 h-28 rounded-xl overflow-hidden border border-border bg-bg-elevated">
+            <div className="relative h-28 w-40 overflow-hidden rounded-lg border border-[var(--ad-border)]">
               {/* eslint-disable-next-line @next/next/no-img-element -- arbitrary preview URL */}
               <img src={cover} alt="Cover preview" className="w-full h-full object-cover" />
             </div>
           )}
         </div>
 
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-text-secondary">
+        <div>
+          <label className={labelCls}>
             Gallery media — one URL per line (.mp4 becomes a video)
           </label>
           <textarea
@@ -203,54 +201,43 @@ export function EditProjectForm({
           />
         </div>
 
-        <div className="flex items-center gap-8 pt-4 border-t border-border">
-          <label className="flex items-center gap-3 font-medium text-text-primary cursor-pointer select-none">
+        <div className="flex flex-wrap items-center gap-6 border-t border-[var(--ad-border)] pt-4">
+          <label className="flex cursor-pointer select-none items-center gap-2.5 text-sm font-medium">
             <input
               type="checkbox"
               {...register("published")}
-              className="w-5 h-5 rounded border-border text-accent focus:ring-accent/50 bg-bg-elevated cursor-pointer"
+              className="h-4 w-4 cursor-pointer accent-[var(--accent)]"
             />
             Publish publicly
           </label>
-          <label className="flex items-center gap-3 font-medium text-text-primary cursor-pointer select-none">
+          <label className="flex cursor-pointer select-none items-center gap-2.5 text-sm font-medium">
             <input
               type="checkbox"
               {...register("featured")}
-              className="w-5 h-5 rounded border-border text-accent focus:ring-accent/50 bg-bg-elevated cursor-pointer"
+              className="h-4 w-4 cursor-pointer accent-[var(--accent)]"
             />
             Featured on home (max 4 shown)
           </label>
         </div>
-      </GlassCard>
+      </div>
 
       <div className="flex justify-between gap-4">
         {projectId ? (
-          <Button
-            type="button"
-            variant="ghost"
-            onClick={onDelete}
-            className="text-red-500 hover:text-red-400 hover:bg-red-500/10"
-          >
-            <Trash className="w-5 h-5 mr-2" />
-            Delete Project
-          </Button>
+          <button type="button" className="ad-btn ad-btn-danger" onClick={onDelete}>
+            <Trash size={16} />
+            Delete project
+          </button>
         ) : (
           <span />
         )}
-        <div className="flex justify-end gap-4">
-          <Button asChild variant="ghost">
-            <Link href="/admin/projects">Cancel</Link>
-          </Button>
-          <Button type="submit" variant="accent" disabled={isSubmitting} className="min-w-[140px]">
-            {isSubmitting ? (
-              <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-            ) : (
-              <>
-                <Save className="w-5 h-5 mr-2" />
-                {projectId ? "Update Project" : "Create Project"}
-              </>
-            )}
-          </Button>
+        <div className="flex justify-end gap-2">
+          <Link href="/admin/projects" className="ad-btn ad-btn-ghost">
+            Cancel
+          </Link>
+          <button type="submit" className="ad-btn ad-btn-primary" disabled={isSubmitting}>
+            <Save size={16} />
+            {isSubmitting ? "Saving…" : projectId ? "Update project" : "Create project"}
+          </button>
         </div>
       </div>
     </form>

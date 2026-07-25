@@ -1,16 +1,21 @@
 "use client";
 
-import { Button } from "@/components/ui/Button";
-import { GlassCard } from "@/components/ui/GlassCard";
-import { Input } from "@/components/ui/Input";
-import type { StoredExperience } from "@/lib/content-store";
-import { ChevronDown, ChevronUp, Plus, Save, Trash2 } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useState, useTransition } from "react";
 import {
   deleteExperienceAction,
   saveExperienceAction,
-} from "../../actions";
+} from "@/app/admin/actions";
+import { useToast } from "@/components/ui/Toast";
+import type { StoredExperience } from "@/lib/content-store";
+import {
+  ChevronDown,
+  ChevronUp,
+  MoveDown,
+  MoveUp,
+  Plus,
+  Trash2,
+} from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState, useTransition } from "react";
 
 const empty = (order: number): StoredExperience => ({
   id: "",
@@ -25,133 +30,247 @@ const empty = (order: number): StoredExperience => ({
   order,
 });
 
-const textareaCls =
-  "w-full px-4 py-3 bg-bg-elevated border border-border rounded-xl text-text-primary placeholder:text-text-secondary focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all resize-y text-sm";
+function Field({
+  label,
+  rtl,
+  value,
+  onChange,
+  textarea,
+  type,
+}: {
+  label: string;
+  rtl?: boolean;
+  value: string;
+  onChange: (v: string) => void;
+  textarea?: boolean;
+  type?: string;
+}) {
+  return (
+    <label className="block">
+      <span
+        className="mb-1.5 block text-xs font-semibold"
+        style={{ color: "var(--ad-muted)" }}
+      >
+        {label}
+      </span>
+      {textarea ? (
+        <textarea
+          dir={rtl ? "rtl" : undefined}
+          rows={3}
+          className="ad-field resize-y"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+        />
+      ) : (
+        <input
+          dir={rtl ? "rtl" : undefined}
+          type={type}
+          className="ad-field"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+        />
+      )}
+    </label>
+  );
+}
 
-function ExperienceCard({
+function Row({
   exp,
-  onSaved,
-  onDeleted,
   isNew,
+  canMoveUp,
+  canMoveDown,
+  onDone,
+  onMove,
 }: {
   exp: StoredExperience;
-  onSaved: () => void;
-  onDeleted: () => void;
   isNew?: boolean;
+  canMoveUp?: boolean;
+  canMoveDown?: boolean;
+  onDone: () => void;
+  onMove?: (dir: -1 | 1) => void;
 }) {
+  const { toast } = useToast();
   const [form, setForm] = useState(exp);
   const [open, setOpen] = useState(isNew ?? false);
+  const [confirming, setConfirming] = useState(false);
   const [pending, start] = useTransition();
   const dirty = JSON.stringify(form) !== JSON.stringify(exp);
 
-  const set = (k: keyof StoredExperience) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-      setForm({ ...form, [k]: k === "order" ? Number(e.target.value) : e.target.value });
+  const set = (k: keyof StoredExperience) => (v: string) =>
+    setForm({ ...form, [k]: k === "order" ? Number(v) : v });
 
   return (
-    <GlassCard padding="md" className="space-y-4">
-      <div className="flex items-center gap-3">
+    <div className={`ad-card ${pending ? "opacity-60" : ""}`}>
+      <div className="flex items-center gap-3 px-4 py-3">
         <button
-          type="button"
           onClick={() => setOpen(!open)}
-          className="p-1.5 rounded-lg text-text-secondary hover:bg-bg-elevated"
+          className="rounded-lg p-1.5 transition-colors hover:bg-[var(--ad-hover)]"
+          style={{ color: "var(--ad-muted)" }}
+          aria-label={open ? "Collapse" : "Expand"}
         >
-          {open ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+          {open ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
         </button>
+
         <div className="min-w-0 flex-1">
-          <p className="font-semibold truncate">
+          <p className="truncate text-sm font-semibold">
             {form.roleEn || "New experience"}
-            <span className="text-text-secondary font-normal mx-2">
-              {form.companyEn && `@ ${form.companyEn}`}
-            </span>
+            {form.companyEn && (
+              <span className="ms-2 font-normal" style={{ color: "var(--ad-muted)" }}>
+                @ {form.companyEn}
+              </span>
+            )}
           </p>
-          <p className="text-xs text-text-secondary">{form.periodEn}</p>
+          <p className="text-xs" style={{ color: "var(--ad-faint)" }}>
+            {form.periodEn || "—"}
+          </p>
         </div>
-        <span className="text-xs text-text-secondary">order {form.order}</span>
-        {!isNew && (
-          <button
-            type="button"
-            onClick={() => {
-              if (confirm("Delete this experience?"))
-                start(async () => {
-                  await deleteExperienceAction(exp.id);
-                  onDeleted();
-                });
-            }}
-            className="p-2 rounded-lg text-red-500 hover:bg-red-500/10"
-          >
-            <Trash2 className="w-4 h-4" />
-          </button>
+
+        {!isNew && onMove && (
+          <div className="flex items-center">
+            <button
+              onClick={() => onMove(-1)}
+              disabled={!canMoveUp}
+              className="rounded-lg p-1.5 transition-colors hover:bg-[var(--ad-hover)] disabled:opacity-25"
+              style={{ color: "var(--ad-muted)" }}
+              aria-label="Move up"
+            >
+              <MoveUp size={15} />
+            </button>
+            <button
+              onClick={() => onMove(1)}
+              disabled={!canMoveDown}
+              className="rounded-lg p-1.5 transition-colors hover:bg-[var(--ad-hover)] disabled:opacity-25"
+              style={{ color: "var(--ad-muted)" }}
+              aria-label="Move down"
+            >
+              <MoveDown size={15} />
+            </button>
+          </div>
         )}
+
+        {!isNew &&
+          (confirming ? (
+            <div className="flex gap-1">
+              <button
+                className="ad-btn ad-btn-danger !px-2 !py-1 text-xs"
+                onClick={() =>
+                  start(async () => {
+                    await deleteExperienceAction(exp.id);
+                    toast({ title: "Experience deleted", variant: "success" });
+                    onDone();
+                  })
+                }
+              >
+                Confirm
+              </button>
+              <button
+                className="ad-btn ad-btn-ghost !px-2 !py-1 text-xs"
+                onClick={() => setConfirming(false)}
+              >
+                No
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={() => setConfirming(true)}
+              className="rounded-lg p-1.5 transition-colors hover:bg-[rgba(234,84,85,.1)]"
+              style={{ color: "#ea5455" }}
+              aria-label="Delete"
+            >
+              <Trash2 size={15} />
+            </button>
+          ))}
       </div>
 
       {open && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 border-t border-border">
-          <Input dir="rtl" placeholder="المسمى الوظيفي (AR)" value={form.roleAr} onChange={set("roleAr")} />
-          <Input placeholder="Role (EN)" value={form.roleEn} onChange={set("roleEn")} />
-          <Input dir="rtl" placeholder="الجهة (AR)" value={form.companyAr} onChange={set("companyAr")} />
-          <Input placeholder="Company (EN)" value={form.companyEn} onChange={set("companyEn")} />
-          <Input dir="rtl" placeholder="الفترة (AR) — ٢٠٢٠ حتى الآن" value={form.periodAr} onChange={set("periodAr")} />
-          <Input placeholder="Period (EN) — 2020 – Present" value={form.periodEn} onChange={set("periodEn")} />
-          <textarea dir="rtl" placeholder="الوصف (AR)" rows={3} className={textareaCls} value={form.descAr} onChange={set("descAr")} />
-          <textarea placeholder="Description (EN)" rows={3} className={textareaCls} value={form.descEn} onChange={set("descEn")} />
-          <div className="flex items-center gap-3">
-            <label className="text-sm text-text-secondary">Order</label>
-            <Input type="number" className="w-24" value={String(form.order)} onChange={set("order")} />
+        <div
+          className="grid gap-4 border-t px-4 py-4 md:grid-cols-2"
+          style={{ borderColor: "var(--ad-border)" }}
+        >
+          <Field label="المسمى الوظيفي (AR)" rtl value={form.roleAr} onChange={set("roleAr")} />
+          <Field label="Role (EN)" value={form.roleEn} onChange={set("roleEn")} />
+          <Field label="الجهة (AR)" rtl value={form.companyAr} onChange={set("companyAr")} />
+          <Field label="Company (EN)" value={form.companyEn} onChange={set("companyEn")} />
+          <Field label="الفترة (AR)" rtl value={form.periodAr} onChange={set("periodAr")} />
+          <Field label="Period (EN)" value={form.periodEn} onChange={set("periodEn")} />
+          <Field label="الوصف (AR)" rtl textarea value={form.descAr} onChange={set("descAr")} />
+          <Field label="Description (EN)" textarea value={form.descEn} onChange={set("descEn")} />
+
+          <div className="flex items-end gap-3">
+            <div className="w-28">
+              <Field
+                label="Order"
+                type="number"
+                value={String(form.order)}
+                onChange={set("order")}
+              />
+            </div>
           </div>
-          <div className="flex justify-end">
-            <Button
-              variant="accent"
+
+          <div className="flex items-end justify-end">
+            <button
+              className="ad-btn ad-btn-primary"
               disabled={pending || (!dirty && !isNew)}
               onClick={() =>
                 start(async () => {
                   await saveExperienceAction(form);
-                  onSaved();
+                  toast({ title: "Experience saved", variant: "success" });
+                  onDone();
                 })
               }
             >
-              {pending ? (
-                <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-              ) : (
-                <>
-                  <Save className="w-4 h-4 mr-2" />
-                  Save
-                </>
-              )}
-            </Button>
+              {pending ? "Saving…" : "Save"}
+            </button>
           </div>
         </div>
       )}
-    </GlassCard>
+    </div>
   );
 }
 
 export function ExperiencesEditor({ initial }: { initial: StoredExperience[] }) {
   const router = useRouter();
   const [adding, setAdding] = useState(false);
+  const [, start] = useTransition();
+
   const refresh = () => {
     setAdding(false);
     router.refresh();
   };
 
+  // Swapping the two `order` values is the whole reorder — the list is sorted
+  // by it server-side.
+  const move = (index: number, dir: -1 | 1) => {
+    const a = initial[index];
+    const b = initial[index + dir];
+    if (!a || !b) return;
+    start(async () => {
+      await saveExperienceAction({ ...a, order: b.order });
+      await saveExperienceAction({ ...b, order: a.order });
+      router.refresh();
+    });
+  };
+
   return (
-    <div className="space-y-4">
-      {initial.map((exp) => (
-        <ExperienceCard key={exp.id} exp={exp} onSaved={refresh} onDeleted={refresh} />
+    <div className="space-y-3">
+      {initial.map((exp, i) => (
+        <Row
+          key={exp.id}
+          exp={exp}
+          canMoveUp={i > 0}
+          canMoveDown={i < initial.length - 1}
+          onMove={(dir) => move(i, dir)}
+          onDone={refresh}
+        />
       ))}
 
       {adding ? (
-        <ExperienceCard
-          exp={empty(initial.length)}
-          isNew
-          onSaved={refresh}
-          onDeleted={refresh}
-        />
+        <Row exp={empty(initial.length)} isNew onDone={refresh} />
       ) : (
-        <Button variant="ghost" onClick={() => setAdding(true)}>
-          <Plus className="w-5 h-5 mr-2" />
+        <button className="ad-btn ad-btn-ghost" onClick={() => setAdding(true)}>
+          <Plus size={16} />
           Add experience
-        </Button>
+        </button>
       )}
     </div>
   );

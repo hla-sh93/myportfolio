@@ -6,22 +6,27 @@ export const metadata = { title: "New Article | Admin" };
 
 export default function NewArticlePage() {
   return (
-    <div className="p-8 max-w-6xl mx-auto space-y-8">
-      <header className="flex items-center gap-4">
+    <div className="mx-auto max-w-[1100px] space-y-5">
+      <header className="flex items-center gap-3">
         <Link
           href="/admin/blog"
-          className="p-2 rounded-lg text-text-secondary hover:bg-bg-elevated transition-colors"
+          className="rounded-lg p-2 transition-colors hover:bg-[var(--ad-hover)]"
+          style={{ color: "var(--ad-muted)" }}
+          aria-label="Back to articles"
         >
-          <ArrowLeft className="w-5 h-5" />
+          <ArrowLeft size={18} />
         </Link>
         <div>
-          <h1 className="text-3xl font-bold text-text-primary">New Article</h1>
-          <p className="text-text-secondary mt-1">
-            Markdown supported in the content fields.
+          <h1 className="text-xl font-bold">New article</h1>
+          <p className="mt-0.5 text-sm" style={{ color: "var(--ad-muted)" }}>
+            The body fields accept Markdown.
           </p>
         </div>
       </header>
-      <EditArticleForm initialData={{}} />
+
+      <div className="ad-card p-5 md:p-6">
+        <EditArticleForm initialData={{}} />
+      </div>
     </div>
   );
 }

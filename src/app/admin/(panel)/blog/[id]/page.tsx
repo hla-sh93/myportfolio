@@ -1,6 +1,6 @@
 import { EditArticleForm } from "@/components/features/EditArticleForm";
 import { getStoredArticle } from "@/lib/content-store";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -17,37 +17,57 @@ export default async function EditArticlePage({
   if (!article) notFound();
 
   return (
-    <div className="p-8 max-w-6xl mx-auto space-y-8">
-      <header className="flex items-center gap-4">
+    <div className="mx-auto max-w-[1100px] space-y-5">
+      <header className="flex items-center gap-3">
         <Link
           href="/admin/blog"
-          className="p-2 rounded-lg text-text-secondary hover:bg-bg-elevated transition-colors"
+          className="rounded-lg p-2 transition-colors hover:bg-[var(--ad-hover)]"
+          style={{ color: "var(--ad-muted)" }}
+          aria-label="Back to articles"
         >
-          <ArrowLeft className="w-5 h-5" />
+          <ArrowLeft size={18} />
         </Link>
-        <div>
-          <h1 className="text-3xl font-bold text-text-primary">{article.titleEn}</h1>
-          <p className="text-text-secondary mt-1" dir="rtl">
+        <div className="min-w-0 flex-1">
+          <h1 className="truncate text-xl font-bold">{article.titleEn}</h1>
+          <p
+            className="mt-0.5 truncate text-sm"
+            dir="rtl"
+            style={{ color: "var(--ad-muted)" }}
+          >
             {article.titleAr}
           </p>
         </div>
+        {article.published && (
+          <a
+            href={`/ar/blog/${article.slug}`}
+            target="_blank"
+            rel="noreferrer"
+            className="ad-btn ad-btn-ghost !py-1.5 text-xs"
+          >
+            <ExternalLink size={14} />
+            View live
+          </a>
+        )}
       </header>
-      <EditArticleForm
-        articleId={article.id}
-        initialData={{
-          slug: article.slug,
-          titleEn: article.titleEn,
-          titleAr: article.titleAr,
-          excerptEn: article.excerptEn,
-          excerptAr: article.excerptAr,
-          bodyEn: article.bodyEn,
-          bodyAr: article.bodyAr,
-          coverImage: article.coverImage,
-          tags: article.tags.join(", "),
-          readTime: String(article.readTime),
-          published: article.published,
-        }}
-      />
+
+      <div className="ad-card p-5 md:p-6">
+        <EditArticleForm
+          articleId={article.id}
+          initialData={{
+            slug: article.slug,
+            titleEn: article.titleEn,
+            titleAr: article.titleAr,
+            excerptEn: article.excerptEn,
+            excerptAr: article.excerptAr,
+            bodyEn: article.bodyEn,
+            bodyAr: article.bodyAr,
+            coverImage: article.coverImage,
+            tags: article.tags.join(", "),
+            readTime: String(article.readTime),
+            published: article.published,
+          }}
+        />
+      </div>
     </div>
   );
 }

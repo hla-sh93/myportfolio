@@ -1,8 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/Button";
-import { GlassCard } from "@/components/ui/GlassCard";
-import { Input } from "@/components/ui/Input";
 import { loginSchema, type LoginFormData } from "@/lib/validations";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "next-auth/react";
@@ -13,7 +10,7 @@ import { useForm } from "react-hook-form";
 export function AdminLoginForm() {
   const router = useRouter();
   const [error, setError] = useState("");
-  
+
   const {
     register,
     handleSubmit,
@@ -37,44 +34,74 @@ export function AdminLoginForm() {
         router.push("/admin");
         router.refresh();
       }
-    } catch (err) {
-      setError("An unexpected error occurred");
+    } catch {
+      setError("Something went wrong. Please try again.");
     }
   };
 
   return (
-    <GlassCard padding="lg">
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+    <div className="ad-card p-6">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         {error && (
-          <div className="p-3 text-sm text-red-500 bg-red-500/10 rounded-lg text-center font-medium">
+          <p
+            className="rounded-lg px-3 py-2.5 text-center text-sm font-medium"
+            style={{ background: "rgba(234,84,85,.1)", color: "#ea5455" }}
+            role="alert"
+          >
             {error}
-          </div>
+          </p>
         )}
-        
-        <Input
-          label="Email Address"
-          type="email"
-          placeholder="admin@example.com"
-          error={errors.email?.message}
-          {...register("email")}
-        />
-        
-        <Input
-          label="Password"
-          type="password"
-          placeholder="••••••••"
-          error={errors.password?.message}
-          {...register("password")}
-        />
 
-        <Button 
-          type="submit" 
-          className="w-full" 
-          loading={isSubmitting}
+        <label className="block">
+          <span
+            className="mb-1.5 block text-xs font-semibold"
+            style={{ color: "var(--ad-muted)" }}
+          >
+            Email
+          </span>
+          <input
+            type="email"
+            autoComplete="username"
+            className="ad-field"
+            placeholder="admin@example.com"
+            {...register("email")}
+          />
+          {errors.email && (
+            <span className="mt-1 block text-xs" style={{ color: "#ea5455" }}>
+              {errors.email.message}
+            </span>
+          )}
+        </label>
+
+        <label className="block">
+          <span
+            className="mb-1.5 block text-xs font-semibold"
+            style={{ color: "var(--ad-muted)" }}
+          >
+            Password
+          </span>
+          <input
+            type="password"
+            autoComplete="current-password"
+            className="ad-field"
+            placeholder="••••••••"
+            {...register("password")}
+          />
+          {errors.password && (
+            <span className="mt-1 block text-xs" style={{ color: "#ea5455" }}>
+              {errors.password.message}
+            </span>
+          )}
+        </label>
+
+        <button
+          type="submit"
+          className="ad-btn ad-btn-primary w-full"
+          disabled={isSubmitting}
         >
-          Sign In
-        </Button>
+          {isSubmitting ? "Signing in…" : "Sign in"}
+        </button>
       </form>
-    </GlassCard>
+    </div>
   );
 }

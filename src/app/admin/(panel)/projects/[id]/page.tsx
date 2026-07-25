@@ -1,6 +1,6 @@
 import { EditProjectForm } from "@/components/features/EditProjectForm";
 import { getStoredProject } from "@/lib/content-store";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -17,41 +17,61 @@ export default async function EditProjectPage({
   if (!project) notFound();
 
   return (
-    <div className="p-8 max-w-5xl mx-auto space-y-8">
-      <header className="flex items-center gap-4">
+    <div className="mx-auto max-w-[1100px] space-y-5">
+      <header className="flex items-center gap-3">
         <Link
           href="/admin/projects"
-          className="p-2 rounded-lg text-text-secondary hover:bg-bg-elevated transition-colors"
+          className="rounded-lg p-2 transition-colors hover:bg-[var(--ad-hover)]"
+          style={{ color: "var(--ad-muted)" }}
+          aria-label="Back to projects"
         >
-          <ArrowLeft className="w-5 h-5" />
+          <ArrowLeft size={18} />
         </Link>
-        <div>
-          <h1 className="text-3xl font-bold text-text-primary">{project.titleEn}</h1>
-          <p className="text-text-secondary mt-1" dir="rtl">
+        <div className="min-w-0 flex-1">
+          <h1 className="truncate text-xl font-bold">{project.titleEn}</h1>
+          <p
+            className="mt-0.5 truncate text-sm"
+            dir="rtl"
+            style={{ color: "var(--ad-muted)" }}
+          >
             {project.titleAr}
           </p>
         </div>
+        {project.published && (
+          <a
+            href={`/ar/projects/detail/${project.slug}`}
+            target="_blank"
+            rel="noreferrer"
+            className="ad-btn ad-btn-ghost !py-1.5 text-xs"
+          >
+            <ExternalLink size={14} />
+            View live
+          </a>
+        )}
       </header>
-      <EditProjectForm
-        projectId={project.id}
-        initialData={{
-          slug: project.slug,
-          titleEn: project.titleEn,
-          titleAr: project.titleAr,
-          descEn: project.descEn,
-          descAr: project.descAr,
-          category: project.category,
-          tags: project.tags.join(", "),
-          coverImage: project.coverImage,
-          client: project.client ?? "",
-          role: project.role ?? "",
-          tools: project.tools.join(", "),
-          year: project.year ? String(project.year) : "",
-          featured: project.featured,
-          published: project.published,
-          mediaUrls: project.media.map((m) => m.url).join("\n"),
-        }}
-      />
+
+      <div className="ad-card p-5 md:p-6">
+        <EditProjectForm
+          projectId={project.id}
+          initialData={{
+            slug: project.slug,
+            titleEn: project.titleEn,
+            titleAr: project.titleAr,
+            descEn: project.descEn,
+            descAr: project.descAr,
+            category: project.category,
+            tags: project.tags.join(", "),
+            coverImage: project.coverImage,
+            client: project.client ?? "",
+            role: project.role ?? "",
+            tools: project.tools.join(", "),
+            year: project.year ? String(project.year) : "",
+            featured: project.featured,
+            published: project.published,
+            mediaUrls: project.media.map((m) => m.url).join("\n"),
+          }}
+        />
+      </div>
     </div>
   );
 }

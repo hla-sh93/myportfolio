@@ -1,115 +1,142 @@
 "use client";
 
-import { Button } from "@/components/ui/Button";
-import { GlassCard } from "@/components/ui/GlassCard";
-import { Input } from "@/components/ui/Input";
+import { saveStatsAction } from "@/app/admin/actions";
+import { useToast } from "@/components/ui/Toast";
 import type { StoredStat } from "@/lib/content-store";
-import { Plus, Save, Trash2 } from "lucide-react";
+import { Plus, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
-import { saveStatsAction } from "../../actions";
 
 export function HighlightsEditor({ initial }: { initial: StoredStat[] }) {
   const router = useRouter();
+  const { toast } = useToast();
   const [stats, setStats] = useState(initial);
   const [pending, start] = useTransition();
-  const [saved, setSaved] = useState(false);
+
+  const dirty = JSON.stringify(stats) !== JSON.stringify(initial);
 
   const set = (i: number, k: keyof StoredStat, v: string) => {
     const next = [...stats];
     next[i] = { ...next[i], [k]: k === "value" ? Number(v) || 0 : v };
     setStats(next);
-    setSaved(false);
   };
 
   return (
-    <div className="space-y-6">
-      <GlassCard padding="lg" className="space-y-4">
-        {/* header row */}
-        <div className="hidden md:grid grid-cols-[90px_90px_1fr_1fr_40px] gap-3 text-xs font-semibold text-text-secondary px-1">
-          <span>Number</span>
-          <span>Suffix</span>
-          <span dir="rtl">التسمية (AR)</span>
-          <span>Label (EN)</span>
-          <span />
+    <div className="space-y-4">
+      <div className="ad-card overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="ad-table">
+            <thead>
+              <tr>
+                <th className="w-28">Number</th>
+                <th className="w-24">Suffix</th>
+                <th dir="rtl">التسمية (AR)</th>
+                <th>Label (EN)</th>
+                <th className="w-14" />
+              </tr>
+            </thead>
+            <tbody>
+              {stats.map((s, i) => (
+                <tr key={s.id || `new-${i}`}>
+                  <td>
+                    <input
+                      inputMode="numeric"
+                      className="ad-field"
+                      value={String(s.value)}
+                      onChange={(e) => set(i, "value", e.target.value)}
+                    />
+                  </td>
+                  <td>
+                    <input
+                      className="ad-field"
+                      placeholder="K+"
+                      value={s.suffix}
+                      onChange={(e) => set(i, "suffix", e.target.value)}
+                    />
+                  </td>
+                  <td>
+                    <input
+                      dir="rtl"
+                      className="ad-field"
+                      placeholder="سنوات خبرة"
+                      value={s.labelAr}
+                      onChange={(e) => set(i, "labelAr", e.target.value)}
+                    />
+                  </td>
+                  <td>
+                    <input
+                      className="ad-field"
+                      placeholder="Years of experience"
+                      value={s.labelEn}
+                      onChange={(e) => set(i, "labelEn", e.target.value)}
+                    />
+                  </td>
+                  <td>
+                    <button
+                      onClick={() => setStats(stats.filter((_, j) => j !== i))}
+                      className="rounded-lg p-1.5 transition-colors hover:bg-[rgba(234,84,85,.1)]"
+                      style={{ color: "#ea5455" }}
+                      aria-label="Remove row"
+                    >
+                      <Trash2 size={15} />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+              {stats.length === 0 && (
+                <tr>
+                  <td colSpan={5}>
+                    <p
+                      className="py-8 text-center text-sm"
+                      style={{ color: "var(--ad-muted)" }}
+                    >
+                      No highlights — the numbers strip will be hidden.
+                    </p>
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
         </div>
-        {stats.map((s, i) => (
-          <div
-            key={s.id || i}
-            className="grid grid-cols-2 md:grid-cols-[90px_90px_1fr_1fr_40px] gap-3 items-center"
-          >
-            <Input
-              inputMode="numeric"
-              value={String(s.value)}
-              onChange={(e) => set(i, "value", e.target.value)}
-            />
-            <Input
-              placeholder="K+"
-              value={s.suffix}
-              onChange={(e) => set(i, "suffix", e.target.value)}
-            />
-            <Input
-              dir="rtl"
-              placeholder="سنوات خبرة"
-              value={s.labelAr}
-              onChange={(e) => set(i, "labelAr", e.target.value)}
-            />
-            <Input
-              placeholder="Years of experience"
-              value={s.labelEn}
-              onChange={(e) => set(i, "labelEn", e.target.value)}
-            />
-            <button
-              type="button"
-              onClick={() => {
-                setStats(stats.filter((_, j) => j !== i));
-                setSaved(false);
-              }}
-              className="p-2 rounded-lg text-red-500 hover:bg-red-500/10 justify-self-end"
-            >
-              <Trash2 className="w-4 h-4" />
-            </button>
-          </div>
-        ))}
 
-        <Button
-          variant="ghost"
-          onClick={() => {
-            setStats([
-              ...stats,
-              { id: "", value: 0, suffix: "+", labelAr: "", labelEn: "" },
-            ]);
-            setSaved(false);
-          }}
+        <div
+          className="border-t px-4 py-3"
+          style={{ borderColor: "var(--ad-border)" }}
         >
-          <Plus className="w-4 h-4 mr-2" />
-          Add highlight
-        </Button>
-      </GlassCard>
+          <button
+            className="ad-btn ad-btn-ghost !py-1.5 text-xs"
+            onClick={() =>
+              setStats([
+                ...stats,
+                { id: "", value: 0, suffix: "+", labelAr: "", labelEn: "" },
+              ])
+            }
+          >
+            <Plus size={14} />
+            Add highlight
+          </button>
+        </div>
+      </div>
 
-      <div className="flex items-center justify-end gap-4">
-        {saved && <span className="text-sm text-emerald-500">Saved ✓</span>}
-        <Button
-          variant="accent"
-          disabled={pending}
+      <div className="flex items-center justify-end gap-3">
+        {dirty && (
+          <span className="text-xs" style={{ color: "var(--ad-muted)" }}>
+            Unsaved changes
+          </span>
+        )}
+        <button
+          className="ad-btn ad-btn-primary"
+          disabled={pending || !dirty}
           onClick={() =>
             start(async () => {
               await saveStatsAction(stats);
-              setSaved(true);
+              toast({ title: "Highlights saved", variant: "success" });
               router.refresh();
             })
           }
-          className="min-w-[130px]"
         >
-          {pending ? (
-            <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-          ) : (
-            <>
-              <Save className="w-4 h-4 mr-2" />
-              Save all
-            </>
-          )}
-        </Button>
+          {pending ? "Saving…" : "Save all"}
+        </button>
       </div>
     </div>
   );
