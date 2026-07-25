@@ -62,11 +62,10 @@ export default async function Home({
             <Services counts={categoryCounts} />
             <FeaturedProjects projects={featured} />
             <LatestBlog articles={articles} />
+            <CTABanner contained />
           </div>
         </div>
       </div>
-
-      <CTABanner />
     </>
   );
 }

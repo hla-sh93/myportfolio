@@ -4,6 +4,7 @@ import {
   deleteCertificateAction,
   saveCertificateAction,
 } from "@/app/admin/actions";
+import { MediaUpload } from "@/components/admin/MediaUpload";
 import { useToast } from "@/components/ui/Toast";
 import type { StoredCertificate } from "@/lib/content-store";
 import { Plus, Trash2, X } from "lucide-react";
@@ -179,17 +180,25 @@ export function CertificatesEditor({ initial }: { initial: StoredCertificate[] }
                 ))}
               </select>
             </label>
-            <label className="block md:col-span-2">
-              <span className="mb-1.5 block text-xs font-semibold" style={{ color: "var(--ad-muted)" }}>
-                Image URL *
-              </span>
-              <input
-                className="ad-field"
-                placeholder="/images/certificates/name.webp"
-                value={draft.url}
-                onChange={(e) => setDraft({ ...draft, url: e.target.value })}
-              />
-            </label>
+            <div className="md:col-span-2">
+              <label className="block">
+                <span className="mb-1.5 block text-xs font-semibold" style={{ color: "var(--ad-muted)" }}>
+                  Image URL *
+                </span>
+                <input
+                  className="ad-field"
+                  placeholder="/images/certificates/name.webp"
+                  value={draft.url}
+                  onChange={(e) => setDraft({ ...draft, url: e.target.value })}
+                />
+              </label>
+              <div className="mt-2">
+                <MediaUpload
+                  label="Upload certificate image"
+                  onUploaded={([url]) => url && setDraft({ ...draft, url })}
+                />
+              </div>
+            </div>
             <label className="block">
               <span className="mb-1.5 block text-xs font-semibold" style={{ color: "var(--ad-muted)" }}>
                 Order

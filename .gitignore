@@ -59,3 +59,6 @@ build.log
 
 # Dev counter fallback store
 .counters.json
+
+# Local admin uploads — production uploads go to Vercel Blob
+/public/images/uploads/

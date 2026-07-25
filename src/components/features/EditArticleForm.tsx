@@ -1,5 +1,6 @@
 "use client";
 
+import { MediaUpload } from "@/components/admin/MediaUpload";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Save, Trash } from "lucide-react";
 import Link from "next/link";
@@ -49,6 +50,7 @@ export function EditArticleForm({
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<ArticleFormData>({
     resolver: zodResolver(articleSchema),
@@ -155,6 +157,14 @@ export function EditArticleForm({
           <div>
             <label className={labelCls}>Cover Image URL</label>
             <input className="ad-field" placeholder="/images/placeholder.jpg" {...register("coverImage")} />
+            <div className="mt-2">
+              <MediaUpload
+                label="Upload cover"
+                onUploaded={([url]) =>
+                  url && setValue("coverImage", url, { shouldDirty: true })
+                }
+              />
+            </div>
           </div>
         </div>
 

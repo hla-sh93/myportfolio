@@ -1,5 +1,6 @@
 "use client";
 
+import { MediaUpload } from "@/components/admin/MediaUpload";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Save, Trash } from "lucide-react";
 import Image from "next/image";
@@ -55,6 +56,8 @@ export function EditProjectForm({
     register,
     handleSubmit,
     watch,
+    setValue,
+    getValues,
     formState: { errors, isSubmitting },
   } = useForm<ProjectFormData>({
     resolver: zodResolver(projectSchema),
@@ -176,10 +179,14 @@ export function EditProjectForm({
             <label className={labelCls}>Cover Image URL</label>
             <input className="ad-field" placeholder="/images/projects/my-project/mockup-1.webp" {...register("coverImage")} />
             {errors.coverImage && <span className={errCls}>{errors.coverImage.message}</span>}
-            <p className="mt-1 text-xs text-[var(--ad-faint)]">
-              Put files under <code>public/images/projects/&lt;slug&gt;/</code> and reference them as{" "}
-              <code>/images/projects/&lt;slug&gt;/file.webp</code>.
-            </p>
+            <div className="mt-2">
+              <MediaUpload
+                label="Upload cover"
+                onUploaded={([url]) =>
+                  url && setValue("coverImage", url, { shouldDirty: true })
+                }
+              />
+            </div>
           </div>
           {cover && (
             <div className="relative h-28 w-40 overflow-hidden rounded-lg border border-[var(--ad-border)]">
