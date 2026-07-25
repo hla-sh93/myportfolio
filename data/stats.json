@@ -1,0 +1,30 @@
+[
+ {
+  "id": "years",
+  "value": 7,
+  "suffix": "+",
+  "labelEn": "Years of Experience",
+  "labelAr": "سنوات خبرة"
+ },
+ {
+  "id": "users",
+  "value": 94,
+  "suffix": "K+",
+  "labelEn": "Users Across My Products",
+  "labelAr": "مستخدم لمنتجات صمّمتها"
+ },
+ {
+  "id": "downloads",
+  "value": 50,
+  "suffix": "K+",
+  "labelEn": "App Downloads",
+  "labelAr": "تحميل للتطبيق"
+ },
+ {
+  "id": "publishers",
+  "value": 3,
+  "suffix": "K+",
+  "labelEn": "Publishers Served",
+  "labelAr": "ناشر تعاملت معهم"
+ }
+]

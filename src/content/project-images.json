@@ -1,0 +1,638 @@
+{
+ "zanqa-education-platform": [
+  {
+   "url": "/images/projects/zanqa-education-platform/1.webp",
+   "width": 1600,
+   "height": 1040,
+   "blurDataUrl": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAwAgCdASoQAAoAA4BaJbACdLoAApvNTrUYwAD9vnWKu3QPfdM0GN3fWuSbRlFtTYL2gcXaZOXdsbVzzM1IR1O2jN157w17jXGpIQUn3WwmHPcSDfq9C4MvWAAAAA=="
+  },
+  {
+   "url": "/images/projects/zanqa-education-platform/2.webp",
+   "width": 1600,
+   "height": 1067,
+   "blurDataUrl": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAACQAgCdASoQAAsAA4BaJbACdDiKx57+dK9dDavKYAD+TH323tj4yzGIDScNrV6NysC9d75OFFx19ex5w4NSPS3OOcNDIltWkla4EDWZzZTgBUfzuHMehRki9gTW8IVs9uB4fr8or3P+2z45AoDMY4eiLk3R946R7FhEuzRiQAupmt9+5+AAAA=="
+  },
+  {
+   "url": "/images/projects/zanqa-education-platform/3.webp",
+   "width": 1600,
+   "height": 1066,
+   "blurDataUrl": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAACQAgCdASoQAAsAA4BaJagCdG1/tv8WwTqv4GnZsAD+6icex6FguC36SsYXZufeya61Tq+OR1pbxGZkaaWpv52blXMVYydpuGF3eo7cKBjK2KGJrEP1R3vwdKLd3CC1/dAAAA=="
+  },
+  {
+   "url": "/images/projects/zanqa-education-platform/4.webp",
+   "width": 1600,
+   "height": 1280,
+   "blurDataUrl": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAACQAgCdASoQAA0AA4BaJbACdEf/i2GNTc4TYvKTAAD7l0owd9Wzwzs3qS7gpIDwio5fjyI3K/bA5xlNbaoJ/0ZTSYWS6ue4tfExKkY4Crb5pALSoJFHw7q39acbzZ7jkh1aYl4VneMO7LOnNbMMyNyz0n0WsaxG6gkMAAAA"
+  },
+  {
+   "url": "/images/projects/zanqa-education-platform/5.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAQCdASoQAAwAA4BaJbACdACw8o5AAP6oLpFGS8xdZziFnr+yBcKck7/4g8hHgMD7zXv9eC/cE8Y/uGrXKtjdHEpw4AAA"
+  },
+  {
+   "url": "/images/projects/zanqa-education-platform/6.webp",
+   "width": 1600,
+   "height": 976,
+   "blurDataUrl": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAABQAgCdASoQAAoAA4BaJbACdAYs3zVffdI3JiAA/Y+ckmKSNuucnzQ7o77PiaNj4xJ2z3CouraEYETc20qBl10RVFXpXXUbB2HK+4a/j/lf81XgL+8IQuslu/GA+JcOjyeofVEgO+iZ/PyIAAA="
+  },
+  {
+   "url": "/images/projects/zanqa-education-platform/7.webp",
+   "width": 1600,
+   "height": 2000,
+   "blurDataUrl": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAABQBACdASoQABQAPu1kqk4ppaQiMAgBMB2JbACdMoRwABlIbrA3MxkcotyAAPth0bxbXpM4rwpftfXDcvWUlaBdW0cNQ20+J6y90CEBQhg/FYTNVLfMSuIgCd3RRkKNQiMk7BWGCH5AInM1logM/bI25vyixDaCMRmXk9jIlK4gbVd2AAA="
+  }
+ ],
+ "e-liefer-delivery-platform": [
+  {
+   "url": "/images/projects/e-liefer-delivery-platform/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoQAAwAA4BaJZwAAxU9mZ2jAAD+8hKiVhnVfC5nWy/r/yOyAlw1mP07BDCb6cJvbnv+HYaVRQ1AZV7wpQlL1vaW3Nzvf4IHG7L844AA"
+  },
+  {
+   "url": "/images/projects/e-liefer-delivery-platform/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAQCdASoQAAwAA4BaJYwC7AELGWubMeAA/vI6upzqYM6TExy1nQpOOBrI1pq3iqKHyR3IUIUT7HNeKzqt83m4MHGToBZdR6wQXD50Y9vZfIZGpkTuaSGzJAAAAA=="
+  },
+  {
+   "url": "/images/projects/e-liefer-delivery-platform/mockup-3.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAQCdASoQAAwAA4BaJZQC/OYulko0jFAA/u2xsTim/zjhufZCQawoCCF+y+G86SQa4aOQB4kWTWPO9LKftt0Jlx5ksTxZ+uag53n8+3aRl0fSjo0qUCO6GfTcAA=="
+  }
+ ],
+ "living-app-ui": [
+  {
+   "url": "/images/projects/living-app-ui/1.webp",
+   "width": 1600,
+   "height": 1043,
+   "blurDataUrl": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQAAoAA4BaJYgCdAEQZkerZ4vAAP7LclUMChFhhpFsDVAfLtx49DWZkD4ZpkIzxuk9TwauA2uOJNLrc4gu2bdD81sLGbpdnK9JEGsAAAA="
+  },
+  {
+   "url": "/images/projects/living-app-ui/2.webp",
+   "width": 1600,
+   "height": 1067,
+   "blurDataUrl": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAAAQAgCdASoQAAsAA4BaJZQAD5FPPRZm1OcAAP5tMC3DDhR4747Ayl+k9PsZgUCTktbZ8lU1VOet79bOE8W4QkE0XU1yDlu+7V72sPpcgDkK9sVpRG4tSy3+GHd2B75wyC3Xq6Jl1akIEE5MESC63P71nAAAAA=="
+  },
+  {
+   "url": "/images/projects/living-app-ui/3.webp",
+   "width": 1600,
+   "height": 1000,
+   "blurDataUrl": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAABwAgCdASoQAAoAA4BaJQBOgMW55i/OyICOApAwAP5sDOLk/a1/t1e/szWQ3Coxi3qSe+/i8J68yTGwlCsdFpuGp/wgBfee9gdmTKeTl1Dz0O/UZxlkm+BWlYvjYz4pitl9mFX+k2Di0wuZEsX06lbHqyzQAAAA"
+  },
+  {
+   "url": "/images/projects/living-app-ui/4.webp",
+   "width": 1600,
+   "height": 1600,
+   "blurDataUrl": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACQAgCdASoQABAAA4BaJagCdAYpvnlNzxc/DE2eygD+SYxc0C9Je4QneNCiB9kl9cmFuX0VQXWb5rJw0BfZWVRcVyYNEp1yKvdBMadZzblQofKY62xn+zXqrSDkzU/J4k9XH8dBp9WWQMgArhVJdOFdAAA="
+  },
+  {
+   "url": "/images/projects/living-app-ui/5.webp",
+   "width": 1600,
+   "height": 1067,
+   "blurDataUrl": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAABQAgCdASoQAAsAA4BaJQBOgNOgzw6f2y1iEcAA/uJmnuZkqyrOxmaleLZpM8vfa/bkYeumk/xtq20Bxc71VVdVl6t6kKxHxS2b3iTjnAidgPKJI6vj2FJPIPwM3RZ3X30UcA6AeSHsWBFzZgfFq85CW3VO2239hJRYAA=="
+  },
+  {
+   "url": "/images/projects/living-app-ui/6.webp",
+   "width": 1600,
+   "height": 1040,
+   "blurDataUrl": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAoAA4BaJZACdADGz1j2YAAA/rntUsN83du93JNgCGwxjxtDERW9Nt7gxEwabHUXk9Ls9Guh4tIyasbTF6MtZXAAAA=="
+  }
+ ],
+ "nana-gelato-packaging": [
+  {
+   "url": "/images/projects/nana-gelato-packaging/1.webp",
+   "width": 1600,
+   "height": 1384,
+   "blurDataUrl": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoQAA4AA4BaJbACdADwqyTdAAD+05XzYffCzXwny7GPuAUA+azaxTpRrlPNxj5Obnvcv2XnZMRho18kY2Sddy0EYyuB1oNAAAA="
+  },
+  {
+   "url": "/images/projects/nana-gelato-packaging/2.webp",
+   "width": 1600,
+   "height": 1384,
+   "blurDataUrl": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACwAQCdASoQAA4AA4BaJbACdAEN2eIAAP7DVUDYmIkK9LJkEYp7u87Ls7+8q+onc81QfJ5llAYvT1+NytJX4AAA"
+  },
+  {
+   "url": "/images/projects/nana-gelato-packaging/3.webp",
+   "width": 1600,
+   "height": 1384,
+   "blurDataUrl": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoQAA4AA4BaJYgCdADwxqqgAP6vcgKN55dAXqE6+ZPGu6/pnsCck7e4H17HfIMJuDEg1xyMqvSRjRyb3RSP/TbJ3iAAAA=="
+  },
+  {
+   "url": "/images/projects/nana-gelato-packaging/4.webp",
+   "width": 1600,
+   "height": 1600,
+   "blurDataUrl": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoQABAAA4BaJQBOioAAZdudKwAA/vN+x3B9J6appTmbk0qiZ7x6tF0nbR61ZgyKxnXri+B5URE8TQGvRMSunaToiuddcvNfsl879ZP+r+RNZ148+AA="
+  },
+  {
+   "url": "/images/projects/nana-gelato-packaging/5.webp",
+   "width": 1600,
+   "height": 1600,
+   "blurDataUrl": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAACwAgCdASoQABAAA4BaJYwCdMn+L/xTACSMm6TTLAAA/vN3PPQCnGug87KXUSulRRzMOGwpr9otHNeDvb+cR5WvytP3nJiOmc4bBjLGzvNkrqbnySeJ4/N1dNVBte5dnRIWDaAA"
+  },
+  {
+   "url": "/images/projects/nana-gelato-packaging/6.webp",
+   "width": 1600,
+   "height": 1600,
+   "blurDataUrl": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQABAAA4BaJZACsAEQ9srTLAAA/vTb4+MML/GhyZ7PFJweid0ZxjY01dHzjZTq0pvSJofjwDAnidgy5hq/hZTgG5gAAA=="
+  },
+  {
+   "url": "/images/projects/nana-gelato-packaging/7.webp",
+   "width": 1600,
+   "height": 1067,
+   "blurDataUrl": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoQAAsAA4BaJZwAAuEyJspZwAD+h8NvEs/lDmlYMaUM1Mdre+m29wAqgLUQZfM1Zf4MyvZCG2FNrl4VQ/SVxa9GAhnAAA=="
+  }
+ ],
+ "believe-in-syria-campaign": [
+  {
+   "url": "/images/projects/believe-in-syria-campaign/1.webp",
+   "width": 1600,
+   "height": 1112,
+   "blurDataUrl": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAsAA4BaJZwAAvrblmbUAAD+mDe12pNhEZDGKKba4dRZNHYYXIbwit/VKPDB1vvctjVNceZ9gpgt6ZnYT4GZxFbeRwAA"
+  },
+  {
+   "url": "/images/projects/believe-in-syria-campaign/2.webp",
+   "width": 1600,
+   "height": 914,
+   "blurDataUrl": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACQAQCdASoQAAkAA4BaJaQAApLX2AAA/u1xXebCMhOeL3LkHdzMb+oug+NqR7dfXd3SBKfeQEwAAA=="
+  },
+  {
+   "url": "/images/projects/believe-in-syria-campaign/3.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAgCdASoQAAwAA4BaJZQCdAEQYjL7o3AAAOAA8hmlpdp0G7qjdddtRYvm5DKVqhgJOjDYpEAH57woCRvHuWhC1lowAA=="
+  },
+  {
+   "url": "/images/projects/believe-in-syria-campaign/4.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQAAwAA4BaJZQC7AENwjZvRAAA/lWIftulwSNrQfABnoySCGuctlkTHJPcrkam90d0gWCVZsuMp39vL4kpSpTuOzN2xgrfUGOAAA=="
+  },
+  {
+   "url": "/images/projects/believe-in-syria-campaign/5.webp",
+   "width": 1600,
+   "height": 1066,
+   "blurDataUrl": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoQAAsAA4BaJZACdACh1YAAAPcrSwS4fwaa35A1Vbv8KCJ+o6zCyAhMfzVx6gmIP5fCtT62ugA2wlbqJFIpAXKMlsSAAA=="
+  },
+  {
+   "url": "/images/projects/believe-in-syria-campaign/6.webp",
+   "width": 1600,
+   "height": 800,
+   "blurDataUrl": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACQAgCdASoQAAgAA4BaJZgCdAaaZmdfADJkp82YAAD8NyogtuxN5DTu93ELXwIgCe0tdeaQwszIcr680WxmAoWQnKw0YPvzSzY0aQtEIm5P7Sg7qgX+o67/zrmcW2KBgy0iF9Wt1u0ffBR0AAA="
+  },
+  {
+   "url": "/images/projects/believe-in-syria-campaign/7.webp",
+   "width": 1600,
+   "height": 1067,
+   "blurDataUrl": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoQAAsAA4BaJZQAAf91wXhrAAD+vzyk/8/zUo/cC/e+NQJoJD9tag71YYTjkWQNRD6vA3N5OyAAAA=="
+  }
+ ],
+ "travel-agency-branding": [
+  {
+   "url": "/images/projects/travel-agency-branding/1.webp",
+   "width": 1024,
+   "height": 1024,
+   "blurDataUrl": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQABAAA4BaJQBOgCHuy9Q5teAA/uks6CUffkn2LdqEJKhuT1EwUWROhnnxhEYikSX/c7e14ggBw/0Cz2LbQ0Z4EOa1Q5p1o3XIAA=="
+  },
+  {
+   "url": "/images/projects/travel-agency-branding/2.webp",
+   "width": 595,
+   "height": 842,
+   "blurDataUrl": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACwAwCdASoQABcAPu1oqk6ppiQiMAgBMB2JQBadBD4azBmWUu4eAAD+8MtAnrqu8AGfgg/7zmSWijtbgwAGA74DhwFi7pYDiV7pFgh0j/nxvg3IAAA="
+  },
+  {
+   "url": "/images/projects/travel-agency-branding/3.webp",
+   "width": 1600,
+   "height": 997,
+   "blurDataUrl": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAAAQAgCdASoQAAoAA4BaJQBOgCPt0du+1iXAAP7xEsJJYCNX+ZYL6LH/150f4XyOaN7GHkPyA8Qh9tTMN9JM+5gCQAA="
+  },
+  {
+   "url": "/images/projects/travel-agency-branding/4.webp",
+   "width": 1600,
+   "height": 1067,
+   "blurDataUrl": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAQAgCdASoQAAsAA4BaJZQCdAECmr4H9IAAAP2pgEnCupsrXyJSCHcMC7quQBjPBOoeFqKkK/L2G/EdZ0fcJ9qO/tzeYwktAAA="
+  },
+  {
+   "url": "/images/projects/travel-agency-branding/5.webp",
+   "width": 595,
+   "height": 842,
+   "blurDataUrl": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAwCdASoQABcAPu1orU6ppiSiMAgBMB2JYgCw7GjcA2l/ImRWD7QAAP77F9mj//6oyCEysmayvhtBB1ELvyoLZsQF7VbrV9WcY19Kv85wuHl0W1c2s9GJcQRpQymLXyFpJ9N0W9AAAA=="
+  },
+  {
+   "url": "/images/projects/travel-agency-branding/6.webp",
+   "width": 902,
+   "height": 846,
+   "blurDataUrl": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADQAQCdASoQAA8AA4BaJaAC7ADZjQQAAAD+l/KtSG9m8yJdwDlEfuXQILdr8jQYd+lsb7r/lFw8V3BNXr77UmBolj3P0QNTPx8I/aPH5evp6eP+EL9oAAAA"
+  }
+ ],
+ "codxeon-website": [
+  {
+   "url": "/images/projects/codxeon-website/mockup-1.webp",
+   "width": 1600,
+   "height": 1067,
+   "blurDataUrl": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQAgCdASoQAAsAA4BaJQBdgCKq66Bsr8IAAP7roNw+1Z8AHyNqzGeAHxuuD2MXq3zhIyWzVTl3/nxt78pPzew+s1PvLPu2oxgYaMfvBYxf0+aMXPFoVbwUnkr4PMh32fDAAA=="
+  },
+  {
+   "url": "/images/projects/codxeon-website/mockup-2.webp",
+   "width": 1600,
+   "height": 1067,
+   "blurDataUrl": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoQAAsAA4BaJYgAAvqA2/lwtYwAAP71PxkRyoBo0XIR4v7AYljD14u+AB1uo+nX6v35YeyJOrZx+ke5Hvu75vzIrt2/zQM8uKj5np7/kNUipYnXrfjU/QoA"
+  }
+ ],
+ "krsy-web": [
+  {
+   "url": "/images/projects/krsy-web/mockup-1.webp",
+   "width": 1600,
+   "height": 1244,
+   "blurDataUrl": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoQAAwAA4BaJYgCw7DxNJHzk5AA/FpsPld7smGhDgSva4Aw2+MnZN+RQDMH5W41dCZ+iI2qztmB9RILUSb1wAAA"
+  },
+  {
+   "url": "/images/projects/krsy-web/mockup-2.webp",
+   "width": 1600,
+   "height": 1000,
+   "blurDataUrl": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAQCdASoQAAoAA4BaJYgC7ADxGTxNTAAA/u8ufGORHUHMYiIwRTjkBR685Slczi+wzo2W9xi3HGPpBV8kLPSd1uxNH21UwluPuqtJpE7YSQYAAAA="
+  },
+  {
+   "url": "/images/projects/krsy-web/mockup-3.webp",
+   "width": 1600,
+   "height": 1179,
+   "blurDataUrl": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwAgCdASoQAAwAA4BaJQBYdsVVqyDiBNxQAAD3C5APbn9IYdyhvr06T/RupVhvuDOLkMGu8BY+88zQA4bi+gkuDr1KPVgJagxtEIykc9B0O6YKRVqh+AXCbssSAAAA"
+  }
+ ],
+ "jadarat-platform": [
+  {
+   "url": "/images/projects/jadarat-platform/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACwAQCdASoQAAwAA4BaJZwAAloPtlkAAP705nXvBIJLurktzpoXnLtVvQ5Y6HjtDc+lN8Zs21nh1mTItYrjbaGVtu78c8RbpwAsIxdAWBwAAA=="
+  },
+  {
+   "url": "/images/projects/jadarat-platform/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoQAAwAA4BaJaQAAqH3HfxsAAD+9hPfZXxa68D5YbScPnpkLkJZ2LHNYHUxJ3pi2e1ljL20Y8KuJpk+uOAAAA=="
+  },
+  {
+   "url": "/images/projects/jadarat-platform/mockup-3.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACwAQCdASoQAAwAA4BaJaQAApJ13QkgAP72E95DSjO+TJ5YQlvlvsd3u2WEdsmoOfyDLdF5qpOJXVVq8gkEUD+hrmaGnPBFsEOOIUAA"
+  }
+ ],
+ "saab-logistics": [
+  {
+   "url": "/images/projects/saab-logistics/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAwAgCdASoQAAwAA4BaJQBOgMVz7f0k/FcLoAD+1iveLOA403WWVLb6Y0OEv7pBOXrLhwz5+lHhaZuAkjiw4FINfg0cRlYNbXoempn5m/M0DzfOXo8oTYn9qmfl83E2uD562Qd411a2BaEAAAA="
+  },
+  {
+   "url": "/images/projects/saab-logistics/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoQAAwAA4BaJZQCdAYqXjN+aXQysAD+9hDee5DVfH0r5hAFg+7uRokwf1hshu5JzTg20p/OOXwgWGe8nyOuO8AqX8yqFjWAAAA="
+  },
+  {
+   "url": "/images/projects/saab-logistics/mockup-3.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACwAQCdASoQAAwAA4BaJZQCdADwqXdgAP703u7jshNfVxyvgBOsZxFrEUlgh9HKKvZpetGnw1Plo/832RwAj3hVJZQkgz4gSyFbFQAA"
+  }
+ ],
+ "turki-butchery": [
+  {
+   "url": "/images/projects/turki-butchery/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABwAgCdASoQAAwAA4BaJZQAFgBFumXhqeRDTY9AAP7oAN7NycGZfAddgj/eVNMsw7M6ErILpe6uAyCQ5eX0t4bQovBSeQnjUMNykUxuHA3wsj4OYRypK3XHmiTgrmMtyni2loQjZdWSS/x9th5AAA=="
+  },
+  {
+   "url": "/images/projects/turki-butchery/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwAgCdASoQAAwAA4BaJZwAD48OnxBHMNzgAAD+9RlTBzQw13/HbyiNtrm+mnhrgG0Qlb5fc9ADxYChJFX3N42H5TgmuiHURCBEP1ku79HX43tD2GS84FgYyGvNAAAA"
+  },
+  {
+   "url": "/images/projects/turki-butchery/mockup-3.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAwAgCdASoQAAwAA4BaJZwAD4rwL5/wTg4uAAD+668H74RW9qHTKDuHTZQn50m/WOHeqrQZlAfN24qyjPkcxPoBd5oibvhJKkfgjcCoysd9KPY4ZtOfez/mcmvZc4hdbdJBHzcTsy5weEOyL1HAAA=="
+  }
+ ],
+ "kafoo-web": [
+  {
+   "url": "/images/projects/kafoo-web/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQAgCdASoQAAwAA4BaJZQAD4rxdI8gv+AAAP7zmwz5t4yRP2nWkhctCAaXann2lCJ1RCl5jviAufb1QnhlwChr2ytkCSH2QcDKdxInbvwrpZgA"
+  },
+  {
+   "url": "/images/projects/kafoo-web/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAQCdASoQAAwAA4BaJZQAApkUKFgAAP7uW+oWREVrithJPDrbF/W1hYb0uff4AnC6L2yTwhQKRzlE2VT/B6WHSzTOlmAA"
+  },
+  {
+   "url": "/images/projects/kafoo-web/mockup-3.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADQAQCdASoQAAwAA4BaJZQAAld4DaUwAAD+8E0XA34Kq+B18l9mx8yqcvyKZxRfWSA0eBwofxZUtn/+L6rJ+K4lVm9peuswJXTzIctsc8SGp9PxvZvFwAAA"
+  }
+ ],
+ "menu-web": [
+  {
+   "url": "/images/projects/menu-web/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABQAgCdASoQAAwAA4BaJZwC7AYuHk0sUIc3OAAA/vYTzYFqsY6WaP5jTlFvTDL8h34khC68znM7TgFy2ipC7InKP+neYsw7ihhzHjr6JaoU848qV2C0gHUvctoAAA=="
+  },
+  {
+   "url": "/images/projects/menu-web/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADQAQCdASoQAAwAA4BaJZwAAudYFRHQAAD+16BuKzKH4xocXw0BOtXFanTfv1WrsuzQnu2/8Ncl3hEkfdoi+lrjdEZi0AfORjfVJrCxRyEasdIPncl4AAAA"
+  },
+  {
+   "url": "/images/projects/menu-web/mockup-3.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAwAgCdASoQAAwAA4BaJZwC7AEO+a3vlH6AAAD+6zbjVtr/qgOsKQKXsvxREpLdjwzWIhfTvi7lOzhKM/xPd9n7+ObYV2NAoOchm5sCxyvmYogA"
+  }
+ ],
+ "bigboss-web": [
+  {
+   "url": "/images/projects/bigboss-web/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAQAgCdASoQAAwAA4BaJQBWAMXX1PrvHZMAAP7035RdW8KrtNLWCf7AELQdsRXw6+c4vm/DbuGTMvuJDM9gpobes1qWL5kYJz9vU358H2M9DV1cFYMrmy2MNkjc21sWwAA="
+  },
+  {
+   "url": "/images/projects/bigboss-web/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwAgCdASoQAAwAA4BaJYwCdAYwxvnT7KfBAAD+2CM/4KpPB3zdlmJUnNXnsydHor/H5nr2S9hqsn12ZRWf/q1cQwhP4EexO/qI9/7uVhzqWhu0vUdGhrlHINNZUt1okAa39h30AAA="
+  },
+  {
+   "url": "/images/projects/bigboss-web/mockup-3.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAQCdASoQAAwAA4BaJQBOgBwwgtQb1AAA/u4+m6zXi++Jak57dgNw+t8rwQes1ftN9yVE7YD2QwGWZbi1FnzHE96x+Rescu9AjU693U+BbXP5SWl/JhlA/rRODUJQAAA="
+  }
+ ],
+ "phoenitech-website": [
+  {
+   "url": "/images/projects/phoenitech-website/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAwAgCdASoQAAwAA4BaJQBOgMWW7bOVmgb+AAD+tsz/5pIuutwXFwH+W95AnKKzIv46nb2Pc21fOpsWG7TuuO+OCie7dN8oTCbKP+fZYl34UhW3WwN8aJnQHAAAAA=="
+  },
+  {
+   "url": "/images/projects/phoenitech-website/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoQAAwAA4BaJZQCdAYrTlbqm2AAAAD+9grmCU7SjGsho0eplovpBDEwwwKvslOslHEv0E7SEDXtF451JrAe/qDDuo+jIExQAAA="
+  },
+  {
+   "url": "/images/projects/phoenitech-website/mockup-3.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQAAwAA4BaJZQAAqzFxaxkCAAA/slydcEBFG6/+KaaujJyVSexeKAm7rmXjPqMKf1gBjVbvnp0gjUzTaJiKHjgSwoyNjKAAAA="
+  }
+ ],
+ "emirates-sands": [
+  {
+   "url": "/images/projects/emirates-sands/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAQCdASoQAAwAA4BaJZwAAxfwzAGgAP7ts14y4BrBhzCVa/zuQz1jsY/utz/rAXEnd2+ElghC46Abnplzj4SU+U3DKwluKAA="
+  },
+  {
+   "url": "/images/projects/emirates-sands/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACwAQCdASoQAAwAA4BaJZwAAuQ0sLAAAP7zw/13VJYi9a9NQgfwbJZiOu1gnbsD8eBcMnhC3bJmDyTpwIAAAA=="
+  },
+  {
+   "url": "/images/projects/emirates-sands/mockup-3.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAADQAQCdASoQAAwAA4BaJZQC7AELz2tQAAD+8m9mPgiHbg19uyuWvegNeDicjru2OoeO2w9mwQAAAA=="
+  }
+ ],
+ "fast-express-shipping": [
+  {
+   "url": "/images/projects/fast-express-shipping/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABQAgCdASoQAAwAA4BaJYwCdAYuHzX3XAwH0AAA/vYsLi0FFYgPoVJ80wKG2aEiMcVpBXNbGGPA6nclhZun8XlnxtmrzqCqrKKhYlkKiiZKt30gRN/ASbhaU70mfpacUOp4QmrQAAA="
+  },
+  {
+   "url": "/images/projects/fast-express-shipping/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAQCdASoQAAwAA4BaJZQAAtzfZF/ioAD+6KtC0ht7RFxVWeb3uGF5wepPjlMyk50XCBDuyHEdUlft9+s9hM6ya1dU6OzSOSZ78PqbnkBc0YaHcyAAAA=="
+  },
+  {
+   "url": "/images/projects/fast-express-shipping/mockup-3.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoQAAwAA4BaJZQCw82gDYzJTcvogAD+2GfH1TE1a3Scz94gKJMmnt7sc0gH90krnmFFwsgZtnZ2c9N5tkPX2mYwiZ91naH28tmc/JrVcxA8g8Ltxw0rRcJZDZwLgwAA"
+  }
+ ],
+ "lamasat-website": [
+  {
+   "url": "/images/projects/lamasat-website/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAABQAgCdASoQAAwAA4BaJaQAD42RAf20EUy+SAAA/vISkIN7n37y9OHCEvkAeC8TZyimphD0alh87y20BfNRs3n3wjen6Tqp2uPAeTNnd6nWUIE3UMsIup6/wukbtgAA"
+  },
+  {
+   "url": "/images/projects/lamasat-website/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADQAQCdASoQAAwAA4BaJaQAD4VO0Xi6wAD+9N+/sCP/OWKCIaU21dbCYv5Bt/zFJQ8B0t0/n3vAHM5PPRGNA9eBAAA="
+  },
+  {
+   "url": "/images/projects/lamasat-website/mockup-3.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAQCdASoQAAwAA4BaJZwAAh9xaOAAAP702Ts9zstc00in6IO88vWNlYkJQtB7PtgyYDke5+LzHeWQ0f3sPLh1xzIV+B4A"
+  }
+ ],
+ "crenny-app": [
+  {
+   "url": "/images/projects/crenny-app/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoQAAwAA4BaJZwAAv1yLjU+i/AA/vYT3U9VBMtTamt2br6f5d0XXDNzX+5jA971pXY391RrkuN51q8CAAA="
+  },
+  {
+   "url": "/images/projects/crenny-app/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAABQAQCdASoQAAwAA4BaJZwABAAAAP7yWvGXkNJvFuq7O8Rn9mOxLm70C9158wAeAAA="
+  },
+  {
+   "url": "/images/projects/crenny-app/mockup-3.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAABwAQCdASoQAAwAA4BaJZ1/2AGIAAD+8lmZHBpL2g9mvjI6cc0oU0612HUH/kJU4EAAAA=="
+  }
+ ],
+ "border-ports-app": [
+  {
+   "url": "/images/projects/border-ports-app/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAQCdASoQAAwAA4BaJQAAX5GVOku6AAD+67zuQNubY/IKo7RW3DQT7ExIJsuc9TBX0DV1mqUg+TLLKh2bIirUXAob5XHlxwJ2Gory5OdMrgUDyANIqKZwX+XIAA=="
+  },
+  {
+   "url": "/images/projects/border-ports-app/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAQCdASoQAAwAA4BaJQAAX5JGtODusAAA/uu87T/DovSdNbX8teSG53Miw2Q1OpilqZe5QFth8jjcsmBHJd7hNH4L8TpZtj6U4wbKX3btoB4I6yIKg9X1IAA="
+  },
+  {
+   "url": "/images/projects/border-ports-app/mockup-3.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAABwAQCdASoQAAwAA4BaJZgAAtptYAD+8oU4K3nKVCIXin/hwztwsG8PY46zvUIUNvn6b6M3BBtjhpVG+PquuTNp8rydxdmHFaZmu+n/hkTAId4Ra77n5AAA"
+  }
+ ],
+ "akhdar-agri-app": [
+  {
+   "url": "/images/projects/akhdar-agri-app/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAQCdASoQAAwAA4BaJZQAAt+1ZEyQAP7uWy5pEAsu+3hXbBrFfr3vlMDys1SCaHl0k9ZiusVjECPE0pYFCiSMHljQAPAEAAA="
+  },
+  {
+   "url": "/images/projects/akhdar-agri-app/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAQCdASoQAAwAA4BaJZwAAu1er2lgAP7wjdX1Go9L5fL2D4ybhLH9OmrxlviciG1c5NmQ2r2ujOMo5MDqxOuxrowpSx0CAAA="
+  },
+  {
+   "url": "/images/projects/akhdar-agri-app/mockup-3.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAQCdASoQAAwAA4BaJYwC7ADF3BoAAP7037fqvn4WSi3C4iQt/c+vPvVS49M7I1z9GMlBk5L3iyXN7YKnp0kCcjMUAAAA"
+  }
+ ],
+ "tawseel-food-delivery": [
+  {
+   "url": "/images/projects/tawseel-food-delivery/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADwAQCdASoQAAwAA4BaJZQC7AEWYxlfx2gA/uKNpjcG7oqzAZTnASdI6iYjwEm/yZo2ix+Ce6+8PAfEYKl0+21HWvnSmeTzMEVAzVphReyQfihW+rBSaR4GPDZWxRgKNgqmrAAA"
+  },
+  {
+   "url": "/images/projects/tawseel-food-delivery/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQAAwAA4BaJYwC7AEQ+z6C12AA/u5bLmkQAqpCRKBW17f/JLO6vjxs8jdPdLvDl9ku9tRK/aX7P3FYoy9/JS1zgFezvV88AAA="
+  },
+  {
+   "url": "/images/projects/tawseel-food-delivery/mockup-3.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAADwAQCdASoQAAwAA4BaJQBdgCHt3zCPE0AA/uuxEtY9UxRp0+ZHVilts9ZNt/2nznuJTO4tEMkxPge91SnpRs+OhDUHcNOd3j6WsSFAg1agN5iV85w4rIyj/cMXUb4i6a21AySuci4QAA=="
+  }
+ ],
+ "lamasat-furniture-app": [
+  {
+   "url": "/images/projects/lamasat-furniture-app/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAABQAQCdASoQAAwAA4BaJZwABAAAAP7yBpYwP5b07A2w4dh6KbTaUrCcHY6lxE+Yil3vEvAA"
+  },
+  {
+   "url": "/images/projects/lamasat-furniture-app/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAwAA4BaJZwAAuitw3/XgAD+9gnY6w/ESNcjLsFbewZSOm58Y56uZk3KqZPztTQkNg63J3qaZeIizOzRcgAA"
+  },
+  {
+   "url": "/images/projects/lamasat-furniture-app/mockup-3.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAwAA4BaJZwAAlX9/+VUAAD+7mZSPbNRuC4cuPt+sdf3WHr6MyENDBXcCDVUuor+qXpPM3i0myY4E36mfVkH2+g++MAA"
+  }
+ ],
+ "bw-company-profile": [
+  {
+   "url": "/images/projects/bw-company-profile/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwAgCdASoQAAwAA4BaJaACdEf/gY0Xy3qBQAD+9hP9BSvxXDTTkaou660+HnWSyfK8a3q/H5Qb984BfhmjIrJAKshz0DWsKcHYWPVOprKdYtN/Uw3rqleGKDvj7DPC3M4u+VyP3EZLIwRaekrvjW1i/sQ7Fu4TvyfuYAAA"
+  },
+  {
+   "url": "/images/projects/bw-company-profile/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAABwAgCdASoQAAwAA4BaJbACdEf/gfgrZcOh2tMAAP72E/ZITG/vUoaR2Lrzs503yyKBJf5fTfRzoo6VVJmnApSPtoXUyH6T1Np3zFP4+d1ibFGrF+djKyCX2kOOWEKVvPc5hJM/ZlJEpOzOkrvjW1i/sQ7Fuc9njP3MAAAA"
+  }
+ ],
+ "solareva-brand-identity": [
+  {
+   "url": "/images/projects/solareva-brand-identity/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAQAgCdASoQAAwAA4BaJQBWACHc6yLoVL4AAOJ9df8XazCPGoSeI8Enp5ZzT8Jx79jy6jjSZvEoVESpfaDB63mlyWdQk8z0HLP/c4OrIl96sdHeZO1+Y8yPaqVwVlR0Vsav6zOY6GoejNEw6UW5gpkAAAA="
+  },
+  {
+   "url": "/images/projects/solareva-brand-identity/mockup-2.webp",
+   "width": 1600,
+   "height": 1195,
+   "blurDataUrl": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAwAgCdASoQAAwAA4BaJaQAD4cvsk+Gmh/piAD+8dzfE12lOhUhLiekydu3+TziVbGPd5yfRYGEcblm4ko9fjWhQGU6buvrPq4lIySkI3J1AlKAAAA="
+  }
+ ],
+ "cadeau-boutique-brand": [
+  {
+   "url": "/images/projects/cadeau-boutique-brand/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAQCdASoQAAwAA4BaJYwCsADpmVIsuIAA/tcAfSN7rl36T3mjIBQeiCP78SAHHt/+ZttMd9D3y4mxXCfSqom2+iPc7QT8UbT195w4fVgQCjPGJsvWPllVxO8Gr8w4mEgAAA=="
+  }
+ ],
+ "motion-showreel": [
+  {
+   "url": "/images/projects/motion-showreel/poster-1.webp",
+   "width": 1600,
+   "height": 670,
+   "blurDataUrl": "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAACQAQCdASoQAAcAA4BaJZwAAn/OVAAA/vQyyV6n/R1s3A2jXIgQAA=="
+  }
+ ],
+ "zanqa-app-promo": [
+  {
+   "url": "/images/projects/zanqa-app-promo/poster-1.webp",
+   "width": 1280,
+   "height": 720,
+   "blurDataUrl": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoQAAkAA4BaJbACdLoAAkcTOgAAx1tQjk23etn7BxI2bo0Hm8SfFCg0nsf+6jX7+Df7/e1blHXEQAAA"
+  },
+  {
+   "url": "/images/projects/zanqa-app-promo/poster-2.webp",
+   "width": 1280,
+   "height": 720,
+   "blurDataUrl": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoQAAkAA4BaJbACdACy/abVcAD+3Wphfm3PAJzQLSuWbJQfuvAO3MQafaUG+X5Pj2ELS7Y6+Oo7T+77rgH1DsrdMeGUo6PeAAA="
+  }
+ ],
+ "albroker-promo": [
+  {
+   "url": "/images/projects/albroker-promo/poster-1.webp",
+   "width": 1600,
+   "height": 900,
+   "blurDataUrl": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAQAgCdASoQAAkAA4BaJQBOgMWRpNSmtuSQAP7vVRl48Xukd+dBbkW/dHAWfaXPrjfpkFTSGKwGPxTRs+nw6qPVAL08kIpv/ln+HeQo0k8Xc8jzzMDolh15iu0LrnIE3ttVhEqTTAAAAA=="
+  }
+ ],
+ "piaget-presentation": [
+  {
+   "url": "/images/projects/piaget-presentation/poster-1.webp",
+   "width": 1600,
+   "height": 900,
+   "blurDataUrl": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAQCdASoQAAkAA4BaJZQC7ADC6qvgAP7xc5C89asvbAzLSRAMYpjKibBzevh/es1G3ZVNjt++QHL1ffKXnSF/lwAAAA=="
+  }
+ ]
+}

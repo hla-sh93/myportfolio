@@ -1,0 +1,98 @@
+[
+ {
+  "id": "e1",
+  "roleEn": "UI/UX Designer (Part-time)",
+  "roleAr": "مصممة UI/UX (دوام جزئي)",
+  "companyEn": "Adler Technologies — France (Remote)",
+  "companyAr": "Adler Technologies — فرنسا (عن بُعد)",
+  "periodEn": "May 2024 – May 2025",
+  "periodAr": "أيار 2024 – أيار 2025",
+  "descEn": "Redesigned ERP systems and mobile applications with a user-first approach using Figma; built responsive interfaces with HTML, CSS, JavaScript, and Three.js, collaborating directly with the Customer Service Manager to translate client needs into functional, intuitive UI.",
+  "descAr": "إعادة تصميم أنظمة ERP وتطبيقات موبايل بنهج يضع المستخدم أولًا باستخدام Figma، وبناء واجهات متجاوبة بـ HTML وCSS وJavaScript وThree.js، بالتعاون المباشر مع إدارة خدمة العملاء لترجمة احتياجات العملاء إلى واجهات عملية وبديهية.",
+  "order": 0
+ },
+ {
+  "id": "e2",
+  "roleEn": "Senior UI/UX Designer",
+  "roleAr": "مصممة UI/UX أولى",
+  "companyEn": "BW for Digital Marketing & Software Solutions — KSA (Remote)",
+  "companyAr": "BW للتسويق الرقمي والحلول البرمجية — السعودية (عن بُعد)",
+  "periodEn": "Nov 2020 – Present",
+  "periodAr": "تشرين الثاني 2020 – حتى الآن",
+  "descEn": "Leading a team of designers and developers, streamlining creative workflows, and delivering web and mobile interfaces that increased usability and consistency.",
+  "descAr": "قيادة فريق من المصممين والمطورين وتبسيط سير العمل الإبداعي، وتسليم واجهات ويب وموبايل رفعت قابلية الاستخدام والاتساق.",
+  "order": 1
+ },
+ {
+  "id": "e3",
+  "roleEn": "Partner & Front-End Developer",
+  "roleAr": "شريكة ومطوّرة واجهات أمامية",
+  "companyEn": "Zanqa Education Platform — Lattakia",
+  "companyAr": "منصة زنقة التعليمية — اللاذقية",
+  "periodEn": "Jul 2019 – Jan 2023",
+  "periodAr": "تموز 2019 – كانون الثاني 2023",
+  "descEn": "Designed web and mobile UI using Next.js and MUI, and contributed to strategic decisions for a platform that reached 94,000+ users and 50,000+ downloads, working with 3,000+ publishers.",
+  "descAr": "تصميم واجهات الويب والموبايل باستخدام Next.js وMUI، والمساهمة في القرارات الاستراتيجية لمنصة وصلت إلى أكثر من 94,000 مستخدم و50,000 تحميل، والعمل مع أكثر من 3,000 ناشر.",
+  "order": 2
+ },
+ {
+  "id": "e4",
+  "roleEn": "Media & Technical Officer",
+  "roleAr": "مسؤولة إعلامية وتقنية",
+  "companyEn": "Heba Platform — Lattakia",
+  "companyAr": "منصة هبة — اللاذقية",
+  "periodEn": "Dec 2018 – Jun 2020",
+  "periodAr": "كانون الأول 2018 – حزيران 2020",
+  "descEn": "Produced media content and facilitated workshops reaching 700+ users.",
+  "descAr": "إنتاج محتوى إعلامي وتيسير ورشات تدريبية وصلت إلى أكثر من 700 مستخدم.",
+  "order": 3
+ },
+ {
+  "id": "e5",
+  "roleEn": "IT Support Engineer",
+  "roleAr": "مهندسة دعم تقني",
+  "companyEn": "Tishreen University — Lattakia",
+  "companyAr": "جامعة تشرين — اللاذقية",
+  "periodEn": "Nov 2017 – Oct 2020",
+  "periodAr": "تشرين الثاني 2017 – تشرين الأول 2020",
+  "descEn": "Conducted technical training that increased staff efficiency by 25%.",
+  "descAr": "تقديم تدريبات تقنية للكوادر رفعت كفاءة العمل بنسبة 25%.",
+  "order": 4
+ },
+ {
+  "id": "e6",
+  "roleEn": "Media Director",
+  "roleAr": "مديرة إعلامية",
+  "companyEn": "Believe in Syria Campaign — JCI Syria",
+  "companyAr": "حملة Believe in Syria — JCI سوريا",
+  "periodEn": "Jan 2018 – Aug 2019",
+  "periodAr": "كانون الثاني 2018 – آب 2019",
+  "descEn": "Directed social media and campaign visuals; led print and digital media production for large-scale outreach.",
+  "descAr": "إدارة السوشال ميديا وبصريات الحملة، وقيادة إنتاج المواد الإعلامية المطبوعة والرقمية لحملة تواصل واسعة النطاق.",
+  "order": 5
+ },
+ {
+  "id": "e7",
+  "roleEn": "Graphic Designer",
+  "roleAr": "مصممة جرافيك",
+  "companyEn": "Yehia Najeeb Company — Lattakia",
+  "companyAr": "شركة يحيى نجيب — اللاذقية",
+  "periodEn": "Sep 2017 – May 2018",
+  "periodAr": "أيلول 2017 – أيار 2018",
+  "descEn": "Developed product packaging and visual content for digital campaigns, helping boost online visibility and brand presence.",
+  "descAr": "تطوير تصاميم عبوات المنتجات والمحتوى البصري للحملات الرقمية، بما عزّز الحضور الرقمي للعلامة التجارية.",
+  "order": 6
+ },
+ {
+  "id": "e8",
+  "roleEn": "UI/UX Designer & Web Designer",
+  "roleAr": "مصممة UI/UX ومصممة ويب",
+  "companyEn": "Zero One Plus Company — Lattakia",
+  "companyAr": "شركة Zero One Plus — اللاذقية",
+  "periodEn": "Aug 2016 – Jan 2019",
+  "periodAr": "آب 2016 – كانون الثاني 2019",
+  "descEn": "Created full web designs using Adobe XD, HTML, CSS, and Bootstrap; developed engaging front-end experiences for both mobile and web.",
+  "descAr": "تصميم مواقع كاملة باستخدام Adobe XD وHTML وCSS وBootstrap، وبناء تجارب واجهة أمامية جذابة للويب والموبايل.",
+  "order": 7
+ }
+]

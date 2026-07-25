@@ -1,0 +1,145 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String?
+  role      Role     @default(ADMIN)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Project {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  titleEn     String
+  titleAr     String
+  descEn      String    @db.Text
+  descAr      String    @db.Text
+  bodyEn      String?   @db.Text
+  bodyAr      String?   @db.Text
+  category    Category
+  tags        String[]
+  coverImage  String
+  blurDataUrl String?
+  client      String?
+  role        String?
+  tools       String[]
+  year        Int?
+  likeCount   Int       @default(0)
+  featured    Boolean   @default(false)
+  published   Boolean   @default(false)
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  media Media[]
+  likes Like[]
+
+  @@index([category])
+  @@index([featured])
+  @@index([published])
+  @@index([publishedAt])
+  @@map("projects")
+}
+
+model Media {
+  id        String    @id @default(cuid())
+  url       String
+  type      MediaType
+  altEn     String?
+  altAr     String?
+  order     Int       @default(0)
+  width     Int?
+  height    Int?
+  projectId String
+  project   Project   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@map("media")
+}
+
+model Article {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  titleEn     String
+  titleAr     String
+  excerptEn   String?   @db.Text
+  excerptAr   String?   @db.Text
+  bodyEn      String    @db.Text
+  bodyAr      String    @db.Text
+  coverImage  String?
+  tags        String[]
+  readTime    Int       @default(0)
+  views       Int       @default(0)
+  published   Boolean   @default(false)
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([published])
+  @@index([publishedAt])
+  @@map("articles")
+}
+
+model Like {
+  id        String   @id @default(cuid())
+  ipHash    String
+  projectId String
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([ipHash, projectId])
+  @@map("likes")
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String
+  message   String   @db.Text
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@map("contact_messages")
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+enum Category {
+  VIDEOS
+  GRAPHIC_DESIGN
+  UIUX
+  WEBSITES
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+}
+
+// Lightweight per-slug engagement counters (views + likes) for projects and
+// articles — independent of the content source (static module now, CMS later).
+model Counter {
+  id        String   @id @default(cuid())
+  type      String // "project" | "article"
+  slug      String
+  views     Int      @default(0)
+  likes     Int      @default(0)
+  updatedAt DateTime @updatedAt
+
+  @@unique([type, slug])
+  @@map("counters")
+}

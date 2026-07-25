@@ -1,0 +1,40 @@
+{
+ "motion-showreel": [
+  {
+   "url": "/videos/motion-showreel/clip-1.mp4",
+   "width": 1280,
+   "height": 536,
+   "duration": 138
+  }
+ ],
+ "zanqa-app-promo": [
+  {
+   "url": "/videos/zanqa-app-promo/clip-1.mp4",
+   "width": 1280,
+   "height": 720,
+   "duration": 60
+  },
+  {
+   "url": "/videos/zanqa-app-promo/clip-2.mp4",
+   "width": 1280,
+   "height": 720,
+   "duration": 77
+  }
+ ],
+ "albroker-promo": [
+  {
+   "url": "/videos/albroker-promo/clip-1.mp4",
+   "width": 1920,
+   "height": 1080,
+   "duration": 8
+  }
+ ],
+ "piaget-presentation": [
+  {
+   "url": "/videos/piaget-presentation/clip-1.mp4",
+   "width": 1280,
+   "height": 720,
+   "duration": 135
+  }
+ ]
+}
