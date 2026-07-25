@@ -67,7 +67,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     }),
   ],
   pages: {
-    signIn: "/login",
+    // The only sign-in screen lives under /admin; "/login" does not exist and
+    // sent failed logins to a 404.
+    signIn: "/admin/login",
   },
   session: {
     strategy: "jwt",

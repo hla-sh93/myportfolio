@@ -25,6 +25,16 @@ export default async function AdminLoginPage() {
         </div>
 
         <AdminLoginForm />
+
+        {/* The public contact address and the login address are different;
+            saying so here saves a round of failed attempts. */}
+        <p
+          className="mt-5 text-center text-xs leading-relaxed"
+          style={{ color: "var(--ad-faint)" }}
+        >
+          Sign in with your admin address — this is not the public contact
+          email shown on the site.
+        </p>
       </div>
     </div>
   );
