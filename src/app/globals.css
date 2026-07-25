@@ -771,6 +771,180 @@ html { scroll-behavior: smooth; }
   color: var(--accent);
 }
 
+/* ─── Admin Shell ───
+   The dashboard is its own visual system: denser, calmer, card-based —
+   deliberately not the public site's editorial look. Tokens are scoped to
+   .admin-shell so nothing here can leak into the portfolio. */
+.admin-shell {
+  --ad-bg: #f8f7fa;
+  --ad-card: #ffffff;
+  --ad-text: #2f2b3d;
+  --ad-muted: #6f6b7d;
+  --ad-faint: #a5a3ae;
+  --ad-border: #dbdade;
+  --ad-hover: rgba(47, 43, 61, 0.04);
+  --ad-shadow: 0 2px 6px rgba(47, 43, 61, 0.08);
+  --ad-shadow-lg: 0 4px 18px rgba(47, 43, 61, 0.12);
+  --ad-radius: 10px;
+
+  background: var(--ad-bg);
+  color: var(--ad-text);
+}
+.dark .admin-shell {
+  --ad-bg: #25293c;
+  --ad-card: #2f3349;
+  --ad-text: #cfd3ec;
+  --ad-muted: #8a90b8;
+  --ad-faint: #6b719b;
+  --ad-border: #434968;
+  --ad-hover: rgba(255, 255, 255, 0.06);
+  --ad-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  --ad-shadow-lg: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* Card — the one surface the whole dashboard is built from */
+.ad-card {
+  background: var(--ad-card);
+  border: 1px solid var(--ad-border);
+  border-radius: var(--ad-radius);
+  box-shadow: var(--ad-shadow);
+}
+
+/* Sidebar nav item */
+.ad-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.875rem;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ad-muted);
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease;
+}
+.ad-nav:hover {
+  background: var(--ad-hover);
+  color: var(--ad-text);
+}
+.ad-nav[data-active="true"] {
+  background: linear-gradient(72deg, var(--accent), var(--accent-hover));
+  color: #fff;
+  box-shadow: 0 2px 6px var(--accent-glow);
+}
+
+/* Section caption above a nav group */
+.ad-caption {
+  padding: 0 0.875rem;
+  margin: 1.25rem 0 0.375rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ad-faint);
+}
+
+/* Dense table */
+.ad-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.ad-table th {
+  padding: 0.75rem 1rem;
+  text-align: start;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ad-muted);
+  border-bottom: 1px solid var(--ad-border);
+  white-space: nowrap;
+}
+.ad-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--ad-border);
+  color: var(--ad-text);
+  vertical-align: middle;
+}
+.ad-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.ad-table tbody tr:hover {
+  background: var(--ad-hover);
+}
+
+/* Status pill */
+.ad-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.1875rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Field */
+.ad-field {
+  width: 100%;
+  background: var(--ad-card);
+  border: 1px solid var(--ad-border);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--ad-text);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.ad-field::placeholder {
+  color: var(--ad-faint);
+}
+.ad-field:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+/* Buttons */
+.ad-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+.ad-btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.ad-btn-primary:hover {
+  background: var(--accent-hover);
+}
+.ad-btn-ghost {
+  background: transparent;
+  border-color: var(--ad-border);
+  color: var(--ad-text);
+}
+.ad-btn-ghost:hover {
+  background: var(--ad-hover);
+}
+.ad-btn-danger {
+  background: transparent;
+  border-color: transparent;
+  color: #ea5455;
+}
+.ad-btn-danger:hover {
+  background: rgba(234, 84, 85, 0.1);
+}
+
 /* ─── Reduced Motion ─── */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {

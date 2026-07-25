@@ -77,7 +77,7 @@
         "title": "Video Production",
         "desc": "Cinematic video content from concept through post-production and motion graphics."
       },
-      "projectsCount": "{count} Projects",
+      "projectsCount": "{count, plural, =0 {No projects} =1 {1 project} other {# projects}}",
       "knowMore": "Know More"
     },
     "stats": {
@@ -215,7 +215,7 @@
     "search": "Search articles...",
     "tableOfContents": "Table of Contents",
     "searchPlaceholder": "Search articles…",
-    "resultsCount": "{count} articles",
+    "resultsCount": "{count, plural, =0 {No articles} =1 {1 article} other {# articles}}",
     "noResults": "No matching articles",
     "noResultsHint": "Try another keyword or category",
     "prevArticle": "Previous article",

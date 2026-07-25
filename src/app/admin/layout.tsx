@@ -1,3 +1,5 @@
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import { ToastProvider } from "@/components/ui/Toast";
 import { Poppins, JetBrains_Mono } from "next/font/google";
 import "../globals.css";
 
@@ -29,10 +31,10 @@ export default function AdminRootLayout({
 }) {
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
-      <body
-        className={`${poppins.variable} ${jetbrainsMono.variable} antialiased bg-bg-base text-text-primary`}
-      >
-        {children}
+      <body className={`${poppins.variable} ${jetbrainsMono.variable} antialiased`}>
+        <ThemeProvider>
+          <ToastProvider>{children}</ToastProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
