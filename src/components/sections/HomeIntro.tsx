@@ -44,11 +44,11 @@ export function HomeIntro({ stats }: HomeIntroProps) {
       >
         <span className="chip-label">{t("home.intro.label")}</span>
 
-        <h2 className="title-display mt-9 font-display text-[clamp(2rem,4.4vw,3.8rem)]">
+        <h1 className="title-display mt-9 font-display text-[clamp(2rem,4.4vw,3.8rem)]">
           {t("hero.greeting")} {t("hero.name")} —
           <br />
           {t("hero.titleL1")} <span>{t("hero.titleL2")}</span>
-        </h2>
+        </h1>
 
         <p className="mt-7 max-w-lg leading-relaxed text-text-secondary">
           {t("hero.description")}

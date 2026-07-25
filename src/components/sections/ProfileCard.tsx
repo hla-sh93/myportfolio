@@ -27,18 +27,9 @@ export function ProfileCard() {
 
   return (
     <aside className="card-line card-line-static relative p-7 md:p-8 xl:p-6 2xl:p-8">
-      {/* Header: wordmark + designation */}
-      <div className="mb-7 flex items-start justify-between gap-4 xl:mb-5 2xl:mb-7">
-        <span className="font-display text-3xl font-black leading-none text-text-primary">
-          {isAr ? "حلا" : "Hla"}
-          <span className="text-accent">.</span>
-        </span>
-        <span className="max-w-[130px] text-end text-xs font-medium leading-relaxed text-text-secondary">
-          {t("hero.titleL1")}
-          <br />
-          {t("hero.titleL2")}
-        </span>
-      </div>
+      {/* No header wordmark here: the navbar, the hero heading and the panel
+          below already carry the name, and a fourth repeat in one viewport
+          reads as a stutter. */}
 
       {/* Identity panel — typographic portrait window */}
       <div className="relative mb-7 overflow-hidden rounded-[22px] border border-border bg-surface xl:mb-5 2xl:mb-7">
@@ -58,11 +49,15 @@ export function ProfileCard() {
         </div>
       </div>
 
-      {/* Name + contact */}
+      {/* Name + contact. A <p>, not an <h1> — the hero heading beside it is
+          the page's only H1, and two of them confuses search engines. */}
       <div className="mb-7 text-center xl:mb-5 2xl:mb-7">
-        <h1 className="mb-3 font-display text-2xl font-bold text-text-primary">
+        <p className="mb-1 font-display text-2xl font-bold text-text-primary">
           {t("hero.name")}
-        </h1>
+        </p>
+        <p className="mb-3 text-xs font-medium leading-relaxed text-text-secondary">
+          {t("hero.title")}
+        </p>
         <a
           href="mailto:hla.shindeah@gmail.com"
           dir="ltr"
@@ -100,7 +95,7 @@ export function ProfileCard() {
       </Link>
 
       <p className="mt-5 text-center text-xs text-text-tertiary xl:mt-4">
-        &copy; {year} {t("hero.name")}
+        &copy; {year}
       </p>
     </aside>
   );
