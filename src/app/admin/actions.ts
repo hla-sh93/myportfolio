@@ -8,6 +8,7 @@
 import { auth, signOut } from "@/auth";
 import {
   deleteArticle as storeDeleteArticle,
+  deleteCertificate as storeDeleteCertificate,
   deleteExperience as storeDeleteExperience,
   deleteMessage as storeDeleteMessage,
   deleteProject as storeDeleteProject,
@@ -17,10 +18,12 @@ import {
   saveStats as storeSaveStats,
   setMessageRead,
   upsertArticle,
+  upsertCertificate,
   upsertExperience,
   upsertProject,
   type MediaItem,
   type StoredArticle,
+  type StoredCertificate,
   type StoredExperience,
   type StoredProject,
   type StoredStat,
@@ -123,7 +126,7 @@ export async function saveProjectAction(input: ProjectInput) {
 
 export async function deleteProjectAction(id: string) {
   await requireAdmin();
-  storeDeleteProject(id);
+  await storeDeleteProject(id);
   revalidateAll();
   return { ok: true };
 }
@@ -183,7 +186,7 @@ export async function saveArticleAction(input: ArticleInput) {
 
 export async function deleteArticleAction(id: string) {
   await requireAdmin();
-  storeDeleteArticle(id);
+  await storeDeleteArticle(id);
   revalidateAll();
   return { ok: true };
 }
@@ -199,7 +202,7 @@ export async function saveExperienceAction(exp: StoredExperience) {
 
 export async function deleteExperienceAction(id: string) {
   await requireAdmin();
-  storeDeleteExperience(id);
+  await storeDeleteExperience(id);
   revalidateAll();
   return { ok: true };
 }
@@ -208,7 +211,7 @@ export async function deleteExperienceAction(id: string) {
 
 export async function saveStatsAction(stats: StoredStat[]) {
   await requireAdmin();
-  storeSaveStats(
+  await storeSaveStats(
     stats.map((s) => ({ ...s, id: s.id || newId("stat"), value: Number(s.value) || 0 }))
   );
   revalidateAll();
@@ -226,7 +229,44 @@ export async function setMessageReadAction(id: string, read: boolean) {
 
 export async function deleteMessageAction(id: string) {
   await requireAdmin();
-  storeDeleteMessage(id);
+  await storeDeleteMessage(id);
   revalidatePath("/admin/messages");
+  return { ok: true };
+}
+
+/* ── certificates ─────────────────────────────────────────────────────── */
+
+export async function saveCertificateAction(input: {
+  id?: string;
+  title: string;
+  issuer: string;
+  date: string;
+  category: string;
+  url: string;
+  order: string;
+}) {
+  await requireAdmin();
+  const id = input.id || newId("cert");
+  const cert: StoredCertificate = {
+    id,
+    title: input.title.trim(),
+    issuer: input.issuer.trim() || null,
+    date: input.date.trim() || null,
+    category: input.category || "uiux",
+    url: input.url.trim(),
+    width: 1200,
+    height: 900,
+    blurDataUrl: null,
+    order: Number(input.order) || 0,
+  };
+  await upsertCertificate(cert);
+  revalidateAll();
+  return { ok: true, id };
+}
+
+export async function deleteCertificateAction(id: string) {
+  await requireAdmin();
+  await storeDeleteCertificate(id);
+  revalidateAll();
   return { ok: true };
 }
