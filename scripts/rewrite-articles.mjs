@@ -1,11 +1,8 @@
 /**
  * Rewrites article bodies in data/articles.json.
  *
- * The originals were built on visible scaffolding — "Layer 1 / Layer 2",
- * setup-and-reversal openers, triads, an em-dash before every summary — and
- * the Arabic followed the English heading for heading. These are rewritten
- * with her own projects as the evidence, and the Arabic is written in Arabic:
- * different structure, different examples where a local one reads better.
+ * Run once per batch: edit the rewrites map, run, then move to the next set.
+ * Inline code inside the template literals must escape its backticks.
  *
  * Usage: node scripts/rewrite-articles.mjs
  */
@@ -16,296 +13,320 @@ const articles = JSON.parse(fs.readFileSync(FILE, "utf8"));
 const bySlug = Object.fromEntries(articles.map((a) => [a.slug, a]));
 
 const rewrites = {
-  "ai-assisted-design-workflow-2026": {
+  "brand-identity-ai-era": {
     excerptEn:
-      "A year of running AI inside paid client work taught me where it helps and where it quietly costs you. Here is what I let it touch, and what I never do.",
+      "Anyone can generate a logo now. That did not devalue identity work — it moved the value to the part that was always harder to copy.",
     excerptAr:
-      "سنة كاملة من استخدام الذكاء الاصطناعي داخل مشاريع مدفوعة علّمتني أين يفيد وأين يكلّفك من حيث لا تشعر. هذا ما أسمح له بلمسه، وما لا أفعله أبدًا.",
-    bodyEn: `I stopped asking whether AI will replace designers about a year ago. It is not a useful question, and it is not the one clients ask. What they ask is why the second round of revisions took as long as the first.
+      "صار بإمكان أي شخص توليد شعار. وهذا لم يُفقد عمل الهوية قيمته، بل نقل القيمة إلى الجزء الذي كان دائمًا أصعب في التقليد.",
+    bodyEn: `A client came to me last year with forty generated logo options and asked which one was best. None of them were, and explaining why took the whole meeting.
 
-So here is the more practical version: which parts of my process actually got faster, and which parts got worse when I handed them over.
+They were all competent. Balanced, clean, technically fine. And every one of them could have belonged to any company in any sector, because none of them had been asked to mean anything.
 
-## Where it earned its place
+## What a mark is for
 
-Exploration. When I opened the Jadarat consulting site, I needed to see a services page in six different structures before I could tell which one matched how the company actually sells. Producing six by hand is half a day. Producing six to react to is twenty minutes, and reacting is the part I am paid for.
+A logo is not a picture of your company. It is a compression of an argument about what your company is.
 
-The same goes for the states everyone forgets. Empty states, error states, the screen a user sees when their filter returns nothing. I now ask for those first, before the happy path, because that is when a flow's holes show up.
+SolaReva is a Dubai solar-energy company whose promise is boundless impact. The mark brings together a bulb, leaves and a lightning bolt — energy, environment, and the moment they meet. That combination is not aesthetically superior to forty generated alternatives. It is right because it argues for something, and you can defend it in a room.
 
-And placeholder copy, as long as everyone knows it is placeholder. Lorem ipsum lies about length. Rough real-sounding text tells you immediately that your card is too short for an Arabic product name.
+Generated marks cannot be defended, because there is no reasoning underneath. There is only output.
 
-## Where it cost me
+## Where identity actually lives now
 
-Three places, all of them expensive.
+Not in the logo file. In the system around it.
 
-The first is anything to do with brand. I let a generated mark into a moodboard once, early on, and spent the next meeting explaining to a client why we could not use something that looked so finished. Logos, colours and voice come from the brand, not from a prompt.
+The palette and what each colour is allowed to do. The type pairing and how it behaves in two languages. The photography direction. The tone of voice. What is forbidden — the section clients skip and that saves more consistency than everything else combined.
 
-The second is Arabic. Generated Arabic layouts are consistently wrong in the same ways — line height too tight, letterforms broken by the wrong font stack, and text that reads like it was written in English first. I have written elsewhere about what RTL actually requires; the short version is that you cannot check this by eye if you do not read Arabic.
+That system is what keeps a brand recognisable when a marketing manager leaves and a new agency arrives. A logo alone survives about a year of that.
 
-The third is the thing that nearly caught me. Generated screens are internally consistent and confidently wrong. They look resolved, so you stop interrogating them. On a delivery app I was designing, I nearly shipped a checkout that quietly assumed one address per account, because the draft looked so settled that nobody questioned the assumption underneath it.
+## Test it where it will actually live
 
-## The rule I work by now
+A mark on a white artboard has not been tested.
 
-AI produces material. It does not produce decisions.
+I apply every identity to something physical or environmental before signing it off. For SolaReva, van livery, storefront signage, and the website hero. For Cadeau Boutique in Riyadh, bilingual business cards, letterhead, and hang tags in kraft, white and marble — three substrates that each took the gold differently, and only one of them behaved the way the screen predicted.
 
-Information hierarchy, flow logic, what happens on failure, whether a screen is honest about what it is asking — none of that comes out of a prompt, because none of it is a formatting problem. It is judgement about a specific product and a specific user, and judgement is the whole job.
+You learn things about a logo the first time it has to survive being wrapped around a vehicle that you will never learn from a presentation deck.
 
-The designers I see struggling with this are not the ones refusing to use the tools. They are the ones who let the tools decide, then discover in usability testing that nobody could find the button.`,
-    bodyAr: `توقّفت قبل نحو سنة عن السؤال إن كان الذكاء الاصطناعي سيحلّ محل المصممين. ليس سؤالًا مفيدًا، وليس السؤال الذي يطرحه العميل أصلًا. العميل يسأل لماذا استغرقت الجولة الثانية من التعديلات وقت الأولى نفسه.
+## Where I do use the tools
 
-والصيغة العملية للسؤال: أي أجزاء من عملي صارت أسرع فعلًا، وأيها ساءت حين سلّمتها للأداة.
+Exploration, early, privately. Moodboards, colour studies, sense-checking a direction I am unsure about.
 
-## أين استحقّ مكانه
+What I do not do is let generated work into a client meeting, because a finished-looking artefact ends the conversation about meaning before it starts. And I never let a generated mark near a brand — the logo is the one thing that has to be genuinely, defensibly yours.`,
+    bodyAr: `جاءني عميل العام الماضي بأربعين خيار شعار مولَّدًا وسألني أيها أفضل. لم يكن أيٌّ منها أفضل، وشرح السبب استغرق الاجتماع كله.
 
-الاستكشاف. حين بدأت موقع جدارات للاستشارات، احتجت أن أرى صفحة الخدمات بستّ بِنى مختلفة قبل أن أعرف أيها يشبه طريقة الشركة في البيع فعلًا. إنتاج ستّ بنى يدويًا نصف يوم عمل. إنتاج ستّ لأتفاعل معها عشرون دقيقة، والتفاعل هو ما أتقاضى أجري عليه.
+كانت كلها متقنة: متوازنة، ونظيفة، وسليمة تقنيًا. وكل واحد منها كان يصلح لأي شركة في أي قطاع، لأن أحدًا لم يطلب من أيٍّ منها أن يعني شيئًا.
 
-وكذلك الحالات التي ينساها الجميع: الشاشة الفارغة، وشاشة الخطأ، والشاشة التي يراها المستخدم حين لا يعيد فلتره أي نتيجة. صرت أطلبها أولًا قبل المسار المثالي، لأن ثغرات التدفّق تظهر عندها تحديدًا.
+## ما الغرض من العلامة
 
-والنصوص المؤقتة كذلك، ما دام الجميع يعرف أنها مؤقتة. نصّ «لوريم إيبسوم» يكذب عليك في الطول. أما نصّ خام يشبه الحقيقي فيخبرك فورًا أن بطاقتك أضيق من أن تحمل اسم منتج عربي.
+الشعار ليس صورة لشركتك، بل ضغطٌ لحجّة عمّا تكونه شركتك.
 
-## وأين كلّفني
+سولاريفا شركة طاقة شمسية في دبي، ووعدها أثر بلا حدود. تجمع علامتها المصباح والأوراق والبرق: الطاقة، والبيئة، ولحظة التقائهما. وهذا التركيب ليس متفوّقًا جماليًا على أربعين بديلًا مولَّدًا، لكنه صحيح لأنه يحاجّ عن شيء، ولأنك تستطيع الدفاع عنه في غرفة اجتماع.
 
-ثلاثة مواضع، وكلها باهظة.
+أما العلامات المولَّدة فلا يمكن الدفاع عنها، لأن لا منطق تحتها. هناك مُخرَج فقط.
 
-الأول كل ما يخصّ الهوية. أدخلت مرة، في البداية، شعارًا مولّدًا إلى لوحة إلهام، وقضيت الاجتماع التالي أشرح للعميل لماذا لا يمكننا استخدام شيء يبدو مكتملًا إلى هذا الحد. الشعار واللون والصوت تأتي من العلامة، لا من أمر نصّي.
+## وأين تسكن الهوية اليوم
 
-والثاني العربية. التخطيطات العربية المولّدة تخطئ الأخطاء نفسها دائمًا: تباعد أسطر خانق، وحروف تتكسّر لأن الخط المختار لا يدعمها، ونصّ يُقرأ وكأنه كُتب بالإنجليزية أولًا. وقد كتبت في مكان آخر عمّا يتطلبه RTL فعلًا، والخلاصة أنك لا تستطيع الحكم على هذا بعينك إن كنت لا تقرأ العربية.
+ليس في ملف الشعار، بل في النظام المحيط به.
 
-والثالث هو ما كاد يوقعني. الشاشات المولّدة متّسقة داخليًا وخاطئة بثقة. تبدو محسومة، فتتوقف عن مساءلتها. في تطبيق توصيل كنت أصمّمه، كدت أُسلّم مسار دفع يفترض ضمنًا عنوانًا واحدًا لكل حساب، لأن المسودة بدت مستقرة إلى حدّ أن أحدًا لم يسأل عن الافتراض تحتها.
+اللوحة اللونية وما يُسمح لكل لون بفعله. وثنائي الخطوط وكيف يتصرّف بلغتين. واتجاه التصوير. ونبرة الصوت. وما هو ممنوع — وهو القسم الذي يتجاوزه العملاء، ويحمي من الاتساق أكثر مما تحميه بقية الأقسام مجتمعة.
 
-## القاعدة التي أعمل بها الآن
+هذا النظام هو ما يُبقي العلامة معروفة حين يرحل مدير التسويق وتصل وكالة جديدة. أما الشعار وحده فينجو من ذلك سنة تقريبًا.
 
-الذكاء الاصطناعي ينتج مادة. ولا ينتج قرارات.
+## واختبرها حيث ستعيش فعلًا
 
-التسلسل البصري، ومنطق التدفّق، وما يحدث عند الفشل، وهل الشاشة صادقة فيما تطلبه — لا شيء من هذا يخرج من أمر نصّي، لأن لا شيء منه مسألة تنسيق. كلها أحكام تخصّ منتجًا بعينه ومستخدمًا بعينه، والحكم هو المهنة كلها.
+العلامة على خلفية بيضاء لم تُختبر بعد.
 
-والمصممون الذين أراهم يتعثّرون هنا ليسوا من يرفضون الأدوات، بل من تركوا الأداة تقرّر، ثم اكتشفوا في اختبار الاستخدام أن أحدًا لم يجد الزر.`,
+أطبّق كل هوية على شيء ملموس أو بيئي قبل اعتمادها. مع سولاريفا كان ذلك تغليف السيارات ولوحة الواجهة وواجهة الموقع. ومع كادو بوتيك في الرياض بطاقات ثنائية اللغة وأوراقًا رسمية وبطاقات تعليق بالكرافت والأبيض والرخام: ثلاث خامات أخذت الذهبي كلٌّ بطريقتها، وواحدة فقط تصرّفت كما توقّعت الشاشة.
+
+وتتعلّم عن الشعار في أول مرة يُلَفّ فيها حول سيارة ما لن تتعلّمه من أي عرض تقديمي.
+
+## وأين أستخدم الأدوات فعلًا
+
+في الاستكشاف، مبكرًا، وبيني وبين نفسي: لوحات الإلهام، ودراسات اللون، واختبار اتجاه لست واثقة منه.
+
+وما لا أفعله هو إدخال عمل مولَّد إلى اجتماع مع عميل، لأن قطعة تبدو مكتملة تُنهي النقاش حول المعنى قبل أن يبدأ. ولا أدع علامة مولَّدة تقترب من هوية أبدًا — فالشعار هو الشيء الوحيد الذي يجب أن يكون لك حقًّا، وبما يمكن الدفاع عنه.`,
   },
 
-  "arabic-rtl-ux-design-guide": {
+  "ui-designer-to-product-designer": {
     excerptEn:
-      "Mirroring an English layout is not Arabic design. After seven years building Arabic-first products, these are the decisions that actually decide whether it works.",
+      "The shift is not learning more tools. It is being able to answer what happens to the business if this screen works, and noticing when the answer is nothing.",
     excerptAr:
-      "عكس التخطيط الإنجليزي ليس تصميمًا عربيًا. بعد سبع سنوات في بناء منتجات عربية أولًا، هذه هي القرارات التي تحسم فعلًا نجاح الواجهة.",
-    bodyEn: `Most Arabic interfaces I am asked to fix were designed in English and flipped. The flip is the easy part. What breaks is everything the flip does not touch.
+      "التحوّل ليس تعلّم أدوات أكثر، بل القدرة على الإجابة عمّا يحدث للعمل إن نجحت هذه الشاشة، وملاحظة الحالات التي تكون فيها الإجابة: لا شيء.",
+    bodyEn: `For my first few years I judged my work by whether it looked right. That is a real skill and it is not the job.
 
-## The font decision comes first, not last
+The change came on Zanqa, where I was a partner rather than a hired designer. When you are in the room for the strategy conversation, you stop being handed screens to make and start being handed problems to solve — and you discover that some of the screens you were about to design should not exist.
 
-Choosing an Arabic typeface is not a styling step you do at the end. It determines your line height, your minimum tap target, how much text fits in a card, and whether your headings hold together at all.
+## Start from the outcome
 
-Arabic letterforms connect, and they sit taller and lower than Latin ones. A line height that looks generous in English will feel cramped the moment you switch. I default to 1.8 for Arabic body text and I have never regretted it.
+A UI brief says: design a checkout. A product brief asks: why do people abandon at this step, and what would we have to change for them not to?
 
-Then there is the trap: letter-spacing. Tracking that tightens a Latin heading nicely will break the joins between Arabic letters. \`tracking-tight\` has no business in an Arabic layout. I reset it explicitly rather than trusting myself to remember.
+Sometimes the answer is a screen. Often it is a policy — a delivery fee shown too late, a required field nobody has, a payment method the market actually uses that you do not support. On a delivery app, no amount of visual polish fixes an address form that assumes one address per account.
 
-## What mirrors and what does not
+The designer who can name that is doing product work. The one who redesigns the button is doing decoration on top of a broken decision.
 
-Layout mirrors. Navigation, sidebars, progress, the direction a card slides in — all of it.
+## Learn to read the numbers
 
-Numbers do not. Phone numbers, prices, dates, version numbers, code — these stay left-to-right inside a right-to-left sentence, and if you let the browser guess it will sometimes guess wrong. I mark them explicitly. On the Crenny roadside app, prices in Iraqi dinars sat inside Arabic sentences on nearly every screen, and every one of them needed that treatment.
+You do not need to be an analyst. You need to know what your product's success actually is and where you would see it move.
 
-Icons mostly do not mirror either. An arrow does. A clock does not. A shopping cart does not. The test is whether the icon depicts direction or depicts an object.
+Zanqa reached 94,000 users, 50,000 downloads and 3,000 publishers, and those numbers were not vanity — they told us which parts of the product were working and which were being abandoned. Designing without ever seeing that is designing with your eyes closed, no matter how good the screens look.
 
-## Build it in Arabic, then port it
+Ask for access. Most teams will give it to you and are quietly relieved that a designer asked.
 
-This is the one that changes outcomes.
+## Say no with a reason
 
-If you design in English and translate, the layout is sized for English. Arabic runs longer for the same meaning — often twenty to thirty per cent — and you find out at the worst moment, when the client is reading the deck and a button label has wrapped to two lines.
+The most useful sentence I learned is a version of: we can build that, and here is what it will cost us elsewhere.
 
-On the Turki meat store I laid out all twenty-eight screens in Arabic first and derived the English afterwards. Nothing wrapped unexpectedly, because the tightest case was the one I designed against.
+Not refusal. Trade-off. Every feature costs complexity, and a product designer's real contribution is often the thing that did not get built, because the version that shipped stayed comprehensible.
 
-## Use logical properties
+## Constraints are the job
 
-\`margin-left\` is a bug waiting for a language change. \`margin-inline-start\` is the same instruction that survives it.
+Budget, timeline, the team you have, the market you are in, the language the product is read in — these are not obstacles to good design. They are the shape of the problem.
 
-Modern CSS gives you the whole set — inline-start, inline-end, padding-inline, border-inline — and once you switch, a single \`dir="rtl"\` on the html element flips your entire layout correctly with no duplicated stylesheet. I have not written a directional margin in two years.
+I have worked with clients in Syria, Saudi Arabia, Iraq, Dubai, Germany and France, and the same feature is a different design in each of them. Payment habits differ. Trust signals differ. Whether the interface reads right-to-left changes the layout before you draw a single box.
 
-## The part no tooling catches
+Designing without those constraints is not freedom. It is designing for nobody.`,
+    bodyAr: `في سنواتي الأولى كنت أحكم على عملي بمقياس واحد: هل يبدو صحيحًا. وتلك مهارة حقيقية، لكنها ليست المهنة.
 
-Arabic is not one register. The tone that suits a Gulf e-commerce brand is not the tone for a Syrian education platform, and neither is the tone for a logistics company at Lattakia Port. Translation software will give you a grammatically correct sentence in the wrong voice every time.
+جاء التحوّل في زنقة، حيث كنت شريكة لا مصمّمة مستأجَرة. حين تكون داخل غرفة النقاش الاستراتيجي، تكفّ عن تسلّم شاشات لترسمها وتبدأ بتسلّم مشكلات لتحلّها — وتكتشف أن بعض الشاشات التي كنت ستصمّمها لا ينبغي أن توجد أصلًا.
 
-That judgement has to come from someone who reads the language. It is the same reason I do not accept generated Arabic copy without rewriting it.`,
-    bodyAr: `معظم الواجهات العربية التي يُطلب مني إصلاحها صُمّمت بالإنجليزية ثم عُكست. العكس هو الجزء السهل، والذي ينكسر هو كل ما لا يطاله العكس.
+## ابدأ من النتيجة
 
-## قرار الخط أولًا لا أخيرًا
+بريف الواجهة يقول: صمّم مسار دفع. أما بريف المنتج فيسأل: لماذا يتخلّى الناس عند هذه الخطوة، وما الذي يجب تغييره كي لا يفعلوا؟
 
-اختيار خط عربي ليس خطوة تجميل في النهاية. هو ما يحدّد ارتفاع السطر، وأصغر مساحة لمس، وكم نصًّا تتّسع له البطاقة، وهل تتماسك عناوينك أصلًا.
+الإجابة أحيانًا شاشة. وغالبًا سياسة: رسوم توصيل تظهر متأخرة، أو حقل إلزامي لا يملكه أحد، أو وسيلة دفع يستخدمها السوق فعلًا ولا تدعمها أنت. في تطبيق توصيل، لا يصلح أي تلميع بصري نموذج عنوان يفترض عنوانًا واحدًا لكل حساب.
 
-الحرف العربي متّصل، ويمتدّ أعلى وأسفل من اللاتيني. وارتفاع سطر يبدو مريحًا بالإنجليزية سيبدو خانقًا لحظة التبديل. أعتمد 1.8 لنصّ المتن العربي ولم أندم على ذلك.
+والمصمّم القادر على تسمية ذلك يمارس عمل المنتج. أما من يعيد تصميم الزر فيزخرف فوق قرار معطوب.
 
-ثم يأتي الفخّ: تباعد الأحرف. التضييق الذي يحسّن عنوانًا لاتينيًا يكسر وصلات الحروف العربية. لا مكان لـ\`tracking-tight\` في تخطيط عربي، وأنا أُعيد ضبطه صراحةً بدل أن أعتمد على ذاكرتي.
+## وتعلّم قراءة الأرقام
 
-## ما ينعكس وما لا ينعكس
+لست مضطرًا لتصبح محلّلًا، لكنك مضطر لمعرفة ما هو نجاح منتجك فعلًا، وأين سترى أثره يتحرّك.
 
-التخطيط ينعكس: القوائم، والأشرطة الجانبية، وأشرطة التقدّم، والاتجاه الذي تدخل منه البطاقة.
+وصلت زنقة إلى 94,000 مستخدم و50,000 تحميل و3,000 ناشر، ولم تكن هذه أرقام تباهٍ: كانت تخبرنا أي أجزاء المنتج تعمل وأيها يُهجَر. والتصميم من دون رؤية ذلك تصميمٌ بعينين مغمضتين، مهما بدت الشاشات جميلة.
 
-الأرقام لا تنعكس. أرقام الهواتف والأسعار والتواريخ وأرقام الإصدارات والشيفرة تبقى من اليسار إلى اليمين داخل جملة عربية، وإن تركت المتصفح يخمّن فسيخطئ أحيانًا. أنا أحدّدها صراحةً. في تطبيق كريني للمساعدة على الطريق كانت الأسعار بالدينار العراقي داخل جمل عربية في كل شاشة تقريبًا، وكلها احتاجت هذه المعالجة.
+اطلب الوصول إلى الأرقام. معظم الفرق ستعطيك إياه، وترتاح سرًّا لأن مصمّمًا سأل.
 
-والأيقونات في معظمها لا تنعكس. السهم ينعكس. الساعة لا. عربة التسوّق لا. والمعيار: هل تصوّر الأيقونة اتجاهًا أم تصوّر شيئًا.
+## وقُل «لا» ومعها سبب
 
-## ابنِ بالعربية ثم اشتقّ الإنجليزية
+أنفع جملة تعلّمتها صيغة من: نستطيع بناء ذلك، وهذا ما سيكلّفنا في مكان آخر.
 
-هذه هي النقطة التي تغيّر النتيجة فعلًا.
+ليست رفضًا، بل مفاضلة. فكل ميزة تكلّف تعقيدًا، وإسهام مصمّم المنتج الحقيقي هو غالبًا الشيء الذي لم يُبنَ، لأن النسخة التي أُطلقت بقيت مفهومة.
 
-إن صمّمت بالإنجليزية ثم ترجمت، فالتخطيط مقاس على الإنجليزية. والعربية أطول للمعنى نفسه، بنسبة عشرين إلى ثلاثين بالمئة غالبًا، وتكتشف ذلك في أسوأ لحظة: حين يقرأ العميل العرض ويكون نصّ الزر قد نزل إلى سطرين.
+## والقيود هي المهنة
 
-في متجر تركي للحوم رسمت الشاشات الثماني والعشرين بالعربية أولًا واشتققت الإنجليزية بعدها. لم ينكسر شيء، لأن الحالة الأضيق هي التي صمّمت عليها.
+الميزانية، والوقت، والفريق المتاح، والسوق، واللغة التي يُقرأ بها المنتج — ليست عوائق أمام التصميم الجيد، بل هي شكل المشكلة نفسها.
 
-## استخدم الخصائص المنطقية
+عملت مع عملاء في سوريا والسعودية والعراق ودبي وألمانيا وفرنسا، والميزة نفسها تصميمٌ مختلف في كل منها. عادات الدفع تختلف. وإشارات الثقة تختلف. وكون الواجهة تُقرأ من اليمين إلى اليسار يغيّر التخطيط قبل أن ترسم أول مستطيل.
 
-\`margin-left\` عطل ينتظر تغيير اللغة. أما \`margin-inline-start\` فالتعليمة نفسها لكنها تنجو منه.
-
-توفّر لك CSS الحديثة المجموعة كاملة، وحين تنتقل إليها يكفي \`dir="rtl"\` واحد على عنصر html ليُقلب تخطيطك كله بشكل صحيح بلا ملف أنماط مكرّر. لم أكتب هامشًا اتجاهيًا منذ سنتين.
-
-## وما لا تلتقطه أي أداة
-
-العربية ليست مستوى لغويًا واحدًا. النبرة التي تناسب متجرًا خليجيًا ليست نبرة منصة تعليمية سورية، ولا نبرة شركة شحن في مرفأ اللاذقية. وبرامج الترجمة ستعطيك جملة سليمة نحويًا بالنبرة الخاطئة في كل مرة.
-
-هذا الحكم لا يصدر إلا عمّن يقرأ اللغة. وللسبب نفسه لا أقبل نصًّا عربيًا مولَّدًا من دون إعادة كتابته.`,
+والتصميم بلا هذه القيود ليس حرية، بل تصميم لا أحد.`,
   },
 
-  "design-engineering-handoff-is-dead": {
+  "ux-research-on-a-budget": {
     excerptEn:
-      "The handoff meeting was always a symptom. When the person who designs the screen also builds it, a whole category of argument disappears.",
+      "You do not need a lab or a research budget. Five people and a prepared question will tell you more than another week of internal debate.",
     excerptAr:
-      "اجتماع التسليم كان دائمًا عَرَضًا لا مرضًا. حين يبني الشاشةَ من صمّمها، يختفي صنف كامل من الجدال.",
-    bodyEn: `I have been on both sides of the handoff. I have prepared the file with every state annotated, and I have received one and discovered on day two that the spacing scale was decorative.
+      "لست بحاجة إلى مختبر ولا ميزانية بحث. خمسة أشخاص وسؤال محضّر جيدًا سيخبرونك أكثر من أسبوع آخر من الجدال الداخلي.",
+    bodyEn: `Most of the clients I work with have no research budget, and several have never watched anyone use their product. That is not a reason to design on assumption. It is a reason to make research small enough to actually happen.
 
-The thing nobody says out loud is that the handoff is where intent goes to die. Not through anyone's fault. It dies because a static file cannot express a decision, only its result.
+## Five people, one task
 
-## What actually gets lost
+You do not need statistical significance to learn that nobody can find the button. The serious usability problems show up in the first few sessions, and the fifth person rarely tells you something the first four did not.
 
-A spec says the card has 24px of padding. It does not say that 24 was chosen because at 16 the Arabic product names collided with the price, and the number is therefore not negotiable.
+So: five people, one realistic task, twenty minutes each. Not "what do you think of this?" — that invites politeness. A task: order a kilo of lamb and have it delivered to your home. Then stop talking and watch where they hesitate.
 
-So a developer with a good reason of their own changes it to 16, the designer sees it in staging, and the two of them have a conversation that is really about a decision neither wrote down.
+The hesitation is the finding. What they say afterwards is a rationalisation of it.
 
-Multiply that by every value in a system.
+## Ask about the last time, not the next time
 
-## Closing the gap
+"Would you use this?" produces useless answers. People are kind, and they are bad at predicting themselves.
 
-I started writing front-end properly during Zanqa, where I was the designer and one of the developers at the same time. What I noticed was not that I worked faster. It was that a whole category of argument stopped happening.
+"Tell me about the last time you ordered food delivery — what did you use, what annoyed you?" produces a real answer, because it is a memory rather than a forecast. Five of those conversations will tell you more about a market than a survey with two hundred responses.
 
-When I own the component, the reason lives in the component. If a token cannot go below a certain value, that is expressed in the token, not in a comment on a Figma frame that nobody opens after week one.
+## Use what the product already knows
 
-## You do not have to become an engineer
+If anything is analytics-instrumented, you already have research nobody has read.
 
-This is where designers get scared off, so let me be exact about the bar.
+On this site, page and content views are aggregated daily, and the pattern is more honest than my instincts about which projects matter. Where people leave, what they never open, which article gets read to the end — that is free evidence sitting in a table.
 
-You need enough React to read a component and see where your design lives. Enough CSS to know why your layout broke — and modern CSS makes this much easier than it was, because grid and logical properties map closely to how designers already think. Enough TypeScript to understand why a prop is required. Enough git to open a branch without fear.
+## Test the thing you are unsure about
 
-That is a few months of deliberate practice, not a career change. And it changes what you can promise a client, because you stop saying "the developer will implement it" and start saying "this is what it does."
+Not the whole product. The one decision you and the client disagree about.
 
-## What it does not fix
+Two versions of a card, one question: which of these tells you the price. That takes ten minutes with a colleague and settles an argument that could otherwise absorb a week.
 
-Design engineering does not remove the need for research, and it does not make you right. I have shipped things I built myself that users could not use.
+## Test in the language people will use
 
-What it removes is the translation layer — the gap where a good decision becomes an approximate one because it had to survive being written down, read by someone else, and rebuilt from scratch.
+This one gets skipped constantly, and it invalidates everything.
 
-That gap was always the expensive part.`,
-    bodyAr: `عملت على طرفَي التسليم. أعددت ملفًا موثّقة فيه كل حالة، واستلمت ملفًا واكتشفت في اليوم الثاني أن سلّم المسافات فيه كان زينة لا نظامًا.
+An Arabic interface tested with English content is not tested. Arabic text runs longer, the layout is mirrored, and the reading path is different — so the participant is navigating a product that does not exist. If the product ships in Arabic, the test runs in Arabic, with real Arabic content and a participant who reads it natively.
 
-وما لا يقوله أحد بصوت عالٍ أن التسليم هو المكان الذي يموت فيه القصد. لا بخطأ أحد، بل لأن ملفًا ثابتًا لا يستطيع التعبير عن قرار، بل عن نتيجته فقط.
+## Write down what you will do about it
 
-## ما الذي يضيع بالضبط
+A finding nobody acts on is entertainment. One page: what you saw, how many people it happened to, what you changed. That is the whole report, and clients read it because it is short enough to.`,
+    bodyAr: `معظم العملاء الذين أعمل معهم بلا ميزانية بحث، وكثير منهم لم يشاهد أحدًا يستخدم منتجه قطّ. وهذا ليس سببًا للتصميم على الافتراض، بل سبب لجعل البحث صغيرًا بما يكفي ليحدث فعلًا.
 
-يقول المستند إن حشوة البطاقة 24 بكسل. ولا يقول إن الرقم اختير لأن أسماء المنتجات العربية كانت تصطدم بالسعر عند 16، وإنه لذلك غير قابل للتفاوض.
+## خمسة أشخاص، ومهمة واحدة
 
-فيغيّره مطوّر لديه سببه الوجيه إلى 16، ويراه المصمم على بيئة الاختبار، ويدور بينهما نقاش هو في حقيقته عن قرار لم يدوّنه أحد.
+لا تحتاج دلالة إحصائية لتعرف أن أحدًا لا يجد الزر. المشكلات الجدّية في سهولة الاستخدام تظهر في الجلسات الأولى، ونادرًا ما يخبرك الخامس بشيء لم يخبرك به الأربعة قبله.
 
-ثم اضرب ذلك بعدد القيم في النظام كله.
+إذن: خمسة أشخاص، ومهمة واقعية واحدة، وعشرون دقيقة لكل منهم. لا تسأل «ما رأيك بهذا؟» فذلك يستدعي المجاملة. بل كلّفه بمهمة: اطلب كيلو لحم غنم ليصلك إلى المنزل. ثم اصمت وراقب أين يتردّد.
 
-## سدّ الفجوة
+التردّد هو النتيجة. أما ما يقوله بعدها فتبرير له.
 
-بدأت أكتب واجهات أمامية بجدّية في زنقة، حيث كنت المصمّمة وأحد المطوّرين في آن. وما لاحظته لم يكن أنني أنجزت أسرع، بل أن صنفًا كاملًا من الجدال توقّف عن الحدوث.
+## واسأل عن المرة الماضية لا عن المرة القادمة
 
-حين أملك المكوّن، يسكن السبب داخل المكوّن. وإن كان لا يجوز لقيمة أن تنزل تحت حدّ معيّن، فهذا يُعبَّر عنه في التوكن نفسه، لا في تعليق على إطار في فيغما لا يفتحه أحد بعد الأسبوع الأول.
+سؤال «هل ستستخدم هذا؟» يعطي إجابات بلا قيمة. الناس لطفاء، وهم سيّئون في التنبؤ بأنفسهم.
 
-## ولستِ مضطرة لتصبحي مهندسة
+أما «حدّثني عن آخر مرة طلبت فيها طعامًا: ما التطبيق الذي استخدمته، وما الذي أزعجك؟» فيعطي إجابة حقيقية، لأنها ذاكرة لا توقّع. وخمس محادثات كهذه تخبرك عن السوق أكثر من استبيان بمئتَي إجابة.
 
-هنا يتراجع كثير من المصممين، فدعوني أحدّد السقف بدقة.
+## واستخدم ما يعرفه المنتج أصلًا
 
-تحتاجين من React ما يكفي لقراءة مكوّن ومعرفة أين يسكن تصميمك فيه. ومن CSS ما يكفي لتعرفي لماذا انكسر تخطيطك — وCSS الحديثة سهّلت هذا كثيرًا، لأن الشبكة والخصائص المنطقية قريبة أصلًا من طريقة تفكير المصمّم. ومن TypeScript ما يكفي لفهم سبب كون خاصية إلزامية. ومن git ما يكفي لفتح فرع بلا خوف.
+إن كان أي جزء موصولًا بتحليلات، فعندك بحث لم يقرأه أحد.
 
-هذه أشهر قليلة من التمرين المقصود، لا تغيير مسار مهني. وهي تغيّر ما يمكنك وعد العميل به، لأنك تكفّين عن قول «المطوّر سينفّذها» وتبدئين بقول «هذا ما تفعله».
+في هذا الموقع تُجمَّع مشاهدات الصفحات والمحتوى يوميًا، والنمط الظاهر أصدق من حدسي حول أي المشاريع تهمّ. أين يغادر الناس، وما الذي لا يفتحونه أبدًا، وأي مقال يُقرأ حتى نهايته — كلها أدلة مجانية جالسة في جدول.
 
-## وما لا تحلّه
+## واختبر ما أنت غير متأكد منه
 
-هندسة التصميم لا تلغي الحاجة إلى البحث، ولا تجعلك على صواب. أنا نفسي أطلقت أشياء بنيتها بيدي وعجز المستخدمون عن استخدامها.
+لا المنتج كله، بل القرار الوحيد الذي تختلف فيه مع العميل.
 
-ما تلغيه هو طبقة الترجمة: تلك الفجوة التي يتحوّل فيها قرار جيّد إلى قرار تقريبي، لأنه اضطُرّ أن ينجو من التدوين، ثم من قراءة شخص آخر له، ثم من إعادة بنائه من الصفر.
+نسختان من بطاقة، وسؤال واحد: أي منهما يخبرك بالسعر. عشر دقائق مع زميل تحسم جدالًا كان سيلتهم أسبوعًا.
 
-تلك الفجوة كانت دائمًا الجزء الباهظ.`,
+## واختبر باللغة التي سيستخدمها الناس
+
+تُتجاوَز هذه القاعدة باستمرار، وتجاوزها يُبطل كل شيء.
+
+الواجهة العربية المختبَرة بمحتوى إنجليزي غير مختبَرة. النص العربي أطول، والتخطيط معكوس، ومسار القراءة مختلف — فالمشارك يتنقّل في منتج غير موجود. وإن كان المنتج سيصدر بالعربية، فليجرِ الاختبار بالعربية، بمحتوى عربي حقيقي، ومع مشارك يقرأها بطلاقة.
+
+## واكتب ما ستفعله بالنتيجة
+
+النتيجة التي لا يتصرّف أحد بناءً عليها تسلية. صفحة واحدة: ما الذي رأيته، وكم شخصًا حدث معه، وما الذي غيّرته. هذا هو التقرير كله، والعملاء يقرؤونه لأنه قصير بما يكفي.`,
   },
 
-  "brand-board-process-brief-to-delivery": {
+  "designing-ai-native-product-experiences": {
     excerptEn:
-      "Most identity projects go wrong in the first meeting, not the design phase. This is the process I use to make sure the brief is real before I draw anything.",
+      "When a product can be confidently wrong, the interface's main job stops being efficiency. It becomes showing the user how much to trust what they are reading.",
     excerptAr:
-      "معظم مشاريع الهوية تنحرف في الاجتماع الأول لا في مرحلة التصميم. هذه المنهجية التي أستخدمها للتأكد من أن البريف حقيقي قبل أن أرسم شيئًا.",
-    bodyEn: `A client once told me they wanted something "modern and trustworthy". I asked which of their competitors looked trustworthy to them. They named one I would have called dated, and one I would have called cold — and that single answer reshaped the whole project.
+      "حين يصير بإمكان المنتج أن يخطئ بثقة، تتوقّف الوظيفة الأولى للواجهة عن كونها الكفاءة، وتصير إظهار مقدار الثقة الواجبة فيما يقرأه المستخدم.",
+    bodyEn: `Designing an interface on top of a model is different from designing one on top of a database, and the difference is not technical. A database is either right or unavailable. A model can be wrong while sounding completely certain.
 
-That is why my process front-loads the conversation. The design part is fast when the brief is real.
+Everything else follows from that.
 
-## The brief is a set of constraints, not adjectives
+## Confidence is a design element
 
-Adjectives are where projects go to be misunderstood. "Modern" means eight different things to eight people. So I convert them.
+If the system is unsure, the interface has to say so — and not in fine print at the bottom.
 
-Who buys from you, and what are they nervous about? Which competitor do you not want to resemble? Where will this actually appear — is it a shopfront, a delivery van, a phone screen, a printed invoice? Does it have to work in Arabic and English, and which one leads?
+A result presented identically whether it is near-certain or a guess teaches the user to trust everything or nothing. Both are failures. Ranked answers, visible uncertainty, and a clear difference between "here is the answer" and "here is my best attempt" are what let someone calibrate.
 
-That last question changes everything, and it is the one most briefs skip. An identity built Latin-first and then given an Arabic version is usually two identities pretending to be one.
+This is the same problem as a form that does not distinguish between required and optional fields, except the cost of getting it wrong is higher.
 
-## Directions, not options
+## Show the source
 
-I present three directions, and I say plainly which one I would choose and why.
+The single strongest trust signal is being able to check.
 
-Presenting three neutral options is a way of avoiding responsibility. The client hired judgement; withholding it to seem accommodating just moves the decision to the person with the least information.
+Where did this come from, which document, which record, which part of my data — a user who can verify one answer will extend more trust to the next ten. A user who cannot verify anything is being asked to believe, and belief is not a product feature.
 
-Each direction gets a mark, a palette, a type pairing, and one real application — not a grid of mockups. One thing, rendered properly.
+## Make correction cheap
 
-## Then the board, then the proof
+The model will be wrong. Design for that moment rather than hoping to avoid it.
 
-Once a direction is chosen, the brand board fixes the decisions: logo construction and clear space, the full palette with the roles each colour plays, the type scale, and what is not allowed. That last section saves more brand consistency than the rest combined.
+Editing an answer, rejecting it, telling the system it misread the intent — these need to be one action, not a support ticket. If correcting the product is harder than doing the task manually, people will do it manually, and quietly stop coming back.
 
-Then I apply it somewhere real. For SolaReva, the Dubai solar company, that meant the van livery, the storefront signage and the website hero — because a mark that only exists on a white artboard has not been tested. You learn things about a logo the first time it has to survive being wrapped around a vehicle.
+## Waiting is part of the interface
 
-For Cadeau Boutique it meant the physical pieces: bilingual cards, letterhead, and QR hang tags in kraft, white and marble. A gift brand is judged by touch.
+Generation is slow enough that the wait is a designed experience whether or not you designed it.
 
-## Deliver the reasoning with the files
+Streaming a response as it arrives is not a technical detail; it changes the wait from dead time into reading time. Anything over a second without a signal makes people press again, and pressing again on a generative feature usually costs money.
 
-I hand over the board and a short document explaining the decisions — why this colour carries the primary role, why the mark has that clear space, what breaks if you ignore it.
+## Never let it act silently
 
-Clients change agencies. Marketing managers leave. The identity survives if the reasoning is written down; if it is not, the brand drifts within a year and nobody can say exactly when it started.`,
-    bodyAr: `قال لي عميل مرة إنه يريد شيئًا «عصريًا وموثوقًا». سألته أيّ منافسيه يبدو له موثوقًا. فسمّى واحدًا كنت سأصفه بالقديم، وآخر كنت سأصفه بالبارد — وهذه الإجابة وحدها أعادت تشكيل المشروع كله.
+The line I hold is that the model can draft anything and commit nothing.
 
-لهذا تضع منهجيتي ثقلها في المحادثة الأولى. مرحلة التصميم سريعة حين يكون البريف حقيقيًا.
+Sending a message, making a payment, deleting a record, changing a setting — these need a human to confirm, and the confirmation has to state plainly what is about to happen. Convenience here is not worth the one case where it acts on a misunderstanding.
 
-## البريف قيود لا صفات
+## What has not changed
 
-الصفات هي المكان الذي يُساء فيه فهم المشاريع. «عصري» تعني ثمانية أشياء مختلفة لثمانية أشخاص. لذلك أحوّلها.
+None of the fundamentals went away. Hierarchy, clear language, honest states, respecting the user's time and attention.
 
-من يشتري منك، وما الذي يقلقه؟ وأي منافس لا تريد أن تشبهه؟ وأين ستظهر الهوية فعلًا: على واجهة محل، أم سيارة توصيل، أم شاشة هاتف، أم فاتورة مطبوعة؟ وهل يجب أن تعمل بالعربية والإنجليزية، وأيّهما الأساس؟
+An AI feature with a confusing interface is a confusing interface. The model does not rescue the design, and quite often it raises the standard, because the user is now being asked to judge something rather than just read it.`,
+    bodyAr: `تصميم واجهة فوق نموذج ذكاء اصطناعي مختلف عن تصميمها فوق قاعدة بيانات، والفرق ليس تقنيًا. قاعدة البيانات إما صحيحة وإما غير متاحة. أما النموذج فيستطيع أن يخطئ وهو يبدو واثقًا تمامًا.
 
-السؤال الأخير يغيّر كل شيء، وهو الذي تتجاوزه معظم البريفات. الهوية المبنية باللاتينية أولًا ثم تُعطى نسخة عربية هي غالبًا هويتان تتظاهران بأنهما واحدة.
+وكل ما عدا ذلك يتفرّع من هنا.
 
-## اتجاهات لا خيارات
+## الثقة عنصر تصميمي
 
-أقدّم ثلاثة اتجاهات، وأقول صراحةً أيها كنت سأختار ولماذا.
+إن كان النظام غير متأكد، فعلى الواجهة أن تقول ذلك، لا أن تدسّه في سطر صغير في الأسفل.
 
-تقديم ثلاثة خيارات محايدة تهرّب من المسؤولية. العميل استأجر حكمًا مهنيًا، وحجبه تلطّفًا ينقل القرار إلى صاحب أقل المعلومات.
+النتيجة المعروضة بالشكل نفسه سواء كانت شبه مؤكدة أو مجرد تخمين تعلّم المستخدم أن يثق بكل شيء أو بلا شيء، وكلاهما فشل. أما الإجابات المرتّبة، وإظهار عدم اليقين، والتمييز الواضح بين «هذه هي الإجابة» و«هذه أفضل محاولة عندي» فهي ما يتيح للمستخدم أن يعاير ثقته.
 
-ولكل اتجاه علامة، ولوحة ألوان، وثنائي خطوط، وتطبيق واحد حقيقي — لا شبكة من الموكاباتش. شيء واحد، منفَّذ كما يجب.
+وهذه المسألة نفسها مسألة نموذج لا يميّز بين الحقول الإلزامية والاختيارية، غير أن كلفة الخطأ هنا أعلى.
 
-## ثم اللوحة، ثم الإثبات
+## وأظهر المصدر
 
-بعد اختيار الاتجاه، تثبّت لوحة الهوية القرارات: بناء الشعار ومساحته الآمنة، واللوحة اللونية كاملة مع دور كل لون، وسلّم الخطوط، وما هو ممنوع. القسم الأخير يحمي اتساق الهوية أكثر من بقية الأقسام مجتمعة.
+أقوى إشارة ثقة على الإطلاق هي القدرة على التحقّق.
 
-ثم أطبّقها في مكان حقيقي. مع سولاريفا، شركة الطاقة الشمسية في دبي، كان ذلك على تغليف السيارات ولوحة الواجهة وواجهة الموقع، لأن علامة لا تعيش إلا على خلفية بيضاء لم تُختبر بعد. وتتعلّم عن الشعار أشياء لا تعرفها إلا أول مرة يُلَفّ فيها حول سيارة.
+من أين جاء هذا، ومن أي مستند، وأي سجلّ، وأي جزء من بياناتي — المستخدم الذي يتحقّق من إجابة واحدة سيمنح ثقة أكبر للعشر التالية. أما من لا يستطيع التحقّق من شيء فيُطلب منه أن يؤمن، والإيمان ليس ميزة في منتج.
 
-ومع كادو بوتيك كان الإثبات في القطع الملموسة: بطاقات ثنائية اللغة، وأوراق رسمية، وبطاقات تعليق بكود QR بتشطيبات الكرافت والأبيض والرخام. فعلامة الهدايا يحكم عليها باللمس.
+## واجعل التصحيح رخيصًا
 
-## سلّم المنطق مع الملفات
+سيخطئ النموذج. فصمّم لتلك اللحظة بدل أن تأمل تفاديها.
 
-أسلّم اللوحة ومعها مستندًا قصيرًا يشرح القرارات: لماذا يحمل هذا اللون الدور الأساسي، ولماذا للشعار هذه المساحة الآمنة، وما الذي ينكسر إن تجاهلتها.
+تعديل إجابة، أو رفضها، أو إخبار النظام بأنه أساء فهم القصد — كل ذلك يجب أن يكون إجراءً واحدًا لا طلب دعم فني. فإن كان تصحيح المنتج أصعب من إنجاز المهمة يدويًا، أنجزها الناس يدويًا، وكفّوا عن العودة بصمت.
 
-العملاء يغيّرون الوكالات. ومديرو التسويق يرحلون. والهوية تنجو إن كان منطقها مكتوبًا؛ وإن لم يكن، انحرفت العلامة خلال سنة ولم يعد أحد يعرف متى بدأ الانحراف.`,
+## والانتظار جزء من الواجهة
+
+التوليد بطيء بما يكفي ليكون الانتظار تجربة مصمَّمة، صمّمتها أم لم تصمّمها.
+
+وبثّ الإجابة أثناء وصولها ليس تفصيلًا تقنيًا، بل يحوّل الانتظار من وقت ميت إلى وقت قراءة. وأي تأخير يتجاوز الثانية بلا إشارة يجعل الناس يضغطون ثانية، والضغط ثانية على ميزة توليدية يكلّف مالًا عادةً.
+
+## ولا تدعه يتصرّف بصمت أبدًا
+
+الخط الذي ألتزم به أن النموذج يستطيع صياغة أي شيء، ولا يستطيع تنفيذ أي شيء.
+
+إرسال رسالة، أو إتمام دفعة، أو حذف سجلّ، أو تغيير إعداد — كلها تحتاج تأكيدًا بشريًا، وعلى التأكيد أن يذكر بوضوح ما الذي سيحدث. والراحة هنا لا تساوي الحالة الواحدة التي يتصرّف فيها بناءً على سوء فهم.
+
+## وما الذي لم يتغيّر
+
+لم يذهب أي من الأساسيات. التسلسل البصري، واللغة الواضحة، والحالات الصادقة، واحترام وقت المستخدم وانتباهه.
+
+فميزة ذكاء اصطناعي بواجهة مربكة هي واجهة مربكة. النموذج لا ينقذ التصميم، بل يرفع المعيار غالبًا، لأن المستخدم صار مطالبًا بالحكم على شيء لا بقراءته فقط.`,
   },
 };
 

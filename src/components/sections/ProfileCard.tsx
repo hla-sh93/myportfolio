@@ -26,9 +26,9 @@ export function ProfileCard() {
   const year = new Date().getFullYear();
 
   return (
-    <aside className="card-line card-line-static relative p-7 md:p-8">
+    <aside className="card-line card-line-static relative p-7 md:p-8 xl:p-6 2xl:p-8">
       {/* Header: wordmark + designation */}
-      <div className="mb-7 flex items-start justify-between gap-4">
+      <div className="mb-7 flex items-start justify-between gap-4 xl:mb-5 2xl:mb-7">
         <span className="font-display text-3xl font-black leading-none text-text-primary">
           {isAr ? "حلا" : "Hla"}
           <span className="text-accent">.</span>
@@ -41,14 +41,14 @@ export function ProfileCard() {
       </div>
 
       {/* Identity panel — typographic portrait window */}
-      <div className="relative mb-7 overflow-hidden rounded-[22px] border border-border bg-surface">
+      <div className="relative mb-7 overflow-hidden rounded-[22px] border border-border bg-surface xl:mb-5 2xl:mb-7">
         <div className="bg-grid absolute inset-0 opacity-60" aria-hidden />
         <div
           className="glow-accent absolute -top-16 start-1/2 h-56 w-[130%] -translate-x-1/2 rtl:translate-x-1/2"
           aria-hidden
         />
-        <div className="relative flex aspect-[4/3] flex-col items-center justify-center gap-3 xl:aspect-[4/3.2]">
-          <span className="font-display text-[5rem] font-black leading-none text-text-primary md:text-[5.75rem]">
+        <div className="relative flex aspect-[4/3] flex-col items-center justify-center gap-3 xl:aspect-auto xl:h-[clamp(150px,24vh,260px)]">
+          <span className="font-display text-[5rem] font-black leading-none text-text-primary md:text-[5.75rem] xl:text-[clamp(3rem,7vh,5.5rem)]">
             {isAr ? "حلا" : "Hla"}
             <span className="text-accent">.</span>
           </span>
@@ -59,7 +59,7 @@ export function ProfileCard() {
       </div>
 
       {/* Name + contact */}
-      <div className="mb-7 text-center">
+      <div className="mb-7 text-center xl:mb-5 2xl:mb-7">
         <h1 className="mb-3 font-display text-2xl font-bold text-text-primary">
           {t("hero.name")}
         </h1>
@@ -77,7 +77,7 @@ export function ProfileCard() {
       </div>
 
       {/* Socials */}
-      <ul className="mb-7 flex items-center justify-center gap-2.5">
+      <ul className="mb-7 flex items-center justify-center gap-2.5 xl:mb-5 2xl:mb-7">
         {socials.map(({ icon: Icon, href, label }) => (
           <li key={label}>
             <a
@@ -99,7 +99,7 @@ export function ProfileCard() {
         {t("home.profile.hireMe")}
       </Link>
 
-      <p className="mt-5 text-center text-xs text-text-tertiary">
+      <p className="mt-5 text-center text-xs text-text-tertiary xl:mt-4">
         &copy; {year} {t("hero.name")}
       </p>
     </aside>
