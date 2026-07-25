@@ -104,7 +104,7 @@ export function ProjectsTable({ rows }: { rows: ProjectRow[] }) {
     <div className="space-y-4">
       <div className="flex flex-wrap items-center gap-3">
         <input
-          className="ad-field max-w-xs"
+          className="panel-field max-w-xs"
           placeholder="Search title or slug…"
           value={query}
           onChange={(e) => {
@@ -113,7 +113,7 @@ export function ProjectsTable({ rows }: { rows: ProjectRow[] }) {
           }}
         />
         <select
-          className="ad-field max-w-[170px]"
+          className="panel-field max-w-[170px]"
           value={cat}
           onChange={(e) => {
             setCat(e.target.value);
@@ -128,7 +128,7 @@ export function ProjectsTable({ rows }: { rows: ProjectRow[] }) {
           ))}
         </select>
         <select
-          className="ad-field max-w-[150px]"
+          className="panel-field max-w-[150px]"
           value={status}
           onChange={(e) => {
             setStatus(e.target.value);
@@ -140,16 +140,16 @@ export function ProjectsTable({ rows }: { rows: ProjectRow[] }) {
           <option value="draft">Draft</option>
           <option value="featured">Featured</option>
         </select>
-        <span className="text-sm" style={{ color: "var(--ad-muted)" }}>
+        <span className="text-sm" style={{ color: "var(--panel-muted)" }}>
           {filtered.length} of {rows.length}
         </span>
       </div>
 
-      <div className={`ad-card overflow-hidden ${pending ? "opacity-60" : ""}`}>
+      <div className={`panel-card overflow-hidden ${pending ? "opacity-60" : ""}`}>
         {slice.length === 0 ? (
           <p
             className="px-5 py-14 text-center text-sm"
-            style={{ color: "var(--ad-muted)" }}
+            style={{ color: "var(--panel-muted)" }}
           >
             {rows.length === 0
               ? "No projects yet — create the first one."
@@ -157,7 +157,7 @@ export function ProjectsTable({ rows }: { rows: ProjectRow[] }) {
           </p>
         ) : (
           <div className="overflow-x-auto">
-            <table className="ad-table">
+            <table className="panel-table">
               <thead>
                 <tr>
                   <th className="w-16">Cover</th>
@@ -176,7 +176,7 @@ export function ProjectsTable({ rows }: { rows: ProjectRow[] }) {
                     <td>
                       <span
                         className="relative block h-9 w-12 overflow-hidden rounded"
-                        style={{ background: "var(--ad-hover)" }}
+                        style={{ background: "var(--panel-hover)" }}
                       >
                         <Image
                           src={p.coverImage}
@@ -196,26 +196,26 @@ export function ProjectsTable({ rows }: { rows: ProjectRow[] }) {
                       </Link>
                       <span
                         className="mt-0.5 block text-xs"
-                        style={{ color: "var(--ad-faint)" }}
+                        style={{ color: "var(--panel-faint)" }}
                       >
                         /{p.slug}
                       </span>
                     </td>
-                    <td style={{ color: "var(--ad-muted)" }}>
+                    <td style={{ color: "var(--panel-muted)" }}>
                       {CATEGORY_LABEL[p.category] ?? p.category}
                     </td>
-                    <td className="text-end tabular-nums" style={{ color: "var(--ad-muted)" }}>
+                    <td className="text-end tabular-nums" style={{ color: "var(--panel-muted)" }}>
                       {p.year ?? "—"}
                     </td>
                     <td className="text-end tabular-nums">
                       <span className="inline-flex items-center gap-1.5">
-                        <Eye size={13} style={{ color: "var(--ad-faint)" }} />
+                        <Eye size={13} style={{ color: "var(--panel-faint)" }} />
                         {p.views}
                       </span>
                     </td>
                     <td className="text-end tabular-nums">
                       <span className="inline-flex items-center gap-1.5">
-                        <Heart size={13} style={{ color: "var(--ad-faint)" }} />
+                        <Heart size={13} style={{ color: "var(--panel-faint)" }} />
                         {p.likes}
                       </span>
                     </td>
@@ -227,11 +227,11 @@ export function ProjectsTable({ rows }: { rows: ProjectRow[] }) {
                             p.published ? "Moved to draft" : "Published"
                           )
                         }
-                        className="ad-pill"
+                        className="panel-pill"
                         style={
                           p.published
                             ? { background: "rgba(40,199,111,.14)", color: "#28c76f" }
-                            : { background: "var(--ad-hover)", color: "var(--ad-muted)" }
+                            : { background: "var(--panel-hover)", color: "var(--panel-muted)" }
                         }
                         title="Click to toggle"
                       >
@@ -247,16 +247,16 @@ export function ProjectsTable({ rows }: { rows: ProjectRow[] }) {
                               p.featured ? "Removed from home" : "Featured on home"
                             )
                           }
-                          className="rounded-lg p-1.5 transition-colors hover:bg-[var(--ad-hover)]"
-                          style={{ color: p.featured ? "#ff9f43" : "var(--ad-faint)" }}
+                          className="rounded-lg p-1.5 transition-colors hover:bg-[var(--panel-hover)]"
+                          style={{ color: p.featured ? "#ff9f43" : "var(--panel-faint)" }}
                           title={p.featured ? "Unfeature" : "Feature on home"}
                         >
                           <Star size={15} fill={p.featured ? "currentColor" : "none"} />
                         </button>
                         <Link
                           href={`/admin/projects/${p.id}`}
-                          className="rounded-lg p-1.5 transition-colors hover:bg-[var(--ad-hover)]"
-                          style={{ color: "var(--ad-muted)" }}
+                          className="rounded-lg p-1.5 transition-colors hover:bg-[var(--panel-hover)]"
+                          style={{ color: "var(--panel-muted)" }}
                           title="Edit"
                         >
                           <Pencil size={15} />
@@ -264,7 +264,7 @@ export function ProjectsTable({ rows }: { rows: ProjectRow[] }) {
                         {confirmId === p.id ? (
                           <>
                             <button
-                              className="ad-btn ad-btn-danger !px-2 !py-1 text-xs"
+                              className="panel-btn panel-btn-danger !px-2 !py-1 text-xs"
                               onClick={() =>
                                 act(() => deleteProjectAction(p.id), "Project deleted")
                               }
@@ -272,7 +272,7 @@ export function ProjectsTable({ rows }: { rows: ProjectRow[] }) {
                               Confirm
                             </button>
                             <button
-                              className="ad-btn ad-btn-ghost !px-2 !py-1 text-xs"
+                              className="panel-btn panel-btn-ghost !px-2 !py-1 text-xs"
                               onClick={() => setConfirmId(null)}
                             >
                               No
@@ -300,21 +300,21 @@ export function ProjectsTable({ rows }: { rows: ProjectRow[] }) {
         {pages > 1 && (
           <div
             className="flex items-center justify-between border-t px-5 py-3 text-sm"
-            style={{ borderColor: "var(--ad-border)" }}
+            style={{ borderColor: "var(--panel-border)" }}
           >
-            <span style={{ color: "var(--ad-muted)" }}>
+            <span style={{ color: "var(--panel-muted)" }}>
               Page {current} of {pages}
             </span>
             <div className="flex gap-2">
               <button
-                className="ad-btn ad-btn-ghost !py-1"
+                className="panel-btn panel-btn-ghost !py-1"
                 disabled={current === 1}
                 onClick={() => setPage(current - 1)}
               >
                 Previous
               </button>
               <button
-                className="ad-btn ad-btn-ghost !py-1"
+                className="panel-btn panel-btn-ghost !py-1"
                 disabled={current === pages}
                 onClick={() => setPage(current + 1)}
               >

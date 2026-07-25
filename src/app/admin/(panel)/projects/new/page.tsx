@@ -10,21 +10,21 @@ export default function NewProjectPage() {
       <header className="flex items-center gap-3">
         <Link
           href="/admin/projects"
-          className="rounded-lg p-2 transition-colors hover:bg-[var(--ad-hover)]"
-          style={{ color: "var(--ad-muted)" }}
+          className="rounded-lg p-2 transition-colors hover:bg-[var(--panel-hover)]"
+          style={{ color: "var(--panel-muted)" }}
           aria-label="Back to projects"
         >
           <ArrowLeft size={18} />
         </Link>
         <div>
           <h1 className="text-xl font-bold">New project</h1>
-          <p className="mt-0.5 text-sm" style={{ color: "var(--ad-muted)" }}>
+          <p className="mt-0.5 text-sm" style={{ color: "var(--panel-muted)" }}>
             Fill both languages — they publish together.
           </p>
         </div>
       </header>
 
-      <div className="ad-card p-5 md:p-6">
+      <div className="panel-card p-5 md:p-6">
         <EditProjectForm initialData={{}} />
       </div>
     </div>

@@ -21,8 +21,8 @@ export default async function EditProjectPage({
       <header className="flex items-center gap-3">
         <Link
           href="/admin/projects"
-          className="rounded-lg p-2 transition-colors hover:bg-[var(--ad-hover)]"
-          style={{ color: "var(--ad-muted)" }}
+          className="rounded-lg p-2 transition-colors hover:bg-[var(--panel-hover)]"
+          style={{ color: "var(--panel-muted)" }}
           aria-label="Back to projects"
         >
           <ArrowLeft size={18} />
@@ -32,7 +32,7 @@ export default async function EditProjectPage({
           <p
             className="mt-0.5 truncate text-sm"
             dir="rtl"
-            style={{ color: "var(--ad-muted)" }}
+            style={{ color: "var(--panel-muted)" }}
           >
             {project.titleAr}
           </p>
@@ -42,7 +42,7 @@ export default async function EditProjectPage({
             href={`/ar/projects/detail/${project.slug}`}
             target="_blank"
             rel="noreferrer"
-            className="ad-btn ad-btn-ghost !py-1.5 text-xs"
+            className="panel-btn panel-btn-ghost !py-1.5 text-xs"
           >
             <ExternalLink size={14} />
             View live
@@ -50,7 +50,7 @@ export default async function EditProjectPage({
         )}
       </header>
 
-      <div className="ad-card p-5 md:p-6">
+      <div className="panel-card p-5 md:p-6">
         <EditProjectForm
           projectId={project.id}
           initialData={{

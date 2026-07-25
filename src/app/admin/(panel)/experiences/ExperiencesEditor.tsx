@@ -49,7 +49,7 @@ function Field({
     <label className="block">
       <span
         className="mb-1.5 block text-xs font-semibold"
-        style={{ color: "var(--ad-muted)" }}
+        style={{ color: "var(--panel-muted)" }}
       >
         {label}
       </span>
@@ -57,7 +57,7 @@ function Field({
         <textarea
           dir={rtl ? "rtl" : undefined}
           rows={3}
-          className="ad-field resize-y"
+          className="panel-field resize-y"
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />
@@ -65,7 +65,7 @@ function Field({
         <input
           dir={rtl ? "rtl" : undefined}
           type={type}
-          className="ad-field"
+          className="panel-field"
           value={value}
           onChange={(e) => onChange(e.target.value)}
         />
@@ -100,12 +100,12 @@ function Row({
     setForm({ ...form, [k]: k === "order" ? Number(v) : v });
 
   return (
-    <div className={`ad-card ${pending ? "opacity-60" : ""}`}>
+    <div className={`panel-card ${pending ? "opacity-60" : ""}`}>
       <div className="flex items-center gap-3 px-4 py-3">
         <button
           onClick={() => setOpen(!open)}
-          className="rounded-lg p-1.5 transition-colors hover:bg-[var(--ad-hover)]"
-          style={{ color: "var(--ad-muted)" }}
+          className="rounded-lg p-1.5 transition-colors hover:bg-[var(--panel-hover)]"
+          style={{ color: "var(--panel-muted)" }}
           aria-label={open ? "Collapse" : "Expand"}
         >
           {open ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -115,12 +115,12 @@ function Row({
           <p className="truncate text-sm font-semibold">
             {form.roleEn || "New experience"}
             {form.companyEn && (
-              <span className="ms-2 font-normal" style={{ color: "var(--ad-muted)" }}>
+              <span className="ms-2 font-normal" style={{ color: "var(--panel-muted)" }}>
                 @ {form.companyEn}
               </span>
             )}
           </p>
-          <p className="text-xs" style={{ color: "var(--ad-faint)" }}>
+          <p className="text-xs" style={{ color: "var(--panel-faint)" }}>
             {form.periodEn || "—"}
           </p>
         </div>
@@ -130,8 +130,8 @@ function Row({
             <button
               onClick={() => onMove(-1)}
               disabled={!canMoveUp}
-              className="rounded-lg p-1.5 transition-colors hover:bg-[var(--ad-hover)] disabled:opacity-25"
-              style={{ color: "var(--ad-muted)" }}
+              className="rounded-lg p-1.5 transition-colors hover:bg-[var(--panel-hover)] disabled:opacity-25"
+              style={{ color: "var(--panel-muted)" }}
               aria-label="Move up"
             >
               <MoveUp size={15} />
@@ -139,8 +139,8 @@ function Row({
             <button
               onClick={() => onMove(1)}
               disabled={!canMoveDown}
-              className="rounded-lg p-1.5 transition-colors hover:bg-[var(--ad-hover)] disabled:opacity-25"
-              style={{ color: "var(--ad-muted)" }}
+              className="rounded-lg p-1.5 transition-colors hover:bg-[var(--panel-hover)] disabled:opacity-25"
+              style={{ color: "var(--panel-muted)" }}
               aria-label="Move down"
             >
               <MoveDown size={15} />
@@ -152,7 +152,7 @@ function Row({
           (confirming ? (
             <div className="flex gap-1">
               <button
-                className="ad-btn ad-btn-danger !px-2 !py-1 text-xs"
+                className="panel-btn panel-btn-danger !px-2 !py-1 text-xs"
                 onClick={() =>
                   start(async () => {
                     await deleteExperienceAction(exp.id);
@@ -164,7 +164,7 @@ function Row({
                 Confirm
               </button>
               <button
-                className="ad-btn ad-btn-ghost !px-2 !py-1 text-xs"
+                className="panel-btn panel-btn-ghost !px-2 !py-1 text-xs"
                 onClick={() => setConfirming(false)}
               >
                 No
@@ -185,7 +185,7 @@ function Row({
       {open && (
         <div
           className="grid gap-4 border-t px-4 py-4 md:grid-cols-2"
-          style={{ borderColor: "var(--ad-border)" }}
+          style={{ borderColor: "var(--panel-border)" }}
         >
           <Field label="المسمى الوظيفي (AR)" rtl value={form.roleAr} onChange={set("roleAr")} />
           <Field label="Role (EN)" value={form.roleEn} onChange={set("roleEn")} />
@@ -209,7 +209,7 @@ function Row({
 
           <div className="flex items-end justify-end">
             <button
-              className="ad-btn ad-btn-primary"
+              className="panel-btn panel-btn-primary"
               disabled={pending || (!dirty && !isNew)}
               onClick={() =>
                 start(async () => {
@@ -267,7 +267,7 @@ export function ExperiencesEditor({ initial }: { initial: StoredExperience[] }) 
       {adding ? (
         <Row exp={empty(initial.length)} isNew onDone={refresh} />
       ) : (
-        <button className="ad-btn ad-btn-ghost" onClick={() => setAdding(true)}>
+        <button className="panel-btn panel-btn-ghost" onClick={() => setAdding(true)}>
           <Plus size={16} />
           Add experience
         </button>

@@ -11,7 +11,7 @@ export default async function AdminHighlightsPage() {
     <div className="mx-auto max-w-[1100px] space-y-5">
       <header>
         <h1 className="text-xl font-bold">Highlights</h1>
-        <p className="mt-1 text-sm" style={{ color: "var(--ad-muted)" }}>
+        <p className="mt-1 text-sm" style={{ color: "var(--panel-muted)" }}>
           The numbers strip on the home and about pages. Every figure should
           match the CV.
         </p>

@@ -21,10 +21,10 @@ export function TrafficChart({ data }: { data: Point[] }) {
     return (
       <div
         className="flex h-[260px] flex-col items-center justify-center gap-1 text-center"
-        style={{ color: "var(--ad-muted)" }}
+        style={{ color: "var(--panel-muted)" }}
       >
         <p className="text-sm font-medium">No traffic recorded yet</p>
-        <p className="text-xs" style={{ color: "var(--ad-faint)" }}>
+        <p className="text-xs" style={{ color: "var(--panel-faint)" }}>
           Visits appear here as people browse the site.
         </p>
       </div>
@@ -41,47 +41,47 @@ export function TrafficChart({ data }: { data: Point[] }) {
               <stop offset="100%" stopColor="var(--accent)" stopOpacity={0} />
             </linearGradient>
             <linearGradient id="gViews" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="var(--ad-faint)" stopOpacity={0.25} />
-              <stop offset="100%" stopColor="var(--ad-faint)" stopOpacity={0} />
+              <stop offset="0%" stopColor="var(--panel-faint)" stopOpacity={0.25} />
+              <stop offset="100%" stopColor="var(--panel-faint)" stopOpacity={0} />
             </linearGradient>
           </defs>
 
           <CartesianGrid
             strokeDasharray="3 3"
-            stroke="var(--ad-border)"
+            stroke="var(--panel-border)"
             vertical={false}
           />
           <XAxis
             dataKey="day"
             tickFormatter={shortDay}
-            tick={{ fontSize: 11, fill: "var(--ad-faint)" }}
+            tick={{ fontSize: 11, fill: "var(--panel-faint)" }}
             axisLine={false}
             tickLine={false}
             minTickGap={24}
           />
           <YAxis
             allowDecimals={false}
-            tick={{ fontSize: 11, fill: "var(--ad-faint)" }}
+            tick={{ fontSize: 11, fill: "var(--panel-faint)" }}
             axisLine={false}
             tickLine={false}
             width={40}
           />
           <Tooltip
             contentStyle={{
-              background: "var(--ad-card)",
-              border: "1px solid var(--ad-border)",
+              background: "var(--panel-card)",
+              border: "1px solid var(--panel-border)",
               borderRadius: 10,
               fontSize: 12,
-              color: "var(--ad-text)",
-              boxShadow: "var(--ad-shadow-lg)",
+              color: "var(--panel-text)",
+              boxShadow: "var(--panel-shadow-lg)",
             }}
-            labelStyle={{ color: "var(--ad-muted)", marginBottom: 4 }}
+            labelStyle={{ color: "var(--panel-muted)", marginBottom: 4 }}
           />
           <Area
             type="monotone"
             dataKey="views"
             name="Page views"
-            stroke="var(--ad-faint)"
+            stroke="var(--panel-faint)"
             strokeWidth={1.5}
             fill="url(#gViews)"
           />

@@ -9,7 +9,7 @@ export default async function AdminLoginPage() {
   if (session?.user) redirect("/admin");
 
   return (
-    <div className="admin-shell flex min-h-screen items-center justify-center p-6">
+    <div className="console-shell flex min-h-screen items-center justify-center p-6">
       <div className="w-full max-w-sm">
         <div className="mb-8 flex flex-col items-center text-center">
           <span
@@ -19,7 +19,7 @@ export default async function AdminLoginPage() {
             HS
           </span>
           <h1 className="text-lg font-bold">Portfolio admin</h1>
-          <p className="mt-1 text-sm" style={{ color: "var(--ad-muted)" }}>
+          <p className="mt-1 text-sm" style={{ color: "var(--panel-muted)" }}>
             Sign in to manage content.
           </p>
         </div>
@@ -30,7 +30,7 @@ export default async function AdminLoginPage() {
             saying so here saves a round of failed attempts. */}
         <p
           className="mt-5 text-center text-xs leading-relaxed"
-          style={{ color: "var(--ad-faint)" }}
+          style={{ color: "var(--panel-faint)" }}
         >
           Sign in with your admin address — this is not the public contact
           email shown on the site.

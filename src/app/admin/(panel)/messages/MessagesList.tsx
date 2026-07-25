@@ -53,13 +53,13 @@ export function MessagesList({ messages }: { messages: StoredMessage[] }) {
     <div className="space-y-4">
       <div className="flex flex-wrap items-center gap-3">
         <input
-          className="ad-field max-w-xs"
+          className="panel-field max-w-xs"
           placeholder="Search name, email or text…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
         <select
-          className="ad-field max-w-[150px]"
+          className="panel-field max-w-[150px]"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
         >
@@ -67,16 +67,16 @@ export function MessagesList({ messages }: { messages: StoredMessage[] }) {
           <option value="unread">Unread</option>
           <option value="read">Read</option>
         </select>
-        <span className="text-sm" style={{ color: "var(--ad-muted)" }}>
+        <span className="text-sm" style={{ color: "var(--panel-muted)" }}>
           {filtered.length} of {messages.length}
         </span>
       </div>
 
-      <div className={`ad-card overflow-hidden ${pending ? "opacity-60" : ""}`}>
+      <div className={`panel-card overflow-hidden ${pending ? "opacity-60" : ""}`}>
         {filtered.length === 0 ? (
           <p
             className="px-5 py-14 text-center text-sm"
-            style={{ color: "var(--ad-muted)" }}
+            style={{ color: "var(--panel-muted)" }}
           >
             {messages.length === 0
               ? "No messages yet. Submissions from the contact form land here."
@@ -90,17 +90,17 @@ export function MessagesList({ messages }: { messages: StoredMessage[] }) {
                 <li
                   key={m.id}
                   className="border-b last:border-b-0"
-                  style={{ borderColor: "var(--ad-border)" }}
+                  style={{ borderColor: "var(--panel-border)" }}
                 >
                   <div
-                    className="flex cursor-pointer items-center gap-3 px-5 py-3.5 transition-colors hover:bg-[var(--ad-hover)]"
+                    className="flex cursor-pointer items-center gap-3 px-5 py-3.5 transition-colors hover:bg-[var(--panel-hover)]"
                     onClick={() => toggleOpen(m)}
                   >
                     <span
                       className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
                       style={
                         m.read
-                          ? { background: "var(--ad-hover)", color: "var(--ad-muted)" }
+                          ? { background: "var(--panel-hover)", color: "var(--panel-muted)" }
                           : { background: "var(--accent-light)", color: "var(--accent)" }
                       }
                     >
@@ -114,14 +114,14 @@ export function MessagesList({ messages }: { messages: StoredMessage[] }) {
                         {m.name}
                         <span
                           className="ms-2 font-normal"
-                          style={{ color: "var(--ad-muted)" }}
+                          style={{ color: "var(--panel-muted)" }}
                         >
                           {m.email}
                         </span>
                       </p>
                       <p
                         className="truncate text-xs"
-                        style={{ color: "var(--ad-muted)" }}
+                        style={{ color: "var(--panel-muted)" }}
                       >
                         <span className="font-medium">{m.subject}</span>
                         {" — "}
@@ -131,7 +131,7 @@ export function MessagesList({ messages }: { messages: StoredMessage[] }) {
 
                     <time
                       className="shrink-0 text-xs tabular-nums"
-                      style={{ color: "var(--ad-faint)" }}
+                      style={{ color: "var(--panel-faint)" }}
                     >
                       {new Date(m.createdAt).toLocaleString("en-GB", {
                         day: "2-digit",
@@ -141,9 +141,9 @@ export function MessagesList({ messages }: { messages: StoredMessage[] }) {
                       })}
                     </time>
                     {open ? (
-                      <ChevronUp size={15} style={{ color: "var(--ad-faint)" }} />
+                      <ChevronUp size={15} style={{ color: "var(--panel-faint)" }} />
                     ) : (
-                      <ChevronDown size={15} style={{ color: "var(--ad-faint)" }} />
+                      <ChevronDown size={15} style={{ color: "var(--panel-faint)" }} />
                     )}
                   </div>
 
@@ -151,7 +151,7 @@ export function MessagesList({ messages }: { messages: StoredMessage[] }) {
                     <div className="space-y-3 px-5 pb-4 ps-[4.25rem]">
                       <p
                         className="whitespace-pre-wrap rounded-lg p-4 text-sm"
-                        style={{ background: "var(--ad-hover)" }}
+                        style={{ background: "var(--panel-hover)" }}
                       >
                         {m.message}
                       </p>
@@ -160,13 +160,13 @@ export function MessagesList({ messages }: { messages: StoredMessage[] }) {
                           href={`mailto:${m.email}?subject=${encodeURIComponent(
                             `Re: ${m.subject}`
                           )}`}
-                          className="ad-btn ad-btn-primary !py-1.5 text-xs"
+                          className="panel-btn panel-btn-primary !py-1.5 text-xs"
                         >
                           <Reply size={14} />
                           Reply by email
                         </a>
                         <button
-                          className="ad-btn ad-btn-ghost !py-1.5 text-xs"
+                          className="panel-btn panel-btn-ghost !py-1.5 text-xs"
                           onClick={() =>
                             start(async () => {
                               await setMessageReadAction(m.id, !m.read);
@@ -179,7 +179,7 @@ export function MessagesList({ messages }: { messages: StoredMessage[] }) {
                         {confirmId === m.id ? (
                           <>
                             <button
-                              className="ad-btn ad-btn-danger !py-1.5 text-xs"
+                              className="panel-btn panel-btn-danger !py-1.5 text-xs"
                               onClick={() =>
                                 start(async () => {
                                   await deleteMessageAction(m.id);
@@ -195,7 +195,7 @@ export function MessagesList({ messages }: { messages: StoredMessage[] }) {
                               Confirm delete
                             </button>
                             <button
-                              className="ad-btn ad-btn-ghost !py-1.5 text-xs"
+                              className="panel-btn panel-btn-ghost !py-1.5 text-xs"
                               onClick={() => setConfirmId(null)}
                             >
                               Cancel
@@ -203,7 +203,7 @@ export function MessagesList({ messages }: { messages: StoredMessage[] }) {
                           </>
                         ) : (
                           <button
-                            className="ad-btn ad-btn-danger !py-1.5 text-xs"
+                            className="panel-btn panel-btn-danger !py-1.5 text-xs"
                             onClick={() => setConfirmId(m.id)}
                           >
                             <Trash2 size={14} />

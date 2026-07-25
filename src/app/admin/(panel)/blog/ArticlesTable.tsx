@@ -90,7 +90,7 @@ export function ArticlesTable({ rows }: { rows: ArticleRow[] }) {
     <div className="space-y-4">
       <div className="flex flex-wrap items-center gap-3">
         <input
-          className="ad-field max-w-xs"
+          className="panel-field max-w-xs"
           placeholder="Search title or slug…"
           value={query}
           onChange={(e) => {
@@ -99,7 +99,7 @@ export function ArticlesTable({ rows }: { rows: ArticleRow[] }) {
           }}
         />
         <select
-          className="ad-field max-w-[170px]"
+          className="panel-field max-w-[170px]"
           value={tag}
           onChange={(e) => {
             setTag(e.target.value);
@@ -114,7 +114,7 @@ export function ArticlesTable({ rows }: { rows: ArticleRow[] }) {
           ))}
         </select>
         <select
-          className="ad-field max-w-[150px]"
+          className="panel-field max-w-[150px]"
           value={status}
           onChange={(e) => {
             setStatus(e.target.value);
@@ -125,16 +125,16 @@ export function ArticlesTable({ rows }: { rows: ArticleRow[] }) {
           <option value="published">Published</option>
           <option value="draft">Draft</option>
         </select>
-        <span className="text-sm" style={{ color: "var(--ad-muted)" }}>
+        <span className="text-sm" style={{ color: "var(--panel-muted)" }}>
           {filtered.length} of {rows.length}
         </span>
       </div>
 
-      <div className={`ad-card overflow-hidden ${pending ? "opacity-60" : ""}`}>
+      <div className={`panel-card overflow-hidden ${pending ? "opacity-60" : ""}`}>
         {slice.length === 0 ? (
           <p
             className="px-5 py-14 text-center text-sm"
-            style={{ color: "var(--ad-muted)" }}
+            style={{ color: "var(--panel-muted)" }}
           >
             {rows.length === 0
               ? "No articles yet — write the first one."
@@ -142,7 +142,7 @@ export function ArticlesTable({ rows }: { rows: ArticleRow[] }) {
           </p>
         ) : (
           <div className="overflow-x-auto">
-            <table className="ad-table">
+            <table className="panel-table">
               <thead>
                 <tr>
                   {th("title", "Article")}
@@ -166,7 +166,7 @@ export function ArticlesTable({ rows }: { rows: ArticleRow[] }) {
                       </Link>
                       <span
                         className="mt-0.5 block text-xs"
-                        style={{ color: "var(--ad-faint)" }}
+                        style={{ color: "var(--panel-faint)" }}
                       >
                         /{a.slug}
                       </span>
@@ -176,10 +176,10 @@ export function ArticlesTable({ rows }: { rows: ArticleRow[] }) {
                         {a.tags.slice(0, 3).map((t) => (
                           <span
                             key={t}
-                            className="ad-pill"
+                            className="panel-pill"
                             style={{
-                              background: "var(--ad-hover)",
-                              color: "var(--ad-muted)",
+                              background: "var(--panel-hover)",
+                              color: "var(--panel-muted)",
                             }}
                           >
                             {t}
@@ -189,29 +189,29 @@ export function ArticlesTable({ rows }: { rows: ArticleRow[] }) {
                     </td>
                     <td
                       className="tabular-nums"
-                      style={{ color: "var(--ad-muted)" }}
+                      style={{ color: "var(--panel-muted)" }}
                     >
                       {new Date(a.publishedAt).toLocaleDateString("en-GB")}
                     </td>
-                    <td className="text-end tabular-nums" style={{ color: "var(--ad-muted)" }}>
+                    <td className="text-end tabular-nums" style={{ color: "var(--panel-muted)" }}>
                       <span className="inline-flex items-center gap-1.5">
-                        <Clock size={13} style={{ color: "var(--ad-faint)" }} />
+                        <Clock size={13} style={{ color: "var(--panel-faint)" }} />
                         {a.readTime}m
                       </span>
                     </td>
                     <td className="text-end tabular-nums">
                       <span className="inline-flex items-center gap-1.5">
-                        <Eye size={13} style={{ color: "var(--ad-faint)" }} />
+                        <Eye size={13} style={{ color: "var(--panel-faint)" }} />
                         {a.views}
                       </span>
                     </td>
                     <td>
                       <span
-                        className="ad-pill"
+                        className="panel-pill"
                         style={
                           a.published
                             ? { background: "rgba(40,199,111,.14)", color: "#28c76f" }
-                            : { background: "var(--ad-hover)", color: "var(--ad-muted)" }
+                            : { background: "var(--panel-hover)", color: "var(--panel-muted)" }
                         }
                       >
                         {a.published ? "Published" : "Draft"}
@@ -221,8 +221,8 @@ export function ArticlesTable({ rows }: { rows: ArticleRow[] }) {
                       <div className="flex items-center justify-end gap-0.5">
                         <Link
                           href={`/admin/blog/${a.id}`}
-                          className="rounded-lg p-1.5 transition-colors hover:bg-[var(--ad-hover)]"
-                          style={{ color: "var(--ad-muted)" }}
+                          className="rounded-lg p-1.5 transition-colors hover:bg-[var(--panel-hover)]"
+                          style={{ color: "var(--panel-muted)" }}
                           title="Edit"
                         >
                           <Pencil size={15} />
@@ -230,7 +230,7 @@ export function ArticlesTable({ rows }: { rows: ArticleRow[] }) {
                         {confirmId === a.id ? (
                           <>
                             <button
-                              className="ad-btn ad-btn-danger !px-2 !py-1 text-xs"
+                              className="panel-btn panel-btn-danger !px-2 !py-1 text-xs"
                               onClick={() =>
                                 start(async () => {
                                   await deleteArticleAction(a.id);
@@ -243,7 +243,7 @@ export function ArticlesTable({ rows }: { rows: ArticleRow[] }) {
                               Confirm
                             </button>
                             <button
-                              className="ad-btn ad-btn-ghost !px-2 !py-1 text-xs"
+                              className="panel-btn panel-btn-ghost !px-2 !py-1 text-xs"
                               onClick={() => setConfirmId(null)}
                             >
                               No
@@ -271,21 +271,21 @@ export function ArticlesTable({ rows }: { rows: ArticleRow[] }) {
         {pages > 1 && (
           <div
             className="flex items-center justify-between border-t px-5 py-3 text-sm"
-            style={{ borderColor: "var(--ad-border)" }}
+            style={{ borderColor: "var(--panel-border)" }}
           >
-            <span style={{ color: "var(--ad-muted)" }}>
+            <span style={{ color: "var(--panel-muted)" }}>
               Page {current} of {pages}
             </span>
             <div className="flex gap-2">
               <button
-                className="ad-btn ad-btn-ghost !py-1"
+                className="panel-btn panel-btn-ghost !py-1"
                 disabled={current === 1}
                 onClick={() => setPage(current - 1)}
               >
                 Previous
               </button>
               <button
-                className="ad-btn ad-btn-ghost !py-1"
+                className="panel-btn panel-btn-ghost !py-1"
                 disabled={current === pages}
                 onClick={() => setPage(current + 1)}
               >

@@ -30,12 +30,12 @@ export default async function AdminBlogPage() {
       <header className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-xl font-bold">Articles</h1>
-          <p className="mt-1 text-sm" style={{ color: "var(--ad-muted)" }}>
+          <p className="mt-1 text-sm" style={{ color: "var(--panel-muted)" }}>
             {rows.filter((r) => r.published).length} published ·{" "}
             {rows.filter((r) => !r.published).length} in draft.
           </p>
         </div>
-        <Link href="/admin/blog/new" className="ad-btn ad-btn-primary">
+        <Link href="/admin/blog/new" className="panel-btn panel-btn-primary">
           <Plus size={16} />
           New article
         </Link>

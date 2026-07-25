@@ -117,7 +117,7 @@ export function MediaUpload({
         onClick={() => !busy && inputRef.current?.click()}
         className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-lg border border-dashed px-4 py-6 text-center transition-colors"
         style={{
-          borderColor: dragging ? "var(--accent)" : "var(--ad-border)",
+          borderColor: dragging ? "var(--accent)" : "var(--panel-border)",
           background: dragging ? "var(--accent-light)" : "transparent",
         }}
       >
@@ -128,15 +128,15 @@ export function MediaUpload({
               className="animate-spin"
               style={{ color: "var(--accent)" }}
             />
-            <p className="text-xs" style={{ color: "var(--ad-muted)" }}>
+            <p className="text-xs" style={{ color: "var(--panel-muted)" }}>
               {progress}
             </p>
           </>
         ) : (
           <>
-            <Upload size={20} style={{ color: "var(--ad-faint)" }} />
+            <Upload size={20} style={{ color: "var(--panel-faint)" }} />
             <p className="text-sm font-medium">{label}</p>
-            <p className="text-xs" style={{ color: "var(--ad-faint)" }}>
+            <p className="text-xs" style={{ color: "var(--panel-faint)" }}>
               Drop {multiple ? "files" : "a file"} here or click to browse —
               images are converted to WebP automatically
             </p>
@@ -169,14 +169,14 @@ export function MediaUpload({
             <li
               key={r.url}
               className="flex items-center gap-2 rounded-lg px-3 py-2 text-xs"
-              style={{ background: "var(--ad-hover)" }}
+              style={{ background: "var(--panel-hover)" }}
             >
               <Check size={14} style={{ color: "#28c76f" }} className="shrink-0" />
-              <ImageIcon size={13} style={{ color: "var(--ad-faint)" }} />
+              <ImageIcon size={13} style={{ color: "var(--panel-faint)" }} />
               <span className="min-w-0 flex-1 truncate font-mono" dir="ltr">
                 {r.url}
               </span>
-              <span className="shrink-0" style={{ color: "var(--ad-muted)" }}>
+              <span className="shrink-0" style={{ color: "var(--panel-muted)" }}>
                 {formatBytes(r.originalBytes)} → {formatBytes(r.bytes)}
                 {r.optimized && r.saved && r.saved > 0 ? (
                   <span style={{ color: "#28c76f" }}> −{r.saved}%</span>
@@ -188,7 +188,7 @@ export function MediaUpload({
       )}
 
       {results.some((r) => r.note) && (
-        <p className="text-xs" style={{ color: "var(--ad-faint)" }}>
+        <p className="text-xs" style={{ color: "var(--panel-faint)" }}>
           {results.find((r) => r.note)?.note}
         </p>
       )}

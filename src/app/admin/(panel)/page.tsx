@@ -43,12 +43,12 @@ function StatCard({
 }) {
   const up = (change ?? 0) >= 0;
   return (
-    <div className="ad-card p-5">
+    <div className="panel-card p-5">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <p
             className="text-xs font-medium uppercase tracking-wide"
-            style={{ color: "var(--ad-muted)" }}
+            style={{ color: "var(--panel-muted)" }}
           >
             {label}
           </p>
@@ -75,7 +75,7 @@ function StatCard({
             {change}%
           </span>
         )}
-        {hint && <span style={{ color: "var(--ad-muted)" }}>{hint}</span>}
+        {hint && <span style={{ color: "var(--panel-muted)" }}>{hint}</span>}
       </div>
     </div>
   );
@@ -91,10 +91,10 @@ function Panel({
   children: React.ReactNode;
 }) {
   return (
-    <section className="ad-card">
+    <section className="panel-card">
       <header
         className="flex items-center justify-between border-b px-5 py-4"
-        style={{ borderColor: "var(--ad-border)" }}
+        style={{ borderColor: "var(--panel-border)" }}
       >
         <h2 className="text-[15px] font-semibold">{title}</h2>
         {action && (
@@ -116,7 +116,7 @@ function EmptyRow({ children }: { children: React.ReactNode }) {
   return (
     <p
       className="px-5 py-10 text-center text-sm"
-      style={{ color: "var(--ad-muted)" }}
+      style={{ color: "var(--panel-muted)" }}
     >
       {children}
     </p>
@@ -195,7 +195,7 @@ export default async function AdminOverviewPage() {
     <div className="mx-auto max-w-[1400px] space-y-5">
       <header>
         <h1 className="text-xl font-bold">Overview</h1>
-        <p className="mt-1 text-sm" style={{ color: "var(--ad-muted)" }}>
+        <p className="mt-1 text-sm" style={{ color: "var(--panel-muted)" }}>
           Live numbers from the site — nothing estimated.
         </p>
       </header>
@@ -253,7 +253,7 @@ export default async function AdminOverviewPage() {
           {topProjects.length === 0 ? (
             <EmptyRow>No project views recorded yet.</EmptyRow>
           ) : (
-            <table className="ad-table">
+            <table className="panel-table">
               <thead>
                 <tr>
                   <th>Project</th>
@@ -274,7 +274,7 @@ export default async function AdminOverviewPage() {
                     </td>
                     <td className="text-end tabular-nums">
                       <span className="inline-flex items-center gap-1.5">
-                        <Eye size={13} style={{ color: "var(--ad-faint)" }} />
+                        <Eye size={13} style={{ color: "var(--panel-faint)" }} />
                         {p.views.toLocaleString()}
                       </span>
                     </td>
@@ -293,7 +293,7 @@ export default async function AdminOverviewPage() {
           {topArticles.length === 0 ? (
             <EmptyRow>No article reads recorded yet.</EmptyRow>
           ) : (
-            <table className="ad-table">
+            <table className="panel-table">
               <thead>
                 <tr>
                   <th>Article</th>
@@ -334,7 +334,7 @@ export default async function AdminOverviewPage() {
               <li
                 key={m.id}
                 className="flex items-center gap-3 border-b px-5 py-3.5 last:border-b-0"
-                style={{ borderColor: "var(--ad-border)" }}
+                style={{ borderColor: "var(--panel-border)" }}
               >
                 {!m.read && (
                   <span
@@ -347,7 +347,7 @@ export default async function AdminOverviewPage() {
                     {m.name}
                     <span
                       className="font-normal"
-                      style={{ color: "var(--ad-muted)" }}
+                      style={{ color: "var(--panel-muted)" }}
                     >
                       {" · "}
                       {m.subject}
@@ -355,14 +355,14 @@ export default async function AdminOverviewPage() {
                   </p>
                   <p
                     className="truncate text-xs"
-                    style={{ color: "var(--ad-muted)" }}
+                    style={{ color: "var(--panel-muted)" }}
                   >
                     {m.message}
                   </p>
                 </div>
                 <time
                   className="shrink-0 text-xs tabular-nums"
-                  style={{ color: "var(--ad-faint)" }}
+                  style={{ color: "var(--panel-faint)" }}
                 >
                   {new Date(m.createdAt).toLocaleDateString("en-GB")}
                 </time>

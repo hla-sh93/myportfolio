@@ -12,7 +12,7 @@ export default async function AdminMessagesPage() {
     <div className="mx-auto max-w-[1100px] space-y-5">
       <header>
         <h1 className="text-xl font-bold">Messages</h1>
-        <p className="mt-1 text-sm" style={{ color: "var(--ad-muted)" }}>
+        <p className="mt-1 text-sm" style={{ color: "var(--panel-muted)" }}>
           {messages.length} received
           {unread ? ` · ${unread} unread` : " · inbox clear"}
         </p>

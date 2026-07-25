@@ -23,9 +23,9 @@ export function HighlightsEditor({ initial }: { initial: StoredStat[] }) {
 
   return (
     <div className="space-y-4">
-      <div className="ad-card overflow-hidden">
+      <div className="panel-card overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="ad-table">
+          <table className="panel-table">
             <thead>
               <tr>
                 <th className="w-28">Number</th>
@@ -41,14 +41,14 @@ export function HighlightsEditor({ initial }: { initial: StoredStat[] }) {
                   <td>
                     <input
                       inputMode="numeric"
-                      className="ad-field"
+                      className="panel-field"
                       value={String(s.value)}
                       onChange={(e) => set(i, "value", e.target.value)}
                     />
                   </td>
                   <td>
                     <input
-                      className="ad-field"
+                      className="panel-field"
                       placeholder="K+"
                       value={s.suffix}
                       onChange={(e) => set(i, "suffix", e.target.value)}
@@ -57,7 +57,7 @@ export function HighlightsEditor({ initial }: { initial: StoredStat[] }) {
                   <td>
                     <input
                       dir="rtl"
-                      className="ad-field"
+                      className="panel-field"
                       placeholder="سنوات خبرة"
                       value={s.labelAr}
                       onChange={(e) => set(i, "labelAr", e.target.value)}
@@ -65,7 +65,7 @@ export function HighlightsEditor({ initial }: { initial: StoredStat[] }) {
                   </td>
                   <td>
                     <input
-                      className="ad-field"
+                      className="panel-field"
                       placeholder="Years of experience"
                       value={s.labelEn}
                       onChange={(e) => set(i, "labelEn", e.target.value)}
@@ -88,7 +88,7 @@ export function HighlightsEditor({ initial }: { initial: StoredStat[] }) {
                   <td colSpan={5}>
                     <p
                       className="py-8 text-center text-sm"
-                      style={{ color: "var(--ad-muted)" }}
+                      style={{ color: "var(--panel-muted)" }}
                     >
                       No highlights — the numbers strip will be hidden.
                     </p>
@@ -101,10 +101,10 @@ export function HighlightsEditor({ initial }: { initial: StoredStat[] }) {
 
         <div
           className="border-t px-4 py-3"
-          style={{ borderColor: "var(--ad-border)" }}
+          style={{ borderColor: "var(--panel-border)" }}
         >
           <button
-            className="ad-btn ad-btn-ghost !py-1.5 text-xs"
+            className="panel-btn panel-btn-ghost !py-1.5 text-xs"
             onClick={() =>
               setStats([
                 ...stats,
@@ -120,12 +120,12 @@ export function HighlightsEditor({ initial }: { initial: StoredStat[] }) {
 
       <div className="flex items-center justify-end gap-3">
         {dirty && (
-          <span className="text-xs" style={{ color: "var(--ad-muted)" }}>
+          <span className="text-xs" style={{ color: "var(--panel-muted)" }}>
             Unsaved changes
           </span>
         )}
         <button
-          className="ad-btn ad-btn-primary"
+          className="panel-btn panel-btn-primary"
           disabled={pending || !dirty}
           onClick={() =>
             start(async () => {

@@ -11,7 +11,7 @@ export default async function AdminExperiencesPage() {
     <div className="mx-auto max-w-[1100px] space-y-5">
       <header>
         <h1 className="text-xl font-bold">Experience</h1>
-        <p className="mt-1 text-sm" style={{ color: "var(--ad-muted)" }}>
+        <p className="mt-1 text-sm" style={{ color: "var(--panel-muted)" }}>
           {experiences.length} entries on the About page timeline — the arrows
           reorder them.
         </p>

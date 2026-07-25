@@ -42,7 +42,7 @@ export function AdminShell({
   const isDark = resolvedTheme === "dark";
 
   return (
-    <div className="admin-shell flex min-h-screen">
+    <div className="console-shell flex min-h-screen">
       <AdminSidebar
         open={drawer}
         onClose={() => setDrawer(false)}
@@ -53,14 +53,14 @@ export function AdminShell({
         <header
           className="sticky top-0 z-30 flex h-16 items-center gap-3 border-b px-4 backdrop-blur-md lg:px-6"
           style={{
-            borderColor: "var(--ad-border)",
-            background: "color-mix(in srgb, var(--ad-bg) 88%, transparent)",
+            borderColor: "var(--panel-border)",
+            background: "color-mix(in srgb, var(--panel-bg) 88%, transparent)",
           }}
         >
           <button
             onClick={() => setDrawer(true)}
             className="rounded-lg p-2 lg:hidden"
-            style={{ color: "var(--ad-muted)" }}
+            style={{ color: "var(--panel-muted)" }}
             aria-label="Open menu"
           >
             <Menu size={20} />
@@ -70,8 +70,8 @@ export function AdminShell({
 
           <button
             onClick={() => setTheme(isDark ? "light" : "dark")}
-            className="rounded-lg p-2 transition-colors hover:bg-[var(--ad-hover)]"
-            style={{ color: "var(--ad-muted)" }}
+            className="rounded-lg p-2 transition-colors hover:bg-[var(--panel-hover)]"
+            style={{ color: "var(--panel-muted)" }}
             aria-label="Toggle theme"
           >
             {mounted && isDark ? <Sun size={19} /> : <Moon size={19} />}
@@ -90,23 +90,23 @@ export function AdminShell({
 
             {menu && (
               <div
-                className="ad-card absolute end-0 top-12 w-60 overflow-hidden p-1.5"
-                style={{ boxShadow: "var(--ad-shadow-lg)" }}
+                className="panel-card absolute end-0 top-12 w-60 overflow-hidden p-1.5"
+                style={{ boxShadow: "var(--panel-shadow-lg)" }}
               >
                 <p
                   className="truncate px-3 py-2 text-xs"
-                  style={{ color: "var(--ad-muted)" }}
+                  style={{ color: "var(--panel-muted)" }}
                 >
                   {email}
                 </p>
                 <div
                   className="my-1 h-px"
-                  style={{ background: "var(--ad-border)" }}
+                  style={{ background: "var(--panel-border)" }}
                 />
                 <form action={signOutAction}>
                   <button
                     type="submit"
-                    className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-[var(--ad-hover)]"
+                    className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-[var(--panel-hover)]"
                     style={{ color: "#ea5455" }}
                   >
                     <LogOut size={16} />

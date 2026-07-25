@@ -40,7 +40,7 @@ export function AdminLoginForm() {
   };
 
   return (
-    <div className="ad-card p-6">
+    <div className="panel-card p-6">
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         {error && (
           <p
@@ -55,14 +55,14 @@ export function AdminLoginForm() {
         <label className="block">
           <span
             className="mb-1.5 block text-xs font-semibold"
-            style={{ color: "var(--ad-muted)" }}
+            style={{ color: "var(--panel-muted)" }}
           >
             Email
           </span>
           <input
             type="email"
             autoComplete="username"
-            className="ad-field"
+            className="panel-field"
             placeholder="admin@example.com"
             {...register("email")}
           />
@@ -76,14 +76,14 @@ export function AdminLoginForm() {
         <label className="block">
           <span
             className="mb-1.5 block text-xs font-semibold"
-            style={{ color: "var(--ad-muted)" }}
+            style={{ color: "var(--panel-muted)" }}
           >
             Password
           </span>
           <input
             type="password"
             autoComplete="current-password"
-            className="ad-field"
+            className="panel-field"
             placeholder="••••••••"
             {...register("password")}
           />
@@ -96,7 +96,7 @@ export function AdminLoginForm() {
 
         <button
           type="submit"
-          className="ad-btn ad-btn-primary w-full"
+          className="panel-btn panel-btn-primary w-full"
           disabled={isSubmitting}
         >
           {isSubmitting ? "Signing in…" : "Sign in"}

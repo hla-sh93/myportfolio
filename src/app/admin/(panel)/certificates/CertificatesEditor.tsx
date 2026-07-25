@@ -85,13 +85,13 @@ export function CertificatesEditor({ initial }: { initial: StoredCertificate[] }
       {/* Toolbar */}
       <div className="flex flex-wrap items-center gap-3">
         <input
-          className="ad-field max-w-xs"
+          className="panel-field max-w-xs"
           placeholder="Search title or issuer…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
         <select
-          className="ad-field max-w-[190px]"
+          className="panel-field max-w-[190px]"
           value={cat}
           onChange={(e) => setCat(e.target.value)}
         >
@@ -102,11 +102,11 @@ export function CertificatesEditor({ initial }: { initial: StoredCertificate[] }
             </option>
           ))}
         </select>
-        <span className="text-sm" style={{ color: "var(--ad-muted)" }}>
+        <span className="text-sm" style={{ color: "var(--panel-muted)" }}>
           {filtered.length} of {initial.length}
         </span>
         <button
-          className="ad-btn ad-btn-primary ms-auto"
+          className="panel-btn panel-btn-primary ms-auto"
           onClick={() => setDraft(blank(initial.length))}
         >
           <Plus size={16} />
@@ -116,7 +116,7 @@ export function CertificatesEditor({ initial }: { initial: StoredCertificate[] }
 
       {/* Editor */}
       {draft && (
-        <div className="ad-card p-5">
+        <div className="panel-card p-5">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="text-[15px] font-semibold">
               {draft.id ? "Edit certificate" : "New certificate"}
@@ -124,7 +124,7 @@ export function CertificatesEditor({ initial }: { initial: StoredCertificate[] }
             <button
               onClick={() => setDraft(null)}
               className="rounded-lg p-1.5"
-              style={{ color: "var(--ad-muted)" }}
+              style={{ color: "var(--panel-muted)" }}
               aria-label="Close"
             >
               <X size={18} />
@@ -133,43 +133,43 @@ export function CertificatesEditor({ initial }: { initial: StoredCertificate[] }
 
           <div className="grid gap-4 md:grid-cols-2">
             <label className="block">
-              <span className="mb-1.5 block text-xs font-semibold" style={{ color: "var(--ad-muted)" }}>
+              <span className="mb-1.5 block text-xs font-semibold" style={{ color: "var(--panel-muted)" }}>
                 Title *
               </span>
               <input
-                className="ad-field"
+                className="panel-field"
                 value={draft.title}
                 onChange={(e) => setDraft({ ...draft, title: e.target.value })}
               />
             </label>
             <label className="block">
-              <span className="mb-1.5 block text-xs font-semibold" style={{ color: "var(--ad-muted)" }}>
+              <span className="mb-1.5 block text-xs font-semibold" style={{ color: "var(--panel-muted)" }}>
                 Issuer
               </span>
               <input
-                className="ad-field"
+                className="panel-field"
                 placeholder="Meta · Coursera"
                 value={draft.issuer}
                 onChange={(e) => setDraft({ ...draft, issuer: e.target.value })}
               />
             </label>
             <label className="block">
-              <span className="mb-1.5 block text-xs font-semibold" style={{ color: "var(--ad-muted)" }}>
+              <span className="mb-1.5 block text-xs font-semibold" style={{ color: "var(--panel-muted)" }}>
                 Date
               </span>
               <input
-                className="ad-field"
+                className="panel-field"
                 placeholder="Jun 30, 2024"
                 value={draft.date}
                 onChange={(e) => setDraft({ ...draft, date: e.target.value })}
               />
             </label>
             <label className="block">
-              <span className="mb-1.5 block text-xs font-semibold" style={{ color: "var(--ad-muted)" }}>
+              <span className="mb-1.5 block text-xs font-semibold" style={{ color: "var(--panel-muted)" }}>
                 Category
               </span>
               <select
-                className="ad-field"
+                className="panel-field"
                 value={draft.category}
                 onChange={(e) => setDraft({ ...draft, category: e.target.value })}
               >
@@ -182,11 +182,11 @@ export function CertificatesEditor({ initial }: { initial: StoredCertificate[] }
             </label>
             <div className="md:col-span-2">
               <label className="block">
-                <span className="mb-1.5 block text-xs font-semibold" style={{ color: "var(--ad-muted)" }}>
+                <span className="mb-1.5 block text-xs font-semibold" style={{ color: "var(--panel-muted)" }}>
                   Image URL *
                 </span>
                 <input
-                  className="ad-field"
+                  className="panel-field"
                   placeholder="/images/certificates/name.webp"
                   value={draft.url}
                   onChange={(e) => setDraft({ ...draft, url: e.target.value })}
@@ -200,12 +200,12 @@ export function CertificatesEditor({ initial }: { initial: StoredCertificate[] }
               </div>
             </div>
             <label className="block">
-              <span className="mb-1.5 block text-xs font-semibold" style={{ color: "var(--ad-muted)" }}>
+              <span className="mb-1.5 block text-xs font-semibold" style={{ color: "var(--panel-muted)" }}>
                 Order
               </span>
               <input
                 type="number"
-                className="ad-field"
+                className="panel-field"
                 value={draft.order}
                 onChange={(e) => setDraft({ ...draft, order: e.target.value })}
               />
@@ -213,10 +213,10 @@ export function CertificatesEditor({ initial }: { initial: StoredCertificate[] }
           </div>
 
           <div className="mt-5 flex gap-2">
-            <button className="ad-btn ad-btn-primary" onClick={save} disabled={pending}>
+            <button className="panel-btn panel-btn-primary" onClick={save} disabled={pending}>
               {pending ? "Saving…" : "Save"}
             </button>
-            <button className="ad-btn ad-btn-ghost" onClick={() => setDraft(null)}>
+            <button className="panel-btn panel-btn-ghost" onClick={() => setDraft(null)}>
               Cancel
             </button>
           </div>
@@ -224,16 +224,16 @@ export function CertificatesEditor({ initial }: { initial: StoredCertificate[] }
       )}
 
       {/* Table */}
-      <div className="ad-card overflow-hidden">
+      <div className="panel-card overflow-hidden">
         {filtered.length === 0 ? (
-          <p className="px-5 py-12 text-center text-sm" style={{ color: "var(--ad-muted)" }}>
+          <p className="px-5 py-12 text-center text-sm" style={{ color: "var(--panel-muted)" }}>
             {initial.length === 0
               ? "No certificates yet — add the first one."
               : "Nothing matches this filter."}
           </p>
         ) : (
           <div className="overflow-x-auto">
-            <table className="ad-table">
+            <table className="panel-table">
               <thead>
                 <tr>
                   <th className="w-16">Image</th>
@@ -250,17 +250,17 @@ export function CertificatesEditor({ initial }: { initial: StoredCertificate[] }
                     <td>
                       <span
                         className="relative block h-9 w-12 overflow-hidden rounded"
-                        style={{ background: "var(--ad-hover)" }}
+                        style={{ background: "var(--panel-hover)" }}
                       >
                         <Image src={c.url} alt="" fill className="object-cover" sizes="48px" />
                       </span>
                     </td>
                     <td className="font-medium">{c.title}</td>
-                    <td style={{ color: "var(--ad-muted)" }}>{c.issuer ?? "—"}</td>
-                    <td style={{ color: "var(--ad-muted)" }}>{c.date ?? "—"}</td>
+                    <td style={{ color: "var(--panel-muted)" }}>{c.issuer ?? "—"}</td>
+                    <td style={{ color: "var(--panel-muted)" }}>{c.date ?? "—"}</td>
                     <td>
                       <span
-                        className="ad-pill"
+                        className="panel-pill"
                         style={{ background: "var(--accent-light)", color: "var(--accent)" }}
                       >
                         {CATEGORIES.find((x) => x.value === c.category)?.label ?? c.category}
@@ -269,7 +269,7 @@ export function CertificatesEditor({ initial }: { initial: StoredCertificate[] }
                     <td>
                       <div className="flex items-center justify-end gap-1">
                         <button
-                          className="ad-btn ad-btn-ghost !px-2.5 !py-1 text-xs"
+                          className="panel-btn panel-btn-ghost !px-2.5 !py-1 text-xs"
                           onClick={() =>
                             setDraft({
                               id: c.id,
@@ -287,14 +287,14 @@ export function CertificatesEditor({ initial }: { initial: StoredCertificate[] }
                         {confirmId === c.id ? (
                           <>
                             <button
-                              className="ad-btn ad-btn-danger !px-2.5 !py-1 text-xs"
+                              className="panel-btn panel-btn-danger !px-2.5 !py-1 text-xs"
                               onClick={() => remove(c.id)}
                               disabled={pending}
                             >
                               Confirm
                             </button>
                             <button
-                              className="ad-btn ad-btn-ghost !px-2.5 !py-1 text-xs"
+                              className="panel-btn panel-btn-ghost !px-2.5 !py-1 text-xs"
                               onClick={() => setConfirmId(null)}
                             >
                               No
@@ -302,7 +302,7 @@ export function CertificatesEditor({ initial }: { initial: StoredCertificate[] }
                           </>
                         ) : (
                           <button
-                            className="ad-btn ad-btn-danger !px-2 !py-1"
+                            className="panel-btn panel-btn-danger !px-2 !py-1"
                             onClick={() => setConfirmId(c.id)}
                             aria-label={`Delete ${c.title}`}
                           >

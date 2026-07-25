@@ -21,8 +21,8 @@ export default async function EditArticlePage({
       <header className="flex items-center gap-3">
         <Link
           href="/admin/blog"
-          className="rounded-lg p-2 transition-colors hover:bg-[var(--ad-hover)]"
-          style={{ color: "var(--ad-muted)" }}
+          className="rounded-lg p-2 transition-colors hover:bg-[var(--panel-hover)]"
+          style={{ color: "var(--panel-muted)" }}
           aria-label="Back to articles"
         >
           <ArrowLeft size={18} />
@@ -32,7 +32,7 @@ export default async function EditArticlePage({
           <p
             className="mt-0.5 truncate text-sm"
             dir="rtl"
-            style={{ color: "var(--ad-muted)" }}
+            style={{ color: "var(--panel-muted)" }}
           >
             {article.titleAr}
           </p>
@@ -42,7 +42,7 @@ export default async function EditArticlePage({
             href={`/ar/blog/${article.slug}`}
             target="_blank"
             rel="noreferrer"
-            className="ad-btn ad-btn-ghost !py-1.5 text-xs"
+            className="panel-btn panel-btn-ghost !py-1.5 text-xs"
           >
             <ExternalLink size={14} />
             View live
@@ -50,7 +50,7 @@ export default async function EditArticlePage({
         )}
       </header>
 
-      <div className="ad-card p-5 md:p-6">
+      <div className="panel-card p-5 md:p-6">
         <EditArticleForm
           articleId={article.id}
           initialData={{

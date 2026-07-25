@@ -11,7 +11,7 @@ export default async function AdminCertificatesPage() {
     <div className="mx-auto max-w-[1400px] space-y-5">
       <header>
         <h1 className="text-xl font-bold">Certificates</h1>
-        <p className="mt-1 text-sm" style={{ color: "var(--ad-muted)" }}>
+        <p className="mt-1 text-sm" style={{ color: "var(--panel-muted)" }}>
           Courses and certificates shown on the About page. Lower order appears
           first.
         </p>

@@ -60,8 +60,8 @@ export function AdminSidebar({
           open ? "translate-x-0" : "-translate-x-full rtl:translate-x-full"
         }`}
         style={{
-          background: "var(--ad-card)",
-          borderColor: "var(--ad-border)",
+          background: "var(--panel-card)",
+          borderColor: "var(--panel-border)",
         }}
       >
         <div className="flex items-center justify-between px-5 py-5">
@@ -79,7 +79,7 @@ export function AdminSidebar({
           <button
             onClick={onClose}
             className="rounded-lg p-1.5 lg:hidden"
-            style={{ color: "var(--ad-muted)" }}
+            style={{ color: "var(--panel-muted)" }}
             aria-label="Close menu"
           >
             <X size={18} />
@@ -89,14 +89,14 @@ export function AdminSidebar({
         <nav className="flex-1 overflow-y-auto px-3 pb-6">
           {GROUPS.map((group, gi) => (
             <div key={gi}>
-              {group.caption && <p className="ad-caption">{group.caption}</p>}
+              {group.caption && <p className="panel-caption">{group.caption}</p>}
               <ul className="space-y-0.5">
                 {group.items.map(({ href, label, icon: Icon }) => (
                   <li key={href}>
                     <Link
                       href={href}
                       onClick={onClose}
-                      className="ad-nav"
+                      className="panel-nav"
                       data-active={isActive(href)}
                     >
                       <Icon size={18} className="shrink-0" />
@@ -123,14 +123,14 @@ export function AdminSidebar({
 
         <div
           className="border-t px-5 py-4"
-          style={{ borderColor: "var(--ad-border)" }}
+          style={{ borderColor: "var(--panel-border)" }}
         >
           <a
             href="/"
             target="_blank"
             rel="noreferrer"
             className="text-xs font-medium"
-            style={{ color: "var(--ad-muted)" }}
+            style={{ color: "var(--panel-muted)" }}
           >
             View live site ↗
           </a>

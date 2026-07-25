@@ -38,8 +38,8 @@ const projectSchema = z.object({
 
 type ProjectFormData = z.infer<typeof projectSchema>;
 
-const textareaCls = "ad-field resize-y";
-const labelCls = "mb-1.5 block text-xs font-semibold text-[var(--ad-muted)]";
+const textareaCls = "panel-field resize-y";
+const labelCls = "mb-1.5 block text-xs font-semibold text-[var(--panel-muted)]";
 const errCls = "mt-1 block text-xs text-[#ea5455]";
 
 export function EditProjectForm({
@@ -113,12 +113,12 @@ export function EditProjectForm({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className={labelCls}>العنوان (AR)</label>
-            <input dir="rtl" className="ad-field" {...register("titleAr")} />
+            <input dir="rtl" className="panel-field" {...register("titleAr")} />
             {errors.titleAr && <span className={errCls}>{errors.titleAr.message}</span>}
           </div>
           <div>
             <label className={labelCls}>Title (EN)</label>
-            <input className="ad-field" {...register("titleEn")} />
+            <input className="panel-field" {...register("titleEn")} />
             {errors.titleEn && <span className={errCls}>{errors.titleEn.message}</span>}
           </div>
           <div>
@@ -136,14 +136,14 @@ export function EditProjectForm({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
             <label className={labelCls}>Slug</label>
-            <input className="ad-field" placeholder="my-project" {...register("slug")} />
+            <input className="panel-field" placeholder="my-project" {...register("slug")} />
             {errors.slug && <span className={errCls}>{errors.slug.message}</span>}
           </div>
           <div>
             <label className={labelCls}>Category</label>
             <select
               {...register("category")}
-              className="ad-field"
+              className="panel-field"
             >
               <option value="UIUX">UI/UX</option>
               <option value="WEBSITES">Websites</option>
@@ -153,31 +153,31 @@ export function EditProjectForm({
           </div>
           <div>
             <label className={labelCls}>Year</label>
-            <input inputMode="numeric" className="ad-field" placeholder="2026" {...register("year")} />
+            <input inputMode="numeric" className="panel-field" placeholder="2026" {...register("year")} />
           </div>
           <div>
             <label className={labelCls}>Client</label>
-            <input className="ad-field" placeholder="Client name (optional)" {...register("client")} />
+            <input className="panel-field" placeholder="Client name (optional)" {...register("client")} />
           </div>
           <div>
             <label className={labelCls}>Role</label>
-            <input className="ad-field" placeholder="UI/UX Designer" {...register("role")} />
+            <input className="panel-field" placeholder="UI/UX Designer" {...register("role")} />
           </div>
           <div>
             <label className={labelCls}>Tools (comma separated)</label>
-            <input className="ad-field" placeholder="Figma, Photoshop" {...register("tools")} />
+            <input className="panel-field" placeholder="Figma, Photoshop" {...register("tools")} />
           </div>
         </div>
 
         <div>
           <label className={labelCls}>Tags (comma separated)</label>
-          <input className="ad-field" placeholder="Web Design, RTL, Corporate" {...register("tags")} />
+          <input className="panel-field" placeholder="Web Design, RTL, Corporate" {...register("tags")} />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-start">
           <div>
             <label className={labelCls}>Cover Image URL</label>
-            <input className="ad-field" placeholder="/images/projects/my-project/mockup-1.webp" {...register("coverImage")} />
+            <input className="panel-field" placeholder="/images/projects/my-project/mockup-1.webp" {...register("coverImage")} />
             {errors.coverImage && <span className={errCls}>{errors.coverImage.message}</span>}
             <div className="mt-2">
               <MediaUpload
@@ -189,7 +189,7 @@ export function EditProjectForm({
             </div>
           </div>
           {cover && (
-            <div className="relative h-28 w-40 overflow-hidden rounded-lg border border-[var(--ad-border)]">
+            <div className="relative h-28 w-40 overflow-hidden rounded-lg border border-[var(--panel-border)]">
               {/* eslint-disable-next-line @next/next/no-img-element -- arbitrary preview URL */}
               <img src={cover} alt="Cover preview" className="w-full h-full object-cover" />
             </div>
@@ -208,7 +208,7 @@ export function EditProjectForm({
           />
         </div>
 
-        <div className="flex flex-wrap items-center gap-6 border-t border-[var(--ad-border)] pt-4">
+        <div className="flex flex-wrap items-center gap-6 border-t border-[var(--panel-border)] pt-4">
           <label className="flex cursor-pointer select-none items-center gap-2.5 text-sm font-medium">
             <input
               type="checkbox"
@@ -230,7 +230,7 @@ export function EditProjectForm({
 
       <div className="flex justify-between gap-4">
         {projectId ? (
-          <button type="button" className="ad-btn ad-btn-danger" onClick={onDelete}>
+          <button type="button" className="panel-btn panel-btn-danger" onClick={onDelete}>
             <Trash size={16} />
             Delete project
           </button>
@@ -238,10 +238,10 @@ export function EditProjectForm({
           <span />
         )}
         <div className="flex justify-end gap-2">
-          <Link href="/admin/projects" className="ad-btn ad-btn-ghost">
+          <Link href="/admin/projects" className="panel-btn panel-btn-ghost">
             Cancel
           </Link>
-          <button type="submit" className="ad-btn ad-btn-primary" disabled={isSubmitting}>
+          <button type="submit" className="panel-btn panel-btn-primary" disabled={isSubmitting}>
             <Save size={16} />
             {isSubmitting ? "Saving…" : projectId ? "Update project" : "Create project"}
           </button>

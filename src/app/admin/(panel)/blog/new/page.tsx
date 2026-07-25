@@ -10,21 +10,21 @@ export default function NewArticlePage() {
       <header className="flex items-center gap-3">
         <Link
           href="/admin/blog"
-          className="rounded-lg p-2 transition-colors hover:bg-[var(--ad-hover)]"
-          style={{ color: "var(--ad-muted)" }}
+          className="rounded-lg p-2 transition-colors hover:bg-[var(--panel-hover)]"
+          style={{ color: "var(--panel-muted)" }}
           aria-label="Back to articles"
         >
           <ArrowLeft size={18} />
         </Link>
         <div>
           <h1 className="text-xl font-bold">New article</h1>
-          <p className="mt-0.5 text-sm" style={{ color: "var(--ad-muted)" }}>
+          <p className="mt-0.5 text-sm" style={{ color: "var(--panel-muted)" }}>
             The body fields accept Markdown.
           </p>
         </div>
       </header>
 
-      <div className="ad-card p-5 md:p-6">
+      <div className="panel-card p-5 md:p-6">
         <EditArticleForm initialData={{}} />
       </div>
     </div>

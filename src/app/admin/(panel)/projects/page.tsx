@@ -32,12 +32,12 @@ export default async function AdminProjectsPage() {
       <header className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-xl font-bold">Projects</h1>
-          <p className="mt-1 text-sm" style={{ color: "var(--ad-muted)" }}>
+          <p className="mt-1 text-sm" style={{ color: "var(--panel-muted)" }}>
             {rows.filter((r) => r.published).length} published ·{" "}
             {rows.filter((r) => r.featured).length} featured on the home page.
           </p>
         </div>
-        <Link href="/admin/projects/new" className="ad-btn ad-btn-primary">
+        <Link href="/admin/projects/new" className="panel-btn panel-btn-primary">
           <Plus size={16} />
           New project
         </Link>
