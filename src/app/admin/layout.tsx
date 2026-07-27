@@ -1,12 +1,21 @@
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ToastProvider } from "@/components/ui/Toast";
-import { Poppins, JetBrains_Mono } from "next/font/google";
+import { Poppins, JetBrains_Mono, Tajawal } from "next/font/google";
 import "../globals.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
   variable: "--font-poppins",
+  display: "swap",
+});
+
+// The panel edits Arabic content — without this, every Arabic title, body and
+// label in the dashboard falls back to whatever face the OS supplies.
+const tajawal = Tajawal({
+  subsets: ["arabic"],
+  weight: ["400", "500", "700"],
+  variable: "--font-tajawal",
   display: "swap",
 });
 
@@ -31,7 +40,9 @@ export default function AdminRootLayout({
 }) {
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
-      <body className={`${poppins.variable} ${jetbrainsMono.variable} antialiased`}>
+      <body
+        className={`${poppins.variable} ${jetbrainsMono.variable} ${tajawal.variable} antialiased`}
+      >
         <ThemeProvider>
           <ToastProvider>{children}</ToastProvider>
         </ThemeProvider>

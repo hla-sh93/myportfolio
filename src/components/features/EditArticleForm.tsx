@@ -129,7 +129,7 @@ export function EditArticleForm({
               {...register("bodyAr")}
               dir="rtl"
               rows={14}
-              className={`${textareaCls} font-mono text-sm`}
+              className={`${textareaCls} meta-mono text-sm`}
             />
           </div>
           <div>

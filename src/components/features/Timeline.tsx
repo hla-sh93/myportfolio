@@ -29,7 +29,7 @@ export function Timeline({ entries }: TimelineProps) {
             className="resume-item group"
           >
             <span
-              className={`mb-4 block font-mono text-sm transition-colors group-hover:text-accent ${
+              className={`meta-mono mb-4 block text-sm transition-colors group-hover:text-accent ${
                 entry.current ? "text-accent" : "text-text-tertiary"
               }`}
             >
