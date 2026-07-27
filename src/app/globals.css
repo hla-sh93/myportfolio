@@ -165,7 +165,12 @@ body {
   /* NOTE: with @theme inline, --font-sans is not emitted as a runtime var —
      reference the next/font variable directly so body text never falls back
      to the system font. */
-  font-family: var(--font-poppins), "Segoe UI", system-ui, sans-serif;
+  /* Tajawal sits in the chain as the Arabic fallback: Poppins carries no
+     Arabic glyphs, so Arabic characters fall through to it per-glyph. This is
+     what keeps Arabic on-brand in the LTR admin panel; RTL pages override the
+     whole stack below. */
+  font-family: var(--font-poppins), var(--font-tajawal, "Noto Sans Arabic"),
+    "Segoe UI", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -190,6 +195,21 @@ body {
   --font-space-grotesk: var(--font-tajawal), "Noto Sans Arabic";
   font-family: var(--font-tajawal), "Noto Sans Arabic", "Segoe UI", sans-serif;
   line-height: 1.8; /* Arabic script needs taller lines to breathe */
+}
+
+/* Metadata type (dates, periods, indices): monospace reads right for Latin
+   numerals, but JetBrains Mono carries no Arabic glyphs — plain `font-mono`
+   dropped Arabic onto whatever face the OS happened to have. Use `.meta-mono`
+   for any label that can contain Arabic; keep `font-mono` for genuinely
+   Latin-only strings (emails, filenames, code). */
+.meta-mono {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+[dir="rtl"] .meta-mono,
+.meta-mono[dir="rtl"] {
+  font-family: var(--font-tajawal), "Noto Sans Arabic", sans-serif;
+  letter-spacing: 0;
 }
 
 /* Arabic display type: tighter tracking hurts Arabic ligatures — reset it */
@@ -269,7 +289,13 @@ body {
 }
 
 /* ─── Smooth Scroll ─── */
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* Reserve the scrollbar gutter permanently: the intro loader locks scroll
+     for a moment, and without this the page would jump sideways when the
+     scrollbar disappears and comes back (CLS). */
+  scrollbar-gutter: stable;
+}
 
 /* ─── Reading ─── */
 .prose-reading { max-width: 65ch; line-height: 1.75; }
@@ -943,6 +969,267 @@ html { scroll-behavior: smooth; }
 }
 .panel-btn-danger:hover {
   background: rgba(234, 84, 85, 0.1);
+}
+
+/* ─── Loading Layer ───
+   Three pieces, all built on the same tokens as the rest of the site:
+   1. `.skeleton`      — the placeholder block every route skeleton is made of
+   2. `.intro-loader`  — the once-per-session brand curtain
+   3. `.route-bar`     — the hairline progress bar during route changes
+   Everything animates transform / opacity / clip-path only, so each one
+   stays on the compositor and costs no layout work. */
+
+/* ── 1. Skeleton block ── */
+@keyframes skeleton-sweep {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  /* token-derived so it reads correctly in BOTH themes (a flat white/5
+     wash is invisible on the warm light background) */
+  background: color-mix(in srgb, var(--text-primary) 7%, transparent);
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--text-primary) 6%, transparent),
+    transparent
+  );
+  animation: skeleton-sweep 1.6s var(--ease-expo) infinite;
+  will-change: transform;
+}
+/* the sweep should travel with the reading direction */
+[dir="rtl"] .skeleton::after {
+  animation-direction: reverse;
+}
+
+/* ── 2. Intro loader (brand curtain) ── */
+html[data-intro="on"] {
+  overflow: hidden;
+}
+
+.intro-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 200; /* above grain (80) and navbar (50) */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background:
+    radial-gradient(110% 70% at 50% 0%, var(--accent-light) 0%, transparent 62%),
+    var(--background);
+  clip-path: inset(0 0 0 0);
+  /* driven by the inline script: 0 → 1 */
+  --p: 0;
+}
+/* NOTE: with JS disabled nothing could ever lift the curtain — the component
+   ships a <noscript> style block that hides it outright. */
+
+.intro-loader::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(60% 50% at 50% 50%, black, transparent 75%);
+  -webkit-mask-image: radial-gradient(60% 50% at 50% 50%, black, transparent 75%);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* The two rows read as a studio slate: hairlines frame the wordmark. */
+.intro-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.intro-row:first-child {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+.intro-row:last-child {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+/* the small uppercase corner labels */
+.intro-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  animation: intro-fade-in 0.7s var(--ease-expo) 0.15s both;
+}
+.intro-tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--accent);
+}
+.intro-tag--plain::before {
+  display: none;
+}
+
+/* centre wordmark, revealed by rising out of a clipped box */
+.intro-center {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+/* wine light pooled behind the wordmark — breathes slowly so the screen is
+   never static, at zero layout cost (opacity + transform only) */
+.intro-center::before {
+  content: "";
+  position: absolute;
+  width: min(70vw, 620px);
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  background: radial-gradient(closest-side, var(--accent-glow), transparent 70%);
+  opacity: 0.9;
+  pointer-events: none;
+  animation: intro-breathe 3.2s ease-in-out infinite alternate;
+}
+@keyframes intro-breathe {
+  from { opacity: 0.35; transform: scale(0.92); }
+  to { opacity: 0.7; transform: scale(1.06); }
+}
+.intro-clip {
+  overflow: hidden;
+  padding-block: 0.15em; /* room for Arabic descenders inside the clip */
+}
+.intro-mark {
+  display: block;
+  font-family: var(--font-space-grotesk), var(--font-poppins), system-ui, sans-serif;
+  font-weight: 900;
+  font-size: clamp(3.5rem, 14vw, 9rem);
+  line-height: 1;
+  color: var(--text-primary);
+  transform: translateY(115%);
+  animation: intro-mark-rise 1s var(--ease-expo) 0.05s forwards;
+}
+.intro-mark span {
+  color: var(--accent);
+}
+
+/* The name fills with burgundy as the progress runs — the counter, the rail
+   and the wordmark all report the same number. A clipped background, never a
+   stroke: outlining type breaks Arabic ligatures. */
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .intro-mark {
+    background-image: linear-gradient(
+      to right,
+      var(--accent) calc(var(--p, 0) * 100%),
+      var(--text-primary) 0
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  [dir="rtl"] .intro-mark {
+    background-image: linear-gradient(
+      to left,
+      var(--accent) calc(var(--p, 0) * 100%),
+      var(--text-primary) 0
+    );
+  }
+}
+
+/* progress rail — scaleX only, never width */
+.intro-rail {
+  position: relative;
+  height: 1px;
+  width: min(100%, 320px);
+  background: var(--border-strong);
+  overflow: hidden;
+}
+.intro-rail::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform: scaleX(var(--p));
+  transform-origin: left center;
+}
+[dir="rtl"] .intro-rail::after {
+  transform-origin: right center;
+}
+
+.intro-count {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes intro-mark-rise {
+  to { transform: translateY(0); }
+}
+@keyframes intro-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* exit — the curtain wipes up and the content inside leaves slightly ahead */
+.intro-loader[data-state="out"] {
+  animation: intro-wipe 0.62s var(--ease-expo) forwards;
+  pointer-events: none;
+}
+.intro-loader[data-state="out"] .intro-row,
+.intro-loader[data-state="out"] .intro-center {
+  animation: intro-leave 0.34s var(--ease-expo) forwards;
+}
+@keyframes intro-wipe {
+  from { clip-path: inset(0 0 0 0); }
+  to { clip-path: inset(0 0 100% 0); }
+}
+@keyframes intro-leave {
+  to { opacity: 0; transform: translateY(-22px); }
+}
+
+/* ── 3. Route change bar ── */
+.route-bar {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  height: 2px;
+  z-index: 120; /* over the reading-progress bar (100) */
+  transform-origin: left center;
+  background: linear-gradient(
+    90deg,
+    var(--accent) 0%,
+    var(--accent-hover) 70%,
+    var(--accent) 100%
+  );
+  box-shadow: 0 0 12px var(--accent-glow);
+  transition:
+    transform 0.28s var(--ease-expo),
+    opacity 0.3s ease;
+  pointer-events: none;
+}
+[dir="rtl"] .route-bar {
+  transform-origin: right center;
 }
 
 /* ─── Reduced Motion ─── */

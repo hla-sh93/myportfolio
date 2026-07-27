@@ -1,107 +1,100 @@
-"use client";
-
-import React, { forwardRef } from "react";
+import type { CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 
-// ─── Types ──────────────────────────────────────────────────────────────────
+/**
+ * Skeleton primitives.
+ *
+ * Server components on purpose — a loading screen that ships JavaScript is a
+ * contradiction. Nothing here uses hooks, refs or event handlers, so route
+ * skeletons render straight from the server with zero client bundle cost.
+ *
+ * The look comes from the `.skeleton` class in globals.css, which is built on
+ * the theme tokens (so it reads on the warm light background *and* on studio
+ * black) and animates a transform-only sweep.
+ */
 
-export interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Explicit width (e.g. "200px", "100%") — falls back to w-full */
+interface SkeletonProps {
+  /** Explicit width — e.g. "60%", 240 */
   width?: string | number;
-  /** Explicit height (e.g. "20px", "1rem") — falls back to h-4 */
+  /** Explicit height — e.g. "1.25rem", 18 */
   height?: string | number;
+  /**
+   * Reserve space by ratio instead of height — e.g. "16 / 11".
+   * Use this for image placeholders: it's what keeps the swap to the real
+   * cover from shifting anything. Pass it here rather than as an `aspect-*`
+   * class, so it can't collide with the default height.
+   */
+  aspect?: string;
+  /** Corner radius override — e.g. "30px", "9999px" */
+  radius?: string;
   className?: string;
+  style?: CSSProperties;
 }
 
-// ─── Component ──────────────────────────────────────────────────────────────
+const size = (v: string | number | undefined) =>
+  typeof v === "number" ? `${v}px` : v;
 
-export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>(
-  ({ width, height, className, style, ...rest }, ref) => {
-    const inlineStyle: React.CSSProperties = {
-      ...(width !== undefined
-        ? { width: typeof width === "number" ? `${width}px` : width }
-        : {}),
-      ...(height !== undefined
-        ? { height: typeof height === "number" ? `${height}px` : height }
-        : {}),
-      ...style,
-    };
+export function Skeleton({
+  width,
+  height,
+  aspect,
+  radius,
+  className,
+  style,
+}: SkeletonProps) {
+  return (
+    <div
+      aria-hidden="true"
+      className={cn(
+        "skeleton",
+        width === undefined && "w-full",
+        height === undefined && aspect === undefined && "h-4",
+        className
+      )}
+      style={{
+        width: size(width),
+        height: size(height),
+        aspectRatio: aspect,
+        borderRadius: radius,
+        ...style,
+      }}
+    />
+  );
+}
 
-    return (
-      <div
-        ref={ref}
-        aria-hidden="true"
-        role="presentation"
-        style={inlineStyle}
-        className={cn(
-          // Base shape
-          "rounded-lg",
-          // Default dimensions when none are supplied via props
-          width === undefined && "w-full",
-          height === undefined && "h-4",
-          // Glass-themed shimmer: a gradient animation over the surface color
-          "relative overflow-hidden bg-white/5",
-          // Pulse animation — defined in globals.css or Tailwind's animate-pulse
-          "animate-pulse",
-          className
-        )}
-        {...rest}
-      >
-        {/*
-         * Shimmer sweep — an absolutely-positioned gradient that slides
-         * across the element.  Complements the pulse to give a lively look.
-         */}
-        <span
-          aria-hidden="true"
-          className={cn(
-            "absolute inset-0",
-            "bg-gradient-to-r from-transparent via-white/10 to-transparent",
-            "translate-x-[-100%] animate-[shimmer_1.8s_infinite]"
-          )}
-        />
-      </div>
-    );
-  }
-);
-
-Skeleton.displayName = "Skeleton";
-
-// ─── Convenience presets ─────────────────────────────────────────────────────
-
-/** A single line of text placeholder */
+/** Paragraph placeholder — the last line is short, like real text. */
 export function SkeletonText({
   lines = 3,
+  height = 12,
   className,
 }: {
   lines?: number;
+  height?: number;
   className?: string;
 }) {
   return (
-    <div className={cn("flex flex-col gap-2", className)}>
+    <div className={cn("flex flex-col gap-2.5", className)} aria-hidden="true">
       {Array.from({ length: lines }).map((_, i) => (
         <Skeleton
           key={i}
-          height={14}
-          // Last line is shorter to mimic real paragraph endings
-          width={i === lines - 1 ? "66%" : "100%"}
+          height={height}
+          width={i === lines - 1 ? "62%" : "100%"}
         />
       ))}
     </div>
   );
 }
 
-/** A card-shaped placeholder */
-export function SkeletonCard({ className }: { className?: string }) {
-  return (
-    <div className={cn("glass rounded-2xl p-6 space-y-4", className)}>
-      <Skeleton height={24} width="60%" />
-      <SkeletonText lines={3} />
-      <div className="flex gap-2 pt-2">
-        <Skeleton height={32} width={80} className="rounded-full" />
-        <Skeleton height={32} width={80} className="rounded-full" />
-      </div>
-    </div>
-  );
+/** The uppercase pill that opens every section. */
+export function SkeletonChip({ width = 132 }: { width?: number }) {
+  return <Skeleton width={width} height={34} radius="9999px" />;
 }
 
-export default Skeleton;
+/**
+ * Announces the wait to screen readers.
+ *
+ * Skeleton blocks are decorative and `aria-hidden`, so without this a screen
+ * reader user would hear nothing at all while a route loads. Client component
+ * only because the translation lives in the next-intl client context.
+ */
+export { LoadingStatus } from "./LoadingStatus";

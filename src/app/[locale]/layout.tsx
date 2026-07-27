@@ -15,6 +15,8 @@ import {
 } from "next/font/google";
 import { JsonLd, personSchema, websiteSchema } from "@/components/seo/JsonLd";
 import { CursorRing } from "@/components/ui/CursorRing";
+import { IntroLoader } from "@/components/ui/IntroLoader";
+import { RouteProgress } from "@/components/ui/RouteProgress";
 import "../globals.css";
 
 /* ─── Fonts ─── */
@@ -139,11 +141,15 @@ export default async function LocaleLayout({
           antialiased
         `}
       >
+        {/* First in the body so the curtain paints on the very first frame,
+            before any of the providers below have hydrated. */}
+        <IntroLoader />
         <JsonLd data={personSchema(locale)} />
         <JsonLd data={websiteSchema(locale)} />
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>
             <ToastProvider>
+              <RouteProgress />
               <CursorRing />
               <div className="grain-overlay" aria-hidden />
               <div className="relative flex min-h-screen flex-col">
