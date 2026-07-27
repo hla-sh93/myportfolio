@@ -1,7 +1,6 @@
 "use client";
 
 import { Link } from "@/i18n/navigation";
-import { Magnetic } from "@/components/ui/Magnetic";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Mail } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -56,17 +55,18 @@ export function CTABanner({ contained = false }: { contained?: boolean }) {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Magnetic>
-              <Link
-                href="/contact"
-                className={`shine group flex items-center gap-2.5 rounded-full bg-white font-bold text-[#120409] transition-transform duration-300 hover:scale-[1.03] ${
-                  contained ? "px-7 py-3.5 text-sm" : "px-9 py-4.5 text-base"
-                }`}
-              >
-                <Mail size={contained ? 15 : 17} />
-                {t("primaryButton")}
-              </Link>
-            </Magnetic>
+            {/* Anchored on purpose: this used to be magnetic + scale-on-hover,
+                which made the button chase the cursor and jitter at its own
+                edge. The hover now only changes colour. */}
+            <Link
+              href="/contact"
+              className={`shine group flex items-center gap-2.5 rounded-full bg-white font-bold text-[#120409] transition-colors duration-300 hover:bg-[#E64A6E] hover:text-white ${
+                contained ? "px-7 py-3.5 text-sm" : "px-9 py-4.5 text-base"
+              }`}
+            >
+              <Mail size={contained ? 15 : 17} />
+              {t("primaryButton")}
+            </Link>
             <Link
               href="/projects"
               className={`group flex items-center gap-2 rounded-full border border-white/25 font-bold text-white transition-colors hover:border-white/60 ${

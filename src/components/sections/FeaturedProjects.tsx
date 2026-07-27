@@ -110,10 +110,8 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
                 </div>
 
                 <div className="mt-5 flex items-center justify-between gap-4 px-1">
-                  <h3 className="font-display text-lg font-bold leading-snug text-text-primary md:text-2xl">
-                    <span className="border-b border-transparent pb-0.5 transition-colors duration-300 group-hover:border-current">
-                      {title}
-                    </span>
+                  <h3 className="font-display text-lg font-bold leading-snug text-text-primary transition-colors duration-300 group-hover:text-accent md:text-2xl">
+                    {title}
                   </h3>
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border-strong text-text-secondary transition-all duration-300 group-hover:rotate-45 group-hover:border-accent group-hover:text-accent rtl:-scale-x-100 rtl:group-hover:-rotate-45">
                     <ArrowUpRight size={17} />

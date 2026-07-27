@@ -99,10 +99,10 @@ export function ProjectCard({
         {/* Content */}
         <div className={cn("flex flex-1 flex-col", isGrid ? "px-1 pt-5" : "py-2")}>
           <div className="flex items-start justify-between gap-3">
-            <h3 className="line-clamp-1 font-display text-lg font-bold text-text-primary md:text-xl">
-              <span className="border-b border-transparent pb-0.5 transition-colors duration-300 group-hover:border-current">
-                {title}
-              </span>
+            {/* Hover recolours the title instead of underlining it — a rule
+                under Arabic type collides with the descenders. */}
+            <h3 className="line-clamp-1 font-display text-lg font-bold text-text-primary transition-colors duration-300 group-hover:text-accent md:text-xl">
+              {title}
             </h3>
             <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border-strong text-text-secondary transition-all duration-300 group-hover:rotate-45 group-hover:border-accent group-hover:text-accent rtl:-scale-x-100 rtl:group-hover:-rotate-45">
               <ArrowUpRight size={14} />
