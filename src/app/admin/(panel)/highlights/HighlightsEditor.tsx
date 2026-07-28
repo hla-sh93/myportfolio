@@ -39,12 +39,26 @@ export function HighlightsEditor({ initial }: { initial: StoredStat[] }) {
               {stats.map((s, i) => (
                 <tr key={s.id || `new-${i}`}>
                   <td>
+                    {/* A counted stat is read from the content itself, so an
+                        editable box here would be a lie — typing in it would
+                        change nothing on the site. */}
                     <input
                       inputMode="numeric"
-                      className="panel-field"
+                      className="panel-field disabled:cursor-not-allowed disabled:opacity-60"
                       value={String(s.value)}
+                      disabled={!!s.source}
+                      title={
+                        s.source
+                          ? `Counted automatically from your ${s.source}`
+                          : undefined
+                      }
                       onChange={(e) => set(i, "value", e.target.value)}
                     />
+                    {s.source && (
+                      <span className="mt-1 block text-[11px] font-medium text-[var(--panel-faint)]">
+                        auto · {s.source}
+                      </span>
+                    )}
                   </td>
                   <td>
                     <input

@@ -91,6 +91,12 @@ export type StoredStat = {
   suffix: string;
   labelEn: string;
   labelAr: string;
+  /**
+   * Counts this stat from the content instead of trusting `value`:
+   * "years" (from the experience timeline) | "projects" | "clients" |
+   * "certificates". Leave it off to publish a literal number.
+   */
+  source?: "years" | "projects" | "clients" | "certificates";
 };
 
 export type StoredCertificate = {
@@ -553,6 +559,9 @@ export async function getStoredStats(): Promise<StoredStat[]> {
         suffix: s.suffix,
         labelEn: s.labelEn,
         labelAr: s.labelAr,
+        // Without this the database path silently drops `source`, and every
+        // stat falls back to its stored literal — the counting never runs.
+        source: (s.source ?? undefined) as StoredStat["source"],
       }));
     }
   } catch {
@@ -573,6 +582,7 @@ export async function saveStats(stats: StoredStat[]) {
         suffix: s.suffix,
         labelEn: s.labelEn,
         labelAr: s.labelAr,
+        source: s.source ?? null,
         order: i,
       };
       await db.highlight.upsert({

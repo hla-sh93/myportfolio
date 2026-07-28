@@ -141,6 +141,9 @@ model Highlight {
   suffix    String   @default("")
   labelEn   String
   labelAr   String
+  /// Counts the figure from the content instead of trusting `value`:
+  /// "years" | "projects" | "clients" | "certificates". Null = literal number.
+  source    String?
   order     Int      @default(0)
   updatedAt DateTime @updatedAt
 

@@ -1,30 +1,34 @@
 [
  {
   "id": "years",
-  "value": 8,
+  "source": "years",
+  "value": 9,
   "suffix": "+",
   "labelEn": "Years of Experience",
   "labelAr": "سنوات خبرة"
  },
  {
-  "id": "users",
-  "value": 94,
-  "suffix": "K+",
-  "labelEn": "Users Across My Products",
-  "labelAr": "مستخدم لمنتجات صمّمتها"
+  "id": "projects",
+  "source": "projects",
+  "value": 30,
+  "suffix": "+",
+  "labelEn": "Projects Delivered",
+  "labelAr": "مشروع منجز"
  },
  {
-  "id": "downloads",
-  "value": 50,
-  "suffix": "K+",
-  "labelEn": "App Downloads",
-  "labelAr": "تحميل للتطبيق"
+  "id": "clients",
+  "source": "clients",
+  "value": 20,
+  "suffix": "",
+  "labelEn": "Clients & Teams",
+  "labelAr": "جهة تعاملت معها"
  },
  {
-  "id": "publishers",
-  "value": 3,
-  "suffix": "K+",
-  "labelEn": "Publishers Served",
-  "labelAr": "ناشر تعاملت معهم"
+  "id": "certificates",
+  "source": "certificates",
+  "value": 17,
+  "suffix": "",
+  "labelEn": "Professional Certificates",
+  "labelAr": "شهادة مهنية"
  }
 ]

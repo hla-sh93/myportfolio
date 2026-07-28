@@ -89,14 +89,81 @@ export async function getExperiences(locale: string) {
   }));
 }
 
+/* ── Key highlights ───────────────────────────────────────────────────────
+   Every number on the home page is counted from the content itself, so it
+   can't drift out of date the way a hand-typed figure does: publish a
+   project and the count moves with it. A stat with no `source` keeps the
+   literal value stored for it. */
+
+const MONTH_INDEX: Record<string, number> = {
+  jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
+  jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11,
+};
+
+/** "Aug 2016 – Jan 2019" → the start date. */
+function parsePeriodStart(period: string): Date | null {
+  const m = /^\s*([A-Za-z]{3})[a-z]*\.?\s+(\d{4})/.exec(period);
+  if (!m) return null;
+  const month = MONTH_INDEX[m[1].toLowerCase()];
+  if (month === undefined) return null;
+  return new Date(Date.UTC(Number(m[2]), month, 1));
+}
+
+/** The same client written in both languages must not be counted twice. */
+const CLIENT_ALIASES: Record<string, string> = {
+  "أخضر": "akhdar",
+  "نعناع": "nana",
+  "bw group": "bw",
+};
+
+function clientKey(raw: string) {
+  const trimmed = raw.trim();
+  return CLIENT_ALIASES[trimmed] ?? CLIENT_ALIASES[trimmed.toLowerCase()] ?? trimmed.toLowerCase();
+}
+
+async function countHighlight(source: string): Promise<number | null> {
+  switch (source) {
+    case "years": {
+      const starts = (await getStoredExperiences())
+        .map((e) => parsePeriodStart(e.periodEn))
+        .filter((d): d is Date => d !== null);
+      if (!starts.length) return null;
+
+      const first = new Date(Math.min(...starts.map((d) => d.getTime())));
+      const now = new Date();
+      const years = now.getUTCFullYear() - first.getUTCFullYear();
+      // a year only counts once it has actually finished
+      const reached =
+        now.getUTCMonth() > first.getUTCMonth() ||
+        (now.getUTCMonth() === first.getUTCMonth() &&
+          now.getUTCDate() >= first.getUTCDate());
+      return Math.max(0, reached ? years : years - 1);
+    }
+    case "projects":
+      return (await getPublicProjects()).length;
+    case "clients": {
+      const clients = (await getPublicProjects())
+        .map((p) => clientKey(p.client ?? ""))
+        .filter(Boolean);
+      return new Set(clients).size;
+    }
+    case "certificates":
+      return (await getCertificates()).length;
+    default:
+      return null;
+  }
+}
+
 export async function getHighlights(locale: string) {
   const ar = locale === "ar";
   const all = await getStoredStats();
-  return all.map((s) => ({
-    value: s.value,
-    suffix: s.suffix,
-    label: ar ? s.labelAr : s.labelEn,
-  }));
+  return Promise.all(
+    all.map(async (s) => ({
+      value: (s.source ? await countHighlight(s.source) : null) ?? s.value,
+      suffix: s.suffix,
+      label: ar ? s.labelAr : s.labelEn,
+    }))
+  );
 }
 
 export async function getCertificates() {
