@@ -20,7 +20,8 @@ type Site = {
   nameEn: string;
   nameAr: string;
   url: string;
-  image: string;
+  /** null while the site is not reachable — no invented screenshot stands in. */
+  image: string | null;
   live: boolean;
   year?: number;
 };
@@ -56,13 +57,23 @@ export function SiteWall({ slug, isRtl }: { slug: string; isRtl: boolean }) {
           const body = (
             <>
               <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[22px] border border-border bg-surface">
-                <Image
-                  src={site.image}
-                  alt={name}
-                  fill
-                  className="object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
+                {site.image ? (
+                  <Image
+                    src={site.image}
+                    alt={name}
+                    fill
+                    className="object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                ) : (
+                  /* Unreachable right now, so there is nothing honest to show.
+                     A blueprint panel holds the slot until it is back. */
+                  <div className="bg-grid absolute inset-0 flex items-center justify-center px-5">
+                    <span className="text-center text-sm font-bold leading-snug text-text-tertiary">
+                      {name}
+                    </span>
+                  </div>
+                )}
               </div>
 
               <div className="flex flex-1 flex-col px-3 pb-2 pt-4">

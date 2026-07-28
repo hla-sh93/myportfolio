@@ -63,6 +63,33 @@
       "image": "/images/projects/maritime-flag-administrations/site-alliance.webp",
       "live": true,
       "year": 2025
+    },
+    {
+      "key": "cameroon",
+      "nameEn": "Cameroon Ship Registry",
+      "nameAr": "سجل السفن — الكاميرون",
+      "url": "https://cameadmin.org",
+      "image": null,
+      "live": false,
+      "year": 2025
+    },
+    {
+      "key": "equatorialguinea",
+      "nameEn": "Equatorial Guinea Ship Administration",
+      "nameAr": "إدارة السفن — غينيا الاستوائية",
+      "url": "https://equguadmin.org",
+      "image": null,
+      "live": false,
+      "year": 2026
+    },
+    {
+      "key": "sasmaa",
+      "nameEn": "SASMAA",
+      "nameAr": "ساسما — SASMAA",
+      "url": "https://sasmaaclub.org",
+      "image": null,
+      "live": false,
+      "year": 2026
     }
   ]
 }

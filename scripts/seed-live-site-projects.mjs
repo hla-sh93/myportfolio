@@ -23,9 +23,9 @@ const DEFS = [
     titleEn: "Maritime Flag Administrations",
     titleAr: "بوابات الإدارات البحرية",
     descEn:
-      "Seven maritime authorities, seven separate clients, one problem repeated: a flag state has to publish the same things — services, certification, approved organisations, document verification — and still look like itself while doing it. I designed and built each front end. Zimbabwe runs deep green and gold; Nicaragua is cream and navy. The same skeleton underneath, no two alike on the surface.",
+      "Ten maritime authorities, ten separate clients, one problem repeated: a flag state has to publish the same things — services, certification, approved organisations, document verification — and still look like itself while doing it. I designed and built each front end. Zimbabwe runs deep green and gold; Nicaragua is cream and navy. The same skeleton underneath, no two alike on the surface.",
     descAr:
-      "سبع هيئات بحرية، وسبعة عملاء منفصلين، ومسألة واحدة تتكرّر: دولة العَلَم تنشر المحتوى نفسه — الخدمات، وإصدار الشهادات، والمؤسسات المعتمدة، والتحقّق من الوثائق — وعليها أن تظلّ محتفظة بهويتها وهي تفعل ذلك. صمّمت كل واجهة وبنيتها. زيمبابوي بالأخضر الغامق والذهبي، ونيكاراغوا بالكريمي والكحلي. الهيكل واحد في العمق، ولا يتشابه اثنان في السطح.",
+      "عشر هيئات بحرية، وعشرة عملاء منفصلين، ومسألة واحدة تتكرّر: دولة العَلَم تنشر المحتوى نفسه — الخدمات، وإصدار الشهادات، والمؤسسات المعتمدة، والتحقّق من الوثائق — وعليها أن تظلّ محتفظة بهويتها وهي تفعل ذلك. صمّمت كل واجهة وبنيتها. زيمبابوي بالأخضر الغامق والذهبي، ونيكاراغوا بالكريمي والكحلي. الهيكل واحد في العمق، ولا يتشابه اثنان في السطح.",
     category: "WEBSITES",
     tags: ["Maritime", "Government", "Next.js"],
     client: null, // each portal is its own client
