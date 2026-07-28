@@ -47,9 +47,13 @@ export function ProjectGrid({ projects, initialCategory = "ALL" }: ProjectGridPr
     <div className="flex flex-col gap-8 w-full">
       {/* Controls Bar */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        {/* Categories Tab */}
-        <div className="no-scrollbar -mx-6 flex-1 overflow-x-auto px-6 md:mx-0 md:px-0">
-          <div className="flex items-center gap-2">
+        {/* Category filters — every one of them, at every width.
+            These used to sit in a scroll rail with the scrollbar hidden, so on
+            a narrow screen the last filter slid off the edge with nothing to
+            say it was there and read as missing. They wrap now, like the blog
+            and certificate filters do. */}
+        <div className="flex-1">
+          <div className="flex flex-wrap items-center gap-2">
             {CATEGORIES.map((category) => (
               <button
                 key={category}
@@ -85,7 +89,9 @@ export function ProjectGrid({ projects, initialCategory = "ALL" }: ProjectGridPr
               icon={<Search className="w-4 h-4" />}
             />
           </div>
-          <div className="hidden sm:flex items-center bg-surface rounded-full p-1 border border-border isolate">
+          {/* Shown at every width too: list view stacks into a bordered card
+              on a phone, so the toggle still does something there. */}
+          <div className="flex shrink-0 items-center bg-surface rounded-full p-1 border border-border isolate">
             <button
               aria-label="Grid view"
               onClick={() => setView("grid")}
