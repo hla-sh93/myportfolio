@@ -66,6 +66,7 @@ export type ProjectInput = {
   role: string;
   tools: string; // comma separated
   year: string; // "" or number
+  liveUrl?: string; // "" or the delivered site's address
   featured: boolean;
   published: boolean;
   mediaUrls: string; // one URL per line; .mp4 → VIDEO
@@ -113,6 +114,7 @@ export async function saveProjectAction(input: ProjectInput) {
       input.coverImage === existing?.coverImage ? (existing?.blurDataUrl ?? null) : null,
     client: input.client.trim() || null,
     role: input.role.trim() || null,
+    liveUrl: input.liveUrl?.trim() || null,
     tools: splitList(input.tools),
     year: input.year ? Number(input.year) : null,
     featured: input.featured,

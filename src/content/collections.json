@@ -1,0 +1,68 @@
+{
+  "_comment": "Projects that are a family of delivered sites rather than one. Keyed by project slug; the detail page renders <SiteWall> when a slug appears here. `live: false` means the site is no longer reachable — the card still shows the work but carries no link.",
+  "maritime-flag-administrations": [
+    {
+      "key": "zimbabwe",
+      "nameEn": "Zimbabwe Maritime Administration",
+      "nameAr": "الإدارة البحرية — زيمبابوي",
+      "url": "https://zimadmin.org",
+      "image": "/images/projects/maritime-flag-administrations/site-zimbabwe.webp",
+      "live": true,
+      "year": 2024
+    },
+    {
+      "key": "nicaragua",
+      "nameEn": "Nicaragua Maritime Administration",
+      "nameAr": "الإدارة البحرية — نيكاراغوا",
+      "url": "https://nicaradmin.org",
+      "image": "/images/projects/maritime-flag-administrations/site-nicaragua.webp",
+      "live": true,
+      "year": 2025
+    },
+    {
+      "key": "haiti",
+      "nameEn": "Haiti Ship Registration",
+      "nameAr": "تسجيل السفن — هايتي",
+      "url": "https://haiauthor.org",
+      "image": "/images/projects/maritime-flag-administrations/site-haiti.webp",
+      "live": true,
+      "year": 2024
+    },
+    {
+      "key": "chad",
+      "nameEn": "Chad Maritime Administration",
+      "nameAr": "الإدارة البحرية — تشاد",
+      "url": "https://chadminstra.org",
+      "image": "/images/projects/maritime-flag-administrations/site-chad.webp",
+      "live": true,
+      "year": 2025
+    },
+    {
+      "key": "zambiaadmin",
+      "nameEn": "Zambia Maritime Administration",
+      "nameAr": "الإدارة البحرية — زامبيا",
+      "url": "https://zambauth.org",
+      "image": "/images/projects/maritime-flag-administrations/site-zambiaadmin.webp",
+      "live": true,
+      "year": 2026
+    },
+    {
+      "key": "zambiaservices",
+      "nameEn": "Zambia Maritime Services",
+      "nameAr": "الخدمات البحرية — زامبيا",
+      "url": "https://zamadmin.org",
+      "image": "/images/projects/maritime-flag-administrations/site-zambiaservices.webp",
+      "live": true,
+      "year": 2026
+    },
+    {
+      "key": "alliance",
+      "nameEn": "Alliance Ship Certification Services",
+      "nameAr": "ألاينس لخدمات إصدار الشهادات البحرية",
+      "url": "https://clallianc.org",
+      "image": "/images/projects/maritime-flag-administrations/site-alliance.webp",
+      "live": true,
+      "year": 2025
+    }
+  ]
+}

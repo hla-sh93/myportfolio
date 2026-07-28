@@ -634,5 +634,53 @@
    "height": 900,
    "blurDataUrl": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAQCdASoQAAkAA4BaJZQC7ADC6qvgAP7xc5C89asvbAzLSRAMYpjKibBzevh/es1G3ZVNjt++QHL1ffKXnSF/lwAAAA=="
   }
+ ],
+ "maritime-flag-administrations": [
+  {
+   "url": "/images/projects/maritime-flag-administrations/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAQAgCdASoQAAwAA4BaJZACdAEf1fpryN1wAP62zP8yYBDV/nwdonOI+DcxaG2upehm15ptVxdHOm9OCRLI+T+jJWMXjO3tNVGV1tuj+qHg3qivaaE4j8ySYUM6WzTAQGpt0v8cAAA="
+  },
+  {
+   "url": "/images/projects/maritime-flag-administrations/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABQAgCdASoQAAwAA4BaJZQCdAYvXQ3uHmWGeAAA/gtTwGQhiytfOKssDvsVEyWPI+8z69l/uGpLEhyQP6qTGudw3dDXjNgaEP+s2vVIAa4tliFq1WG8gQoHtF5WzdJROVRaNrqCFx7vaZXCaI7/AH0BFbgAAA=="
+  },
+  {
+   "url": "/images/projects/maritime-flag-administrations/mockup-3.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQAgCdASoQAAwAA4BaJQBOgCHw5BjMD7YAAP7Kt7Vv4LGIdJAtJov6MVXkAr3KuXmhVBu0pyHoFvG+lnkTJNKnfgXVjqxjg57RFQ+O4pTwa2dr7IPso8h+Qr1WEKkr9AAAAA=="
+  }
+ ],
+ "asset-security-systems": [
+  {
+   "url": "/images/projects/asset-security-systems/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAgCdASoQAAwAA4BaJaQAD5RRfWOe5AOoAAD+tsz/Lr7sf01qwv6s934KcSHygNr4SPnafx2mdrluB8v4i4j5fxmpnYkmnBsFjWBU1UFxC9zDyLd2B6HJoG1g9h90DGFAAA=="
+  },
+  {
+   "url": "/images/projects/asset-security-systems/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAQCdASoQAAwAA4BaJaQAD5GweG2jsvAA/sq3d3zsLPLQ4OtIrU+nTdi5CVFp+krM/GI2Wl+e05ynPv0/3cfyZEE+oZ8rPrVyOzTnaqEpmlm4pRy5LSwkCDgAAA=="
+  }
+ ],
+ "rasael-messaging-platform": [
+  {
+   "url": "/images/projects/rasael-messaging-platform/mockup-1.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAQAgCdASoQAAwAA4BaJYwCdAEf1iX/hIFAAP5oykCrhuFWVt5sI920ONs8nNE8B+cm8PCuJPIDINz/OYK04u0P+M71Du29ziz/90IX+2sx4lAEf5yAn/4WWd2yFnhd4AA="
+  },
+  {
+   "url": "/images/projects/rasael-messaging-platform/mockup-2.webp",
+   "width": 1600,
+   "height": 1200,
+   "blurDataUrl": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoQAAwAA4BaJZQCw7EN4iPwxaQAAP64W/BqDKgWjqfz+G/ltI3S6l+5n7gc/59wwLhfHwYCQHMQtvvsFiKkopqzCzczCNNqFoeeohnS9IwAAA=="
+  }
  ]
 }

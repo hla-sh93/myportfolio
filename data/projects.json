@@ -1,5 +1,114 @@
 [
  {
+  "id": "rasael-messaging-platform",
+  "slug": "rasael-messaging-platform",
+  "titleEn": "Rasael — Multi-Channel Messaging",
+  "titleAr": "رسائل — منصّة مراسلة متعدّدة القنوات",
+  "descEn": "One inbox for WhatsApp, SMS, Telegram and email, built Arabic-first: campaigns, templates, bots and a shared inbox in a single workspace. A dark product page whose whole job is to explain a multi-channel platform without collapsing into a feature list. I designed and built the front end.",
+  "descAr": "صندوق وارد واحد لواتساب والرسائل القصيرة وتيليغرام والبريد، مبنيّ بالعربية أوّلًا: حملات وقوالب وبوتات ومحادثات مشتركة في مساحة عمل واحدة. صفحة منتج داكنة مهمّتها كلّها شرح منصّة متعدّدة القنوات دون أن تنهار إلى قائمة ميزات. صمّمت الواجهة وبنيتها.",
+  "category": "WEBSITES",
+  "tags": [
+   "SaaS",
+   "Product Site",
+   "Arabic-first"
+  ],
+  "client": "Rasael",
+  "role": "UI/UX Designer & Front-End Developer",
+  "tools": [],
+  "year": 2026,
+  "liveUrl": "https://rasaelapp.com",
+  "featured": true,
+  "publishedAt": "2026-07-01T00:00:00.000Z",
+  "bodyEn": null,
+  "bodyAr": null,
+  "coverImage": "/images/projects/rasael-messaging-platform/mockup-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAQAgCdASoQAAwAA4BaJYwCdAEf1iX/hIFAAP5oykCrhuFWVt5sI920ONs8nNE8B+cm8PCuJPIDINz/OYK04u0P+M71Du29ziz/90IX+2sx4lAEf5yAn/4WWd2yFnhd4AA=",
+  "published": true,
+  "media": [
+   {
+    "id": "rasael-messaging-platform-m1",
+    "url": "/images/projects/rasael-messaging-platform/mockup-1.webp",
+    "type": "IMAGE",
+    "altEn": "Rasael — Multi-Channel Messaging — 1",
+    "altAr": "رسائل — منصّة مراسلة متعدّدة القنوات — 1",
+    "order": 0,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "rasael-messaging-platform-m2",
+    "url": "/images/projects/rasael-messaging-platform/mockup-2.webp",
+    "type": "IMAGE",
+    "altEn": "Rasael — Multi-Channel Messaging — 2",
+    "altAr": "رسائل — منصّة مراسلة متعدّدة القنوات — 2",
+    "order": 1,
+    "width": 1600,
+    "height": 1200
+   }
+  ]
+ },
+ {
+  "id": "maritime-flag-administrations",
+  "slug": "maritime-flag-administrations",
+  "titleEn": "Maritime Flag Administrations",
+  "titleAr": "بوابات الإدارات البحرية",
+  "descEn": "Seven maritime authorities, seven separate clients, one problem repeated: a flag state has to publish the same things — services, certification, approved organisations, document verification — and still look like itself while doing it. I designed and built each front end. Zimbabwe runs deep green and gold; Nicaragua is cream and navy. The same skeleton underneath, no two alike on the surface.",
+  "descAr": "سبع هيئات بحرية، وسبعة عملاء منفصلين، ومسألة واحدة تتكرّر: دولة العَلَم تنشر المحتوى نفسه — الخدمات، وإصدار الشهادات، والمؤسسات المعتمدة، والتحقّق من الوثائق — وعليها أن تظلّ محتفظة بهويتها وهي تفعل ذلك. صمّمت كل واجهة وبنيتها. زيمبابوي بالأخضر الغامق والذهبي، ونيكاراغوا بالكريمي والكحلي. الهيكل واحد في العمق، ولا يتشابه اثنان في السطح.",
+  "category": "WEBSITES",
+  "tags": [
+   "Maritime",
+   "Government",
+   "Next.js"
+  ],
+  "client": null,
+  "role": "UI/UX Designer & Front-End Developer",
+  "tools": [
+   "Next.js",
+   "React"
+  ],
+  "year": 2026,
+  "liveUrl": "https://zimadmin.org",
+  "featured": true,
+  "publishedAt": "2026-06-01T00:00:00.000Z",
+  "bodyEn": null,
+  "bodyAr": null,
+  "coverImage": "/images/projects/maritime-flag-administrations/mockup-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAQAgCdASoQAAwAA4BaJZACdAEf1fpryN1wAP62zP8yYBDV/nwdonOI+DcxaG2upehm15ptVxdHOm9OCRLI+T+jJWMXjO3tNVGV1tuj+qHg3qivaaE4j8ySYUM6WzTAQGpt0v8cAAA=",
+  "published": true,
+  "media": [
+   {
+    "id": "maritime-flag-administrations-m1",
+    "url": "/images/projects/maritime-flag-administrations/mockup-1.webp",
+    "type": "IMAGE",
+    "altEn": "Maritime Flag Administrations — 1",
+    "altAr": "بوابات الإدارات البحرية — 1",
+    "order": 0,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "maritime-flag-administrations-m2",
+    "url": "/images/projects/maritime-flag-administrations/mockup-2.webp",
+    "type": "IMAGE",
+    "altEn": "Maritime Flag Administrations — 2",
+    "altAr": "بوابات الإدارات البحرية — 2",
+    "order": 1,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "maritime-flag-administrations-m3",
+    "url": "/images/projects/maritime-flag-administrations/mockup-3.webp",
+    "type": "IMAGE",
+    "altEn": "Maritime Flag Administrations — 3",
+    "altAr": "بوابات الإدارات البحرية — 3",
+    "order": 2,
+    "width": 1600,
+    "height": 1200
+   }
+  ]
+ },
+ {
   "id": "jadarat",
   "slug": "jadarat-platform",
   "titleEn": "Jadarat — Consulting & Training Website",
@@ -50,6 +159,170 @@
     "type": "IMAGE",
     "altEn": "Jadarat — Consulting & Training Website — mockup — 3",
     "altAr": "جدارات — موقع الاستشارات والتدريب — موكاب — 3",
+    "order": 2,
+    "width": 1600,
+    "height": 1200
+   }
+  ]
+ },
+ {
+  "id": "solareva",
+  "slug": "solareva-brand-identity",
+  "titleEn": "SolaReva — Solar Energy Brand Identity",
+  "titleAr": "سولاريفا — هوية شركة طاقة شمسية",
+  "descEn": "SolaReva is a Dubai solar-energy company whose promise is 'Boundless Impact', and the mark had to say energy and environment at once — so it brings together a bulb, leaves and a lightning bolt. Black, red, orange and amber carry it across business cards and letterhead, then out into van livery, storefront signage and the website hero, where an identity actually gets tested.",
+  "descAr": "سولاريفا شركة طاقة شمسية في دبي، ووعدها «أثر بلا حدود»، فكان على العلامة أن تقول الطاقة والبيئة معًا: جمعت فيها المصباح والأوراق والبرق. ويحمل الأسود والأحمر والبرتقالي والكهرماني الهوية عبر بطاقات العمل والأوراق الرسمية، ثم يخرج بها إلى تغليف السيارات ولوحة الواجهة وواجهة الموقع، وهناك تُختبر أي هوية فعلًا.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "GRAPHIC_DESIGN",
+  "tags": [
+   "Branding",
+   "Logo",
+   "Identity"
+  ],
+  "coverImage": "/images/projects/solareva-brand-identity/mockup-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAQAgCdASoQAAwAA4BaJQBWACHc6yLoVL4AAOJ9df8XazCPGoSeI8Enp5ZzT8Jx79jy6jjSZvEoVESpfaDB63mlyWdQk8z0HLP/c4OrIl96sdHeZO1+Y8yPaqVwVlR0Vsav6zOY6GoejNEw6UW5gpkAAAA=",
+  "client": "SolaReva",
+  "role": "Graphic Designer",
+  "tools": [
+   "Photoshop",
+   "Illustrator"
+  ],
+  "year": null,
+  "featured": false,
+  "published": true,
+  "publishedAt": "2025-05-05T00:00:00.000Z",
+  "media": [
+   {
+    "id": "solareva-brand-identity-m1",
+    "url": "/images/projects/solareva-brand-identity/mockup-1.webp",
+    "type": "IMAGE",
+    "altEn": "SolaReva brand board — 1",
+    "altAr": "لوحة هوية سولاريفا — 1",
+    "order": 0,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "solareva-brand-identity-m2",
+    "url": "/images/projects/solareva-brand-identity/mockup-2.webp",
+    "type": "IMAGE",
+    "altEn": "SolaReva brand board — 2",
+    "altAr": "لوحة هوية سولاريفا — 2",
+    "order": 1,
+    "width": 1600,
+    "height": 1195
+   }
+  ]
+ },
+ {
+  "id": "phoenitech",
+  "slug": "phoenitech-website",
+  "titleEn": "PhoeniTech — Tech Company Website",
+  "titleAr": "فونيتيك — موقع شركة تقنية",
+  "descEn": "PhoeniTech positions itself as 'your partner to success', so the site had to read as a partner rather than a vendor list. Each of its five service lines gets room to explain itself: app development, tech consulting, server management, UI/UX design and brand building. Bilingual Arabic and English, with a teal phoenix identity that finally gave the company a mark people remember.",
+  "descAr": "تعرّف PhoeniTech نفسها بأنها شريكك نحو النجاح، فكان على الموقع أن يبدو شريكًا لا قائمة خدمات. أعطيت كل خط من خطوطها الخمسة مساحة يشرح فيها نفسه: تطوير التطبيقات، والاستشارات التقنية، وإدارة الخوادم، وتصميم الواجهات، وبناء العلامة. الموقع ثنائي اللغة، وهوية العنقاء بالأزرق المخضر منحت الشركة أخيرًا علامة تُحفظ.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "UIUX",
+  "tags": [
+   "Web Design",
+   "Bilingual",
+   "Corporate"
+  ],
+  "coverImage": "/images/projects/phoenitech-website/mockup-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAwAgCdASoQAAwAA4BaJQBOgMWW7bOVmgb+AAD+tsz/5pIuutwXFwH+W95AnKKzIv46nb2Pc21fOpsWG7TuuO+OCie7dN8oTCbKP+fZYl34UhW3WwN8aJnQHAAAAA==",
+  "client": "PhoeniTech",
+  "role": "UI/UX Designer",
+  "tools": [],
+  "year": null,
+  "featured": false,
+  "published": true,
+  "publishedAt": "2025-05-01T00:00:00.000Z",
+  "media": [
+   {
+    "id": "phoenitech-website-m1",
+    "url": "/images/projects/phoenitech-website/mockup-1.webp",
+    "type": "IMAGE",
+    "altEn": "PhoeniTech — Tech Company Website — mockup — 1",
+    "altAr": "فونيتيك — موقع شركة تقنية — موكاب — 1",
+    "order": 0,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "phoenitech-website-m2",
+    "url": "/images/projects/phoenitech-website/mockup-2.webp",
+    "type": "IMAGE",
+    "altEn": "PhoeniTech — Tech Company Website — mockup — 2",
+    "altAr": "فونيتيك — موقع شركة تقنية — موكاب — 2",
+    "order": 1,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "phoenitech-website-m3",
+    "url": "/images/projects/phoenitech-website/mockup-3.webp",
+    "type": "IMAGE",
+    "altEn": "PhoeniTech — Tech Company Website — mockup — 3",
+    "altAr": "فونيتيك — موقع شركة تقنية — موكاب — 3",
+    "order": 2,
+    "width": 1600,
+    "height": 1200
+   }
+  ]
+ },
+ {
+  "id": "crenny",
+  "slug": "crenny-app",
+  "titleEn": "Crenny — Roadside Assistance App",
+  "titleAr": "كريني — تطبيق مساعدة على الطريق",
+  "descEn": "Nobody opens a roadside assistance app calmly. Crenny serves drivers in Iraq who are stranded and want help booked in under a minute, so I kept the flow to four decisions: drop a pin on the map, pick your vehicle class, see the price range in Iraqi dinars, confirm. Battery jumpstart, tyre change, towing and vehicle release, fuel delivery — all Arabic-first, with live payment status once the order is placed.",
+  "descAr": "لا أحد يفتح تطبيق مساعدة على الطريق وهو هادئ. كريني يخدم سائقين في العراق تعطّلت سياراتهم ويريدون طلب المساعدة في أقل من دقيقة، لذلك اختصرت المسار إلى أربعة قرارات: حدّد موقعك على الخريطة، اختر فئة سيارتك، اطّلع على السعر التقديري بالدينار العراقي، ثم أكّد. الخدمات تشمل شحن البطارية وتبديل الإطار والقطر وفكّ الحجز وتوصيل الوقود، بواجهة عربية أولًا، مع متابعة حالة الدفع مباشرة بعد الطلب.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "UIUX",
+  "tags": [
+   "Mobile App",
+   "Services",
+   "Arabic UI"
+  ],
+  "coverImage": "/images/projects/crenny-app/mockup-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoQAAwAA4BaJZwAAv1yLjU+i/AA/vYT3U9VBMtTamt2br6f5d0XXDNzX+5jA971pXY391RrkuN51q8CAAA=",
+  "client": "Crenny",
+  "role": "UI/UX Designer",
+  "tools": [],
+  "year": null,
+  "featured": false,
+  "published": true,
+  "publishedAt": "2025-04-10T00:00:00.000Z",
+  "media": [
+   {
+    "id": "crenny-app-m1",
+    "url": "/images/projects/crenny-app/mockup-1.webp",
+    "type": "IMAGE",
+    "altEn": "Crenny app screens — 1",
+    "altAr": "شاشات تطبيق كريني — 1",
+    "order": 0,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "crenny-app-m2",
+    "url": "/images/projects/crenny-app/mockup-2.webp",
+    "type": "IMAGE",
+    "altEn": "Crenny app screens — 2",
+    "altAr": "شاشات تطبيق كريني — 2",
+    "order": 1,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "crenny-app-m3",
+    "url": "/images/projects/crenny-app/mockup-3.webp",
+    "type": "IMAGE",
+    "altEn": "Crenny app screens — 3",
+    "altAr": "شاشات تطبيق كريني — 3",
     "order": 2,
     "width": 1600,
     "height": 1200
@@ -114,405 +387,6 @@
   ]
  },
  {
-  "id": "turki",
-  "slug": "turki-butchery",
-  "titleEn": "Turki — Fresh Meat E-Commerce",
-  "titleAr": "تركي للذبائح — متجر اللحوم الطازجة",
-  "descEn": "Buying meat online is a trust problem before it is a design problem. For this Saudi butcher I mapped 28 screens that let the customer see exactly what they are getting: whole carcasses or cuts by the kilo, ready-to-cook boxes, poultry, sacrificial animals, and custom cutting on request. The RTL journey runs from browsing to a donation basket to home delivery without a single dead end.",
-  "descAr": "شراء اللحم أونلاين مسألة ثقة قبل أن يكون مسألة تصميم. صمّمت لهذا المتجر السعودي ثماني وعشرين شاشة تُري الزبون بالضبط ما سيصله: ذبائح كاملة أو تقطيع بالكيلو، وبوكسات جاهزة للطهي، ودواجن، وأضاحٍ، مع خدمة تقطيع حسب الطلب. وتمتد رحلة الشراء العربية من التصفّح إلى سلة التبرعات إلى التوصيل للمنزل بلا طريق مسدود.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "UIUX",
-  "tags": [
-   "E-Commerce",
-   "RTL",
-   "Web Design"
-  ],
-  "coverImage": "/images/projects/turki-butchery/mockup-1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABwAgCdASoQAAwAA4BaJZQAFgBFumXhqeRDTY9AAP7oAN7NycGZfAddgj/eVNMsw7M6ErILpe6uAyCQ5eX0t4bQovBSeQnjUMNykUxuHA3wsj4OYRypK3XHmiTgrmMtyni2loQjZdWSS/x9th5AAA==",
-  "client": null,
-  "role": "UI/UX Designer",
-  "tools": [],
-  "year": null,
-  "featured": false,
-  "published": true,
-  "publishedAt": "2025-02-01T00:00:00.000Z",
-  "media": [
-   {
-    "id": "turki-butchery-m1",
-    "url": "/images/projects/turki-butchery/mockup-1.webp",
-    "type": "IMAGE",
-    "altEn": "Turki — Fresh Meat E-Commerce — mockup — 1",
-    "altAr": "تركي للذبائح — متجر اللحوم الطازجة — موكاب — 1",
-    "order": 0,
-    "width": 1600,
-    "height": 1200
-   },
-   {
-    "id": "turki-butchery-m2",
-    "url": "/images/projects/turki-butchery/mockup-2.webp",
-    "type": "IMAGE",
-    "altEn": "Turki — Fresh Meat E-Commerce — mockup — 2",
-    "altAr": "تركي للذبائح — متجر اللحوم الطازجة — موكاب — 2",
-    "order": 1,
-    "width": 1600,
-    "height": 1200
-   },
-   {
-    "id": "turki-butchery-m3",
-    "url": "/images/projects/turki-butchery/mockup-3.webp",
-    "type": "IMAGE",
-    "altEn": "Turki — Fresh Meat E-Commerce — mockup — 3",
-    "altAr": "تركي للذبائح — متجر اللحوم الطازجة — موكاب — 3",
-    "order": 2,
-    "width": 1600,
-    "height": 1200
-   }
-  ]
- },
- {
-  "id": "kafoo",
-  "slug": "kafoo-web",
-  "titleEn": "Kafoo — Investment Company Website",
-  "titleAr": "كفو — موقع شركة الاستثمار",
-  "descEn": "Kafoo offers guaranteed investment opportunities in used car spare parts — an unusual proposition that needed explaining before it could sell. I built the page flow around four questions an investor actually asks: what is the principle, what do I get, what are the opportunities, and what guarantees them. Bilingual Arabic and English, in a green identity that signals growth without shouting.",
-  "descAr": "تقدّم كفو فرص استثمار مضمونة في قطع غيار السيارات المستعملة، وهي فكرة تحتاج شرحًا قبل أن تُقنع. رتّبت صفحات الموقع حول أربعة أسئلة يطرحها المستثمر فعلًا: ما المبدأ، وما العائد، وما الفرص المتاحة، وما الذي يضمنها. الموقع ثنائي اللغة عربي وإنجليزي، بهوية خضراء توحي بالنمو من دون مبالغة.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "UIUX",
-  "tags": [
-   "Web Design",
-   "Landing",
-   "Bilingual"
-  ],
-  "coverImage": "/images/projects/kafoo-web/mockup-1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQAgCdASoQAAwAA4BaJZQAD4rxdI8gv+AAAP7zmwz5t4yRP2nWkhctCAaXann2lCJ1RCl5jviAufb1QnhlwChr2ytkCSH2QcDKdxInbvwrpZgA",
-  "client": "Kafoo",
-  "role": "UI/UX Designer",
-  "tools": [],
-  "year": null,
-  "featured": false,
-  "published": true,
-  "publishedAt": "2024-12-01T00:00:00.000Z",
-  "media": [
-   {
-    "id": "kafoo-web-m1",
-    "url": "/images/projects/kafoo-web/mockup-1.webp",
-    "type": "IMAGE",
-    "altEn": "Kafoo — Investment Company Website — mockup — 1",
-    "altAr": "كفو — موقع شركة الاستثمار — موكاب — 1",
-    "order": 0,
-    "width": 1600,
-    "height": 1200
-   },
-   {
-    "id": "kafoo-web-m2",
-    "url": "/images/projects/kafoo-web/mockup-2.webp",
-    "type": "IMAGE",
-    "altEn": "Kafoo — Investment Company Website — mockup — 2",
-    "altAr": "كفو — موقع شركة الاستثمار — موكاب — 2",
-    "order": 1,
-    "width": 1600,
-    "height": 1200
-   },
-   {
-    "id": "kafoo-web-m3",
-    "url": "/images/projects/kafoo-web/mockup-3.webp",
-    "type": "IMAGE",
-    "altEn": "Kafoo — Investment Company Website — mockup — 3",
-    "altAr": "كفو — موقع شركة الاستثمار — موكاب — 3",
-    "order": 2,
-    "width": 1600,
-    "height": 1200
-   }
-  ]
- },
- {
-  "id": "menu-web",
-  "slug": "menu-web",
-  "titleEn": "Digital Restaurant Menu — White-Label Product",
-  "titleAr": "منيو رقمي للمطاعم — منتج White-Label",
-  "descEn": "A digital menu that one restaurant can use is easy. I designed this one as a white-label product any restaurant can brand and run: switching between languages, currencies and branches, browsing by category, highlighting offers, and sharing a dish straight to a customer's phone. The real design work was deciding what stays fixed and what each owner gets to change.",
-  "descAr": "تصميم منيو رقمي لمطعم واحد أمر بسيط. أما هذا فصمّمته منتجًا جاهزًا يستطيع أي مطعم أن يضع عليه هويته ويشغّله: تبديل بين اللغات والعملات والفروع، وتصفّح حسب الفئة، وإبراز العروض، ومشاركة أي طبق مباشرة إلى هاتف الزبون. والعمل التصميمي الحقيقي كان في تحديد ما يبقى ثابتًا وما يستطيع صاحب المطعم تغييره.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "UIUX",
-  "tags": [
-   "Product Design",
-   "SaaS",
-   "Web App"
-  ],
-  "coverImage": "/images/projects/menu-web/mockup-1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABQAgCdASoQAAwAA4BaJZwC7AYuHk0sUIc3OAAA/vYTzYFqsY6WaP5jTlFvTDL8h34khC68znM7TgFy2ipC7InKP+neYsw7ihhzHjr6JaoU848qV2C0gHUvctoAAA==",
-  "client": null,
-  "role": "UI/UX Designer",
-  "tools": [],
-  "year": null,
-  "featured": false,
-  "published": true,
-  "publishedAt": "2024-10-01T00:00:00.000Z",
-  "media": [
-   {
-    "id": "menu-web-m1",
-    "url": "/images/projects/menu-web/mockup-1.webp",
-    "type": "IMAGE",
-    "altEn": "Digital Restaurant Menu — White-Label Product — mockup — 1",
-    "altAr": "منيو رقمي للمطاعم — منتج White-Label — موكاب — 1",
-    "order": 0,
-    "width": 1600,
-    "height": 1200
-   },
-   {
-    "id": "menu-web-m2",
-    "url": "/images/projects/menu-web/mockup-2.webp",
-    "type": "IMAGE",
-    "altEn": "Digital Restaurant Menu — White-Label Product — mockup — 2",
-    "altAr": "منيو رقمي للمطاعم — منتج White-Label — موكاب — 2",
-    "order": 1,
-    "width": 1600,
-    "height": 1200
-   },
-   {
-    "id": "menu-web-m3",
-    "url": "/images/projects/menu-web/mockup-3.webp",
-    "type": "IMAGE",
-    "altEn": "Digital Restaurant Menu — White-Label Product — mockup — 3",
-    "altAr": "منيو رقمي للمطاعم — منتج White-Label — موكاب — 3",
-    "order": 2,
-    "width": 1600,
-    "height": 1200
-   }
-  ]
- },
- {
-  "id": "bigboss",
-  "slug": "bigboss-web",
-  "titleEn": "BigBoss — Multi-Category Marketplace",
-  "titleAr": "BigBoss — متجر متعدد الفئات",
-  "descEn": "BigBoss sells across six worlds at once — electronics, fashion, home, beauty, sports and toys — and the risk with any marketplace that wide is that nothing feels findable. I leaned on promotional hero carousels and top-category rails to give each department its own front door, then kept wishlist and cart identical everywhere so the buying habit carries between them.",
-  "descAr": "يبيع BigBoss في ستة عوالم دفعة واحدة: إلكترونيات وأزياء ومستلزمات منزل وتجميل ورياضة وألعاب. وخطر أي متجر بهذا الاتساع أن يضيع الزبون فيه. اعتمدت على كاروسيلات ترويجية ورفوف للفئات الأعلى مبيعًا لأمنح كل قسم بابًا خاصًا به، وأبقيت المفضلة والسلة متطابقتين في كل الأقسام حتى تنتقل عادة الشراء بينها.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "UIUX",
-  "tags": [
-   "E-Commerce",
-   "Marketplace",
-   "Web Design"
-  ],
-  "coverImage": "/images/projects/bigboss-web/mockup-1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAQAgCdASoQAAwAA4BaJQBWAMXX1PrvHZMAAP7035RdW8KrtNLWCf7AELQdsRXw6+c4vm/DbuGTMvuJDM9gpobes1qWL5kYJz9vU358H2M9DV1cFYMrmy2MNkjc21sWwAA=",
-  "client": "BigBoss",
-  "role": "UI/UX Designer",
-  "tools": [],
-  "year": null,
-  "featured": false,
-  "published": true,
-  "publishedAt": "2024-08-01T00:00:00.000Z",
-  "media": [
-   {
-    "id": "bigboss-web-m1",
-    "url": "/images/projects/bigboss-web/mockup-1.webp",
-    "type": "IMAGE",
-    "altEn": "BigBoss — Multi-Category Marketplace — mockup — 1",
-    "altAr": "BigBoss — متجر متعدد الفئات — موكاب — 1",
-    "order": 0,
-    "width": 1600,
-    "height": 1200
-   },
-   {
-    "id": "bigboss-web-m2",
-    "url": "/images/projects/bigboss-web/mockup-2.webp",
-    "type": "IMAGE",
-    "altEn": "BigBoss — Multi-Category Marketplace — mockup — 2",
-    "altAr": "BigBoss — متجر متعدد الفئات — موكاب — 2",
-    "order": 1,
-    "width": 1600,
-    "height": 1200
-   },
-   {
-    "id": "bigboss-web-m3",
-    "url": "/images/projects/bigboss-web/mockup-3.webp",
-    "type": "IMAGE",
-    "altEn": "BigBoss — Multi-Category Marketplace — mockup — 3",
-    "altAr": "BigBoss — متجر متعدد الفئات — موكاب — 3",
-    "order": 2,
-    "width": 1600,
-    "height": 1200
-   }
-  ]
- },
- {
-  "id": "phoenitech",
-  "slug": "phoenitech-website",
-  "titleEn": "PhoeniTech — Tech Company Website",
-  "titleAr": "فونيتيك — موقع شركة تقنية",
-  "descEn": "PhoeniTech positions itself as 'your partner to success', so the site had to read as a partner rather than a vendor list. Each of its five service lines gets room to explain itself: app development, tech consulting, server management, UI/UX design and brand building. Bilingual Arabic and English, with a teal phoenix identity that finally gave the company a mark people remember.",
-  "descAr": "تعرّف PhoeniTech نفسها بأنها شريكك نحو النجاح، فكان على الموقع أن يبدو شريكًا لا قائمة خدمات. أعطيت كل خط من خطوطها الخمسة مساحة يشرح فيها نفسه: تطوير التطبيقات، والاستشارات التقنية، وإدارة الخوادم، وتصميم الواجهات، وبناء العلامة. الموقع ثنائي اللغة، وهوية العنقاء بالأزرق المخضر منحت الشركة أخيرًا علامة تُحفظ.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "UIUX",
-  "tags": [
-   "Web Design",
-   "Bilingual",
-   "Corporate"
-  ],
-  "coverImage": "/images/projects/phoenitech-website/mockup-1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAwAgCdASoQAAwAA4BaJQBOgMWW7bOVmgb+AAD+tsz/5pIuutwXFwH+W95AnKKzIv46nb2Pc21fOpsWG7TuuO+OCie7dN8oTCbKP+fZYl34UhW3WwN8aJnQHAAAAA==",
-  "client": "PhoeniTech",
-  "role": "UI/UX Designer",
-  "tools": [],
-  "year": null,
-  "featured": false,
-  "published": true,
-  "publishedAt": "2025-05-01T00:00:00.000Z",
-  "media": [
-   {
-    "id": "phoenitech-website-m1",
-    "url": "/images/projects/phoenitech-website/mockup-1.webp",
-    "type": "IMAGE",
-    "altEn": "PhoeniTech — Tech Company Website — mockup — 1",
-    "altAr": "فونيتيك — موقع شركة تقنية — موكاب — 1",
-    "order": 0,
-    "width": 1600,
-    "height": 1200
-   },
-   {
-    "id": "phoenitech-website-m2",
-    "url": "/images/projects/phoenitech-website/mockup-2.webp",
-    "type": "IMAGE",
-    "altEn": "PhoeniTech — Tech Company Website — mockup — 2",
-    "altAr": "فونيتيك — موقع شركة تقنية — موكاب — 2",
-    "order": 1,
-    "width": 1600,
-    "height": 1200
-   },
-   {
-    "id": "phoenitech-website-m3",
-    "url": "/images/projects/phoenitech-website/mockup-3.webp",
-    "type": "IMAGE",
-    "altEn": "PhoeniTech — Tech Company Website — mockup — 3",
-    "altAr": "فونيتيك — موقع شركة تقنية — موكاب — 3",
-    "order": 2,
-    "width": 1600,
-    "height": 1200
-   }
-  ]
- },
- {
-  "id": "emirates-sands",
-  "slug": "emirates-sands",
-  "titleEn": "Emirates Sands — IT Hardware Store",
-  "titleAr": "Emirates Sands — متجر تقنية",
-  "descEn": "Selling enterprise hardware in Dubai means serving two very different visitors: someone comparing laptop specs, and an IT manager sizing up a cloud or managed-print contract. I split the store accordingly — deal zones and faceted filtering for the first, detailed spec pages and a separate solutions layer for the second — so neither has to wade through the other's content.",
-  "descAr": "بيع العتاد التقني للشركات في دبي يعني خدمة نوعين مختلفين تمامًا من الزوّار: أحدهما يقارن مواصفات لابتوب، والآخر مدير تقنية يدرس عقد خدمات سحابية أو طباعة مُدارة. قسّمت المتجر على هذا الأساس: مناطق عروض وفلترة تفصيلية للأول، وصفحات مواصفات مفصّلة وطبقة حلول مستقلة للثاني، حتى لا يضطر أحدهما للمرور بمحتوى الآخر.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "UIUX",
-  "tags": [
-   "E-Commerce",
-   "Hardware",
-   "Web Design"
-  ],
-  "coverImage": "/images/projects/emirates-sands/mockup-1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAQCdASoQAAwAA4BaJZwAAxfwzAGgAP7ts14y4BrBhzCVa/zuQz1jsY/utz/rAXEnd2+ElghC46Abnplzj4SU+U3DKwluKAA=",
-  "client": "Emirates Sands Technology",
-  "role": "UI/UX Designer",
-  "tools": [],
-  "year": null,
-  "featured": false,
-  "published": true,
-  "publishedAt": "2025-01-15T00:00:00.000Z",
-  "media": [
-   {
-    "id": "emirates-sands-m1",
-    "url": "/images/projects/emirates-sands/mockup-1.webp",
-    "type": "IMAGE",
-    "altEn": "Emirates Sands — IT Hardware Store — mockup — 1",
-    "altAr": "Emirates Sands — متجر تقنية — موكاب — 1",
-    "order": 0,
-    "width": 1600,
-    "height": 1200
-   },
-   {
-    "id": "emirates-sands-m2",
-    "url": "/images/projects/emirates-sands/mockup-2.webp",
-    "type": "IMAGE",
-    "altEn": "Emirates Sands — IT Hardware Store — mockup — 2",
-    "altAr": "Emirates Sands — متجر تقنية — موكاب — 2",
-    "order": 1,
-    "width": 1600,
-    "height": 1200
-   },
-   {
-    "id": "emirates-sands-m3",
-    "url": "/images/projects/emirates-sands/mockup-3.webp",
-    "type": "IMAGE",
-    "altEn": "Emirates Sands — IT Hardware Store — mockup — 3",
-    "altAr": "Emirates Sands — متجر تقنية — موكاب — 3",
-    "order": 2,
-    "width": 1600,
-    "height": 1200
-   }
-  ]
- },
- {
-  "id": "fast-express",
-  "slug": "fast-express-shipping",
-  "titleEn": "Fast Express Shipping — Freight Company Website",
-  "titleAr": "Fast Express — موقع شركة الشحن",
-  "descEn": "Fast Express ships out of Dubai to Saudi Arabia, Iraq, Syria and beyond, and customers arrive already knowing one thing: how their cargo needs to travel. So the site opens on three tracks — road, air and sea — instead of a company introduction. Customs clearance sits beside them, and a 'Why Fast Express' section carries the reassurance, in a teal-and-orange industrial identity.",
-  "descAr": "تشحن Fast Express من دبي إلى السعودية والعراق وسوريا وبقية العالم، والزبون يصل وهو يعرف شيئًا واحدًا: كيف تحتاج بضاعته أن تسافر. لذلك يفتح الموقع على ثلاثة مسارات — برًا وجوًا وبحرًا — بدل التعريف بالشركة. ووضعت التخليص الجمركي إلى جانبها، وتركت قسم «لماذا Fast Express» ليحمل الطمأنة، بهوية صناعية تجمع الأزرق المخضر والبرتقالي.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "UIUX",
-  "tags": [
-   "Web Design",
-   "Logistics",
-   "Landing"
-  ],
-  "coverImage": "/images/projects/fast-express-shipping/mockup-1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABQAgCdASoQAAwAA4BaJYwCdAYuHzX3XAwH0AAA/vYsLi0FFYgPoVJ80wKG2aEiMcVpBXNbGGPA6nclhZun8XlnxtmrzqCqrKKhYlkKiiZKt30gRN/ASbhaU70mfpacUOp4QmrQAAA=",
-  "client": "Fast Express Shipping",
-  "role": "UI/UX Designer",
-  "tools": [],
-  "year": null,
-  "featured": false,
-  "published": true,
-  "publishedAt": "2025-01-10T00:00:00.000Z",
-  "media": [
-   {
-    "id": "fast-express-shipping-m1",
-    "url": "/images/projects/fast-express-shipping/mockup-1.webp",
-    "type": "IMAGE",
-    "altEn": "Fast Express Shipping — Freight Company Website — mockup — 1",
-    "altAr": "Fast Express — موقع شركة الشحن — موكاب — 1",
-    "order": 0,
-    "width": 1600,
-    "height": 1200
-   },
-   {
-    "id": "fast-express-shipping-m2",
-    "url": "/images/projects/fast-express-shipping/mockup-2.webp",
-    "type": "IMAGE",
-    "altEn": "Fast Express Shipping — Freight Company Website — mockup — 2",
-    "altAr": "Fast Express — موقع شركة الشحن — موكاب — 2",
-    "order": 1,
-    "width": 1600,
-    "height": 1200
-   },
-   {
-    "id": "fast-express-shipping-m3",
-    "url": "/images/projects/fast-express-shipping/mockup-3.webp",
-    "type": "IMAGE",
-    "altEn": "Fast Express Shipping — Freight Company Website — mockup — 3",
-    "altAr": "Fast Express — موقع شركة الشحن — موكاب — 3",
-    "order": 2,
-    "width": 1600,
-    "height": 1200
-   }
-  ]
- },
- {
   "id": "lamasat-web",
   "slug": "lamasat-website",
   "titleEn": "LAMASAT — Interior Design & Furniture Website",
@@ -570,409 +444,56 @@
   ]
  },
  {
-  "id": "codxeon",
-  "slug": "codxeon-website",
-  "titleEn": "Codxeon — Digital Agency Website",
-  "titleAr": "Codxeon — موقع وكالة رقمية",
-  "descEn": "Codxeon promises to turn ideas into digital excellence, and the part of that story worth building around turned out to be the 24-hour process — how fast a brief becomes a plan. The site walks a visitor through it, supported by the service sections (web, mobile apps, UI/UX, digital marketing, consultancy) and a data-driven strategy layer. Purple gradients throughout.",
-  "descAr": "تعد Codxeon بتحويل الأفكار إلى تميّز رقمي، وتبيّن أن الجزء الجدير بالبناء عليه في هذه القصة هو دورة الأربع والعشرين ساعة: كم يستغرق تحوّل الفكرة إلى خطة. يمشي الموقع بالزائر خلالها، تسنده أقسام الخدمات — ويب، وتطبيقات، وتصميم واجهات، وتسويق رقمي، واستشارات — وطبقة استراتيجية مبنية على البيانات، بتدرّجات بنفسجية.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "UIUX",
-  "tags": [
-   "Web Design",
-   "Agency",
-   "Landing"
-  ],
-  "coverImage": "/images/projects/codxeon-website/mockup-1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQAgCdASoQAAsAA4BaJQBdgCKq66Bsr8IAAP7roNw+1Z8AHyNqzGeAHxuuD2MXq3zhIyWzVTl3/nxt78pPzew+s1PvLPu2oxgYaMfvBYxf0+aMXPFoVbwUnkr4PMh32fDAAA==",
-  "client": "Codxeon",
-  "role": "UI/UX Designer",
-  "tools": [],
-  "year": null,
-  "featured": false,
-  "published": true,
-  "publishedAt": "2024-06-01T00:00:00.000Z",
-  "media": [
-   {
-    "id": "codxeon-website-m1",
-    "url": "/images/projects/codxeon-website/mockup-1.webp",
-    "type": "IMAGE",
-    "altEn": "Codxeon — Digital Agency Website — mockup — 1",
-    "altAr": "Codxeon — موقع وكالة رقمية — موكاب — 1",
-    "order": 0,
-    "width": 1600,
-    "height": 1067
-   },
-   {
-    "id": "codxeon-website-m2",
-    "url": "/images/projects/codxeon-website/mockup-2.webp",
-    "type": "IMAGE",
-    "altEn": "Codxeon — Digital Agency Website — mockup — 2",
-    "altAr": "Codxeon — موقع وكالة رقمية — موكاب — 2",
-    "order": 1,
-    "width": 1600,
-    "height": 1067
-   }
-  ]
- },
- {
-  "id": "krsy",
-  "slug": "krsy-web",
-  "titleEn": "KRSY — Social Media Services Website",
-  "titleAr": "KRSY — موقع خدمات السوشال ميديا",
-  "descEn": "KRSY sells social-media growth across the Middle East, where the buying decision is fast and the trust bar is low. I shortened the path accordingly: pick a platform, pick a category, request the service, pay through PayPal. Support runs 24/7 and the site says so early. Dark neon with vivid gradients, matching how the audience already reads this category.",
-  "descAr": "تبيع KRSY خدمات نمو حسابات السوشال ميديا في الشرق الأوسط، حيث قرار الشراء سريع والثقة هشّة. لذلك اختصرت الطريق: اختر المنصة، ثم الفئة، ثم اطلب الخدمة، ثم ادفع عبر باي بال. الدعم متاح على مدار الساعة والموقع يقول ذلك مبكرًا. هوية داكنة بألوان نيون وتدرّجات صارخة، تشبه الطريقة التي يقرأ بها هذا الجمهور هذا النوع من الخدمات.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "UIUX",
-  "tags": [
-   "Web Design",
-   "Dark UI",
-   "Services"
-  ],
-  "coverImage": "/images/projects/krsy-web/mockup-1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoQAAwAA4BaJYgCw7DxNJHzk5AA/FpsPld7smGhDgSva4Aw2+MnZN+RQDMH5W41dCZ+iI2qztmB9RILUSb1wAAA",
-  "client": "KRSY",
-  "role": "UI/UX Designer",
-  "tools": [],
-  "year": null,
-  "featured": false,
-  "published": true,
-  "publishedAt": "2024-04-01T00:00:00.000Z",
-  "media": [
-   {
-    "id": "krsy-web-m1",
-    "url": "/images/projects/krsy-web/mockup-1.webp",
-    "type": "IMAGE",
-    "altEn": "KRSY — Social Media Services Website — mockup — 1",
-    "altAr": "KRSY — موقع خدمات السوشال ميديا — موكاب — 1",
-    "order": 0,
-    "width": 1600,
-    "height": 1244
-   },
-   {
-    "id": "krsy-web-m2",
-    "url": "/images/projects/krsy-web/mockup-2.webp",
-    "type": "IMAGE",
-    "altEn": "KRSY — Social Media Services Website — mockup — 2",
-    "altAr": "KRSY — موقع خدمات السوشال ميديا — موكاب — 2",
-    "order": 1,
-    "width": 1600,
-    "height": 1000
-   },
-   {
-    "id": "krsy-web-m3",
-    "url": "/images/projects/krsy-web/mockup-3.webp",
-    "type": "IMAGE",
-    "altEn": "KRSY — Social Media Services Website — mockup — 3",
-    "altAr": "KRSY — موقع خدمات السوشال ميديا — موكاب — 3",
-    "order": 2,
-    "width": 1600,
-    "height": 1179
-   }
-  ]
- },
- {
-  "id": "zanqa",
-  "slug": "zanqa-education-platform",
-  "titleEn": "Zanqa Education Platform",
-  "titleAr": "منصة زنقة التعليمية",
-  "descEn": "Zanqa is the project I am closest to. I joined as partner and front-end developer from 2019 to 2023 — designing the web and mobile interfaces, building the front-end in Next.js and MUI, and taking part in the product decisions along the way. It grew to more than 94,000 users, over 50,000 app downloads, and a network of 3,000+ publishers.",
-  "descAr": "زنقة أقرب المشاريع إليّ. انضممت شريكة ومطوّرة واجهات أمامية بين 2019 و2023: صمّمت واجهات الويب والموبايل، وبنيت الواجهة الأمامية بـ Next.js وMUI، وشاركت في قرارات المنتج على طول الطريق. وصلت المنصة إلى أكثر من 94,000 مستخدم، وما يزيد على 50,000 تحميل للتطبيق، وشبكة تضم أكثر من 3,000 ناشر.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "WEBSITES",
-  "tags": [
-   "Education",
-   "Mobile App",
-   "Web Platform"
-  ],
-  "coverImage": "/images/projects/zanqa-education-platform/1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAwAgCdASoQAAoAA4BaJbACdLoAApvNTrUYwAD9vnWKu3QPfdM0GN3fWuSbRlFtTYL2gcXaZOXdsbVzzM1IR1O2jN157w17jXGpIQUn3WwmHPcSDfq9C4MvWAAAAA==",
-  "client": "Zanqa",
-  "role": "Partner & Front-End Developer",
-  "tools": [
-   "Next.js",
-   "MUI",
-   "Adobe XD"
-  ],
-  "year": 2023,
-  "featured": true,
-  "published": true,
-  "publishedAt": "2023-01-15T00:00:00.000Z",
-  "media": [
-   {
-    "id": "zanqa-education-platform-m1",
-    "url": "/images/projects/zanqa-education-platform/1.webp",
-    "type": "IMAGE",
-    "altEn": "Zanqa app screens — 1",
-    "altAr": "شاشات تطبيق زنقة — 1",
-    "order": 0,
-    "width": 1600,
-    "height": 1040
-   },
-   {
-    "id": "zanqa-education-platform-m2",
-    "url": "/images/projects/zanqa-education-platform/2.webp",
-    "type": "IMAGE",
-    "altEn": "Zanqa app screens — 2",
-    "altAr": "شاشات تطبيق زنقة — 2",
-    "order": 1,
-    "width": 1600,
-    "height": 1067
-   },
-   {
-    "id": "zanqa-education-platform-m3",
-    "url": "/images/projects/zanqa-education-platform/3.webp",
-    "type": "IMAGE",
-    "altEn": "Zanqa app screens — 3",
-    "altAr": "شاشات تطبيق زنقة — 3",
-    "order": 2,
-    "width": 1600,
-    "height": 1066
-   },
-   {
-    "id": "zanqa-education-platform-m4",
-    "url": "/images/projects/zanqa-education-platform/4.webp",
-    "type": "IMAGE",
-    "altEn": "Zanqa app screens — 4",
-    "altAr": "شاشات تطبيق زنقة — 4",
-    "order": 3,
-    "width": 1600,
-    "height": 1280
-   },
-   {
-    "id": "zanqa-education-platform-m5",
-    "url": "/images/projects/zanqa-education-platform/5.webp",
-    "type": "IMAGE",
-    "altEn": "Zanqa app screens — 5",
-    "altAr": "شاشات تطبيق زنقة — 5",
-    "order": 4,
-    "width": 1600,
-    "height": 1200
-   },
-   {
-    "id": "zanqa-education-platform-m6",
-    "url": "/images/projects/zanqa-education-platform/6.webp",
-    "type": "IMAGE",
-    "altEn": "Zanqa app screens — 6",
-    "altAr": "شاشات تطبيق زنقة — 6",
-    "order": 5,
-    "width": 1600,
-    "height": 976
-   },
-   {
-    "id": "zanqa-education-platform-m7",
-    "url": "/images/projects/zanqa-education-platform/7.webp",
-    "type": "IMAGE",
-    "altEn": "Zanqa app screens — 7",
-    "altAr": "شاشات تطبيق زنقة — 7",
-    "order": 6,
-    "width": 1600,
-    "height": 2000
-   }
-  ]
- },
- {
-  "id": "e-liefer",
-  "slug": "e-liefer-delivery-platform",
-  "titleEn": "E-Liefer — Delivery Platform UX/UI",
-  "titleAr": "E-Liefer — تصميم منصة توصيل",
-  "descEn": "E-Liefer connects local German stores to customers who want the shop, not just the product. I designed the full journey in Adobe XD: onboarding and registration, discovering stores by district, browsing products and their details, favourites, and store profiles — in English and German, for a market where people still shop by neighbourhood.",
-  "descAr": "تربط E-Liefer متاجر ألمانية محلية بزبائن يريدون المتجر نفسه لا المنتج وحده. صمّمت الرحلة كاملة على Adobe XD: التسجيل وبداية الاستخدام، واكتشاف المتاجر حسب الحي، وتصفّح المنتجات وتفاصيلها، والمفضلة، وصفحات المتاجر — بالإنجليزية والألمانية، لسوق ما زال الناس فيه يتسوّقون من حيّهم.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "UIUX",
-  "tags": [
-   "Web App",
-   "Delivery",
-   "UX Flow"
-  ],
-  "coverImage": "/images/projects/e-liefer-delivery-platform/mockup-1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoQAAwAA4BaJZwAAxU9mZ2jAAD+8hKiVhnVfC5nWy/r/yOyAlw1mP07BDCb6cJvbnv+HYaVRQ1AZV7wpQlL1vaW3Nzvf4IHG7L844AA",
-  "client": "E-Liefer",
-  "role": "UI/UX Designer",
-  "tools": [
-   "Adobe XD"
-  ],
-  "year": 2021,
-  "featured": true,
-  "published": true,
-  "publishedAt": "2021-10-23T00:00:00.000Z",
-  "media": [
-   {
-    "id": "e-liefer-delivery-platform-m1",
-    "url": "/images/projects/e-liefer-delivery-platform/mockup-1.webp",
-    "type": "IMAGE",
-    "altEn": "E-Liefer platform screens — 1",
-    "altAr": "شاشات منصة E-Liefer — 1",
-    "order": 0,
-    "width": 1600,
-    "height": 1200
-   },
-   {
-    "id": "e-liefer-delivery-platform-m2",
-    "url": "/images/projects/e-liefer-delivery-platform/mockup-2.webp",
-    "type": "IMAGE",
-    "altEn": "E-Liefer platform screens — 2",
-    "altAr": "شاشات منصة E-Liefer — 2",
-    "order": 1,
-    "width": 1600,
-    "height": 1200
-   },
-   {
-    "id": "e-liefer-delivery-platform-m3",
-    "url": "/images/projects/e-liefer-delivery-platform/mockup-3.webp",
-    "type": "IMAGE",
-    "altEn": "E-Liefer platform screens — 3",
-    "altAr": "شاشات منصة E-Liefer — 3",
-    "order": 2,
-    "width": 1600,
-    "height": 1200
-   }
-  ]
- },
- {
-  "id": "living-app",
-  "slug": "living-app-ui",
-  "titleEn": "Living — Housing Management App",
-  "titleAr": "Living — تطبيق إدارة سكنية",
-  "descEn": "Living puts a resident's whole building life in one app: their unit details and floor plan, repair and service requests, move-in and move-out logistics, reporting a problem, and whatever the community has announced. The hard part was the ordering — what a resident needs weekly has to sit above what they need twice a year. Designed in Figma.",
-  "descAr": "يجمع تطبيق Living حياة الساكن في مبناه داخل مكان واحد: تفاصيل وحدته ومخططها، وطلبات الصيانة والخدمات، وترتيبات الدخول والخروج، والإبلاغ عن عطل، وإعلانات المجمّع. والجزء الصعب كان الترتيب: ما يحتاجه الساكن أسبوعيًا يجب أن يعلو على ما يحتاجه مرتين في السنة. صُمّم على Figma.",
+  "id": "lamasat-app",
+  "slug": "lamasat-furniture-app",
+  "titleEn": "LAMASAT — Furniture Shopping App",
+  "titleAr": "لمسات — تطبيق تسوق الأثاث",
+  "descEn": "The LAMASAT app had to feel like the same brand as the website without simply shrinking it. Shopping runs by category — furniture, lighting, home accessories, kitchen, bathroom — with featured products and recent orders on the way in, then search and sorting for people who already know what they want. The brand's light editorial style carries over intact.",
+  "descAr": "كان على تطبيق لمسات أن يبدو من العلامة نفسها التي يقدّمها الموقع، من دون أن يكون مجرد نسخة مصغّرة عنه. التسوّق يجري حسب الفئة — أثاث، وإنارة، ومستلزمات منزل، ومطبخ، وحمّام — مع المنتجات المميزة وآخر الطلبات في الواجهة الأولى، ثم البحث والفرز لمن يعرف مسبقًا ما يريد. وانتقل أسلوب العلامة التحريري الفاتح كما هو.",
   "bodyEn": null,
   "bodyAr": null,
   "category": "UIUX",
   "tags": [
    "Mobile App",
-   "Property",
+   "E-Commerce",
    "UI Design"
   ],
-  "coverImage": "/images/projects/living-app-ui/1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQAAoAA4BaJYgCdAEQZkerZ4vAAP7LclUMChFhhpFsDVAfLtx49DWZkD4ZpkIzxuk9TwauA2uOJNLrc4gu2bdD81sLGbpdnK9JEGsAAAA=",
-  "client": null,
-  "role": "UI/UX Designer",
-  "tools": [
-   "Figma"
-  ],
-  "year": null,
-  "featured": false,
-  "published": true,
-  "publishedAt": "2024-01-01T00:00:00.000Z",
-  "media": [
-   {
-    "id": "living-app-ui-m1",
-    "url": "/images/projects/living-app-ui/1.webp",
-    "type": "IMAGE",
-    "altEn": "Living app screens — 1",
-    "altAr": "شاشات تطبيق Living — 1",
-    "order": 0,
-    "width": 1600,
-    "height": 1043
-   },
-   {
-    "id": "living-app-ui-m2",
-    "url": "/images/projects/living-app-ui/2.webp",
-    "type": "IMAGE",
-    "altEn": "Living app screens — 2",
-    "altAr": "شاشات تطبيق Living — 2",
-    "order": 1,
-    "width": 1600,
-    "height": 1067
-   },
-   {
-    "id": "living-app-ui-m3",
-    "url": "/images/projects/living-app-ui/3.webp",
-    "type": "IMAGE",
-    "altEn": "Living app screens — 3",
-    "altAr": "شاشات تطبيق Living — 3",
-    "order": 2,
-    "width": 1600,
-    "height": 1000
-   },
-   {
-    "id": "living-app-ui-m4",
-    "url": "/images/projects/living-app-ui/4.webp",
-    "type": "IMAGE",
-    "altEn": "Living app screens — 4",
-    "altAr": "شاشات تطبيق Living — 4",
-    "order": 3,
-    "width": 1600,
-    "height": 1600
-   },
-   {
-    "id": "living-app-ui-m5",
-    "url": "/images/projects/living-app-ui/5.webp",
-    "type": "IMAGE",
-    "altEn": "Living app screens — 5",
-    "altAr": "شاشات تطبيق Living — 5",
-    "order": 4,
-    "width": 1600,
-    "height": 1067
-   },
-   {
-    "id": "living-app-ui-m6",
-    "url": "/images/projects/living-app-ui/6.webp",
-    "type": "IMAGE",
-    "altEn": "Living app screens — 6",
-    "altAr": "شاشات تطبيق Living — 6",
-    "order": 5,
-    "width": 1600,
-    "height": 1040
-   }
-  ]
- },
- {
-  "id": "crenny",
-  "slug": "crenny-app",
-  "titleEn": "Crenny — Roadside Assistance App",
-  "titleAr": "كريني — تطبيق مساعدة على الطريق",
-  "descEn": "Nobody opens a roadside assistance app calmly. Crenny serves drivers in Iraq who are stranded and want help booked in under a minute, so I kept the flow to four decisions: drop a pin on the map, pick your vehicle class, see the price range in Iraqi dinars, confirm. Battery jumpstart, tyre change, towing and vehicle release, fuel delivery — all Arabic-first, with live payment status once the order is placed.",
-  "descAr": "لا أحد يفتح تطبيق مساعدة على الطريق وهو هادئ. كريني يخدم سائقين في العراق تعطّلت سياراتهم ويريدون طلب المساعدة في أقل من دقيقة، لذلك اختصرت المسار إلى أربعة قرارات: حدّد موقعك على الخريطة، اختر فئة سيارتك، اطّلع على السعر التقديري بالدينار العراقي، ثم أكّد. الخدمات تشمل شحن البطارية وتبديل الإطار والقطر وفكّ الحجز وتوصيل الوقود، بواجهة عربية أولًا، مع متابعة حالة الدفع مباشرة بعد الطلب.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "UIUX",
-  "tags": [
-   "Mobile App",
-   "Services",
-   "Arabic UI"
-  ],
-  "coverImage": "/images/projects/crenny-app/mockup-1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoQAAwAA4BaJZwAAv1yLjU+i/AA/vYT3U9VBMtTamt2br6f5d0XXDNzX+5jA971pXY391RrkuN51q8CAAA=",
-  "client": "Crenny",
+  "coverImage": "/images/projects/lamasat-furniture-app/mockup-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAABQAQCdASoQAAwAA4BaJZwABAAAAP7yBpYwP5b07A2w4dh6KbTaUrCcHY6lxE+Yil3vEvAA",
+  "client": "LAMASAT",
   "role": "UI/UX Designer",
   "tools": [],
   "year": null,
   "featured": false,
   "published": true,
-  "publishedAt": "2025-04-10T00:00:00.000Z",
+  "publishedAt": "2025-03-15T00:00:00.000Z",
   "media": [
    {
-    "id": "crenny-app-m1",
-    "url": "/images/projects/crenny-app/mockup-1.webp",
+    "id": "lamasat-furniture-app-m1",
+    "url": "/images/projects/lamasat-furniture-app/mockup-1.webp",
     "type": "IMAGE",
-    "altEn": "Crenny app screens — 1",
-    "altAr": "شاشات تطبيق كريني — 1",
+    "altEn": "LAMASAT app screens — 1",
+    "altAr": "شاشات تطبيق لمسات — 1",
     "order": 0,
     "width": 1600,
     "height": 1200
    },
    {
-    "id": "crenny-app-m2",
-    "url": "/images/projects/crenny-app/mockup-2.webp",
+    "id": "lamasat-furniture-app-m2",
+    "url": "/images/projects/lamasat-furniture-app/mockup-2.webp",
     "type": "IMAGE",
-    "altEn": "Crenny app screens — 2",
-    "altAr": "شاشات تطبيق كريني — 2",
+    "altEn": "LAMASAT app screens — 2",
+    "altAr": "شاشات تطبيق لمسات — 2",
     "order": 1,
     "width": 1600,
     "height": 1200
    },
    {
-    "id": "crenny-app-m3",
-    "url": "/images/projects/crenny-app/mockup-3.webp",
+    "id": "lamasat-furniture-app-m3",
+    "url": "/images/projects/lamasat-furniture-app/mockup-3.webp",
     "type": "IMAGE",
-    "altEn": "Crenny app screens — 3",
-    "altAr": "شاشات تطبيق كريني — 3",
+    "altEn": "LAMASAT app screens — 3",
+    "altAr": "شاشات تطبيق لمسات — 3",
     "order": 2,
     "width": 1600,
     "height": 1200
@@ -1094,6 +615,234 @@
   ]
  },
  {
+  "id": "turki",
+  "slug": "turki-butchery",
+  "titleEn": "Turki — Fresh Meat E-Commerce",
+  "titleAr": "تركي للذبائح — متجر اللحوم الطازجة",
+  "descEn": "Buying meat online is a trust problem before it is a design problem. For this Saudi butcher I mapped 28 screens that let the customer see exactly what they are getting: whole carcasses or cuts by the kilo, ready-to-cook boxes, poultry, sacrificial animals, and custom cutting on request. The RTL journey runs from browsing to a donation basket to home delivery without a single dead end.",
+  "descAr": "شراء اللحم أونلاين مسألة ثقة قبل أن يكون مسألة تصميم. صمّمت لهذا المتجر السعودي ثماني وعشرين شاشة تُري الزبون بالضبط ما سيصله: ذبائح كاملة أو تقطيع بالكيلو، وبوكسات جاهزة للطهي، ودواجن، وأضاحٍ، مع خدمة تقطيع حسب الطلب. وتمتد رحلة الشراء العربية من التصفّح إلى سلة التبرعات إلى التوصيل للمنزل بلا طريق مسدود.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "UIUX",
+  "tags": [
+   "E-Commerce",
+   "RTL",
+   "Web Design"
+  ],
+  "coverImage": "/images/projects/turki-butchery/mockup-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABwAgCdASoQAAwAA4BaJZQAFgBFumXhqeRDTY9AAP7oAN7NycGZfAddgj/eVNMsw7M6ErILpe6uAyCQ5eX0t4bQovBSeQnjUMNykUxuHA3wsj4OYRypK3XHmiTgrmMtyni2loQjZdWSS/x9th5AAA==",
+  "client": null,
+  "role": "UI/UX Designer",
+  "tools": [],
+  "year": null,
+  "featured": false,
+  "published": true,
+  "publishedAt": "2025-02-01T00:00:00.000Z",
+  "media": [
+   {
+    "id": "turki-butchery-m1",
+    "url": "/images/projects/turki-butchery/mockup-1.webp",
+    "type": "IMAGE",
+    "altEn": "Turki — Fresh Meat E-Commerce — mockup — 1",
+    "altAr": "تركي للذبائح — متجر اللحوم الطازجة — موكاب — 1",
+    "order": 0,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "turki-butchery-m2",
+    "url": "/images/projects/turki-butchery/mockup-2.webp",
+    "type": "IMAGE",
+    "altEn": "Turki — Fresh Meat E-Commerce — mockup — 2",
+    "altAr": "تركي للذبائح — متجر اللحوم الطازجة — موكاب — 2",
+    "order": 1,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "turki-butchery-m3",
+    "url": "/images/projects/turki-butchery/mockup-3.webp",
+    "type": "IMAGE",
+    "altEn": "Turki — Fresh Meat E-Commerce — mockup — 3",
+    "altAr": "تركي للذبائح — متجر اللحوم الطازجة — موكاب — 3",
+    "order": 2,
+    "width": 1600,
+    "height": 1200
+   }
+  ]
+ },
+ {
+  "id": "emirates-sands",
+  "slug": "emirates-sands",
+  "titleEn": "Emirates Sands — IT Hardware Store",
+  "titleAr": "Emirates Sands — متجر تقنية",
+  "descEn": "Selling enterprise hardware in Dubai means serving two very different visitors: someone comparing laptop specs, and an IT manager sizing up a cloud or managed-print contract. I split the store accordingly — deal zones and faceted filtering for the first, detailed spec pages and a separate solutions layer for the second — so neither has to wade through the other's content.",
+  "descAr": "بيع العتاد التقني للشركات في دبي يعني خدمة نوعين مختلفين تمامًا من الزوّار: أحدهما يقارن مواصفات لابتوب، والآخر مدير تقنية يدرس عقد خدمات سحابية أو طباعة مُدارة. قسّمت المتجر على هذا الأساس: مناطق عروض وفلترة تفصيلية للأول، وصفحات مواصفات مفصّلة وطبقة حلول مستقلة للثاني، حتى لا يضطر أحدهما للمرور بمحتوى الآخر.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "UIUX",
+  "tags": [
+   "E-Commerce",
+   "Hardware",
+   "Web Design"
+  ],
+  "coverImage": "/images/projects/emirates-sands/mockup-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAQCdASoQAAwAA4BaJZwAAxfwzAGgAP7ts14y4BrBhzCVa/zuQz1jsY/utz/rAXEnd2+ElghC46Abnplzj4SU+U3DKwluKAA=",
+  "client": "Emirates Sands Technology",
+  "role": "UI/UX Designer",
+  "tools": [],
+  "year": null,
+  "featured": false,
+  "published": true,
+  "publishedAt": "2025-01-15T00:00:00.000Z",
+  "media": [
+   {
+    "id": "emirates-sands-m1",
+    "url": "/images/projects/emirates-sands/mockup-1.webp",
+    "type": "IMAGE",
+    "altEn": "Emirates Sands — IT Hardware Store — mockup — 1",
+    "altAr": "Emirates Sands — متجر تقنية — موكاب — 1",
+    "order": 0,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "emirates-sands-m2",
+    "url": "/images/projects/emirates-sands/mockup-2.webp",
+    "type": "IMAGE",
+    "altEn": "Emirates Sands — IT Hardware Store — mockup — 2",
+    "altAr": "Emirates Sands — متجر تقنية — موكاب — 2",
+    "order": 1,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "emirates-sands-m3",
+    "url": "/images/projects/emirates-sands/mockup-3.webp",
+    "type": "IMAGE",
+    "altEn": "Emirates Sands — IT Hardware Store — mockup — 3",
+    "altAr": "Emirates Sands — متجر تقنية — موكاب — 3",
+    "order": 2,
+    "width": 1600,
+    "height": 1200
+   }
+  ]
+ },
+ {
+  "id": "fast-express",
+  "slug": "fast-express-shipping",
+  "titleEn": "Fast Express Shipping — Freight Company Website",
+  "titleAr": "Fast Express — موقع شركة الشحن",
+  "descEn": "Fast Express ships out of Dubai to Saudi Arabia, Iraq, Syria and beyond, and customers arrive already knowing one thing: how their cargo needs to travel. So the site opens on three tracks — road, air and sea — instead of a company introduction. Customs clearance sits beside them, and a 'Why Fast Express' section carries the reassurance, in a teal-and-orange industrial identity.",
+  "descAr": "تشحن Fast Express من دبي إلى السعودية والعراق وسوريا وبقية العالم، والزبون يصل وهو يعرف شيئًا واحدًا: كيف تحتاج بضاعته أن تسافر. لذلك يفتح الموقع على ثلاثة مسارات — برًا وجوًا وبحرًا — بدل التعريف بالشركة. ووضعت التخليص الجمركي إلى جانبها، وتركت قسم «لماذا Fast Express» ليحمل الطمأنة، بهوية صناعية تجمع الأزرق المخضر والبرتقالي.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "UIUX",
+  "tags": [
+   "Web Design",
+   "Logistics",
+   "Landing"
+  ],
+  "coverImage": "/images/projects/fast-express-shipping/mockup-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABQAgCdASoQAAwAA4BaJYwCdAYuHzX3XAwH0AAA/vYsLi0FFYgPoVJ80wKG2aEiMcVpBXNbGGPA6nclhZun8XlnxtmrzqCqrKKhYlkKiiZKt30gRN/ASbhaU70mfpacUOp4QmrQAAA=",
+  "client": "Fast Express Shipping",
+  "role": "UI/UX Designer",
+  "tools": [],
+  "year": null,
+  "featured": false,
+  "published": true,
+  "publishedAt": "2025-01-10T00:00:00.000Z",
+  "media": [
+   {
+    "id": "fast-express-shipping-m1",
+    "url": "/images/projects/fast-express-shipping/mockup-1.webp",
+    "type": "IMAGE",
+    "altEn": "Fast Express Shipping — Freight Company Website — mockup — 1",
+    "altAr": "Fast Express — موقع شركة الشحن — موكاب — 1",
+    "order": 0,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "fast-express-shipping-m2",
+    "url": "/images/projects/fast-express-shipping/mockup-2.webp",
+    "type": "IMAGE",
+    "altEn": "Fast Express Shipping — Freight Company Website — mockup — 2",
+    "altAr": "Fast Express — موقع شركة الشحن — موكاب — 2",
+    "order": 1,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "fast-express-shipping-m3",
+    "url": "/images/projects/fast-express-shipping/mockup-3.webp",
+    "type": "IMAGE",
+    "altEn": "Fast Express Shipping — Freight Company Website — mockup — 3",
+    "altAr": "Fast Express — موقع شركة الشحن — موكاب — 3",
+    "order": 2,
+    "width": 1600,
+    "height": 1200
+   }
+  ]
+ },
+ {
+  "id": "kafoo",
+  "slug": "kafoo-web",
+  "titleEn": "Kafoo — Investment Company Website",
+  "titleAr": "كفو — موقع شركة الاستثمار",
+  "descEn": "Kafoo offers guaranteed investment opportunities in used car spare parts — an unusual proposition that needed explaining before it could sell. I built the page flow around four questions an investor actually asks: what is the principle, what do I get, what are the opportunities, and what guarantees them. Bilingual Arabic and English, in a green identity that signals growth without shouting.",
+  "descAr": "تقدّم كفو فرص استثمار مضمونة في قطع غيار السيارات المستعملة، وهي فكرة تحتاج شرحًا قبل أن تُقنع. رتّبت صفحات الموقع حول أربعة أسئلة يطرحها المستثمر فعلًا: ما المبدأ، وما العائد، وما الفرص المتاحة، وما الذي يضمنها. الموقع ثنائي اللغة عربي وإنجليزي، بهوية خضراء توحي بالنمو من دون مبالغة.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "UIUX",
+  "tags": [
+   "Web Design",
+   "Landing",
+   "Bilingual"
+  ],
+  "coverImage": "/images/projects/kafoo-web/mockup-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQAgCdASoQAAwAA4BaJZQAD4rxdI8gv+AAAP7zmwz5t4yRP2nWkhctCAaXann2lCJ1RCl5jviAufb1QnhlwChr2ytkCSH2QcDKdxInbvwrpZgA",
+  "client": "Kafoo",
+  "role": "UI/UX Designer",
+  "tools": [],
+  "year": null,
+  "featured": false,
+  "published": true,
+  "publishedAt": "2024-12-01T00:00:00.000Z",
+  "media": [
+   {
+    "id": "kafoo-web-m1",
+    "url": "/images/projects/kafoo-web/mockup-1.webp",
+    "type": "IMAGE",
+    "altEn": "Kafoo — Investment Company Website — mockup — 1",
+    "altAr": "كفو — موقع شركة الاستثمار — موكاب — 1",
+    "order": 0,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "kafoo-web-m2",
+    "url": "/images/projects/kafoo-web/mockup-2.webp",
+    "type": "IMAGE",
+    "altEn": "Kafoo — Investment Company Website — mockup — 2",
+    "altAr": "كفو — موقع شركة الاستثمار — موكاب — 2",
+    "order": 1,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "kafoo-web-m3",
+    "url": "/images/projects/kafoo-web/mockup-3.webp",
+    "type": "IMAGE",
+    "altEn": "Kafoo — Investment Company Website — mockup — 3",
+    "altAr": "كفو — موقع شركة الاستثمار — موكاب — 3",
+    "order": 2,
+    "width": 1600,
+    "height": 1200
+   }
+  ]
+ },
+ {
   "id": "tawseel",
   "slug": "tawseel-food-delivery",
   "titleEn": "Tawseel — Food Delivery App",
@@ -1151,59 +900,591 @@
   ]
  },
  {
-  "id": "lamasat-app",
-  "slug": "lamasat-furniture-app",
-  "titleEn": "LAMASAT — Furniture Shopping App",
-  "titleAr": "لمسات — تطبيق تسوق الأثاث",
-  "descEn": "The LAMASAT app had to feel like the same brand as the website without simply shrinking it. Shopping runs by category — furniture, lighting, home accessories, kitchen, bathroom — with featured products and recent orders on the way in, then search and sorting for people who already know what they want. The brand's light editorial style carries over intact.",
-  "descAr": "كان على تطبيق لمسات أن يبدو من العلامة نفسها التي يقدّمها الموقع، من دون أن يكون مجرد نسخة مصغّرة عنه. التسوّق يجري حسب الفئة — أثاث، وإنارة، ومستلزمات منزل، ومطبخ، وحمّام — مع المنتجات المميزة وآخر الطلبات في الواجهة الأولى، ثم البحث والفرز لمن يعرف مسبقًا ما يريد. وانتقل أسلوب العلامة التحريري الفاتح كما هو.",
+  "id": "cadeau",
+  "slug": "cadeau-boutique-brand",
+  "titleEn": "Cadeau Boutique — Gift Brand Identity",
+  "titleAr": "كادو بوتيك — هوية متجر هدايا",
+  "descEn": "Cadeau Boutique in Riyadh sells the feeling more than the object — 'Express how you feel' — so the identity had to look like something you would be happy to receive. The GB monogram is drawn as a gift ribbon in gold, set against charcoal, mauve and cream, and applied to bilingual business cards, letterhead and QR hang tags finished in kraft, white and marble.",
+  "descAr": "تبيع كادو بوتيك في الرياض الشعور أكثر مما تبيع الغرض، وشعارها «عبّر عمّا تشعر به»، فكان على الهوية أن تبدو شيئًا يسعدك أن تتلقّاه. رسمت حرفَي GB على هيئة شريطة هدية بالذهبي، على خلفية من الفحمي والموف والكريمي، وطبّقتها على بطاقات عمل ثنائية اللغة وأوراق رسمية وبطاقات تعليق بكود QR بتشطيبات الكرافت والأبيض والرخام.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "GRAPHIC_DESIGN",
+  "tags": [
+   "Branding",
+   "Logo",
+   "Stationery"
+  ],
+  "coverImage": "/images/projects/cadeau-boutique-brand/mockup-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAQCdASoQAAwAA4BaJYwCsADpmVIsuIAA/tcAfSN7rl36T3mjIBQeiCP78SAHHt/+ZttMd9D3y4mxXCfSqom2+iPc7QT8UbT195w4fVgQCjPGJsvWPllVxO8Gr8w4mEgAAA==",
+  "client": "Cadeau Boutique",
+  "role": "Graphic Designer",
+  "tools": [
+   "Photoshop",
+   "Illustrator"
+  ],
+  "year": null,
+  "featured": false,
+  "published": true,
+  "publishedAt": "2024-10-15T00:00:00.000Z",
+  "media": [
+   {
+    "id": "cadeau-boutique-brand-m1",
+    "url": "/images/projects/cadeau-boutique-brand/mockup-1.webp",
+    "type": "IMAGE",
+    "altEn": "Cadeau Boutique brand board — 1",
+    "altAr": "لوحة هوية كادو بوتيك — 1",
+    "order": 0,
+    "width": 1600,
+    "height": 1200
+   }
+  ]
+ },
+ {
+  "id": "menu-web",
+  "slug": "menu-web",
+  "titleEn": "Digital Restaurant Menu — White-Label Product",
+  "titleAr": "منيو رقمي للمطاعم — منتج White-Label",
+  "descEn": "A digital menu that one restaurant can use is easy. I designed this one as a white-label product any restaurant can brand and run: switching between languages, currencies and branches, browsing by category, highlighting offers, and sharing a dish straight to a customer's phone. The real design work was deciding what stays fixed and what each owner gets to change.",
+  "descAr": "تصميم منيو رقمي لمطعم واحد أمر بسيط. أما هذا فصمّمته منتجًا جاهزًا يستطيع أي مطعم أن يضع عليه هويته ويشغّله: تبديل بين اللغات والعملات والفروع، وتصفّح حسب الفئة، وإبراز العروض، ومشاركة أي طبق مباشرة إلى هاتف الزبون. والعمل التصميمي الحقيقي كان في تحديد ما يبقى ثابتًا وما يستطيع صاحب المطعم تغييره.",
   "bodyEn": null,
   "bodyAr": null,
   "category": "UIUX",
   "tags": [
-   "Mobile App",
-   "E-Commerce",
-   "UI Design"
+   "Product Design",
+   "SaaS",
+   "Web App"
   ],
-  "coverImage": "/images/projects/lamasat-furniture-app/mockup-1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAABQAQCdASoQAAwAA4BaJZwABAAAAP7yBpYwP5b07A2w4dh6KbTaUrCcHY6lxE+Yil3vEvAA",
-  "client": "LAMASAT",
+  "coverImage": "/images/projects/menu-web/mockup-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABQAgCdASoQAAwAA4BaJZwC7AYuHk0sUIc3OAAA/vYTzYFqsY6WaP5jTlFvTDL8h34khC68znM7TgFy2ipC7InKP+neYsw7ihhzHjr6JaoU848qV2C0gHUvctoAAA==",
+  "client": null,
   "role": "UI/UX Designer",
   "tools": [],
   "year": null,
   "featured": false,
   "published": true,
-  "publishedAt": "2025-03-15T00:00:00.000Z",
+  "publishedAt": "2024-10-01T00:00:00.000Z",
   "media": [
    {
-    "id": "lamasat-furniture-app-m1",
-    "url": "/images/projects/lamasat-furniture-app/mockup-1.webp",
+    "id": "menu-web-m1",
+    "url": "/images/projects/menu-web/mockup-1.webp",
     "type": "IMAGE",
-    "altEn": "LAMASAT app screens — 1",
-    "altAr": "شاشات تطبيق لمسات — 1",
+    "altEn": "Digital Restaurant Menu — White-Label Product — mockup — 1",
+    "altAr": "منيو رقمي للمطاعم — منتج White-Label — موكاب — 1",
     "order": 0,
     "width": 1600,
     "height": 1200
    },
    {
-    "id": "lamasat-furniture-app-m2",
-    "url": "/images/projects/lamasat-furniture-app/mockup-2.webp",
+    "id": "menu-web-m2",
+    "url": "/images/projects/menu-web/mockup-2.webp",
     "type": "IMAGE",
-    "altEn": "LAMASAT app screens — 2",
-    "altAr": "شاشات تطبيق لمسات — 2",
+    "altEn": "Digital Restaurant Menu — White-Label Product — mockup — 2",
+    "altAr": "منيو رقمي للمطاعم — منتج White-Label — موكاب — 2",
     "order": 1,
     "width": 1600,
     "height": 1200
    },
    {
-    "id": "lamasat-furniture-app-m3",
-    "url": "/images/projects/lamasat-furniture-app/mockup-3.webp",
+    "id": "menu-web-m3",
+    "url": "/images/projects/menu-web/mockup-3.webp",
     "type": "IMAGE",
-    "altEn": "LAMASAT app screens — 3",
-    "altAr": "شاشات تطبيق لمسات — 3",
+    "altEn": "Digital Restaurant Menu — White-Label Product — mockup — 3",
+    "altAr": "منيو رقمي للمطاعم — منتج White-Label — موكاب — 3",
     "order": 2,
     "width": 1600,
     "height": 1200
+   }
+  ]
+ },
+ {
+  "id": "bw-profile",
+  "slug": "bw-company-profile",
+  "titleEn": "BW Holding — Company Profile",
+  "titleAr": "BW القابضة — بروفايل شركة",
+  "descEn": "A holding-group profile has to answer 'who are you' for a reader who will skim it in five minutes. I designed the BW Holding document page by page so the answer builds: cover, about, vision and mission, structure and geographical reach, the subsidiaries, the service lines, contact. Dark tech blue with glowing brand visuals holds it together.",
+  "descAr": "بروفايل مجموعة قابضة عليه أن يجيب عن سؤال «من أنتم» لقارئ سيتصفّحه في خمس دقائق. صمّمت وثيقة BW القابضة صفحةً صفحة كي تُبنى الإجابة تدريجيًا: الغلاف، ثم التعريف، ثم الرؤية والرسالة، ثم الهيكل والانتشار الجغرافي، ثم الشركات التابعة، ثم خطوط الخدمات، ثم التواصل. ويجمعها كلها أزرق تقني داكن ببصريات متوهّجة.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "GRAPHIC_DESIGN",
+  "tags": [
+   "Editorial",
+   "Company Profile",
+   "Corporate"
+  ],
+  "coverImage": "/images/projects/bw-company-profile/mockup-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwAgCdASoQAAwAA4BaJaACdEf/gY0Xy3qBQAD+9hP9BSvxXDTTkaou660+HnWSyfK8a3q/H5Qb984BfhmjIrJAKshz0DWsKcHYWPVOprKdYtN/Uw3rqleGKDvj7DPC3M4u+VyP3EZLIwRaekrvjW1i/sQ7Fu4TvyfuYAAA",
+  "client": "BW",
+  "role": "Graphic Designer",
+  "tools": [
+   "Photoshop",
+   "Illustrator"
+  ],
+  "year": null,
+  "featured": false,
+  "published": true,
+  "publishedAt": "2024-09-10T00:00:00.000Z",
+  "media": [
+   {
+    "id": "bw-company-profile-m1",
+    "url": "/images/projects/bw-company-profile/mockup-1.webp",
+    "type": "IMAGE",
+    "altEn": "BW company profile spreads — 1",
+    "altAr": "صفحات بروفايل شركة BW — 1",
+    "order": 0,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "bw-company-profile-m2",
+    "url": "/images/projects/bw-company-profile/mockup-2.webp",
+    "type": "IMAGE",
+    "altEn": "BW company profile spreads — 2",
+    "altAr": "صفحات بروفايل شركة BW — 2",
+    "order": 1,
+    "width": 1600,
+    "height": 1200
+   }
+  ]
+ },
+ {
+  "id": "bigboss",
+  "slug": "bigboss-web",
+  "titleEn": "BigBoss — Multi-Category Marketplace",
+  "titleAr": "BigBoss — متجر متعدد الفئات",
+  "descEn": "BigBoss sells across six worlds at once — electronics, fashion, home, beauty, sports and toys — and the risk with any marketplace that wide is that nothing feels findable. I leaned on promotional hero carousels and top-category rails to give each department its own front door, then kept wishlist and cart identical everywhere so the buying habit carries between them.",
+  "descAr": "يبيع BigBoss في ستة عوالم دفعة واحدة: إلكترونيات وأزياء ومستلزمات منزل وتجميل ورياضة وألعاب. وخطر أي متجر بهذا الاتساع أن يضيع الزبون فيه. اعتمدت على كاروسيلات ترويجية ورفوف للفئات الأعلى مبيعًا لأمنح كل قسم بابًا خاصًا به، وأبقيت المفضلة والسلة متطابقتين في كل الأقسام حتى تنتقل عادة الشراء بينها.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "UIUX",
+  "tags": [
+   "E-Commerce",
+   "Marketplace",
+   "Web Design"
+  ],
+  "coverImage": "/images/projects/bigboss-web/mockup-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAQAgCdASoQAAwAA4BaJQBWAMXX1PrvHZMAAP7035RdW8KrtNLWCf7AELQdsRXw6+c4vm/DbuGTMvuJDM9gpobes1qWL5kYJz9vU358H2M9DV1cFYMrmy2MNkjc21sWwAA=",
+  "client": "BigBoss",
+  "role": "UI/UX Designer",
+  "tools": [],
+  "year": null,
+  "featured": false,
+  "published": true,
+  "publishedAt": "2024-08-01T00:00:00.000Z",
+  "media": [
+   {
+    "id": "bigboss-web-m1",
+    "url": "/images/projects/bigboss-web/mockup-1.webp",
+    "type": "IMAGE",
+    "altEn": "BigBoss — Multi-Category Marketplace — mockup — 1",
+    "altAr": "BigBoss — متجر متعدد الفئات — موكاب — 1",
+    "order": 0,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "bigboss-web-m2",
+    "url": "/images/projects/bigboss-web/mockup-2.webp",
+    "type": "IMAGE",
+    "altEn": "BigBoss — Multi-Category Marketplace — mockup — 2",
+    "altAr": "BigBoss — متجر متعدد الفئات — موكاب — 2",
+    "order": 1,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "bigboss-web-m3",
+    "url": "/images/projects/bigboss-web/mockup-3.webp",
+    "type": "IMAGE",
+    "altEn": "BigBoss — Multi-Category Marketplace — mockup — 3",
+    "altAr": "BigBoss — متجر متعدد الفئات — موكاب — 3",
+    "order": 2,
+    "width": 1600,
+    "height": 1200
+   }
+  ]
+ },
+ {
+  "id": "codxeon",
+  "slug": "codxeon-website",
+  "titleEn": "Codxeon — Digital Agency Website",
+  "titleAr": "Codxeon — موقع وكالة رقمية",
+  "descEn": "Codxeon promises to turn ideas into digital excellence, and the part of that story worth building around turned out to be the 24-hour process — how fast a brief becomes a plan. The site walks a visitor through it, supported by the service sections (web, mobile apps, UI/UX, digital marketing, consultancy) and a data-driven strategy layer. Purple gradients throughout.",
+  "descAr": "تعد Codxeon بتحويل الأفكار إلى تميّز رقمي، وتبيّن أن الجزء الجدير بالبناء عليه في هذه القصة هو دورة الأربع والعشرين ساعة: كم يستغرق تحوّل الفكرة إلى خطة. يمشي الموقع بالزائر خلالها، تسنده أقسام الخدمات — ويب، وتطبيقات، وتصميم واجهات، وتسويق رقمي، واستشارات — وطبقة استراتيجية مبنية على البيانات، بتدرّجات بنفسجية.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "UIUX",
+  "tags": [
+   "Web Design",
+   "Agency",
+   "Landing"
+  ],
+  "coverImage": "/images/projects/codxeon-website/mockup-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQAgCdASoQAAsAA4BaJQBdgCKq66Bsr8IAAP7roNw+1Z8AHyNqzGeAHxuuD2MXq3zhIyWzVTl3/nxt78pPzew+s1PvLPu2oxgYaMfvBYxf0+aMXPFoVbwUnkr4PMh32fDAAA==",
+  "client": "Codxeon",
+  "role": "UI/UX Designer",
+  "tools": [],
+  "year": null,
+  "featured": false,
+  "published": true,
+  "publishedAt": "2024-06-01T00:00:00.000Z",
+  "media": [
+   {
+    "id": "codxeon-website-m1",
+    "url": "/images/projects/codxeon-website/mockup-1.webp",
+    "type": "IMAGE",
+    "altEn": "Codxeon — Digital Agency Website — mockup — 1",
+    "altAr": "Codxeon — موقع وكالة رقمية — موكاب — 1",
+    "order": 0,
+    "width": 1600,
+    "height": 1067
+   },
+   {
+    "id": "codxeon-website-m2",
+    "url": "/images/projects/codxeon-website/mockup-2.webp",
+    "type": "IMAGE",
+    "altEn": "Codxeon — Digital Agency Website — mockup — 2",
+    "altAr": "Codxeon — موقع وكالة رقمية — موكاب — 2",
+    "order": 1,
+    "width": 1600,
+    "height": 1067
+   }
+  ]
+ },
+ {
+  "id": "showreel",
+  "slug": "motion-showreel",
+  "titleEn": "Motion Design Showreel",
+  "titleAr": "شوريل الموشن جرافيك",
+  "descEn": "A reel is an editing problem more than an animation one — the work already exists, and the job is deciding what earns three seconds. I cut logo animations, app promos and event visuals into a single piece, built in After Effects and Premiere Pro from concept through to the final edit.",
+  "descAr": "الشوريل مسألة مونتاج أكثر مما هو مسألة تحريك: العمل موجود أصلًا، والمهمة أن تقرّر ما الذي يستحق ثلاث ثوانٍ. جمعت فيه أنيميشن الشعارات وإعلانات التطبيقات وبصريات الفعاليات في قطعة واحدة، أنجزتها على After Effects وPremiere Pro من الفكرة حتى المونتاج النهائي.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "VIDEOS",
+  "tags": [
+   "Motion Graphics",
+   "Showreel",
+   "Animation"
+  ],
+  "coverImage": "/images/projects/motion-showreel/poster-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAACQAQCdASoQAAcAA4BaJZwAAn/OVAAA/vQyyV6n/R1s3A2jXIgQAA==",
+  "client": null,
+  "role": "Motion Designer",
+  "tools": [
+   "After Effects",
+   "Premiere Pro"
+  ],
+  "year": null,
+  "featured": false,
+  "published": true,
+  "publishedAt": "2024-06-01T00:00:00.000Z",
+  "media": [
+   {
+    "id": "motion-showreel-v1",
+    "url": "/videos/motion-showreel/clip-1.mp4",
+    "type": "VIDEO",
+    "altEn": "Motion design showreel — 1",
+    "altAr": "شوريل الموشن جرافيك — 1",
+    "order": 0,
+    "width": 1280,
+    "height": 536
+   }
+  ]
+ },
+ {
+  "id": "krsy",
+  "slug": "krsy-web",
+  "titleEn": "KRSY — Social Media Services Website",
+  "titleAr": "KRSY — موقع خدمات السوشال ميديا",
+  "descEn": "KRSY sells social-media growth across the Middle East, where the buying decision is fast and the trust bar is low. I shortened the path accordingly: pick a platform, pick a category, request the service, pay through PayPal. Support runs 24/7 and the site says so early. Dark neon with vivid gradients, matching how the audience already reads this category.",
+  "descAr": "تبيع KRSY خدمات نمو حسابات السوشال ميديا في الشرق الأوسط، حيث قرار الشراء سريع والثقة هشّة. لذلك اختصرت الطريق: اختر المنصة، ثم الفئة، ثم اطلب الخدمة، ثم ادفع عبر باي بال. الدعم متاح على مدار الساعة والموقع يقول ذلك مبكرًا. هوية داكنة بألوان نيون وتدرّجات صارخة، تشبه الطريقة التي يقرأ بها هذا الجمهور هذا النوع من الخدمات.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "UIUX",
+  "tags": [
+   "Web Design",
+   "Dark UI",
+   "Services"
+  ],
+  "coverImage": "/images/projects/krsy-web/mockup-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoQAAwAA4BaJYgCw7DxNJHzk5AA/FpsPld7smGhDgSva4Aw2+MnZN+RQDMH5W41dCZ+iI2qztmB9RILUSb1wAAA",
+  "client": "KRSY",
+  "role": "UI/UX Designer",
+  "tools": [],
+  "year": null,
+  "featured": false,
+  "published": true,
+  "publishedAt": "2024-04-01T00:00:00.000Z",
+  "media": [
+   {
+    "id": "krsy-web-m1",
+    "url": "/images/projects/krsy-web/mockup-1.webp",
+    "type": "IMAGE",
+    "altEn": "KRSY — Social Media Services Website — mockup — 1",
+    "altAr": "KRSY — موقع خدمات السوشال ميديا — موكاب — 1",
+    "order": 0,
+    "width": 1600,
+    "height": 1244
+   },
+   {
+    "id": "krsy-web-m2",
+    "url": "/images/projects/krsy-web/mockup-2.webp",
+    "type": "IMAGE",
+    "altEn": "KRSY — Social Media Services Website — mockup — 2",
+    "altAr": "KRSY — موقع خدمات السوشال ميديا — موكاب — 2",
+    "order": 1,
+    "width": 1600,
+    "height": 1000
+   },
+   {
+    "id": "krsy-web-m3",
+    "url": "/images/projects/krsy-web/mockup-3.webp",
+    "type": "IMAGE",
+    "altEn": "KRSY — Social Media Services Website — mockup — 3",
+    "altAr": "KRSY — موقع خدمات السوشال ميديا — موكاب — 3",
+    "order": 2,
+    "width": 1600,
+    "height": 1179
+   }
+  ]
+ },
+ {
+  "id": "living-app",
+  "slug": "living-app-ui",
+  "titleEn": "Living — Housing Management App",
+  "titleAr": "Living — تطبيق إدارة سكنية",
+  "descEn": "Living puts a resident's whole building life in one app: their unit details and floor plan, repair and service requests, move-in and move-out logistics, reporting a problem, and whatever the community has announced. The hard part was the ordering — what a resident needs weekly has to sit above what they need twice a year. Designed in Figma.",
+  "descAr": "يجمع تطبيق Living حياة الساكن في مبناه داخل مكان واحد: تفاصيل وحدته ومخططها، وطلبات الصيانة والخدمات، وترتيبات الدخول والخروج، والإبلاغ عن عطل، وإعلانات المجمّع. والجزء الصعب كان الترتيب: ما يحتاجه الساكن أسبوعيًا يجب أن يعلو على ما يحتاجه مرتين في السنة. صُمّم على Figma.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "UIUX",
+  "tags": [
+   "Mobile App",
+   "Property",
+   "UI Design"
+  ],
+  "coverImage": "/images/projects/living-app-ui/1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQAAoAA4BaJYgCdAEQZkerZ4vAAP7LclUMChFhhpFsDVAfLtx49DWZkD4ZpkIzxuk9TwauA2uOJNLrc4gu2bdD81sLGbpdnK9JEGsAAAA=",
+  "client": null,
+  "role": "UI/UX Designer",
+  "tools": [
+   "Figma"
+  ],
+  "year": null,
+  "featured": false,
+  "published": true,
+  "publishedAt": "2024-01-01T00:00:00.000Z",
+  "media": [
+   {
+    "id": "living-app-ui-m1",
+    "url": "/images/projects/living-app-ui/1.webp",
+    "type": "IMAGE",
+    "altEn": "Living app screens — 1",
+    "altAr": "شاشات تطبيق Living — 1",
+    "order": 0,
+    "width": 1600,
+    "height": 1043
+   },
+   {
+    "id": "living-app-ui-m2",
+    "url": "/images/projects/living-app-ui/2.webp",
+    "type": "IMAGE",
+    "altEn": "Living app screens — 2",
+    "altAr": "شاشات تطبيق Living — 2",
+    "order": 1,
+    "width": 1600,
+    "height": 1067
+   },
+   {
+    "id": "living-app-ui-m3",
+    "url": "/images/projects/living-app-ui/3.webp",
+    "type": "IMAGE",
+    "altEn": "Living app screens — 3",
+    "altAr": "شاشات تطبيق Living — 3",
+    "order": 2,
+    "width": 1600,
+    "height": 1000
+   },
+   {
+    "id": "living-app-ui-m4",
+    "url": "/images/projects/living-app-ui/4.webp",
+    "type": "IMAGE",
+    "altEn": "Living app screens — 4",
+    "altAr": "شاشات تطبيق Living — 4",
+    "order": 3,
+    "width": 1600,
+    "height": 1600
+   },
+   {
+    "id": "living-app-ui-m5",
+    "url": "/images/projects/living-app-ui/5.webp",
+    "type": "IMAGE",
+    "altEn": "Living app screens — 5",
+    "altAr": "شاشات تطبيق Living — 5",
+    "order": 4,
+    "width": 1600,
+    "height": 1067
+   },
+   {
+    "id": "living-app-ui-m6",
+    "url": "/images/projects/living-app-ui/6.webp",
+    "type": "IMAGE",
+    "altEn": "Living app screens — 6",
+    "altAr": "شاشات تطبيق Living — 6",
+    "order": 5,
+    "width": 1600,
+    "height": 1040
+   }
+  ]
+ },
+ {
+  "id": "asset-security-systems",
+  "slug": "asset-security-systems",
+  "titleEn": "ASSET — Security & Safety Technology",
+  "titleAr": "أسِت — تقنيات الأمن والسلامة",
+  "descEn": "ASSET represents high-tech security manufacturers out of Dubai: screening detectors, X-ray inspection, perimeter protection, rescue medicine, optical communication. The job was to make a dense technical catalogue readable to a procurement officer who is not an engineer — so the range leads, and the specifications wait until they are asked for. I designed and built the front end.",
+  "descAr": "أسِت شركة في دبي تمثّل مصنّعي أنظمة الأمن والسلامة عالية التقنية: أجهزة الكشف، والتفتيش بالأشعة، وحماية المحيط، وطبّ الإنقاذ، والاتصالات الضوئية. المهمّة كانت جعل كتالوج تقني كثيف قابلاً للقراءة أمام موظّف مشتريات ليس مهندسًا، فتتقدّم العائلات أوّلًا وتنتظر المواصفات حتى يُسأل عنها. صمّمت الواجهة وبنيتها.",
+  "category": "WEBSITES",
+  "tags": [
+   "Security Tech",
+   "Corporate",
+   "Next.js"
+  ],
+  "client": "ASSET",
+  "role": "UI/UX Designer & Front-End Developer",
+  "tools": [
+   "Next.js",
+   "React"
+  ],
+  "year": 2023,
+  "liveUrl": "https://asset-uae.com",
+  "featured": false,
+  "publishedAt": "2023-05-01T00:00:00.000Z",
+  "bodyEn": null,
+  "bodyAr": null,
+  "coverImage": "/images/projects/asset-security-systems/mockup-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAgCdASoQAAwAA4BaJaQAD5RRfWOe5AOoAAD+tsz/Lr7sf01qwv6s934KcSHygNr4SPnafx2mdrluB8v4i4j5fxmpnYkmnBsFjWBU1UFxC9zDyLd2B6HJoG1g9h90DGFAAA==",
+  "published": true,
+  "media": [
+   {
+    "id": "asset-security-systems-m1",
+    "url": "/images/projects/asset-security-systems/mockup-1.webp",
+    "type": "IMAGE",
+    "altEn": "ASSET — Security & Safety Technology — 1",
+    "altAr": "أسِت — تقنيات الأمن والسلامة — 1",
+    "order": 0,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "asset-security-systems-m2",
+    "url": "/images/projects/asset-security-systems/mockup-2.webp",
+    "type": "IMAGE",
+    "altEn": "ASSET — Security & Safety Technology — 2",
+    "altAr": "أسِت — تقنيات الأمن والسلامة — 2",
+    "order": 1,
+    "width": 1600,
+    "height": 1200
+   }
+  ]
+ },
+ {
+  "id": "zanqa",
+  "slug": "zanqa-education-platform",
+  "titleEn": "Zanqa Education Platform",
+  "titleAr": "منصة زنقة التعليمية",
+  "descEn": "Zanqa is the project I am closest to. I joined as partner and front-end developer from 2019 to 2023 — designing the web and mobile interfaces, building the front-end in Next.js and MUI, and taking part in the product decisions along the way. It grew to more than 94,000 users, over 50,000 app downloads, and a network of 3,000+ publishers.",
+  "descAr": "زنقة أقرب المشاريع إليّ. انضممت شريكة ومطوّرة واجهات أمامية بين 2019 و2023: صمّمت واجهات الويب والموبايل، وبنيت الواجهة الأمامية بـ Next.js وMUI، وشاركت في قرارات المنتج على طول الطريق. وصلت المنصة إلى أكثر من 94,000 مستخدم، وما يزيد على 50,000 تحميل للتطبيق، وشبكة تضم أكثر من 3,000 ناشر.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "WEBSITES",
+  "tags": [
+   "Education",
+   "Mobile App",
+   "Web Platform"
+  ],
+  "coverImage": "/images/projects/zanqa-education-platform/1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAwAgCdASoQAAoAA4BaJbACdLoAApvNTrUYwAD9vnWKu3QPfdM0GN3fWuSbRlFtTYL2gcXaZOXdsbVzzM1IR1O2jN157w17jXGpIQUn3WwmHPcSDfq9C4MvWAAAAA==",
+  "client": "Zanqa",
+  "role": "Partner & Front-End Developer",
+  "tools": [
+   "Next.js",
+   "MUI",
+   "Adobe XD"
+  ],
+  "year": 2023,
+  "featured": true,
+  "published": true,
+  "publishedAt": "2023-01-15T00:00:00.000Z",
+  "media": [
+   {
+    "id": "zanqa-education-platform-m1",
+    "url": "/images/projects/zanqa-education-platform/1.webp",
+    "type": "IMAGE",
+    "altEn": "Zanqa app screens — 1",
+    "altAr": "شاشات تطبيق زنقة — 1",
+    "order": 0,
+    "width": 1600,
+    "height": 1040
+   },
+   {
+    "id": "zanqa-education-platform-m2",
+    "url": "/images/projects/zanqa-education-platform/2.webp",
+    "type": "IMAGE",
+    "altEn": "Zanqa app screens — 2",
+    "altAr": "شاشات تطبيق زنقة — 2",
+    "order": 1,
+    "width": 1600,
+    "height": 1067
+   },
+   {
+    "id": "zanqa-education-platform-m3",
+    "url": "/images/projects/zanqa-education-platform/3.webp",
+    "type": "IMAGE",
+    "altEn": "Zanqa app screens — 3",
+    "altAr": "شاشات تطبيق زنقة — 3",
+    "order": 2,
+    "width": 1600,
+    "height": 1066
+   },
+   {
+    "id": "zanqa-education-platform-m4",
+    "url": "/images/projects/zanqa-education-platform/4.webp",
+    "type": "IMAGE",
+    "altEn": "Zanqa app screens — 4",
+    "altAr": "شاشات تطبيق زنقة — 4",
+    "order": 3,
+    "width": 1600,
+    "height": 1280
+   },
+   {
+    "id": "zanqa-education-platform-m5",
+    "url": "/images/projects/zanqa-education-platform/5.webp",
+    "type": "IMAGE",
+    "altEn": "Zanqa app screens — 5",
+    "altAr": "شاشات تطبيق زنقة — 5",
+    "order": 4,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "zanqa-education-platform-m6",
+    "url": "/images/projects/zanqa-education-platform/6.webp",
+    "type": "IMAGE",
+    "altEn": "Zanqa app screens — 6",
+    "altAr": "شاشات تطبيق زنقة — 6",
+    "order": 5,
+    "width": 1600,
+    "height": 976
+   },
+   {
+    "id": "zanqa-education-platform-m7",
+    "url": "/images/projects/zanqa-education-platform/7.webp",
+    "type": "IMAGE",
+    "altEn": "Zanqa app screens — 7",
+    "altAr": "شاشات تطبيق زنقة — 7",
+    "order": 6,
+    "width": 1600,
+    "height": 2000
    }
   ]
  },
@@ -1308,6 +1589,282 @@
   ]
  },
  {
+  "id": "piaget-presentation",
+  "slug": "piaget-presentation",
+  "titleEn": "PIAGET Event — Motion Presentation",
+  "titleAr": "PIAGET — عرض تقديمي متحرك",
+  "descEn": "Produced at BW Group, this is a vision-and-plan presentation for a PIAGET brand event — venue proposal, decoration and entertainment concepts, and a social-media influencer plan. Over two minutes of fully animated slides, made because a static deck would not have carried the event's tone.",
+  "descAr": "أنتجته في BW Group: عرض رؤية وخطة لفعالية علامة PIAGET، يشمل اقتراح المكان، ومفاهيم الديكور والفقرات الترفيهية، وخطة المؤثرين على السوشال ميديا. أكثر من دقيقتين من شرائح متحركة بالكامل، صُنعت لأن عرضًا ثابتًا ما كان لينقل روح الفعالية.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "VIDEOS",
+  "tags": [
+   "Motion Graphics",
+   "Presentation",
+   "Event"
+  ],
+  "coverImage": "/images/projects/piaget-presentation/poster-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAQCdASoQAAkAA4BaJZQC7ADC6qvgAP7xc5C89asvbAzLSRAMYpjKibBzevh/es1G3ZVNjt++QHL1ffKXnSF/lwAAAA==",
+  "client": "BW Group",
+  "role": "Motion Designer",
+  "tools": [
+   "After Effects"
+  ],
+  "year": null,
+  "featured": false,
+  "published": true,
+  "publishedAt": "2022-03-01T00:00:00.000Z",
+  "media": [
+   {
+    "id": "piaget-presentation-v1",
+    "url": "/videos/piaget-presentation/clip-1.mp4",
+    "type": "VIDEO",
+    "altEn": "PIAGET motion presentation — 1",
+    "altAr": "عرض PIAGET المتحرك — 1",
+    "order": 0,
+    "width": 1280,
+    "height": 720
+   }
+  ]
+ },
+ {
+  "id": "e-liefer",
+  "slug": "e-liefer-delivery-platform",
+  "titleEn": "E-Liefer — Delivery Platform UX/UI",
+  "titleAr": "E-Liefer — تصميم منصة توصيل",
+  "descEn": "E-Liefer connects local German stores to customers who want the shop, not just the product. I designed the full journey in Adobe XD: onboarding and registration, discovering stores by district, browsing products and their details, favourites, and store profiles — in English and German, for a market where people still shop by neighbourhood.",
+  "descAr": "تربط E-Liefer متاجر ألمانية محلية بزبائن يريدون المتجر نفسه لا المنتج وحده. صمّمت الرحلة كاملة على Adobe XD: التسجيل وبداية الاستخدام، واكتشاف المتاجر حسب الحي، وتصفّح المنتجات وتفاصيلها، والمفضلة، وصفحات المتاجر — بالإنجليزية والألمانية، لسوق ما زال الناس فيه يتسوّقون من حيّهم.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "UIUX",
+  "tags": [
+   "Web App",
+   "Delivery",
+   "UX Flow"
+  ],
+  "coverImage": "/images/projects/e-liefer-delivery-platform/mockup-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoQAAwAA4BaJZwAAxU9mZ2jAAD+8hKiVhnVfC5nWy/r/yOyAlw1mP07BDCb6cJvbnv+HYaVRQ1AZV7wpQlL1vaW3Nzvf4IHG7L844AA",
+  "client": "E-Liefer",
+  "role": "UI/UX Designer",
+  "tools": [
+   "Adobe XD"
+  ],
+  "year": 2021,
+  "featured": true,
+  "published": true,
+  "publishedAt": "2021-10-23T00:00:00.000Z",
+  "media": [
+   {
+    "id": "e-liefer-delivery-platform-m1",
+    "url": "/images/projects/e-liefer-delivery-platform/mockup-1.webp",
+    "type": "IMAGE",
+    "altEn": "E-Liefer platform screens — 1",
+    "altAr": "شاشات منصة E-Liefer — 1",
+    "order": 0,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "e-liefer-delivery-platform-m2",
+    "url": "/images/projects/e-liefer-delivery-platform/mockup-2.webp",
+    "type": "IMAGE",
+    "altEn": "E-Liefer platform screens — 2",
+    "altAr": "شاشات منصة E-Liefer — 2",
+    "order": 1,
+    "width": 1600,
+    "height": 1200
+   },
+   {
+    "id": "e-liefer-delivery-platform-m3",
+    "url": "/images/projects/e-liefer-delivery-platform/mockup-3.webp",
+    "type": "IMAGE",
+    "altEn": "E-Liefer platform screens — 3",
+    "altAr": "شاشات منصة E-Liefer — 3",
+    "order": 2,
+    "width": 1600,
+    "height": 1200
+   }
+  ]
+ },
+ {
+  "id": "zanqa-promo",
+  "slug": "zanqa-app-promo",
+  "titleEn": "Zanqa App — Promo & Release Videos",
+  "titleAr": "تطبيق زنقة — فيديوهات ترويجية",
+  "descEn": "Two videos for the Zanqa education platform, each with a different job. The promo introduces the app and its content categories to someone who has never heard of it; the 2.2.1 release video walks existing users through what changed — automated tests, extra publisher tools, and the rest.",
+  "descAr": "فيديوهان لمنصة زنقة التعليمية، لكل منهما مهمة مختلفة. الأول ترويجي يعرّف بالتطبيق وفئات محتواه لمن لم يسمع به من قبل، والثاني فيديو إصدار 2.2.1 يشرح للمستخدمين الحاليين ما الذي تغيّر: اختبارات آلية، وأدوات إضافية للناشرين، وغيرها.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "VIDEOS",
+  "tags": [
+   "Motion Graphics",
+   "App Promo",
+   "Product Video"
+  ],
+  "coverImage": "/images/projects/zanqa-app-promo/poster-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoQAAkAA4BaJbACdLoAAkcTOgAAx1tQjk23etn7BxI2bo0Hm8SfFCg0nsf+6jX7+Df7/e1blHXEQAAA",
+  "client": "Zanqa",
+  "role": "Motion Designer",
+  "tools": [
+   "After Effects",
+   "Premiere Pro"
+  ],
+  "year": null,
+  "featured": false,
+  "published": true,
+  "publishedAt": "2021-09-01T00:00:00.000Z",
+  "media": [
+   {
+    "id": "zanqa-app-promo-v1",
+    "url": "/videos/zanqa-app-promo/clip-1.mp4",
+    "type": "VIDEO",
+    "altEn": "Zanqa app promo video — 1",
+    "altAr": "فيديو زنقة الترويجي — 1",
+    "order": 0,
+    "width": 1280,
+    "height": 720
+   },
+   {
+    "id": "zanqa-app-promo-v2",
+    "url": "/videos/zanqa-app-promo/clip-2.mp4",
+    "type": "VIDEO",
+    "altEn": "Zanqa app promo video — 2",
+    "altAr": "فيديو زنقة الترويجي — 2",
+    "order": 1,
+    "width": 1280,
+    "height": 720
+   }
+  ]
+ },
+ {
+  "id": "travel-agency",
+  "slug": "travel-agency-branding",
+  "titleEn": "Travel Agency — Brand & Collateral",
+  "titleAr": "وكالة سفر — هوية ومطبوعات",
+  "descEn": "A travel agency lives on printed material as much as on screens, so this identity was built to survive both. The set covers the logo in use, ID cards, brochure covers front and back, a social cover, and the interior page layouts that keep the brochure consistent once someone opens it.",
+  "descAr": "وكالة السفر تعيش على المطبوعات بقدر ما تعيش على الشاشات، لذلك بُنيت هذه الهوية لتصمد في الاثنين. تشمل المجموعة الشعار في الاستخدام، وبطاقات التعريف، وأغلفة البروشور من الأمام والخلف، وغلافًا للسوشال ميديا، وتخطيط الصفحات الداخلية الذي يحافظ على اتساق البروشور بعد فتحه.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "GRAPHIC_DESIGN",
+  "tags": [
+   "Branding",
+   "Print",
+   "Logo"
+  ],
+  "coverImage": "/images/projects/travel-agency-branding/1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQABAAA4BaJQBOgCHuy9Q5teAA/uks6CUffkn2LdqEJKhuT1EwUWROhnnxhEYikSX/c7e14ggBw/0Cz2LbQ0Z4EOa1Q5p1o3XIAA==",
+  "client": null,
+  "role": "Graphic Designer",
+  "tools": [
+   "Photoshop",
+   "Illustrator"
+  ],
+  "year": null,
+  "featured": false,
+  "published": true,
+  "publishedAt": "2020-05-01T00:00:00.000Z",
+  "media": [
+   {
+    "id": "travel-agency-branding-m1",
+    "url": "/images/projects/travel-agency-branding/1.webp",
+    "type": "IMAGE",
+    "altEn": "Travel agency branding — 1",
+    "altAr": "هوية وكالة السفر — 1",
+    "order": 0,
+    "width": 1024,
+    "height": 1024
+   },
+   {
+    "id": "travel-agency-branding-m2",
+    "url": "/images/projects/travel-agency-branding/2.webp",
+    "type": "IMAGE",
+    "altEn": "Travel agency branding — 2",
+    "altAr": "هوية وكالة السفر — 2",
+    "order": 1,
+    "width": 595,
+    "height": 842
+   },
+   {
+    "id": "travel-agency-branding-m3",
+    "url": "/images/projects/travel-agency-branding/3.webp",
+    "type": "IMAGE",
+    "altEn": "Travel agency branding — 3",
+    "altAr": "هوية وكالة السفر — 3",
+    "order": 2,
+    "width": 1600,
+    "height": 997
+   },
+   {
+    "id": "travel-agency-branding-m4",
+    "url": "/images/projects/travel-agency-branding/4.webp",
+    "type": "IMAGE",
+    "altEn": "Travel agency branding — 4",
+    "altAr": "هوية وكالة السفر — 4",
+    "order": 3,
+    "width": 1600,
+    "height": 1067
+   },
+   {
+    "id": "travel-agency-branding-m5",
+    "url": "/images/projects/travel-agency-branding/5.webp",
+    "type": "IMAGE",
+    "altEn": "Travel agency branding — 5",
+    "altAr": "هوية وكالة السفر — 5",
+    "order": 4,
+    "width": 595,
+    "height": 842
+   },
+   {
+    "id": "travel-agency-branding-m6",
+    "url": "/images/projects/travel-agency-branding/6.webp",
+    "type": "IMAGE",
+    "altEn": "Travel agency branding — 6",
+    "altAr": "هوية وكالة السفر — 6",
+    "order": 5,
+    "width": 902,
+    "height": 846
+   }
+  ]
+ },
+ {
+  "id": "albroker-promo",
+  "slug": "albroker-promo",
+  "titleEn": "Albroker — App Promo Animation",
+  "titleAr": "البروكر — إعلان متحرك للتطبيق",
+  "descEn": "Albroker is a maritime shipment-brokerage app, and the promo animates its real screens rather than mock-ups — vessel feeds, freight offers, the points system. Keeping it short and fast was the point: the audience is brokers who already know the domain and do not need it explained. Cut to the brand's navy identity.",
+  "descAr": "البروكر تطبيق وساطة شحن بحري، والإعلان يحرّك شاشاته الحقيقية لا نماذج تجريبية: قوائم السفن، وعروض الشحن، ونظام النقاط. وكان القِصر والإيقاع السريع مقصودَين، فالجمهور وسطاء يعرفون المجال ولا يحتاجون شرحه. نُفّذ بهوية العلامة الكحلية.",
+  "bodyEn": null,
+  "bodyAr": null,
+  "category": "VIDEOS",
+  "tags": [
+   "Motion Graphics",
+   "App Promo"
+  ],
+  "coverImage": "/images/projects/albroker-promo/poster-1.webp",
+  "blurDataUrl": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAQAgCdASoQAAkAA4BaJQBOgMWRpNSmtuSQAP7vVRl48Xukd+dBbkW/dHAWfaXPrjfpkFTSGKwGPxTRs+nw6qPVAL08kIpv/ln+HeQo0k8Xc8jzzMDolh15iu0LrnIE3ttVhEqTTAAAAA==",
+  "client": "Albroker",
+  "role": "Motion Designer",
+  "tools": [
+   "After Effects"
+  ],
+  "year": null,
+  "featured": false,
+  "published": true,
+  "publishedAt": "2019-06-01T00:00:00.000Z",
+  "media": [
+   {
+    "id": "albroker-promo-v1",
+    "url": "/videos/albroker-promo/clip-1.mp4",
+    "type": "VIDEO",
+    "altEn": "Albroker promo animation — 1",
+    "altAr": "إعلان البروكر المتحرك — 1",
+    "order": 0,
+    "width": 1920,
+    "height": 1080
+   }
+  ]
+ },
+ {
   "id": "believe-in-syria",
   "slug": "believe-in-syria-campaign",
   "titleEn": "Believe in Syria — Campaign Identity",
@@ -1404,403 +1961,6 @@
     "order": 6,
     "width": 1600,
     "height": 1067
-   }
-  ]
- },
- {
-  "id": "bw-profile",
-  "slug": "bw-company-profile",
-  "titleEn": "BW Holding — Company Profile",
-  "titleAr": "BW القابضة — بروفايل شركة",
-  "descEn": "A holding-group profile has to answer 'who are you' for a reader who will skim it in five minutes. I designed the BW Holding document page by page so the answer builds: cover, about, vision and mission, structure and geographical reach, the subsidiaries, the service lines, contact. Dark tech blue with glowing brand visuals holds it together.",
-  "descAr": "بروفايل مجموعة قابضة عليه أن يجيب عن سؤال «من أنتم» لقارئ سيتصفّحه في خمس دقائق. صمّمت وثيقة BW القابضة صفحةً صفحة كي تُبنى الإجابة تدريجيًا: الغلاف، ثم التعريف، ثم الرؤية والرسالة، ثم الهيكل والانتشار الجغرافي، ثم الشركات التابعة، ثم خطوط الخدمات، ثم التواصل. ويجمعها كلها أزرق تقني داكن ببصريات متوهّجة.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "GRAPHIC_DESIGN",
-  "tags": [
-   "Editorial",
-   "Company Profile",
-   "Corporate"
-  ],
-  "coverImage": "/images/projects/bw-company-profile/mockup-1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAAAwAgCdASoQAAwAA4BaJaACdEf/gY0Xy3qBQAD+9hP9BSvxXDTTkaou660+HnWSyfK8a3q/H5Qb984BfhmjIrJAKshz0DWsKcHYWPVOprKdYtN/Uw3rqleGKDvj7DPC3M4u+VyP3EZLIwRaekrvjW1i/sQ7Fu4TvyfuYAAA",
-  "client": "BW",
-  "role": "Graphic Designer",
-  "tools": [
-   "Photoshop",
-   "Illustrator"
-  ],
-  "year": null,
-  "featured": false,
-  "published": true,
-  "publishedAt": "2024-09-10T00:00:00.000Z",
-  "media": [
-   {
-    "id": "bw-company-profile-m1",
-    "url": "/images/projects/bw-company-profile/mockup-1.webp",
-    "type": "IMAGE",
-    "altEn": "BW company profile spreads — 1",
-    "altAr": "صفحات بروفايل شركة BW — 1",
-    "order": 0,
-    "width": 1600,
-    "height": 1200
-   },
-   {
-    "id": "bw-company-profile-m2",
-    "url": "/images/projects/bw-company-profile/mockup-2.webp",
-    "type": "IMAGE",
-    "altEn": "BW company profile spreads — 2",
-    "altAr": "صفحات بروفايل شركة BW — 2",
-    "order": 1,
-    "width": 1600,
-    "height": 1200
-   }
-  ]
- },
- {
-  "id": "solareva",
-  "slug": "solareva-brand-identity",
-  "titleEn": "SolaReva — Solar Energy Brand Identity",
-  "titleAr": "سولاريفا — هوية شركة طاقة شمسية",
-  "descEn": "SolaReva is a Dubai solar-energy company whose promise is 'Boundless Impact', and the mark had to say energy and environment at once — so it brings together a bulb, leaves and a lightning bolt. Black, red, orange and amber carry it across business cards and letterhead, then out into van livery, storefront signage and the website hero, where an identity actually gets tested.",
-  "descAr": "سولاريفا شركة طاقة شمسية في دبي، ووعدها «أثر بلا حدود»، فكان على العلامة أن تقول الطاقة والبيئة معًا: جمعت فيها المصباح والأوراق والبرق. ويحمل الأسود والأحمر والبرتقالي والكهرماني الهوية عبر بطاقات العمل والأوراق الرسمية، ثم يخرج بها إلى تغليف السيارات ولوحة الواجهة وواجهة الموقع، وهناك تُختبر أي هوية فعلًا.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "GRAPHIC_DESIGN",
-  "tags": [
-   "Branding",
-   "Logo",
-   "Identity"
-  ],
-  "coverImage": "/images/projects/solareva-brand-identity/mockup-1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAQAgCdASoQAAwAA4BaJQBWACHc6yLoVL4AAOJ9df8XazCPGoSeI8Enp5ZzT8Jx79jy6jjSZvEoVESpfaDB63mlyWdQk8z0HLP/c4OrIl96sdHeZO1+Y8yPaqVwVlR0Vsav6zOY6GoejNEw6UW5gpkAAAA=",
-  "client": "SolaReva",
-  "role": "Graphic Designer",
-  "tools": [
-   "Photoshop",
-   "Illustrator"
-  ],
-  "year": null,
-  "featured": false,
-  "published": true,
-  "publishedAt": "2025-05-05T00:00:00.000Z",
-  "media": [
-   {
-    "id": "solareva-brand-identity-m1",
-    "url": "/images/projects/solareva-brand-identity/mockup-1.webp",
-    "type": "IMAGE",
-    "altEn": "SolaReva brand board — 1",
-    "altAr": "لوحة هوية سولاريفا — 1",
-    "order": 0,
-    "width": 1600,
-    "height": 1200
-   },
-   {
-    "id": "solareva-brand-identity-m2",
-    "url": "/images/projects/solareva-brand-identity/mockup-2.webp",
-    "type": "IMAGE",
-    "altEn": "SolaReva brand board — 2",
-    "altAr": "لوحة هوية سولاريفا — 2",
-    "order": 1,
-    "width": 1600,
-    "height": 1195
-   }
-  ]
- },
- {
-  "id": "cadeau",
-  "slug": "cadeau-boutique-brand",
-  "titleEn": "Cadeau Boutique — Gift Brand Identity",
-  "titleAr": "كادو بوتيك — هوية متجر هدايا",
-  "descEn": "Cadeau Boutique in Riyadh sells the feeling more than the object — 'Express how you feel' — so the identity had to look like something you would be happy to receive. The GB monogram is drawn as a gift ribbon in gold, set against charcoal, mauve and cream, and applied to bilingual business cards, letterhead and QR hang tags finished in kraft, white and marble.",
-  "descAr": "تبيع كادو بوتيك في الرياض الشعور أكثر مما تبيع الغرض، وشعارها «عبّر عمّا تشعر به»، فكان على الهوية أن تبدو شيئًا يسعدك أن تتلقّاه. رسمت حرفَي GB على هيئة شريطة هدية بالذهبي، على خلفية من الفحمي والموف والكريمي، وطبّقتها على بطاقات عمل ثنائية اللغة وأوراق رسمية وبطاقات تعليق بكود QR بتشطيبات الكرافت والأبيض والرخام.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "GRAPHIC_DESIGN",
-  "tags": [
-   "Branding",
-   "Logo",
-   "Stationery"
-  ],
-  "coverImage": "/images/projects/cadeau-boutique-brand/mockup-1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAQCdASoQAAwAA4BaJYwCsADpmVIsuIAA/tcAfSN7rl36T3mjIBQeiCP78SAHHt/+ZttMd9D3y4mxXCfSqom2+iPc7QT8UbT195w4fVgQCjPGJsvWPllVxO8Gr8w4mEgAAA==",
-  "client": "Cadeau Boutique",
-  "role": "Graphic Designer",
-  "tools": [
-   "Photoshop",
-   "Illustrator"
-  ],
-  "year": null,
-  "featured": false,
-  "published": true,
-  "publishedAt": "2024-10-15T00:00:00.000Z",
-  "media": [
-   {
-    "id": "cadeau-boutique-brand-m1",
-    "url": "/images/projects/cadeau-boutique-brand/mockup-1.webp",
-    "type": "IMAGE",
-    "altEn": "Cadeau Boutique brand board — 1",
-    "altAr": "لوحة هوية كادو بوتيك — 1",
-    "order": 0,
-    "width": 1600,
-    "height": 1200
-   }
-  ]
- },
- {
-  "id": "travel-agency",
-  "slug": "travel-agency-branding",
-  "titleEn": "Travel Agency — Brand & Collateral",
-  "titleAr": "وكالة سفر — هوية ومطبوعات",
-  "descEn": "A travel agency lives on printed material as much as on screens, so this identity was built to survive both. The set covers the logo in use, ID cards, brochure covers front and back, a social cover, and the interior page layouts that keep the brochure consistent once someone opens it.",
-  "descAr": "وكالة السفر تعيش على المطبوعات بقدر ما تعيش على الشاشات، لذلك بُنيت هذه الهوية لتصمد في الاثنين. تشمل المجموعة الشعار في الاستخدام، وبطاقات التعريف، وأغلفة البروشور من الأمام والخلف، وغلافًا للسوشال ميديا، وتخطيط الصفحات الداخلية الذي يحافظ على اتساق البروشور بعد فتحه.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "GRAPHIC_DESIGN",
-  "tags": [
-   "Branding",
-   "Print",
-   "Logo"
-  ],
-  "coverImage": "/images/projects/travel-agency-branding/1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQABAAA4BaJQBOgCHuy9Q5teAA/uks6CUffkn2LdqEJKhuT1EwUWROhnnxhEYikSX/c7e14ggBw/0Cz2LbQ0Z4EOa1Q5p1o3XIAA==",
-  "client": null,
-  "role": "Graphic Designer",
-  "tools": [
-   "Photoshop",
-   "Illustrator"
-  ],
-  "year": null,
-  "featured": false,
-  "published": true,
-  "publishedAt": "2020-05-01T00:00:00.000Z",
-  "media": [
-   {
-    "id": "travel-agency-branding-m1",
-    "url": "/images/projects/travel-agency-branding/1.webp",
-    "type": "IMAGE",
-    "altEn": "Travel agency branding — 1",
-    "altAr": "هوية وكالة السفر — 1",
-    "order": 0,
-    "width": 1024,
-    "height": 1024
-   },
-   {
-    "id": "travel-agency-branding-m2",
-    "url": "/images/projects/travel-agency-branding/2.webp",
-    "type": "IMAGE",
-    "altEn": "Travel agency branding — 2",
-    "altAr": "هوية وكالة السفر — 2",
-    "order": 1,
-    "width": 595,
-    "height": 842
-   },
-   {
-    "id": "travel-agency-branding-m3",
-    "url": "/images/projects/travel-agency-branding/3.webp",
-    "type": "IMAGE",
-    "altEn": "Travel agency branding — 3",
-    "altAr": "هوية وكالة السفر — 3",
-    "order": 2,
-    "width": 1600,
-    "height": 997
-   },
-   {
-    "id": "travel-agency-branding-m4",
-    "url": "/images/projects/travel-agency-branding/4.webp",
-    "type": "IMAGE",
-    "altEn": "Travel agency branding — 4",
-    "altAr": "هوية وكالة السفر — 4",
-    "order": 3,
-    "width": 1600,
-    "height": 1067
-   },
-   {
-    "id": "travel-agency-branding-m5",
-    "url": "/images/projects/travel-agency-branding/5.webp",
-    "type": "IMAGE",
-    "altEn": "Travel agency branding — 5",
-    "altAr": "هوية وكالة السفر — 5",
-    "order": 4,
-    "width": 595,
-    "height": 842
-   },
-   {
-    "id": "travel-agency-branding-m6",
-    "url": "/images/projects/travel-agency-branding/6.webp",
-    "type": "IMAGE",
-    "altEn": "Travel agency branding — 6",
-    "altAr": "هوية وكالة السفر — 6",
-    "order": 5,
-    "width": 902,
-    "height": 846
-   }
-  ]
- },
- {
-  "id": "showreel",
-  "slug": "motion-showreel",
-  "titleEn": "Motion Design Showreel",
-  "titleAr": "شوريل الموشن جرافيك",
-  "descEn": "A reel is an editing problem more than an animation one — the work already exists, and the job is deciding what earns three seconds. I cut logo animations, app promos and event visuals into a single piece, built in After Effects and Premiere Pro from concept through to the final edit.",
-  "descAr": "الشوريل مسألة مونتاج أكثر مما هو مسألة تحريك: العمل موجود أصلًا، والمهمة أن تقرّر ما الذي يستحق ثلاث ثوانٍ. جمعت فيه أنيميشن الشعارات وإعلانات التطبيقات وبصريات الفعاليات في قطعة واحدة، أنجزتها على After Effects وPremiere Pro من الفكرة حتى المونتاج النهائي.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "VIDEOS",
-  "tags": [
-   "Motion Graphics",
-   "Showreel",
-   "Animation"
-  ],
-  "coverImage": "/images/projects/motion-showreel/poster-1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAACQAQCdASoQAAcAA4BaJZwAAn/OVAAA/vQyyV6n/R1s3A2jXIgQAA==",
-  "client": null,
-  "role": "Motion Designer",
-  "tools": [
-   "After Effects",
-   "Premiere Pro"
-  ],
-  "year": null,
-  "featured": false,
-  "published": true,
-  "publishedAt": "2024-06-01T00:00:00.000Z",
-  "media": [
-   {
-    "id": "motion-showreel-v1",
-    "url": "/videos/motion-showreel/clip-1.mp4",
-    "type": "VIDEO",
-    "altEn": "Motion design showreel — 1",
-    "altAr": "شوريل الموشن جرافيك — 1",
-    "order": 0,
-    "width": 1280,
-    "height": 536
-   }
-  ]
- },
- {
-  "id": "zanqa-promo",
-  "slug": "zanqa-app-promo",
-  "titleEn": "Zanqa App — Promo & Release Videos",
-  "titleAr": "تطبيق زنقة — فيديوهات ترويجية",
-  "descEn": "Two videos for the Zanqa education platform, each with a different job. The promo introduces the app and its content categories to someone who has never heard of it; the 2.2.1 release video walks existing users through what changed — automated tests, extra publisher tools, and the rest.",
-  "descAr": "فيديوهان لمنصة زنقة التعليمية، لكل منهما مهمة مختلفة. الأول ترويجي يعرّف بالتطبيق وفئات محتواه لمن لم يسمع به من قبل، والثاني فيديو إصدار 2.2.1 يشرح للمستخدمين الحاليين ما الذي تغيّر: اختبارات آلية، وأدوات إضافية للناشرين، وغيرها.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "VIDEOS",
-  "tags": [
-   "Motion Graphics",
-   "App Promo",
-   "Product Video"
-  ],
-  "coverImage": "/images/projects/zanqa-app-promo/poster-1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoQAAkAA4BaJbACdLoAAkcTOgAAx1tQjk23etn7BxI2bo0Hm8SfFCg0nsf+6jX7+Df7/e1blHXEQAAA",
-  "client": "Zanqa",
-  "role": "Motion Designer",
-  "tools": [
-   "After Effects",
-   "Premiere Pro"
-  ],
-  "year": null,
-  "featured": false,
-  "published": true,
-  "publishedAt": "2021-09-01T00:00:00.000Z",
-  "media": [
-   {
-    "id": "zanqa-app-promo-v1",
-    "url": "/videos/zanqa-app-promo/clip-1.mp4",
-    "type": "VIDEO",
-    "altEn": "Zanqa app promo video — 1",
-    "altAr": "فيديو زنقة الترويجي — 1",
-    "order": 0,
-    "width": 1280,
-    "height": 720
-   },
-   {
-    "id": "zanqa-app-promo-v2",
-    "url": "/videos/zanqa-app-promo/clip-2.mp4",
-    "type": "VIDEO",
-    "altEn": "Zanqa app promo video — 2",
-    "altAr": "فيديو زنقة الترويجي — 2",
-    "order": 1,
-    "width": 1280,
-    "height": 720
-   }
-  ]
- },
- {
-  "id": "albroker-promo",
-  "slug": "albroker-promo",
-  "titleEn": "Albroker — App Promo Animation",
-  "titleAr": "البروكر — إعلان متحرك للتطبيق",
-  "descEn": "Albroker is a maritime shipment-brokerage app, and the promo animates its real screens rather than mock-ups — vessel feeds, freight offers, the points system. Keeping it short and fast was the point: the audience is brokers who already know the domain and do not need it explained. Cut to the brand's navy identity.",
-  "descAr": "البروكر تطبيق وساطة شحن بحري، والإعلان يحرّك شاشاته الحقيقية لا نماذج تجريبية: قوائم السفن، وعروض الشحن، ونظام النقاط. وكان القِصر والإيقاع السريع مقصودَين، فالجمهور وسطاء يعرفون المجال ولا يحتاجون شرحه. نُفّذ بهوية العلامة الكحلية.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "VIDEOS",
-  "tags": [
-   "Motion Graphics",
-   "App Promo"
-  ],
-  "coverImage": "/images/projects/albroker-promo/poster-1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAQAgCdASoQAAkAA4BaJQBOgMWRpNSmtuSQAP7vVRl48Xukd+dBbkW/dHAWfaXPrjfpkFTSGKwGPxTRs+nw6qPVAL08kIpv/ln+HeQo0k8Xc8jzzMDolh15iu0LrnIE3ttVhEqTTAAAAA==",
-  "client": "Albroker",
-  "role": "Motion Designer",
-  "tools": [
-   "After Effects"
-  ],
-  "year": null,
-  "featured": false,
-  "published": true,
-  "publishedAt": "2019-06-01T00:00:00.000Z",
-  "media": [
-   {
-    "id": "albroker-promo-v1",
-    "url": "/videos/albroker-promo/clip-1.mp4",
-    "type": "VIDEO",
-    "altEn": "Albroker promo animation — 1",
-    "altAr": "إعلان البروكر المتحرك — 1",
-    "order": 0,
-    "width": 1920,
-    "height": 1080
-   }
-  ]
- },
- {
-  "id": "piaget-presentation",
-  "slug": "piaget-presentation",
-  "titleEn": "PIAGET Event — Motion Presentation",
-  "titleAr": "PIAGET — عرض تقديمي متحرك",
-  "descEn": "Produced at BW Group, this is a vision-and-plan presentation for a PIAGET brand event — venue proposal, decoration and entertainment concepts, and a social-media influencer plan. Over two minutes of fully animated slides, made because a static deck would not have carried the event's tone.",
-  "descAr": "أنتجته في BW Group: عرض رؤية وخطة لفعالية علامة PIAGET، يشمل اقتراح المكان، ومفاهيم الديكور والفقرات الترفيهية، وخطة المؤثرين على السوشال ميديا. أكثر من دقيقتين من شرائح متحركة بالكامل، صُنعت لأن عرضًا ثابتًا ما كان لينقل روح الفعالية.",
-  "bodyEn": null,
-  "bodyAr": null,
-  "category": "VIDEOS",
-  "tags": [
-   "Motion Graphics",
-   "Presentation",
-   "Event"
-  ],
-  "coverImage": "/images/projects/piaget-presentation/poster-1.webp",
-  "blurDataUrl": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAQCdASoQAAkAA4BaJZQC7ADC6qvgAP7xc5C89asvbAzLSRAMYpjKibBzevh/es1G3ZVNjt++QHL1ffKXnSF/lwAAAA==",
-  "client": "BW Group",
-  "role": "Motion Designer",
-  "tools": [
-   "After Effects"
-  ],
-  "year": null,
-  "featured": false,
-  "published": true,
-  "publishedAt": "2022-03-01T00:00:00.000Z",
-  "media": [
-   {
-    "id": "piaget-presentation-v1",
-    "url": "/videos/piaget-presentation/clip-1.mp4",
-    "type": "VIDEO",
-    "altEn": "PIAGET motion presentation — 1",
-    "altAr": "عرض PIAGET المتحرك — 1",
-    "order": 0,
-    "width": 1280,
-    "height": 720
    }
   ]
  }

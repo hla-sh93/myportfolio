@@ -50,6 +50,8 @@ export type StoredProject = {
   role: string | null;
   tools: string[];
   year: number | null;
+  /** Public address of the delivered site, when there is one to visit. */
+  liveUrl: string | null;
   featured: boolean;
   published: boolean;
   publishedAt: string; // ISO
@@ -188,6 +190,7 @@ function seedProjects(): StoredProject[] {
     role: p.role ?? null,
     tools: p.tools,
     year: p.year ?? null,
+    liveUrl: null,
     featured: p.featured,
     published: p.published,
     publishedAt: new Date(p.publishedAt).toISOString(),
@@ -278,6 +281,7 @@ const toProject = (p: any): StoredProject => ({
   role: p.role,
   tools: p.tools ?? [],
   year: p.year,
+  liveUrl: p.liveUrl ?? null,
   featured: p.featured,
   published: p.published,
   publishedAt: iso(p.publishedAt),
@@ -384,6 +388,7 @@ export async function upsertProject(project: StoredProject) {
     role: rest.role,
     tools: rest.tools,
     year: rest.year,
+    liveUrl: rest.liveUrl ?? null,
     featured: rest.featured,
     published: rest.published,
     publishedAt: new Date(rest.publishedAt),

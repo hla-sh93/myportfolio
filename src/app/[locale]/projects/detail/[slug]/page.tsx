@@ -2,11 +2,12 @@ import { LikeButton } from "@/components/features/LikeButton";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { Badge } from "@/components/ui/Badge";
 import { Link } from "@/i18n/navigation";
-import { ArrowLeft, Calendar, Code2 } from "lucide-react";
+import { ArrowLeft, Calendar, Code2, ExternalLink } from "lucide-react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getPublicProject, getPublicProjects } from "@/lib/content";
 import { DetailNav } from "@/components/features/DetailNav";
+import { SiteWall } from "@/components/features/SiteWall";
 import { getTranslations } from "next-intl/server";
 import { MediaGallery } from "@/components/features/MediaGallery";
 import { ViewTracker } from "@/components/features/ViewTracker";
@@ -124,7 +125,18 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
             <h1 className="mb-6 font-display text-3xl font-bold text-white drop-shadow-xl md:text-5xl lg:text-6xl">{title}</h1>
 
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-4">
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-bold text-[#120409] transition-colors hover:bg-accent hover:text-white"
+                >
+                  <ExternalLink className="h-4 w-4" />
+                  {isRtl ? "زيارة الموقع" : "Visit the site"}
+                </a>
+              )}
               <LikeButton
                 slug={project.slug}
                 initialCount={stats.likes}
@@ -237,6 +249,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               />
             </section>
           )}
+
+          {/* Collection projects list every site they shipped */}
+          <SiteWall slug={project.slug} isRtl={isRtl} />
         </div>
       </article>
 

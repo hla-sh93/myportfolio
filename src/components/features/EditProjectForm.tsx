@@ -29,6 +29,7 @@ const projectSchema = z.object({
   coverImage: z.string().min(1, "Required"),
   client: z.string(),
   role: z.string(),
+  liveUrl: z.string(),
   tools: z.string(),
   year: z.string(),
   featured: z.boolean(),
@@ -72,6 +73,7 @@ export function EditProjectForm({
       coverImage: "",
       client: "",
       role: "",
+      liveUrl: "",
       tools: "",
       year: "",
       featured: false,
@@ -166,6 +168,16 @@ export function EditProjectForm({
           <div>
             <label className={labelCls}>Tools (comma separated)</label>
             <input className="panel-field" placeholder="Figma, Photoshop" {...register("tools")} />
+          </div>
+          <div>
+            <label className={labelCls}>Live URL</label>
+            <input
+              type="url"
+              dir="ltr"
+              className="panel-field"
+              placeholder="https://example.com (optional)"
+              {...register("liveUrl")}
+            />
           </div>
         </div>
 

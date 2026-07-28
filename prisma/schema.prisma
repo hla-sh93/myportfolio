@@ -35,6 +35,8 @@ model Project {
   role        String?
   tools       String[]
   year        Int?
+  /// Public address of the delivered site, when there is one to visit.
+  liveUrl     String?
   likeCount   Int       @default(0)
   featured    Boolean   @default(false)
   published   Boolean   @default(false)
