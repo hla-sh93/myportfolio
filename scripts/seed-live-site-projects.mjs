@@ -23,11 +23,11 @@ const DEFS = [
     titleEn: "Maritime Flag Administrations",
     titleAr: "بوابات الإدارات البحرية",
     descEn:
-      "Ten maritime authorities, ten separate clients, one problem repeated: a flag state has to publish the same things — services, certification, approved organisations, document verification — and still look like itself while doing it. I designed and built each front end. Zimbabwe runs deep green and gold; Nicaragua is cream and navy. The same skeleton underneath, no two alike on the surface.",
+      "Ten maritime authorities, ten separate clients, one problem repeated: a flag state has to publish the same things — services, certification, approved organisations, document verification — and still look like itself while doing it. I designed and built each front end. Zimbabwe runs deep green and gold; Nicaragua is cream and navy. The same skeleton underneath, no two alike on the surface. All ten for clients in the UAE.",
     descAr:
-      "عشر هيئات بحرية، وعشرة عملاء منفصلين، ومسألة واحدة تتكرّر: دولة العَلَم تنشر المحتوى نفسه — الخدمات، وإصدار الشهادات، والمؤسسات المعتمدة، والتحقّق من الوثائق — وعليها أن تظلّ محتفظة بهويتها وهي تفعل ذلك. صمّمت كل واجهة وبنيتها. زيمبابوي بالأخضر الغامق والذهبي، ونيكاراغوا بالكريمي والكحلي. الهيكل واحد في العمق، ولا يتشابه اثنان في السطح.",
+      "عشر هيئات بحرية، وعشرة عملاء منفصلين، ومسألة واحدة تتكرّر: دولة العَلَم تنشر المحتوى نفسه — الخدمات، وإصدار الشهادات، والمؤسسات المعتمدة، والتحقّق من الوثائق — وعليها أن تظلّ محتفظة بهويتها وهي تفعل ذلك. صمّمت كل واجهة وبنيتها. زيمبابوي بالأخضر الغامق والذهبي، ونيكاراغوا بالكريمي والكحلي. الهيكل واحد في العمق، ولا يتشابه اثنان في السطح. العمل كلّه لعملاء في الإمارات.",
     category: "WEBSITES",
-    tags: ["Maritime", "Government", "Next.js"],
+    tags: ["Maritime", "Government", "UAE"],
     client: null, // each portal is its own client
     role: ROLE_EN,
     tools: ["Next.js", "React"],
@@ -46,7 +46,7 @@ const DEFS = [
     descAr:
       "أسِت شركة في دبي تمثّل مصنّعي أنظمة الأمن والسلامة عالية التقنية: أجهزة الكشف، والتفتيش بالأشعة، وحماية المحيط، وطبّ الإنقاذ، والاتصالات الضوئية. المهمّة كانت جعل كتالوج تقني كثيف قابلاً للقراءة أمام موظّف مشتريات ليس مهندسًا، فتتقدّم العائلات أوّلًا وتنتظر المواصفات حتى يُسأل عنها. صمّمت الواجهة وبنيتها.",
     category: "WEBSITES",
-    tags: ["Security Tech", "Corporate", "Next.js"],
+    tags: ["Security Tech", "Corporate", "UAE"],
     client: "ASSET",
     role: ROLE_EN,
     tools: ["Next.js", "React"],
@@ -61,14 +61,14 @@ const DEFS = [
     titleEn: "Rasael — Multi-Channel Messaging",
     titleAr: "رسائل — منصّة مراسلة متعدّدة القنوات",
     descEn:
-      "One inbox for WhatsApp, SMS, Telegram and email, built Arabic-first: campaigns, templates, bots and a shared inbox in a single workspace. A dark product page whose whole job is to explain a multi-channel platform without collapsing into a feature list. I designed and built the front end.",
+      "One inbox for WhatsApp, SMS, Telegram and email, built Arabic-first: campaigns, templates, bots and a shared inbox in a single workspace. A dark product page whose whole job is to explain a multi-channel platform without collapsing into a feature list. I designed and built the front end by hand — no framework, with GSAP and Lenis carrying the motion. For a client in Iraq.",
     descAr:
-      "صندوق وارد واحد لواتساب والرسائل القصيرة وتيليغرام والبريد، مبنيّ بالعربية أوّلًا: حملات وقوالب وبوتات ومحادثات مشتركة في مساحة عمل واحدة. صفحة منتج داكنة مهمّتها كلّها شرح منصّة متعدّدة القنوات دون أن تنهار إلى قائمة ميزات. صمّمت الواجهة وبنيتها.",
+      "صندوق وارد واحد لواتساب والرسائل القصيرة وتيليغرام والبريد، مبنيّ بالعربية أوّلًا: حملات وقوالب وبوتات ومحادثات مشتركة في مساحة عمل واحدة. صفحة منتج داكنة مهمّتها كلّها شرح منصّة متعدّدة القنوات دون أن تنهار إلى قائمة ميزات. صمّمت الواجهة وبنيتها يدويًا بلا إطار عمل، والحركة محمولة على GSAP وLenis. لعميل في العراق.",
     category: "WEBSITES",
-    tags: ["SaaS", "Product Site", "Arabic-first"],
+    tags: ["SaaS", "Arabic-first", "Iraq"],
     client: "Rasael",
     role: ROLE_EN,
-    tools: [],
+    tools: ["HTML", "CSS", "JavaScript", "GSAP", "Lenis"],
     year: 2026,
     liveUrl: "https://rasaelapp.com",
     featured: true,
