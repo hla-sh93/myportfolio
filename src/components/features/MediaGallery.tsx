@@ -9,19 +9,32 @@ import { Lightbox } from "./Lightbox";
 
 interface MediaGalleryProps {
   media: Media[];
+  /** Captions and alt text follow the page language, not the stored default. */
+  isRtl?: boolean;
 }
 
-export function MediaGallery({ media }: MediaGalleryProps) {
+export function MediaGallery({ media, isRtl = false }: MediaGalleryProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   if (!media || media.length === 0) return null;
+
+  /* A screenshot on its own tells a visitor almost nothing — it is a
+     rectangle of someone else's interface. The caption is what turns it
+     into evidence, so it is shown under the image and not just left in
+     the alt attribute.
+     Alt text that only counts the images ("Project — 2") is the exception:
+     it still belongs in the alt attribute, but printing it under the frame
+     would add a line of noise to every gallery. */
+  const captionOf = (m: Media) => (isRtl ? m.altAr : m.altEn) || "";
+  const counted = /[—–-]\s*(?:mockup|shot|نموذج|صورة|لقطة)?\s*\d+\s*$/i;
+  const showCaption = (caption: string) => Boolean(caption) && !counted.test(caption);
 
   // Adapt Prisma Media to Lightbox MediaItem
   const lightboxItems = media.sort((a, b) => a.order - b.order).map((m) => ({
     id: m.id,
     url: m.url,
     type: m.type as "IMAGE" | "VIDEO",
-    alt: m.altEn || "Gallery media",
+    alt: captionOf(m) || "Gallery media",
   }));
 
   // Layout algorithm: 
@@ -31,26 +44,30 @@ export function MediaGallery({ media }: MediaGalleryProps) {
   
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 items-start gap-x-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
         {media.map((item, index) => {
           const isFirstOfMany = media.length >= 3 && index === 0;
-          
+          const caption = captionOf(item);
+
           return (
-            <motion.div
+            <motion.figure
               key={item.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: index * 0.1 }}
+              className={isFirstOfMany ? "sm:col-span-2 lg:col-span-3" : undefined}
+            >
+            <div
               className={`relative overflow-hidden rounded-2xl cursor-zoom-in group ${
-                isFirstOfMany ? "sm:col-span-2 lg:col-span-3 aspect-[21/9]" : "aspect-[4/3]"
+                isFirstOfMany ? "aspect-[21/9]" : "aspect-[4/3]"
               } bg-gray-100 dark:bg-gray-800`}
               onClick={() => setLightboxIndex(index)}
             >
               {item.type === "IMAGE" ? (
                 <Image
                   src={item.url}
-                  alt={item.altEn || ""}
+                  alt={caption}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes={isFirstOfMany ? "100vw" : "(max-width: 768px) 100vw, 33vw"}
@@ -83,7 +100,14 @@ export function MediaGallery({ media }: MediaGalleryProps) {
               
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-            </motion.div>
+            </div>
+
+              {showCaption(caption) && (
+                <figcaption className="mt-3 px-1 text-sm leading-relaxed text-text-tertiary">
+                  {caption}
+                </figcaption>
+              )}
+            </motion.figure>
           );
         })}
       </div>

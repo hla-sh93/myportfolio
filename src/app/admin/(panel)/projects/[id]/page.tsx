@@ -59,6 +59,8 @@ export default async function EditProjectPage({
             titleAr: project.titleAr,
             descEn: project.descEn,
             descAr: project.descAr,
+            bodyEn: project.bodyEn ?? "",
+            bodyAr: project.bodyAr ?? "",
             category: project.category,
             tags: project.tags.join(", "),
             coverImage: project.coverImage,

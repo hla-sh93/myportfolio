@@ -3,6 +3,7 @@ import { getStoredProjects } from "@/lib/content-store";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import { ProjectsTable, type ProjectRow } from "./ProjectsTable";
+import { SyncContentButton } from "./SyncContentButton";
 
 export const metadata = { title: "Projects | Admin" };
 export const dynamic = "force-dynamic";
@@ -37,10 +38,13 @@ export default async function AdminProjectsPage() {
             {rows.filter((r) => r.featured).length} featured on the home page.
           </p>
         </div>
-        <Link href="/admin/projects/new" className="panel-btn panel-btn-primary">
-          <Plus size={16} />
-          New project
-        </Link>
+        <div className="flex flex-wrap items-center gap-3">
+          <SyncContentButton />
+          <Link href="/admin/projects/new" className="panel-btn panel-btn-primary">
+            <Plus size={16} />
+            New project
+          </Link>
+        </div>
       </header>
 
       <ProjectsTable rows={rows} />

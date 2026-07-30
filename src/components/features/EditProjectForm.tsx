@@ -24,6 +24,10 @@ const projectSchema = z.object({
   titleAr: z.string().min(1, "Required"),
   descEn: z.string().min(1, "Required"),
   descAr: z.string().min(1, "Required"),
+  // The case study under the summary. Markdown, and optional — a project can
+  // ship with a summary alone and gain its detail later.
+  bodyEn: z.string(),
+  bodyAr: z.string(),
   category: z.enum(["VIDEOS", "GRAPHIC_DESIGN", "UIUX", "WEBSITES"]),
   tags: z.string(),
   coverImage: z.string().min(1, "Required"),
@@ -68,6 +72,8 @@ export function EditProjectForm({
       titleAr: "",
       descEn: "",
       descAr: "",
+      bodyEn: "",
+      bodyAr: "",
       category: "UIUX",
       tags: "",
       coverImage: "",
@@ -132,6 +138,22 @@ export function EditProjectForm({
             <label className={labelCls}>Description (EN)</label>
             <textarea {...register("descEn")} rows={5} className={textareaCls} />
             {errors.descEn && <span className="text-xs text-red-500">{errors.descEn.message}</span>}
+          </div>
+          <div>
+            <label className={labelCls}>
+              تفاصيل العمل (AR) — Markdown
+            </label>
+            <textarea {...register("bodyAr")} dir="rtl" rows={14} className={textareaCls} />
+            <span className="mt-1 block text-xs text-[var(--panel-muted)]">
+              ‏## عنوان، و- نقطة، و**عريض**. القسم يختفي إذا تُرك فارغًا.
+            </span>
+          </div>
+          <div>
+            <label className={labelCls}>Case study (EN) — Markdown</label>
+            <textarea {...register("bodyEn")} rows={14} className={textareaCls} />
+            <span className="mt-1 block text-xs text-[var(--panel-muted)]">
+              ## heading, - bullet, **bold**. The section is hidden when empty.
+            </span>
           </div>
         </div>
 

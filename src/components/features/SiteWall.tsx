@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import collections from "@/content/collections.json";
 
 /**
@@ -33,19 +34,22 @@ export function getCollection(slug: string): Site[] | undefined {
   return Array.isArray(entry) ? entry : undefined;
 }
 
-export function SiteWall({ slug, isRtl }: { slug: string; isRtl: boolean }) {
+export async function SiteWall({ slug, isRtl }: { slug: string; isRtl: boolean }) {
   const sites = getCollection(slug);
   if (!sites?.length) return null;
+
+  // "10 موقع" is wrong Arabic — the count needs the language's own rules.
+  const t = await getTranslations("projects");
 
   return (
     <section className="mt-20">
       <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
         <h2 className="title-display font-display text-2xl md:text-3xl">
-          {isRtl ? "المواقع المنشورة" : "The delivered sites"}
+          {t("detail.wallTitle")}
           <span>.</span>
         </h2>
         <span className="text-sm font-semibold text-text-tertiary">
-          {isRtl ? `${sites.length} موقع` : `${sites.length} sites`}
+          {t("detail.wallCount", { count: sites.length })}
         </span>
       </div>
 

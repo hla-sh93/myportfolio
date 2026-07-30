@@ -202,7 +202,35 @@
       "sortAZ": "A–Z"
     },
     "prevProject": "Previous project",
-    "nextProject": "Next project"
+    "nextProject": "Next project",
+    "detail": {
+      "back": "Back to projects",
+      "visit": "Visit the site",
+      "overview": "About the project",
+      "caseStudy": "Inside the work",
+      "gallery": "A closer look",
+      "labels": {
+        "category": "Field",
+        "client": "Client",
+        "role": "My role",
+        "year": "Year",
+        "scope": "Scope",
+        "tools": "Built with",
+        "tags": "Tags"
+      },
+      "scopeSites": "{count, plural, =1 {One site shipped} other {# sites shipped}}",
+      "roles": {
+        "UI/UX Designer & Front-End Developer": "Interface design and front-end build",
+        "UI/UX Designer": "UX and interface design",
+        "Graphic Designer": "Graphic design",
+        "Motion Designer": "Motion design",
+        "Partner & Front-End Developer": "Partner and front-end developer",
+        "Media Director": "Media direction"
+      },
+      "tagNames": {},
+      "wallCount": "{count, plural, =1 {One site} other {# sites}}",
+      "wallTitle": "The delivered sites"
+    }
   },
   "blog": {
     "title": "Blog",

@@ -28,6 +28,7 @@ import {
   type StoredProject,
   type StoredStat,
 } from "@/lib/content-store";
+import { syncContentFromBundle } from "@/lib/content-sync";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
@@ -50,6 +51,20 @@ export async function signOutAction() {
   redirect("/admin/login");
 }
 
+/* ── content import ───────────────────────────────────────────────────── */
+
+/**
+ * Imports the JSON content shipped with this deployment into the database.
+ * Runs here rather than from a local script because the database is only
+ * reachable from the deployment. Upsert only — nothing is removed.
+ */
+export async function syncContentAction() {
+  await requireAdmin();
+  const report = await syncContentFromBundle();
+  revalidateAll();
+  return report;
+}
+
 /* ── projects ─────────────────────────────────────────────────────────── */
 
 export type ProjectInput = {
@@ -59,6 +74,8 @@ export type ProjectInput = {
   titleAr: string;
   descEn: string;
   descAr: string;
+  bodyEn?: string; // markdown case study, "" clears it
+  bodyAr?: string;
   category: StoredProject["category"];
   tags: string; // comma separated
   coverImage: string;
@@ -105,8 +122,10 @@ export async function saveProjectAction(input: ProjectInput) {
     titleAr: input.titleAr,
     descEn: input.descEn,
     descAr: input.descAr,
-    bodyEn: existing?.bodyEn ?? null,
-    bodyAr: existing?.bodyAr ?? null,
+    // undefined means the caller did not send the field — keep what is
+    // stored. An empty string is a deliberate clear.
+    bodyEn: input.bodyEn === undefined ? (existing?.bodyEn ?? null) : input.bodyEn.trim() || null,
+    bodyAr: input.bodyAr === undefined ? (existing?.bodyAr ?? null) : input.bodyAr.trim() || null,
     category: input.category,
     tags: splitList(input.tags),
     coverImage: input.coverImage || existing?.coverImage || "/images/placeholder.jpg",
