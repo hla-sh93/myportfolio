@@ -107,7 +107,6 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         : "",
     },
     { label: t("detail.labels.year"), value: project.year ? String(project.year) : "" },
-    { label: t("detail.labels.tools"), value: project.tools.join(isRtl ? "، " : ", ") },
   ];
 
   // Prev/next within the published set (gallery order) — never dead-end
@@ -183,12 +182,17 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         </div>
 
         <div className="container mx-auto max-w-5xl px-6 py-14 md:py-20">
-          <ProjectFacts facts={facts} />
+          <ProjectFacts
+            facts={facts}
+            toolsLabel={t("detail.labels.tools")}
+            tools={project.tools}
+          />
 
           {/* The lead: what this is, at a size that gets read. */}
           <section className="mt-14 md:mt-20">
-            <h2 className="chip-label mb-5 text-text-tertiary">
+            <h2 className="title-display mb-5 font-display text-2xl md:text-3xl">
               {t("detail.overview")}
+              <span>.</span>
             </h2>
             <p className="max-w-3xl text-lg leading-[1.95] text-text-secondary md:text-xl md:leading-[1.9]">
               {description}
@@ -197,8 +201,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
           {bodyHtml && (
             <section className="mt-14 md:mt-20">
-              <h2 className="chip-label mb-6 text-text-tertiary">
+              <h2 className="title-display mb-6 font-display text-2xl md:text-3xl">
                 {t("detail.caseStudy")}
+                <span>.</span>
               </h2>
               <div
                 className={`prose prose-lg dark:prose-invert max-w-none
@@ -219,8 +224,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           {/* Project gallery */}
           {project.media.length > 0 && (
             <section className="mt-16 md:mt-20">
-              <h2 className="chip-label mb-6 text-text-tertiary">
+              <h2 className="title-display mb-6 font-display text-2xl md:text-3xl">
                 {t("detail.gallery")}
+                <span>.</span>
               </h2>
               <MediaGallery
                 media={project.media as unknown as PrismaMedia[]}
@@ -234,9 +240,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
           {project.tags.length > 0 && (
             <section className="mt-16 border-t border-border pt-8">
-              <h2 className="chip-label mb-4 text-text-tertiary">
-                {t("detail.labels.tags")}
-              </h2>
+              <h2 className="spec-label mb-4">{t("detail.labels.tags")}</h2>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span

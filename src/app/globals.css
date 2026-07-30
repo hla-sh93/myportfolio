@@ -646,6 +646,66 @@ html {
   background: var(--accent);
 }
 
+/* Quiet field label for a spec block — the opposite job to .chip-label.
+   A chip is a tag and draws attention to itself; a label has to recede so
+   the value it names is what gets read. Using the chip for this made the
+   project facts look like a scatter of unrelated pills.
+   Latin gets the tracked small-caps treatment; Arabic gets neither, since
+   there is no uppercase and letter-spacing pulls its ligatures apart. */
+.spec-label {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  /* --text-tertiary lands near 2.6:1 on the light background; a label is
+     real text and has to clear 4.5:1. */
+  color: var(--text-secondary);
+}
+[dir="rtl"] .spec-label {
+  font-size: 0.8125rem;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+/* Tool mark: a square hairline tile holding a logo or a monogram. Colour
+   comes from the text around it, so a row of them stays monochrome instead
+   of turning into a strip of competing brand colours. */
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--text-secondary);
+  background: transparent;
+  transition:
+    color 0.3s var(--ease-expo),
+    border-color 0.3s var(--ease-expo);
+}
+.tech-badge:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.tech-badge svg {
+  width: 1.375rem;
+  height: 1.375rem;
+  fill: currentColor;
+}
+/* A monogram is Latin whatever the page language, so it cannot use
+   --font-poppins — that variable is re-routed to Tajawal under [dir="rtl"]
+   and "Ps" would come back in an Arabic face. JetBrains Mono is loaded,
+   Latin by definition, and reads as a technical mark. */
+.tech-badge span {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  direction: ltr;
+}
+
 /* Display heading with a burgundy word:
    <h2 class="title-display">… <span>accent</span></h2>
    Bold per user feedback (300 read too faint, esp. in Tajawal). */
