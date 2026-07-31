@@ -170,8 +170,8 @@
     "height": 1200
    },
    {
-    "id": "jadarat-platform-f1",
-    "url": "/images/projects/jadarat-platform/factory-website-01.webp",
+    "id": "jadarat-platform-factory-website-01-web-board-2panel",
+    "url": "/images/projects/jadarat-platform/factory-website-01-web-board-2panel.webp",
     "type": "IMAGE",
     "altEn": "Jadarat — Consulting & Training Website — mockup 1",
     "altAr": "جدارات — موقع الاستشارات والتدريب — نموذج 1",
@@ -180,8 +180,8 @@
     "height": 1792
    },
    {
-    "id": "jadarat-platform-f2",
-    "url": "/images/projects/jadarat-platform/factory-website-02.webp",
+    "id": "jadarat-platform-factory-website-02-web-duo",
+    "url": "/images/projects/jadarat-platform/factory-website-02-web-duo.webp",
     "type": "IMAGE",
     "altEn": "Jadarat — Consulting & Training Website — mockup 2",
     "altAr": "جدارات — موقع الاستشارات والتدريب — نموذج 2",
@@ -190,8 +190,8 @@
     "height": 1792
    },
    {
-    "id": "jadarat-platform-f3",
-    "url": "/images/projects/jadarat-platform/factory-website-03.webp",
+    "id": "jadarat-platform-factory-website-03-web-fullpage",
+    "url": "/images/projects/jadarat-platform/factory-website-03-web-fullpage.webp",
     "type": "IMAGE",
     "altEn": "Jadarat — Consulting & Training Website — mockup 3",
     "altAr": "جدارات — موقع الاستشارات والتدريب — نموذج 3",
@@ -200,8 +200,8 @@
     "height": 1792
    },
    {
-    "id": "jadarat-platform-f4",
-    "url": "/images/projects/jadarat-platform/factory-website-04.webp",
+    "id": "jadarat-platform-factory-website-04-web-showcase",
+    "url": "/images/projects/jadarat-platform/factory-website-04-web-showcase.webp",
     "type": "IMAGE",
     "altEn": "Jadarat — Consulting & Training Website — mockup 4",
     "altAr": "جدارات — موقع الاستشارات والتدريب — نموذج 4",
@@ -258,6 +258,56 @@
     "order": 1,
     "width": 1600,
     "height": 1195
+   },
+   {
+    "id": "solareva-brand-identity-factory-branding-ready-01",
+    "url": "/images/projects/solareva-brand-identity/factory-branding-ready-01.webp",
+    "type": "IMAGE",
+    "altEn": "SolaReva — Solar Energy Brand Identity — mockup 1",
+    "altAr": "سولاريفا — هوية شركة طاقة شمسية — نموذج 1",
+    "order": 2,
+    "width": 1448,
+    "height": 1086
+   },
+   {
+    "id": "solareva-brand-identity-factory-branding-ready-02",
+    "url": "/images/projects/solareva-brand-identity/factory-branding-ready-02.webp",
+    "type": "IMAGE",
+    "altEn": "SolaReva — Solar Energy Brand Identity — mockup 2",
+    "altAr": "سولاريفا — هوية شركة طاقة شمسية — نموذج 2",
+    "order": 3,
+    "width": 1448,
+    "height": 1086
+   },
+   {
+    "id": "solareva-brand-identity-factory-branding-ready-03",
+    "url": "/images/projects/solareva-brand-identity/factory-branding-ready-03.webp",
+    "type": "IMAGE",
+    "altEn": "SolaReva — Solar Energy Brand Identity — mockup 3",
+    "altAr": "سولاريفا — هوية شركة طاقة شمسية — نموذج 3",
+    "order": 4,
+    "width": 1448,
+    "height": 1086
+   },
+   {
+    "id": "solareva-brand-identity-factory-branding-ready-04",
+    "url": "/images/projects/solareva-brand-identity/factory-branding-ready-04.webp",
+    "type": "IMAGE",
+    "altEn": "SolaReva — Solar Energy Brand Identity — mockup 4",
+    "altAr": "سولاريفا — هوية شركة طاقة شمسية — نموذج 4",
+    "order": 5,
+    "width": 1448,
+    "height": 1086
+   },
+   {
+    "id": "solareva-brand-identity-factory-branding-ready-05",
+    "url": "/images/projects/solareva-brand-identity/factory-branding-ready-05.webp",
+    "type": "IMAGE",
+    "altEn": "SolaReva — Solar Energy Brand Identity — mockup 5",
+    "altAr": "سولاريفا — هوية شركة طاقة شمسية — نموذج 5",
+    "order": 6,
+    "width": 1448,
+    "height": 1086
    }
   ]
  },
@@ -317,8 +367,8 @@
     "height": 1200
    },
    {
-    "id": "phoenitech-website-f1",
-    "url": "/images/projects/phoenitech-website/factory-profile-01.webp",
+    "id": "phoenitech-website-factory-website-01-showcase",
+    "url": "/images/projects/phoenitech-website/factory-website-01-showcase.webp",
     "type": "IMAGE",
     "altEn": "PhoeniTech — Tech Company Website — mockup 1",
     "altAr": "فونيتيك — موقع شركة تقنية — نموذج 1",
@@ -327,8 +377,8 @@
     "height": 1792
    },
    {
-    "id": "phoenitech-website-f2",
-    "url": "/images/projects/phoenitech-website/factory-website-02.webp",
+    "id": "phoenitech-website-factory-website-01-web-board-2panel",
+    "url": "/images/projects/phoenitech-website/factory-website-01-web-board-2panel.webp",
     "type": "IMAGE",
     "altEn": "PhoeniTech — Tech Company Website — mockup 2",
     "altAr": "فونيتيك — موقع شركة تقنية — نموذج 2",
@@ -337,8 +387,8 @@
     "height": 1792
    },
    {
-    "id": "phoenitech-website-f3",
-    "url": "/images/projects/phoenitech-website/factory-website-03.webp",
+    "id": "phoenitech-website-factory-website-02-web-duo",
+    "url": "/images/projects/phoenitech-website/factory-website-02-web-duo.webp",
     "type": "IMAGE",
     "altEn": "PhoeniTech — Tech Company Website — mockup 3",
     "altAr": "فونيتيك — موقع شركة تقنية — نموذج 3",
@@ -347,8 +397,8 @@
     "height": 1792
    },
    {
-    "id": "phoenitech-website-f4",
-    "url": "/images/projects/phoenitech-website/factory-website-04.webp",
+    "id": "phoenitech-website-factory-website-03-web-fullpage",
+    "url": "/images/projects/phoenitech-website/factory-website-03-web-fullpage.webp",
     "type": "IMAGE",
     "altEn": "PhoeniTech — Tech Company Website — mockup 4",
     "altAr": "فونيتيك — موقع شركة تقنية — نموذج 4",
@@ -357,8 +407,8 @@
     "height": 1792
    },
    {
-    "id": "phoenitech-website-f5",
-    "url": "/images/projects/phoenitech-website/factory-website-05.webp",
+    "id": "phoenitech-website-factory-website-04-web-showcase",
+    "url": "/images/projects/phoenitech-website/factory-website-04-web-showcase.webp",
     "type": "IMAGE",
     "altEn": "PhoeniTech — Tech Company Website — mockup 5",
     "altAr": "فونيتيك — موقع شركة تقنية — نموذج 5",
@@ -367,8 +417,8 @@
     "height": 1792
    },
    {
-    "id": "phoenitech-website-f6",
-    "url": "/images/projects/phoenitech-website/factory-website-06.webp",
+    "id": "phoenitech-website-factory-profile-01-profile-open-grid",
+    "url": "/images/projects/phoenitech-website/factory-profile-01-profile-open-grid.webp",
     "type": "IMAGE",
     "altEn": "PhoeniTech — Tech Company Website — mockup 6",
     "altAr": "فونيتيك — موقع شركة تقنية — نموذج 6",
@@ -377,8 +427,8 @@
     "height": 1792
    },
    {
-    "id": "phoenitech-website-f7",
-    "url": "/images/projects/phoenitech-website/factory-profile-07.webp",
+    "id": "phoenitech-website-factory-profile-02-profile-cover-inner",
+    "url": "/images/projects/phoenitech-website/factory-profile-02-profile-cover-inner.webp",
     "type": "IMAGE",
     "altEn": "PhoeniTech — Tech Company Website — mockup 7",
     "altAr": "فونيتيك — موقع شركة تقنية — نموذج 7",
@@ -387,8 +437,8 @@
     "height": 1792
    },
    {
-    "id": "phoenitech-website-f8",
-    "url": "/images/projects/phoenitech-website/factory-profile-08.webp",
+    "id": "phoenitech-website-factory-profile-03-profile-stacked",
+    "url": "/images/projects/phoenitech-website/factory-profile-03-profile-stacked.webp",
     "type": "IMAGE",
     "altEn": "PhoeniTech — Tech Company Website — mockup 8",
     "altAr": "فونيتيك — موقع شركة تقنية — نموذج 8",
@@ -397,12 +447,22 @@
     "height": 1792
    },
    {
-    "id": "phoenitech-website-f9",
-    "url": "/images/projects/phoenitech-website/factory-profile-09.webp",
+    "id": "phoenitech-website-factory-profile-04-profile-two-covers",
+    "url": "/images/projects/phoenitech-website/factory-profile-04-profile-two-covers.webp",
     "type": "IMAGE",
     "altEn": "PhoeniTech — Tech Company Website — mockup 9",
     "altAr": "فونيتيك — موقع شركة تقنية — نموذج 9",
     "order": 11,
+    "width": 2400,
+    "height": 1792
+   },
+   {
+    "id": "phoenitech-website-factory-profile-05-slides-scatter",
+    "url": "/images/projects/phoenitech-website/factory-profile-05-slides-scatter.webp",
+    "type": "IMAGE",
+    "altEn": "PhoeniTech — Tech Company Website — mockup 10",
+    "altAr": "فونيتيك — موقع شركة تقنية — نموذج 10",
+    "order": 12,
     "width": 2400,
     "height": 1792
    }
@@ -464,8 +524,8 @@
     "height": 1200
    },
    {
-    "id": "crenny-app-f1",
-    "url": "/images/projects/crenny-app/factory-mobile-01.webp",
+    "id": "crenny-app-factory-mobile-01-mob-duo-circle",
+    "url": "/images/projects/crenny-app/factory-mobile-01-mob-duo-circle.webp",
     "type": "IMAGE",
     "altEn": "Crenny — Roadside Assistance App — mockup 1",
     "altAr": "كريني — تطبيق مساعدة على الطريق — نموذج 1",
@@ -474,8 +534,8 @@
     "height": 1792
    },
    {
-    "id": "crenny-app-f2",
-    "url": "/images/projects/crenny-app/factory-mobile-02.webp",
+    "id": "crenny-app-factory-mobile-02-mob-trio-flat",
+    "url": "/images/projects/crenny-app/factory-mobile-02-mob-trio-flat.webp",
     "type": "IMAGE",
     "altEn": "Crenny — Roadside Assistance App — mockup 2",
     "altAr": "كريني — تطبيق مساعدة على الطريق — نموذج 2",
@@ -484,8 +544,8 @@
     "height": 1792
    },
    {
-    "id": "crenny-app-f3",
-    "url": "/images/projects/crenny-app/factory-mobile-03.webp",
+    "id": "crenny-app-factory-mobile-03-mob-trio-drop",
+    "url": "/images/projects/crenny-app/factory-mobile-03-mob-trio-drop.webp",
     "type": "IMAGE",
     "altEn": "Crenny — Roadside Assistance App — mockup 3",
     "altAr": "كريني — تطبيق مساعدة على الطريق — نموذج 3",
@@ -494,8 +554,8 @@
     "height": 1792
    },
    {
-    "id": "crenny-app-f4",
-    "url": "/images/projects/crenny-app/factory-mobile-04.webp",
+    "id": "crenny-app-factory-mobile-04-mob-trio-arch",
+    "url": "/images/projects/crenny-app/factory-mobile-04-mob-trio-arch.webp",
     "type": "IMAGE",
     "altEn": "Crenny — Roadside Assistance App — mockup 4",
     "altAr": "كريني — تطبيق مساعدة على الطريق — نموذج 4",
@@ -559,6 +619,46 @@
     "order": 2,
     "width": 1600,
     "height": 1200
+   },
+   {
+    "id": "saab-logistics-factory-website-01-web-board-2panel",
+    "url": "/images/projects/saab-logistics/factory-website-01-web-board-2panel.webp",
+    "type": "IMAGE",
+    "altEn": "SAAB Logistics — Shipping & Freight Website — mockup 1",
+    "altAr": "SAAB Logistics — موقع الشحن والتخليص — نموذج 1",
+    "order": 3,
+    "width": 2400,
+    "height": 1792
+   },
+   {
+    "id": "saab-logistics-factory-website-02-web-duo",
+    "url": "/images/projects/saab-logistics/factory-website-02-web-duo.webp",
+    "type": "IMAGE",
+    "altEn": "SAAB Logistics — Shipping & Freight Website — mockup 2",
+    "altAr": "SAAB Logistics — موقع الشحن والتخليص — نموذج 2",
+    "order": 4,
+    "width": 2400,
+    "height": 1792
+   },
+   {
+    "id": "saab-logistics-factory-website-03-web-fullpage",
+    "url": "/images/projects/saab-logistics/factory-website-03-web-fullpage.webp",
+    "type": "IMAGE",
+    "altEn": "SAAB Logistics — Shipping & Freight Website — mockup 3",
+    "altAr": "SAAB Logistics — موقع الشحن والتخليص — نموذج 3",
+    "order": 5,
+    "width": 2400,
+    "height": 1792
+   },
+   {
+    "id": "saab-logistics-factory-website-04-web-showcase",
+    "url": "/images/projects/saab-logistics/factory-website-04-web-showcase.webp",
+    "type": "IMAGE",
+    "altEn": "SAAB Logistics — Shipping & Freight Website — mockup 4",
+    "altAr": "SAAB Logistics — موقع الشحن والتخليص — نموذج 4",
+    "order": 6,
+    "width": 2400,
+    "height": 1792
    }
   ]
  },
@@ -618,8 +718,8 @@
     "height": 1200
    },
    {
-    "id": "lamasat-website-f1",
-    "url": "/images/projects/lamasat-website/factory-website-01.webp",
+    "id": "lamasat-website-factory-website-01-web-board-2panel",
+    "url": "/images/projects/lamasat-website/factory-website-01-web-board-2panel.webp",
     "type": "IMAGE",
     "altEn": "LAMASAT — Interior Design & Furniture Website — mockup 1",
     "altAr": "لمسات — موقع تصميم داخلي وأثاث — نموذج 1",
@@ -628,12 +728,32 @@
     "height": 1792
    },
    {
-    "id": "lamasat-website-f2",
-    "url": "/images/projects/lamasat-website/factory-website-02.webp",
+    "id": "lamasat-website-factory-website-02-web-duo",
+    "url": "/images/projects/lamasat-website/factory-website-02-web-duo.webp",
     "type": "IMAGE",
     "altEn": "LAMASAT — Interior Design & Furniture Website — mockup 2",
     "altAr": "لمسات — موقع تصميم داخلي وأثاث — نموذج 2",
     "order": 4,
+    "width": 2400,
+    "height": 1792
+   },
+   {
+    "id": "lamasat-website-factory-website-03-web-fullpage",
+    "url": "/images/projects/lamasat-website/factory-website-03-web-fullpage.webp",
+    "type": "IMAGE",
+    "altEn": "LAMASAT — Interior Design & Furniture Website — mockup 3",
+    "altAr": "لمسات — موقع تصميم داخلي وأثاث — نموذج 3",
+    "order": 5,
+    "width": 2400,
+    "height": 1792
+   },
+   {
+    "id": "lamasat-website-factory-website-04-web-showcase",
+    "url": "/images/projects/lamasat-website/factory-website-04-web-showcase.webp",
+    "type": "IMAGE",
+    "altEn": "LAMASAT — Interior Design & Furniture Website — mockup 4",
+    "altAr": "لمسات — موقع تصميم داخلي وأثاث — نموذج 4",
+    "order": 6,
     "width": 2400,
     "height": 1792
    }
@@ -695,8 +815,8 @@
     "height": 1200
    },
    {
-    "id": "lamasat-furniture-app-f1",
-    "url": "/images/projects/lamasat-furniture-app/factory-mobile-01.webp",
+    "id": "lamasat-furniture-app-factory-mobile-01-mob-duo-circle",
+    "url": "/images/projects/lamasat-furniture-app/factory-mobile-01-mob-duo-circle.webp",
     "type": "IMAGE",
     "altEn": "LAMASAT — Furniture Shopping App — mockup 1",
     "altAr": "لمسات — تطبيق تسوق الأثاث — نموذج 1",
@@ -705,8 +825,8 @@
     "height": 1792
    },
    {
-    "id": "lamasat-furniture-app-f2",
-    "url": "/images/projects/lamasat-furniture-app/factory-mobile-02.webp",
+    "id": "lamasat-furniture-app-factory-mobile-02-mob-trio-flat",
+    "url": "/images/projects/lamasat-furniture-app/factory-mobile-02-mob-trio-flat.webp",
     "type": "IMAGE",
     "altEn": "LAMASAT — Furniture Shopping App — mockup 2",
     "altAr": "لمسات — تطبيق تسوق الأثاث — نموذج 2",
@@ -715,8 +835,8 @@
     "height": 1792
    },
    {
-    "id": "lamasat-furniture-app-f3",
-    "url": "/images/projects/lamasat-furniture-app/factory-mobile-03.webp",
+    "id": "lamasat-furniture-app-factory-mobile-03-mob-trio-drop",
+    "url": "/images/projects/lamasat-furniture-app/factory-mobile-03-mob-trio-drop.webp",
     "type": "IMAGE",
     "altEn": "LAMASAT — Furniture Shopping App — mockup 3",
     "altAr": "لمسات — تطبيق تسوق الأثاث — نموذج 3",
@@ -725,8 +845,8 @@
     "height": 1792
    },
    {
-    "id": "lamasat-furniture-app-f4",
-    "url": "/images/projects/lamasat-furniture-app/factory-mobile-04.webp",
+    "id": "lamasat-furniture-app-factory-mobile-04-mob-trio-arch",
+    "url": "/images/projects/lamasat-furniture-app/factory-mobile-04-mob-trio-arch.webp",
     "type": "IMAGE",
     "altEn": "LAMASAT — Furniture Shopping App — mockup 4",
     "altAr": "لمسات — تطبيق تسوق الأثاث — نموذج 4",
@@ -792,8 +912,8 @@
     "height": 1200
    },
    {
-    "id": "border-ports-app-f1",
-    "url": "/images/projects/border-ports-app/factory-mobile-01.webp",
+    "id": "border-ports-app-factory-mobile-01-mob-duo-circle",
+    "url": "/images/projects/border-ports-app/factory-mobile-01-mob-duo-circle.webp",
     "type": "IMAGE",
     "altEn": "Border Ports — Revenue Reports App — mockup 1",
     "altAr": "المنافذ الحدودية — تطبيق تقارير الإيرادات — نموذج 1",
@@ -802,8 +922,8 @@
     "height": 1792
    },
    {
-    "id": "border-ports-app-f2",
-    "url": "/images/projects/border-ports-app/factory-mobile-02.webp",
+    "id": "border-ports-app-factory-mobile-02-mob-trio-flat",
+    "url": "/images/projects/border-ports-app/factory-mobile-02-mob-trio-flat.webp",
     "type": "IMAGE",
     "altEn": "Border Ports — Revenue Reports App — mockup 2",
     "altAr": "المنافذ الحدودية — تطبيق تقارير الإيرادات — نموذج 2",
@@ -812,8 +932,8 @@
     "height": 1792
    },
    {
-    "id": "border-ports-app-f3",
-    "url": "/images/projects/border-ports-app/factory-mobile-03.webp",
+    "id": "border-ports-app-factory-mobile-03-mob-trio-drop",
+    "url": "/images/projects/border-ports-app/factory-mobile-03-mob-trio-drop.webp",
     "type": "IMAGE",
     "altEn": "Border Ports — Revenue Reports App — mockup 3",
     "altAr": "المنافذ الحدودية — تطبيق تقارير الإيرادات — نموذج 3",
@@ -822,8 +942,8 @@
     "height": 1792
    },
    {
-    "id": "border-ports-app-f4",
-    "url": "/images/projects/border-ports-app/factory-mobile-04.webp",
+    "id": "border-ports-app-factory-mobile-04-mob-trio-arch",
+    "url": "/images/projects/border-ports-app/factory-mobile-04-mob-trio-arch.webp",
     "type": "IMAGE",
     "altEn": "Border Ports — Revenue Reports App — mockup 4",
     "altAr": "المنافذ الحدودية — تطبيق تقارير الإيرادات — نموذج 4",
@@ -889,8 +1009,8 @@
     "height": 1200
    },
    {
-    "id": "akhdar-agri-app-f1",
-    "url": "/images/projects/akhdar-agri-app/factory-mobile-01.webp",
+    "id": "akhdar-agri-app-factory-mobile-01-mob-duo-circle",
+    "url": "/images/projects/akhdar-agri-app/factory-mobile-01-mob-duo-circle.webp",
     "type": "IMAGE",
     "altEn": "Akhdar — Agricultural Marketplace App — mockup 1",
     "altAr": "أخضر — تطبيق سوق زراعي — نموذج 1",
@@ -899,8 +1019,8 @@
     "height": 1792
    },
    {
-    "id": "akhdar-agri-app-f2",
-    "url": "/images/projects/akhdar-agri-app/factory-mobile-02.webp",
+    "id": "akhdar-agri-app-factory-mobile-02-mob-trio-flat",
+    "url": "/images/projects/akhdar-agri-app/factory-mobile-02-mob-trio-flat.webp",
     "type": "IMAGE",
     "altEn": "Akhdar — Agricultural Marketplace App — mockup 2",
     "altAr": "أخضر — تطبيق سوق زراعي — نموذج 2",
@@ -909,8 +1029,8 @@
     "height": 1792
    },
    {
-    "id": "akhdar-agri-app-f3",
-    "url": "/images/projects/akhdar-agri-app/factory-mobile-03.webp",
+    "id": "akhdar-agri-app-factory-mobile-03-mob-trio-drop",
+    "url": "/images/projects/akhdar-agri-app/factory-mobile-03-mob-trio-drop.webp",
     "type": "IMAGE",
     "altEn": "Akhdar — Agricultural Marketplace App — mockup 3",
     "altAr": "أخضر — تطبيق سوق زراعي — نموذج 3",
@@ -919,8 +1039,8 @@
     "height": 1792
    },
    {
-    "id": "akhdar-agri-app-f4",
-    "url": "/images/projects/akhdar-agri-app/factory-mobile-04.webp",
+    "id": "akhdar-agri-app-factory-mobile-04-mob-trio-arch",
+    "url": "/images/projects/akhdar-agri-app/factory-mobile-04-mob-trio-arch.webp",
     "type": "IMAGE",
     "altEn": "Akhdar — Agricultural Marketplace App — mockup 4",
     "altAr": "أخضر — تطبيق سوق زراعي — نموذج 4",
@@ -986,12 +1106,42 @@
     "height": 1200
    },
    {
-    "id": "turki-butchery-f1",
-    "url": "/images/projects/turki-butchery/factory-website-01.webp",
+    "id": "turki-butchery-factory-website-01-web-board-2panel",
+    "url": "/images/projects/turki-butchery/factory-website-01-web-board-2panel.webp",
     "type": "IMAGE",
     "altEn": "Turki — Fresh Meat E-Commerce — mockup 1",
     "altAr": "تركي للذبائح — متجر اللحوم الطازجة — نموذج 1",
     "order": 3,
+    "width": 2400,
+    "height": 1792
+   },
+   {
+    "id": "turki-butchery-factory-website-02-web-duo",
+    "url": "/images/projects/turki-butchery/factory-website-02-web-duo.webp",
+    "type": "IMAGE",
+    "altEn": "Turki — Fresh Meat E-Commerce — mockup 2",
+    "altAr": "تركي للذبائح — متجر اللحوم الطازجة — نموذج 2",
+    "order": 4,
+    "width": 2400,
+    "height": 1792
+   },
+   {
+    "id": "turki-butchery-factory-website-03-web-fullpage",
+    "url": "/images/projects/turki-butchery/factory-website-03-web-fullpage.webp",
+    "type": "IMAGE",
+    "altEn": "Turki — Fresh Meat E-Commerce — mockup 3",
+    "altAr": "تركي للذبائح — متجر اللحوم الطازجة — نموذج 3",
+    "order": 5,
+    "width": 2400,
+    "height": 1792
+   },
+   {
+    "id": "turki-butchery-factory-website-04-web-showcase",
+    "url": "/images/projects/turki-butchery/factory-website-04-web-showcase.webp",
+    "type": "IMAGE",
+    "altEn": "Turki — Fresh Meat E-Commerce — mockup 4",
+    "altAr": "تركي للذبائح — متجر اللحوم الطازجة — نموذج 4",
+    "order": 6,
     "width": 2400,
     "height": 1792
    }
@@ -1053,8 +1203,8 @@
     "height": 1200
    },
    {
-    "id": "emirates-sands-f1",
-    "url": "/images/projects/emirates-sands/factory-website-01.webp",
+    "id": "emirates-sands-factory-website-01-web-board-2panel",
+    "url": "/images/projects/emirates-sands/factory-website-01-web-board-2panel.webp",
     "type": "IMAGE",
     "altEn": "Emirates Sands — IT Hardware Store — mockup 1",
     "altAr": "Emirates Sands — متجر تقنية — نموذج 1",
@@ -1063,8 +1213,8 @@
     "height": 1792
    },
    {
-    "id": "emirates-sands-f2",
-    "url": "/images/projects/emirates-sands/factory-website-02.webp",
+    "id": "emirates-sands-factory-website-02-web-duo",
+    "url": "/images/projects/emirates-sands/factory-website-02-web-duo.webp",
     "type": "IMAGE",
     "altEn": "Emirates Sands — IT Hardware Store — mockup 2",
     "altAr": "Emirates Sands — متجر تقنية — نموذج 2",
@@ -1073,8 +1223,8 @@
     "height": 1792
    },
    {
-    "id": "emirates-sands-f3",
-    "url": "/images/projects/emirates-sands/factory-website-03.webp",
+    "id": "emirates-sands-factory-website-03-web-fullpage",
+    "url": "/images/projects/emirates-sands/factory-website-03-web-fullpage.webp",
     "type": "IMAGE",
     "altEn": "Emirates Sands — IT Hardware Store — mockup 3",
     "altAr": "Emirates Sands — متجر تقنية — نموذج 3",
@@ -1083,8 +1233,8 @@
     "height": 1792
    },
    {
-    "id": "emirates-sands-f4",
-    "url": "/images/projects/emirates-sands/factory-website-04.webp",
+    "id": "emirates-sands-factory-website-04-web-showcase",
+    "url": "/images/projects/emirates-sands/factory-website-04-web-showcase.webp",
     "type": "IMAGE",
     "altEn": "Emirates Sands — IT Hardware Store — mockup 4",
     "altAr": "Emirates Sands — متجر تقنية — نموذج 4",
@@ -1150,8 +1300,8 @@
     "height": 1200
    },
    {
-    "id": "fast-express-shipping-f1",
-    "url": "/images/projects/fast-express-shipping/factory-website-01.webp",
+    "id": "fast-express-shipping-factory-website-01-web-board-2panel",
+    "url": "/images/projects/fast-express-shipping/factory-website-01-web-board-2panel.webp",
     "type": "IMAGE",
     "altEn": "Fast Express Shipping — Freight Company Website — mockup 1",
     "altAr": "Fast Express — موقع شركة الشحن — نموذج 1",
@@ -1160,8 +1310,8 @@
     "height": 1792
    },
    {
-    "id": "fast-express-shipping-f2",
-    "url": "/images/projects/fast-express-shipping/factory-website-02.webp",
+    "id": "fast-express-shipping-factory-website-02-web-duo",
+    "url": "/images/projects/fast-express-shipping/factory-website-02-web-duo.webp",
     "type": "IMAGE",
     "altEn": "Fast Express Shipping — Freight Company Website — mockup 2",
     "altAr": "Fast Express — موقع شركة الشحن — نموذج 2",
@@ -1170,8 +1320,8 @@
     "height": 1792
    },
    {
-    "id": "fast-express-shipping-f3",
-    "url": "/images/projects/fast-express-shipping/factory-website-03.webp",
+    "id": "fast-express-shipping-factory-website-03-web-fullpage",
+    "url": "/images/projects/fast-express-shipping/factory-website-03-web-fullpage.webp",
     "type": "IMAGE",
     "altEn": "Fast Express Shipping — Freight Company Website — mockup 3",
     "altAr": "Fast Express — موقع شركة الشحن — نموذج 3",
@@ -1180,8 +1330,8 @@
     "height": 1792
    },
    {
-    "id": "fast-express-shipping-f4",
-    "url": "/images/projects/fast-express-shipping/factory-website-04.webp",
+    "id": "fast-express-shipping-factory-website-04-web-showcase",
+    "url": "/images/projects/fast-express-shipping/factory-website-04-web-showcase.webp",
     "type": "IMAGE",
     "altEn": "Fast Express Shipping — Freight Company Website — mockup 4",
     "altAr": "Fast Express — موقع شركة الشحن — نموذج 4",
@@ -1247,8 +1397,8 @@
     "height": 1200
    },
    {
-    "id": "kafoo-web-f1",
-    "url": "/images/projects/kafoo-web/factory-website-01.webp",
+    "id": "kafoo-web-factory-website-01-web-board-2panel",
+    "url": "/images/projects/kafoo-web/factory-website-01-web-board-2panel.webp",
     "type": "IMAGE",
     "altEn": "Kafoo — Investment Company Website — mockup 1",
     "altAr": "كفو — موقع شركة الاستثمار — نموذج 1",
@@ -1257,8 +1407,8 @@
     "height": 1792
    },
    {
-    "id": "kafoo-web-f2",
-    "url": "/images/projects/kafoo-web/factory-website-02.webp",
+    "id": "kafoo-web-factory-website-02-web-duo",
+    "url": "/images/projects/kafoo-web/factory-website-02-web-duo.webp",
     "type": "IMAGE",
     "altEn": "Kafoo — Investment Company Website — mockup 2",
     "altAr": "كفو — موقع شركة الاستثمار — نموذج 2",
@@ -1267,8 +1417,8 @@
     "height": 1792
    },
    {
-    "id": "kafoo-web-f3",
-    "url": "/images/projects/kafoo-web/factory-website-03.webp",
+    "id": "kafoo-web-factory-website-03-web-fullpage",
+    "url": "/images/projects/kafoo-web/factory-website-03-web-fullpage.webp",
     "type": "IMAGE",
     "altEn": "Kafoo — Investment Company Website — mockup 3",
     "altAr": "كفو — موقع شركة الاستثمار — نموذج 3",
@@ -1277,8 +1427,8 @@
     "height": 1792
    },
    {
-    "id": "kafoo-web-f4",
-    "url": "/images/projects/kafoo-web/factory-website-04.webp",
+    "id": "kafoo-web-factory-website-04-web-showcase",
+    "url": "/images/projects/kafoo-web/factory-website-04-web-showcase.webp",
     "type": "IMAGE",
     "altEn": "Kafoo — Investment Company Website — mockup 4",
     "altAr": "كفو — موقع شركة الاستثمار — نموذج 4",
@@ -1344,8 +1494,8 @@
     "height": 1200
    },
    {
-    "id": "tawseel-food-delivery-f1",
-    "url": "/images/projects/tawseel-food-delivery/factory-mobile-01.webp",
+    "id": "tawseel-food-delivery-factory-mobile-01-mob-duo-circle",
+    "url": "/images/projects/tawseel-food-delivery/factory-mobile-01-mob-duo-circle.webp",
     "type": "IMAGE",
     "altEn": "Tawseel — Food Delivery App — mockup 1",
     "altAr": "توصيل — تطبيق توصيل طعام — نموذج 1",
@@ -1354,8 +1504,8 @@
     "height": 1792
    },
    {
-    "id": "tawseel-food-delivery-f2",
-    "url": "/images/projects/tawseel-food-delivery/factory-mobile-02.webp",
+    "id": "tawseel-food-delivery-factory-mobile-01-trio-flat",
+    "url": "/images/projects/tawseel-food-delivery/factory-mobile-01-trio-flat.webp",
     "type": "IMAGE",
     "altEn": "Tawseel — Food Delivery App — mockup 2",
     "altAr": "توصيل — تطبيق توصيل طعام — نموذج 2",
@@ -1364,8 +1514,8 @@
     "height": 1792
    },
    {
-    "id": "tawseel-food-delivery-f3",
-    "url": "/images/projects/tawseel-food-delivery/factory-mobile-03.webp",
+    "id": "tawseel-food-delivery-factory-mobile-02-mob-trio-flat",
+    "url": "/images/projects/tawseel-food-delivery/factory-mobile-02-mob-trio-flat.webp",
     "type": "IMAGE",
     "altEn": "Tawseel — Food Delivery App — mockup 3",
     "altAr": "توصيل — تطبيق توصيل طعام — نموذج 3",
@@ -1374,8 +1524,8 @@
     "height": 1792
    },
    {
-    "id": "tawseel-food-delivery-f4",
-    "url": "/images/projects/tawseel-food-delivery/factory-mobile-04.webp",
+    "id": "tawseel-food-delivery-factory-mobile-03-mob-trio-drop",
+    "url": "/images/projects/tawseel-food-delivery/factory-mobile-03-mob-trio-drop.webp",
     "type": "IMAGE",
     "altEn": "Tawseel — Food Delivery App — mockup 4",
     "altAr": "توصيل — تطبيق توصيل طعام — نموذج 4",
@@ -1384,8 +1534,8 @@
     "height": 1792
    },
    {
-    "id": "tawseel-food-delivery-f5",
-    "url": "/images/projects/tawseel-food-delivery/factory-mobile-05.webp",
+    "id": "tawseel-food-delivery-factory-mobile-04-mob-trio-arch",
+    "url": "/images/projects/tawseel-food-delivery/factory-mobile-04-mob-trio-arch.webp",
     "type": "IMAGE",
     "altEn": "Tawseel — Food Delivery App — mockup 5",
     "altAr": "توصيل — تطبيق توصيل طعام — نموذج 5",
@@ -1434,8 +1584,8 @@
     "height": 1200
    },
    {
-    "id": "cadeau-boutique-brand-f1",
-    "url": "/images/projects/cadeau-boutique-brand/factory-branding-01.webp",
+    "id": "cadeau-boutique-brand-factory-branding-01-brand-cards",
+    "url": "/images/projects/cadeau-boutique-brand/factory-branding-01-brand-cards.webp",
     "type": "IMAGE",
     "altEn": "Cadeau Boutique — Gift Brand Identity — mockup 1",
     "altAr": "كادو بوتيك — هوية متجر هدايا — نموذج 1",
@@ -1444,8 +1594,8 @@
     "height": 1792
    },
    {
-    "id": "cadeau-boutique-brand-f2",
-    "url": "/images/projects/cadeau-boutique-brand/factory-branding-02.webp",
+    "id": "cadeau-boutique-brand-factory-branding-01-cards-closeup",
+    "url": "/images/projects/cadeau-boutique-brand/factory-branding-01-cards-closeup.webp",
     "type": "IMAGE",
     "altEn": "Cadeau Boutique — Gift Brand Identity — mockup 2",
     "altAr": "كادو بوتيك — هوية متجر هدايا — نموذج 2",
@@ -1454,8 +1604,8 @@
     "height": 1792
    },
    {
-    "id": "cadeau-boutique-brand-f3",
-    "url": "/images/projects/cadeau-boutique-brand/factory-branding-03.webp",
+    "id": "cadeau-boutique-brand-factory-branding-02-brand-bento-purple",
+    "url": "/images/projects/cadeau-boutique-brand/factory-branding-02-brand-bento-purple.webp",
     "type": "IMAGE",
     "altEn": "Cadeau Boutique — Gift Brand Identity — mockup 3",
     "altAr": "كادو بوتيك — هوية متجر هدايا — نموذج 3",
@@ -1464,8 +1614,8 @@
     "height": 1792
    },
    {
-    "id": "cadeau-boutique-brand-f4",
-    "url": "/images/projects/cadeau-boutique-brand/factory-branding-04.webp",
+    "id": "cadeau-boutique-brand-factory-branding-03-brand-bento-orange",
+    "url": "/images/projects/cadeau-boutique-brand/factory-branding-03-brand-bento-orange.webp",
     "type": "IMAGE",
     "altEn": "Cadeau Boutique — Gift Brand Identity — mockup 4",
     "altAr": "كادو بوتيك — هوية متجر هدايا — نموذج 4",
@@ -1474,14 +1624,54 @@
     "height": 1792
    },
    {
-    "id": "cadeau-boutique-brand-f5",
-    "url": "/images/projects/cadeau-boutique-brand/factory-branding-05.webp",
+    "id": "cadeau-boutique-brand-factory-branding-04-brand-bento-blue",
+    "url": "/images/projects/cadeau-boutique-brand/factory-branding-04-brand-bento-blue.webp",
     "type": "IMAGE",
     "altEn": "Cadeau Boutique — Gift Brand Identity — mockup 5",
     "altAr": "كادو بوتيك — هوية متجر هدايا — نموذج 5",
     "order": 5,
     "width": 2400,
     "height": 1792
+   },
+   {
+    "id": "cadeau-boutique-brand-factory-branding-hang-tags-1",
+    "url": "/images/projects/cadeau-boutique-brand/factory-branding-hang-tags-1.webp",
+    "type": "IMAGE",
+    "altEn": "Cadeau Boutique — Gift Brand Identity — mockup 6",
+    "altAr": "كادو بوتيك — هوية متجر هدايا — نموذج 6",
+    "order": 6,
+    "width": 1080,
+    "height": 719
+   },
+   {
+    "id": "cadeau-boutique-brand-factory-branding-hang-tags-2",
+    "url": "/images/projects/cadeau-boutique-brand/factory-branding-hang-tags-2.webp",
+    "type": "IMAGE",
+    "altEn": "Cadeau Boutique — Gift Brand Identity — mockup 7",
+    "altAr": "كادو بوتيك — هوية متجر هدايا — نموذج 7",
+    "order": 7,
+    "width": 875,
+    "height": 625
+   },
+   {
+    "id": "cadeau-boutique-brand-factory-branding-hang-tags-3",
+    "url": "/images/projects/cadeau-boutique-brand/factory-branding-hang-tags-3.webp",
+    "type": "IMAGE",
+    "altEn": "Cadeau Boutique — Gift Brand Identity — mockup 8",
+    "altAr": "كادو بوتيك — هوية متجر هدايا — نموذج 8",
+    "order": 8,
+    "width": 1280,
+    "height": 914
+   },
+   {
+    "id": "cadeau-boutique-brand-factory-branding-letterhead",
+    "url": "/images/projects/cadeau-boutique-brand/factory-branding-letterhead.webp",
+    "type": "IMAGE",
+    "altEn": "Cadeau Boutique — Gift Brand Identity — mockup 9",
+    "altAr": "كادو بوتيك — هوية متجر هدايا — نموذج 9",
+    "order": 9,
+    "width": 2400,
+    "height": 1600
    }
   ]
  },
@@ -1541,12 +1731,42 @@
     "height": 1200
    },
    {
-    "id": "menu-web-f1",
-    "url": "/images/projects/menu-web/factory-website-01.webp",
+    "id": "menu-web-factory-website-01-web-board-2panel",
+    "url": "/images/projects/menu-web/factory-website-01-web-board-2panel.webp",
     "type": "IMAGE",
     "altEn": "Digital Restaurant Menu — White-Label Product — mockup 1",
     "altAr": "منيو رقمي للمطاعم — منتج White-Label — نموذج 1",
     "order": 3,
+    "width": 2400,
+    "height": 1792
+   },
+   {
+    "id": "menu-web-factory-website-02-web-duo",
+    "url": "/images/projects/menu-web/factory-website-02-web-duo.webp",
+    "type": "IMAGE",
+    "altEn": "Digital Restaurant Menu — White-Label Product — mockup 2",
+    "altAr": "منيو رقمي للمطاعم — منتج White-Label — نموذج 2",
+    "order": 4,
+    "width": 2400,
+    "height": 1792
+   },
+   {
+    "id": "menu-web-factory-website-03-web-fullpage",
+    "url": "/images/projects/menu-web/factory-website-03-web-fullpage.webp",
+    "type": "IMAGE",
+    "altEn": "Digital Restaurant Menu — White-Label Product — mockup 3",
+    "altAr": "منيو رقمي للمطاعم — منتج White-Label — نموذج 3",
+    "order": 5,
+    "width": 2400,
+    "height": 1792
+   },
+   {
+    "id": "menu-web-factory-website-04-web-showcase",
+    "url": "/images/projects/menu-web/factory-website-04-web-showcase.webp",
+    "type": "IMAGE",
+    "altEn": "Digital Restaurant Menu — White-Label Product — mockup 4",
+    "altAr": "منيو رقمي للمطاعم — منتج White-Label — نموذج 4",
+    "order": 6,
     "width": 2400,
     "height": 1792
    }
@@ -1601,8 +1821,8 @@
     "height": 1200
    },
    {
-    "id": "bw-company-profile-f1",
-    "url": "/images/projects/bw-company-profile/factory-profile-01.webp",
+    "id": "bw-company-profile-factory-profile-01-profile-open-grid",
+    "url": "/images/projects/bw-company-profile/factory-profile-01-profile-open-grid.webp",
     "type": "IMAGE",
     "altEn": "BW Holding — Company Profile — mockup 1",
     "altAr": "BW القابضة — بروفايل شركة — نموذج 1",
@@ -1611,8 +1831,8 @@
     "height": 1792
    },
    {
-    "id": "bw-company-profile-f2",
-    "url": "/images/projects/bw-company-profile/factory-profile-02.webp",
+    "id": "bw-company-profile-factory-profile-02-profile-cover-inner",
+    "url": "/images/projects/bw-company-profile/factory-profile-02-profile-cover-inner.webp",
     "type": "IMAGE",
     "altEn": "BW Holding — Company Profile — mockup 2",
     "altAr": "BW القابضة — بروفايل شركة — نموذج 2",
@@ -1621,8 +1841,8 @@
     "height": 1792
    },
    {
-    "id": "bw-company-profile-f3",
-    "url": "/images/projects/bw-company-profile/factory-profile-03.webp",
+    "id": "bw-company-profile-factory-profile-03-profile-stacked",
+    "url": "/images/projects/bw-company-profile/factory-profile-03-profile-stacked.webp",
     "type": "IMAGE",
     "altEn": "BW Holding — Company Profile — mockup 3",
     "altAr": "BW القابضة — بروفايل شركة — نموذج 3",
@@ -1631,8 +1851,8 @@
     "height": 1792
    },
    {
-    "id": "bw-company-profile-f4",
-    "url": "/images/projects/bw-company-profile/factory-profile-04.webp",
+    "id": "bw-company-profile-factory-profile-04-profile-two-covers",
+    "url": "/images/projects/bw-company-profile/factory-profile-04-profile-two-covers.webp",
     "type": "IMAGE",
     "altEn": "BW Holding — Company Profile — mockup 4",
     "altAr": "BW القابضة — بروفايل شركة — نموذج 4",
@@ -1698,8 +1918,8 @@
     "height": 1200
    },
    {
-    "id": "bigboss-web-f1",
-    "url": "/images/projects/bigboss-web/factory-website-01.webp",
+    "id": "bigboss-web-factory-website-01-web-board-2panel",
+    "url": "/images/projects/bigboss-web/factory-website-01-web-board-2panel.webp",
     "type": "IMAGE",
     "altEn": "BigBoss — Multi-Category Marketplace — mockup 1",
     "altAr": "BigBoss — متجر متعدد الفئات — نموذج 1",
@@ -1708,8 +1928,8 @@
     "height": 1792
    },
    {
-    "id": "bigboss-web-f2",
-    "url": "/images/projects/bigboss-web/factory-website-02.webp",
+    "id": "bigboss-web-factory-website-02-web-duo",
+    "url": "/images/projects/bigboss-web/factory-website-02-web-duo.webp",
     "type": "IMAGE",
     "altEn": "BigBoss — Multi-Category Marketplace — mockup 2",
     "altAr": "BigBoss — متجر متعدد الفئات — نموذج 2",
@@ -1718,8 +1938,8 @@
     "height": 1792
    },
    {
-    "id": "bigboss-web-f3",
-    "url": "/images/projects/bigboss-web/factory-website-03.webp",
+    "id": "bigboss-web-factory-website-03-web-fullpage",
+    "url": "/images/projects/bigboss-web/factory-website-03-web-fullpage.webp",
     "type": "IMAGE",
     "altEn": "BigBoss — Multi-Category Marketplace — mockup 3",
     "altAr": "BigBoss — متجر متعدد الفئات — نموذج 3",
@@ -1728,8 +1948,8 @@
     "height": 1792
    },
    {
-    "id": "bigboss-web-f4",
-    "url": "/images/projects/bigboss-web/factory-website-04.webp",
+    "id": "bigboss-web-factory-website-04-web-showcase",
+    "url": "/images/projects/bigboss-web/factory-website-04-web-showcase.webp",
     "type": "IMAGE",
     "altEn": "BigBoss — Multi-Category Marketplace — mockup 4",
     "altAr": "BigBoss — متجر متعدد الفئات — نموذج 4",
@@ -1783,6 +2003,16 @@
     "order": 1,
     "width": 1600,
     "height": 1067
+   },
+   {
+    "id": "codxeon-website-factory-website-ready-01",
+    "url": "/images/projects/codxeon-website/factory-website-ready-01.webp",
+    "type": "IMAGE",
+    "altEn": "Codxeon — Digital Agency Website — mockup 1",
+    "altAr": "Codxeon — موقع وكالة رقمية — نموذج 1",
+    "order": 2,
+    "width": 2400,
+    "height": 1600
    }
   ]
  },
@@ -1880,6 +2110,36 @@
     "order": 2,
     "width": 1600,
     "height": 1179
+   },
+   {
+    "id": "krsy-web-factory-website-ready-01",
+    "url": "/images/projects/krsy-web/factory-website-ready-01.webp",
+    "type": "IMAGE",
+    "altEn": "KRSY — Social Media Services Website — mockup 1",
+    "altAr": "KRSY — موقع خدمات السوشال ميديا — نموذج 1",
+    "order": 3,
+    "width": 2400,
+    "height": 1867
+   },
+   {
+    "id": "krsy-web-factory-website-ready-02",
+    "url": "/images/projects/krsy-web/factory-website-ready-02.webp",
+    "type": "IMAGE",
+    "altEn": "KRSY — Social Media Services Website — mockup 2",
+    "altAr": "KRSY — موقع خدمات السوشال ميديا — نموذج 2",
+    "order": 4,
+    "width": 2400,
+    "height": 1500
+   },
+   {
+    "id": "krsy-web-factory-website-ready-03",
+    "url": "/images/projects/krsy-web/factory-website-ready-03.webp",
+    "type": "IMAGE",
+    "altEn": "KRSY — Social Media Services Website — mockup 3",
+    "altAr": "KRSY — موقع خدمات السوشال ميديا — نموذج 3",
+    "order": 5,
+    "width": 2400,
+    "height": 1768
    }
   ]
  },
@@ -1969,6 +2229,66 @@
     "order": 5,
     "width": 1600,
     "height": 1040
+   },
+   {
+    "id": "living-app-ui-factory-mobile-ready-01",
+    "url": "/images/projects/living-app-ui/factory-mobile-ready-01.webp",
+    "type": "IMAGE",
+    "altEn": "Living — Housing Management App — mockup 1",
+    "altAr": "Living — تطبيق إدارة سكنية — نموذج 1",
+    "order": 6,
+    "width": 2400,
+    "height": 2400
+   },
+   {
+    "id": "living-app-ui-factory-mobile-ready-02",
+    "url": "/images/projects/living-app-ui/factory-mobile-ready-02.webp",
+    "type": "IMAGE",
+    "altEn": "Living — Housing Management App — mockup 2",
+    "altAr": "Living — تطبيق إدارة سكنية — نموذج 2",
+    "order": 7,
+    "width": 2400,
+    "height": 1500
+   },
+   {
+    "id": "living-app-ui-factory-mobile-ready-03",
+    "url": "/images/projects/living-app-ui/factory-mobile-ready-03.webp",
+    "type": "IMAGE",
+    "altEn": "Living — Housing Management App — mockup 3",
+    "altAr": "Living — تطبيق إدارة سكنية — نموذج 3",
+    "order": 8,
+    "width": 2400,
+    "height": 1600
+   },
+   {
+    "id": "living-app-ui-factory-mobile-ready-04",
+    "url": "/images/projects/living-app-ui/factory-mobile-ready-04.webp",
+    "type": "IMAGE",
+    "altEn": "Living — Housing Management App — mockup 4",
+    "altAr": "Living — تطبيق إدارة سكنية — نموذج 4",
+    "order": 9,
+    "width": 2000,
+    "height": 1300
+   },
+   {
+    "id": "living-app-ui-factory-mobile-ready-05",
+    "url": "/images/projects/living-app-ui/factory-mobile-ready-05.webp",
+    "type": "IMAGE",
+    "altEn": "Living — Housing Management App — mockup 5",
+    "altAr": "Living — تطبيق إدارة سكنية — نموذج 5",
+    "order": 10,
+    "width": 2400,
+    "height": 1824
+   },
+   {
+    "id": "living-app-ui-factory-mobile-ready-06",
+    "url": "/images/projects/living-app-ui/factory-mobile-ready-06.webp",
+    "type": "IMAGE",
+    "altEn": "Living — Housing Management App — mockup 6",
+    "altAr": "Living — تطبيق إدارة سكنية — نموذج 6",
+    "order": 11,
+    "width": 2400,
+    "height": 1564
    }
   ]
  },
@@ -2460,6 +2780,126 @@
     "order": 5,
     "width": 902,
     "height": 846
+   },
+   {
+    "id": "travel-agency-branding-factory-branding-ready-01",
+    "url": "/images/projects/travel-agency-branding/factory-branding-ready-01.webp",
+    "type": "IMAGE",
+    "altEn": "Travel Agency — Brand & Collateral — mockup 1",
+    "altAr": "وكالة سفر — هوية ومطبوعات — نموذج 1",
+    "order": 6,
+    "width": 902,
+    "height": 846
+   },
+   {
+    "id": "travel-agency-branding-factory-branding-ready-02",
+    "url": "/images/projects/travel-agency-branding/factory-branding-ready-02.webp",
+    "type": "IMAGE",
+    "altEn": "Travel Agency — Brand & Collateral — mockup 2",
+    "altAr": "وكالة سفر — هوية ومطبوعات — نموذج 2",
+    "order": 7,
+    "width": 1125,
+    "height": 675
+   },
+   {
+    "id": "travel-agency-branding-factory-branding-ready-03",
+    "url": "/images/projects/travel-agency-branding/factory-branding-ready-03.webp",
+    "type": "IMAGE",
+    "altEn": "Travel Agency — Brand & Collateral — mockup 3",
+    "altAr": "وكالة سفر — هوية ومطبوعات — نموذج 3",
+    "order": 8,
+    "width": 1125,
+    "height": 675
+   },
+   {
+    "id": "travel-agency-branding-factory-branding-ready-04",
+    "url": "/images/projects/travel-agency-branding/factory-branding-ready-04.webp",
+    "type": "IMAGE",
+    "altEn": "Travel Agency — Brand & Collateral — mockup 4",
+    "altAr": "وكالة سفر — هوية ومطبوعات — نموذج 4",
+    "order": 9,
+    "width": 2400,
+    "height": 1530
+   },
+   {
+    "id": "travel-agency-branding-factory-branding-ready-05",
+    "url": "/images/projects/travel-agency-branding/factory-branding-ready-05.webp",
+    "type": "IMAGE",
+    "altEn": "Travel Agency — Brand & Collateral — mockup 5",
+    "altAr": "وكالة سفر — هوية ومطبوعات — نموذج 5",
+    "order": 10,
+    "width": 2400,
+    "height": 1800
+   },
+   {
+    "id": "travel-agency-branding-factory-branding-ready-06",
+    "url": "/images/projects/travel-agency-branding/factory-branding-ready-06.webp",
+    "type": "IMAGE",
+    "altEn": "Travel Agency — Brand & Collateral — mockup 6",
+    "altAr": "وكالة سفر — هوية ومطبوعات — نموذج 6",
+    "order": 11,
+    "width": 1080,
+    "height": 2400
+   },
+   {
+    "id": "travel-agency-branding-factory-profile-gen-01-open-grid",
+    "url": "/images/projects/travel-agency-branding/factory-profile-gen-01-open-grid.webp",
+    "type": "IMAGE",
+    "altEn": "Travel Agency — Brand & Collateral — mockup 7",
+    "altAr": "وكالة سفر — هوية ومطبوعات — نموذج 7",
+    "order": 12,
+    "width": 2400,
+    "height": 1792
+   },
+   {
+    "id": "travel-agency-branding-factory-profile-gen-02-cover-inner",
+    "url": "/images/projects/travel-agency-branding/factory-profile-gen-02-cover-inner.webp",
+    "type": "IMAGE",
+    "altEn": "Travel Agency — Brand & Collateral — mockup 8",
+    "altAr": "وكالة سفر — هوية ومطبوعات — نموذج 8",
+    "order": 13,
+    "width": 2400,
+    "height": 1792
+   },
+   {
+    "id": "travel-agency-branding-factory-profile-gen-03-stacked",
+    "url": "/images/projects/travel-agency-branding/factory-profile-gen-03-stacked.webp",
+    "type": "IMAGE",
+    "altEn": "Travel Agency — Brand & Collateral — mockup 9",
+    "altAr": "وكالة سفر — هوية ومطبوعات — نموذج 9",
+    "order": 14,
+    "width": 2400,
+    "height": 1792
+   },
+   {
+    "id": "travel-agency-branding-factory-profile-gen-04-two-covers",
+    "url": "/images/projects/travel-agency-branding/factory-profile-gen-04-two-covers.webp",
+    "type": "IMAGE",
+    "altEn": "Travel Agency — Brand & Collateral — mockup 10",
+    "altAr": "وكالة سفر — هوية ومطبوعات — نموذج 10",
+    "order": 15,
+    "width": 2400,
+    "height": 1792
+   },
+   {
+    "id": "travel-agency-branding-factory-profile-ready-01",
+    "url": "/images/projects/travel-agency-branding/factory-profile-ready-01.webp",
+    "type": "IMAGE",
+    "altEn": "Travel Agency — Brand & Collateral — mockup 11",
+    "altAr": "وكالة سفر — هوية ومطبوعات — نموذج 11",
+    "order": 16,
+    "width": 2400,
+    "height": 1800
+   },
+   {
+    "id": "travel-agency-branding-factory-profile-ready-02",
+    "url": "/images/projects/travel-agency-branding/factory-profile-ready-02.webp",
+    "type": "IMAGE",
+    "altEn": "Travel Agency — Brand & Collateral — mockup 12",
+    "altAr": "وكالة سفر — هوية ومطبوعات — نموذج 12",
+    "order": 17,
+    "width": 2400,
+    "height": 1714
    }
   ]
  },
@@ -2498,6 +2938,66 @@
     "order": 0,
     "width": 1920,
     "height": 1080
+   },
+   {
+    "id": "albroker-promo-factory-mobile-ready-01",
+    "url": "/images/projects/albroker-promo/factory-mobile-ready-01.webp",
+    "type": "IMAGE",
+    "altEn": "Albroker — App Promo Animation — mockup 1",
+    "altAr": "البروكر — إعلان متحرك للتطبيق — نموذج 1",
+    "order": 1,
+    "width": 2400,
+    "height": 1600
+   },
+   {
+    "id": "albroker-promo-factory-mobile-ready-02",
+    "url": "/images/projects/albroker-promo/factory-mobile-ready-02.webp",
+    "type": "IMAGE",
+    "altEn": "Albroker — App Promo Animation — mockup 2",
+    "altAr": "البروكر — إعلان متحرك للتطبيق — نموذج 2",
+    "order": 2,
+    "width": 996,
+    "height": 664
+   },
+   {
+    "id": "albroker-promo-factory-mobile-ready-03",
+    "url": "/images/projects/albroker-promo/factory-mobile-ready-03.webp",
+    "type": "IMAGE",
+    "altEn": "Albroker — App Promo Animation — mockup 3",
+    "altAr": "البروكر — إعلان متحرك للتطبيق — نموذج 3",
+    "order": 3,
+    "width": 996,
+    "height": 664
+   },
+   {
+    "id": "albroker-promo-factory-mobile-ready-04",
+    "url": "/images/projects/albroker-promo/factory-mobile-ready-04.webp",
+    "type": "IMAGE",
+    "altEn": "Albroker — App Promo Animation — mockup 4",
+    "altAr": "البروكر — إعلان متحرك للتطبيق — نموذج 4",
+    "order": 4,
+    "width": 2400,
+    "height": 1600
+   },
+   {
+    "id": "albroker-promo-factory-mobile-ready-05",
+    "url": "/images/projects/albroker-promo/factory-mobile-ready-05.webp",
+    "type": "IMAGE",
+    "altEn": "Albroker — App Promo Animation — mockup 5",
+    "altAr": "البروكر — إعلان متحرك للتطبيق — نموذج 5",
+    "order": 5,
+    "width": 996,
+    "height": 664
+   },
+   {
+    "id": "albroker-promo-factory-mobile-ready-06",
+    "url": "/images/projects/albroker-promo/factory-mobile-ready-06.webp",
+    "type": "IMAGE",
+    "altEn": "Albroker — App Promo Animation — mockup 6",
+    "altAr": "البروكر — إعلان متحرك للتطبيق — نموذج 6",
+    "order": 6,
+    "width": 1600,
+    "height": 1067
    }
   ]
  },
@@ -2598,6 +3098,56 @@
     "order": 6,
     "width": 1600,
     "height": 1067
+   },
+   {
+    "id": "believe-in-syria-campaign-factory-branding-ready-01",
+    "url": "/images/projects/believe-in-syria-campaign/factory-branding-ready-01.webp",
+    "type": "IMAGE",
+    "altEn": "Believe in Syria — Campaign Identity — mockup 1",
+    "altAr": "Believe in Syria — هوية الحملة — نموذج 1",
+    "order": 7,
+    "width": 2400,
+    "height": 1669
+   },
+   {
+    "id": "believe-in-syria-campaign-factory-branding-ready-02",
+    "url": "/images/projects/believe-in-syria-campaign/factory-branding-ready-02.webp",
+    "type": "IMAGE",
+    "altEn": "Believe in Syria — Campaign Identity — mockup 2",
+    "altAr": "Believe in Syria — هوية الحملة — نموذج 2",
+    "order": 8,
+    "width": 2400,
+    "height": 1371
+   },
+   {
+    "id": "believe-in-syria-campaign-factory-branding-ready-03",
+    "url": "/images/projects/believe-in-syria-campaign/factory-branding-ready-03.webp",
+    "type": "IMAGE",
+    "altEn": "Believe in Syria — Campaign Identity — mockup 3",
+    "altAr": "Believe in Syria — هوية الحملة — نموذج 3",
+    "order": 9,
+    "width": 2400,
+    "height": 1800
+   },
+   {
+    "id": "believe-in-syria-campaign-factory-branding-ready-04",
+    "url": "/images/projects/believe-in-syria-campaign/factory-branding-ready-04.webp",
+    "type": "IMAGE",
+    "altEn": "Believe in Syria — Campaign Identity — mockup 4",
+    "altAr": "Believe in Syria — هوية الحملة — نموذج 4",
+    "order": 10,
+    "width": 2400,
+    "height": 2400
+   },
+   {
+    "id": "believe-in-syria-campaign-factory-branding-ready-05",
+    "url": "/images/projects/believe-in-syria-campaign/factory-branding-ready-05.webp",
+    "type": "IMAGE",
+    "altEn": "Believe in Syria — Campaign Identity — mockup 5",
+    "altAr": "Believe in Syria — هوية الحملة — نموذج 5",
+    "order": 11,
+    "width": 1192,
+    "height": 532
    }
   ]
  }

@@ -2,7 +2,11 @@
  * One-way import of the file store into Postgres.
  *
  * Idempotent: every row is upserted by its stable id, so running it twice
- * changes nothing. Never deletes — rows added in the admin panel survive.
+ * changes nothing. Nothing is deleted — rows added in the admin panel
+ * survive — with one exception: a project's media is reconciled against the
+ * file, because a media row belongs to a project and the file holds that
+ * project's gallery in full. See the prune below for what went wrong without
+ * it.
  *
  * Usage: node scripts/migrate-to-db.mjs
  */
@@ -29,6 +33,7 @@ const date = (v) => (v ? new Date(v) : null);
 
 async function main() {
   const summary = {};
+  let pruned = 0;
 
   /* ── projects + media ── */
   const projects = readJson("data/projects.json", []);
@@ -104,9 +109,24 @@ async function main() {
         },
       });
     }
+
+    /* Media is the one collection this script prunes.
+       Everything else is upsert-only so rows created in the admin panel
+       survive an import. A media row cannot exist on its own, though — it
+       belongs to a project, and the JSON is that project's gallery in full.
+       Leaving stale rows behind meant a gallery kept showing images that had
+       been removed or renamed: an import that wrote its files under different
+       names left both sets in the database, and phoenitech-website rendered
+       nineteen mockups where the file listed ten. */
+    const keep = (p.media ?? []).map((m) => m.id);
+    const orphaned = await db.media.deleteMany({
+      where: { projectId: p.id, id: { notIn: keep.length ? keep : ["-"] } },
+    });
+    pruned += orphaned.count;
   }
   summary.projects = projects.length;
   summary.media = projects.reduce((n, p) => n + (p.media?.length ?? 0), 0);
+  if (pruned) summary["media pruned"] = pruned;
 
   /* ── articles ── */
   const articles = readJson("data/articles.json", []);

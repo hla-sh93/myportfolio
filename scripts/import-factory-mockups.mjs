@@ -32,36 +32,60 @@ const MAP = {
   Kafoo: "kafoo-web",
   Menu: "menu-web",
   BigBoss: "bigboss-web",
+  KRSY: "krsy-web",
+  Codxeon: "codxeon-website",
   "Emirates Sands": "emirates-sands",
   "Fast Express": "fast-express-shipping",
+  "SAAB Logistics": "saab-logistics",
   Crenny: "crenny-app",
   "Border ports": "border-ports-app",
   "Food Delivery": "tawseel-food-delivery",
+  "Living App": "living-app-ui",
   "Cadeau Boutique": "cadeau-boutique-brand",
+  Solareva: "solareva-brand-identity",
+  "Believe in Syria": "believe-in-syria-campaign",
   BW: "bw-company-profile",
   // أخضر — the agricultural marketplace
   Green: "akhdar-agri-app",
+  // the app screens the Albroker promo animates
+  "Albroker/mobile": "albroker-promo",
   // one folder, two products: the app and the website
   "LAMASAT/mobile": "lamasat-furniture-app",
   "LAMASAT/website": "lamasat-website",
-  // three Phoenitech folders, one existing project
+  // the travel agency, boarded twice — branding set and company profile
+  "Travel Tent Branding": "travel-agency-branding",
+  "Travel Tent": "travel-agency-branding",
+  // site and profile for the same client, one project
   "Phoenitech Website": "phoenitech-website",
   Phoenitech: "phoenitech-website",
   "Phoenitech Profile": "phoenitech-website",
 };
 
-/** Folders with no project to attach to — reported, not imported. */
-const UNMATCHED = [
-  "Capriani",
-  "Casa Kai",
-  "Gini - Qatar Chamber",
-  "IFAIF",
-  "Sari",
-  "SmartKids Montessori",
-  "WASL FX",
-];
+/**
+ * Folders deliberately left out, and why. Reported at the end of a run so
+ * they stay visible rather than silently dropped.
+ *
+ * AMBIGUOUS — a project exists but attaching to it would be a guess.
+ * ORPHAN — no project in the portfolio covers this work at all.
+ */
+const HELD = {
+  "Albroker Branding":
+    "ambiguous — albroker-promo is a motion project; branding boards may want their own entry",
+  "Zanqa App":
+    "ambiguous — could be zanqa-education-platform (the product) or zanqa-app-promo (the video)",
+  "JCI Gala":
+    "ambiguous — same client as believe-in-syria-campaign, but a different event",
+};
 
 const IMAGE = /\.(png|jpe?g|webp)$/i;
+
+/** "03-mob-trio-drop.png" → "03-mob-trio-drop" */
+const slugify = (fileName) =>
+  fileName
+    .replace(IMAGE, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 
 async function walk(dir) {
   const out = [];
@@ -116,8 +140,15 @@ async function main() {
 
     let index = 1;
     for (const { file, rel } of items) {
-      const type = rel.split(/[\\/]/).slice(1, 2)[0] ?? "shot";
-      const name = `factory-${type}-${String(index).padStart(2, "0")}.webp`;
+      const parts = rel.split(/[\\/]/);
+      const type = parts.slice(1, 2)[0] ?? "shot";
+      /* The destination name is derived from the source path, never from a
+         running counter. A counter looked tidier but made the import
+         non-idempotent: two folders feed some projects, so a second run
+         assigned different numbers to the same sources, wrote a second copy
+         of two files under the new names, and appended media rows whose ids
+         collided with the first run's. Same source in, same file out. */
+      const name = `factory-${type}-${slugify(parts[parts.length - 1])}.webp`;
       const dest = path.join(dir, name);
       const url = `/images/projects/${slug}/${name}`;
 
@@ -148,7 +179,8 @@ async function main() {
           existing.height = meta.height ?? existing.height;
         } else {
           project.media.push({
-            id: `${slug}-f${index}`,
+            // derived from the file name for the same reason it is
+            id: `${slug}-${name.replace(/\.webp$/, "")}`,
             url,
             type: "IMAGE",
             altEn: `${project.titleEn} — mockup ${index}`,
@@ -177,13 +209,18 @@ async function main() {
     )}%)`
   );
 
-  const unmatchedFound = [...new Set(skipped.map((s) => s.split(/[\\/]/)[0]))];
-  if (unmatchedFound.length) {
-    console.log(`\nno matching project (${unmatchedFound.length} folders):`);
-    for (const f of unmatchedFound) {
-      const n = skipped.filter((s) => s.startsWith(f)).length;
-      console.log(`  ${f} (${n} images)`);
-    }
+  const leftOver = [...new Set(skipped.map((s) => s.split(/[\\/]/)[0]))].sort();
+  const held = leftOver.filter((f) => HELD[f]);
+  const orphans = leftOver.filter((f) => !HELD[f]);
+  const count = (f) => skipped.filter((s) => s.startsWith(f)).length;
+
+  if (held.length) {
+    console.log(`\nheld back — needs a decision (${held.length}):`);
+    for (const f of held) console.log(`  ${f} (${count(f)}) — ${HELD[f]}`);
+  }
+  if (orphans.length) {
+    console.log(`\nno project covers these (${orphans.length}):`);
+    for (const f of orphans) console.log(`  ${f} (${count(f)} images)`);
   }
 }
 
