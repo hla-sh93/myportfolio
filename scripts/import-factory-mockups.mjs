@@ -55,10 +55,12 @@ const MAP = {
   // the travel agency, boarded twice — branding set and company profile
   "Travel Tent Branding": "travel-agency-branding",
   "Travel Tent": "travel-agency-branding",
-  // site and profile for the same client, one project
+  /* Same client, two deliverables, two projects. Folding the printed profile
+     into the website entry put booklet spreads in a web gallery, where they
+     read as a mistake — a profile is an editorial piece and belongs with the
+     print work. */
   "Phoenitech Website": "phoenitech-website",
-  Phoenitech: "phoenitech-website",
-  "Phoenitech Profile": "phoenitech-website",
+  Phoenitech: "phoenitech-company-profile",
 };
 
 /**

@@ -669,6 +669,58 @@ html {
   text-transform: none;
 }
 
+/* Spec grid — the project facts, divided by hairlines.
+   The first version painted the divider colour onto the grid itself and let
+   it show through a 1px gap. That draws no border on a cell that isn't
+   there: with three facts in a four-column row the empty fourth slot filled
+   with the divider colour and read as a grey block. Borders belong on the
+   cells, so an absent cell simply leaves nothing behind.
+   border-inline-start flips with the writing direction on its own. */
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.spec-grid > * {
+  border-inline-start: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+}
+.spec-grid > *:nth-child(2n + 1) {
+  border-inline-start: 0;
+}
+.spec-grid > *:nth-child(-n + 2) {
+  border-top: 0;
+}
+@media (min-width: 768px) {
+  /* Columns follow the number of facts rather than a fixed four. Most
+     projects carry two or three, and a fixed grid left a quarter of the row
+     blank — which reads as something failing to load rather than as space.
+     Written as three literal classes instead of repeat(var(--n)): the
+     variable form is valid CSS but support for a custom property as the
+     repeat count is not something to gamble a layout on. */
+  .spec-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .spec-grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .spec-grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  /* four across now, so the row-start cells are different ones */
+  .spec-grid > *:nth-child(2n + 1) {
+    border-inline-start: 1px solid var(--border);
+  }
+  .spec-grid > *:nth-child(4n + 1) {
+    border-inline-start: 0;
+  }
+  .spec-grid > *:nth-child(-n + 4) {
+    border-top: 0;
+  }
+  .spec-grid > *:nth-child(n + 5) {
+    border-top: 1px solid var(--border);
+  }
+}
+
 /* Tool mark: a square hairline tile holding a logo or a monogram. Colour
    comes from the text around it, so a row of them stays monochrome instead
    of turning into a strip of competing brand colours. */

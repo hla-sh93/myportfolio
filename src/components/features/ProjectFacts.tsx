@@ -36,16 +36,12 @@ export function ProjectFacts({
   return (
     <section className="card-line card-line-static overflow-hidden">
       {shown.length > 0 && (
-        /* Hairlines between the cells rather than around each one. The grid's
-           own background shows through a 1px gap, which beats per-cell borders:
-           it needs no nth-child arithmetic, survives any number of cells, and
-           flips with the writing direction on its own. */
-        <dl className="grid grid-cols-2 gap-px bg-border md:grid-cols-4">
+        /* .spec-grid draws the hairlines on the cells themselves — see the
+           note beside it in globals.css for why not on the grid. Columns
+           follow the fact count so the row fills, capped at four. */
+        <dl className={shown.length < 4 ? `spec-grid spec-grid-${shown.length}` : "spec-grid"}>
           {shown.map((fact) => (
-            <div
-              key={fact.label}
-              className="min-w-0 bg-bg-base px-6 py-6 md:px-7 md:py-7"
-            >
+            <div key={fact.label} className="min-w-0 px-6 py-6 md:px-7 md:py-7">
               <dt className="spec-label mb-2">{fact.label}</dt>
               <dd className="text-balance font-display text-[1.0625rem] font-bold leading-snug text-text-primary md:text-lg">
                 {fact.value}
