@@ -437,7 +437,10 @@
   "blurDataUrl": null,
   "client": "PhoeniTech",
   "role": "Graphic Designer",
-  "tools": [],
+  "tools": [
+   "Illustrator",
+   "Photoshop"
+  ],
   "year": null,
   "liveUrl": null,
   "featured": false,
@@ -1820,8 +1823,8 @@
   "client": "BW",
   "role": "Graphic Designer",
   "tools": [
-   "Photoshop",
-   "Illustrator"
+   "Illustrator",
+   "Photoshop"
   ],
   "year": null,
   "featured": false,
