@@ -14,6 +14,8 @@ import { MediaGallery } from "@/components/features/MediaGallery";
 import { ViewTracker } from "@/components/features/ViewTracker";
 import { getCounters } from "@/lib/counters";
 import { renderMarkdown } from "@/lib/markdown";
+import { shareImage } from "@/lib/share";
+import { truncate } from "@/lib/seo";
 import type { Media as PrismaMedia } from "@prisma/client";
 import {
   JsonLd,
@@ -36,12 +38,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   const title = locale === "ar" ? project.titleAr : project.titleEn;
   const desc = locale === "ar" ? project.descAr : project.descEn;
+  const description = truncate(desc, 160);
+  const url = `/${locale}/projects/detail/${slug}`;
 
   return {
     title,
-    description: desc.slice(0, 160),
+    description,
     alternates: {
-      canonical: `/${locale}/projects/detail/${slug}`,
+      canonical: url,
       languages: {
         ar: `/ar/projects/detail/${slug}`,
         en: `/en/projects/detail/${slug}`,
@@ -49,13 +53,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       },
     },
     openGraph: {
-      images: [
-        {
-          url: `/api/og?title=${encodeURIComponent(title)}&type=project`,
-          width: 1200,
-          height: 630,
-        },
-      ],
+      title,
+      description,
+      // The share preview shows the work itself, not a generated title card.
+      url,
+      type: "article",
+      locale: locale === "ar" ? "ar_SA" : "en_US",
+      images: [shareImage("project", slug, title)],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [shareImage("project", slug, title).url],
     },
   };
 }

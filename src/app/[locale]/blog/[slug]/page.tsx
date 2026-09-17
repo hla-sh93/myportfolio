@@ -10,6 +10,8 @@ import { ArrowLeft, Calendar, Clock, Eye } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { getPublicArticle, getPublicArticles } from "@/lib/content";
 import { renderMarkdown } from "@/lib/markdown";
+import { shareImage } from "@/lib/share";
+import { truncate } from "@/lib/seo";
 import { DetailNav } from "@/components/features/DetailNav";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -28,12 +30,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   const title = locale === "ar" ? article.titleAr : article.titleEn;
   const excerpt = locale === "ar" ? article.excerptAr : article.excerptEn;
+  const description = truncate(excerpt || "", 160);
+  const url = `/${locale}/blog/${slug}`;
 
   return {
     title,
-    description: excerpt?.slice(0, 160) || "",
+    description,
     alternates: {
-      canonical: `/${locale}/blog/${slug}`,
+      canonical: url,
       languages: {
         ar: `/ar/blog/${slug}`,
         en: `/en/blog/${slug}`,
@@ -41,15 +45,21 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       },
     },
     openGraph: {
+      title,
+      description,
+      // The article's own cover, letterboxed to 1200×630 — not a title card.
+      url,
       type: "article",
+      locale: locale === "ar" ? "ar_SA" : "en_US",
       publishedTime: new Date(article.publishedAt).toISOString(),
-      images: [
-        {
-          url: `/api/og?title=${encodeURIComponent(title)}&type=article`,
-          width: 1200,
-          height: 630,
-        },
-      ],
+      tags: article.tags,
+      images: [shareImage("article", slug, title)],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [shareImage("article", slug, title).url],
     },
   };
 }
