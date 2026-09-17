@@ -42,17 +42,59 @@ function createMockRateLimiter(): { limit: (_id: string) => Promise<RateLimitRes
 // Redis client (shared, lazy singleton)
 // ---------------------------------------------------------------------------
 
-function getRedis(): Redis {
+function getRedis(): Redis | null {
   const url = process.env.UPSTASH_REDIS_REST_URL;
   const token = process.env.UPSTASH_REDIS_REST_TOKEN;
-
-  if (!url || !token) {
-    throw new Error(
-      "Missing UPSTASH_REDIS_REST_URL or UPSTASH_REDIS_REST_TOKEN environment variables.",
-    );
-  }
-
+  if (!url || !token) return null;
   return new Redis({ url, token });
+}
+
+// ---------------------------------------------------------------------------
+// In-memory fallback
+// ---------------------------------------------------------------------------
+
+/**
+ * Used when Upstash isn't configured. Per-instance only (a serverless
+ * function keeps its own map), so it stops a single-source burst but is not
+ * a substitute for the shared store. Getting here in production is logged
+ * once so the missing configuration is visible and not silently tolerated —
+ * the previous version threw at import time, which took the whole route down.
+ */
+let warnedNoRedis = false;
+
+function windowToMs(window: string): number {
+  const m = /^(\d+)\s*(ms|s|m|h|d)$/.exec(window.trim());
+  if (!m) return 60_000;
+  const n = Number(m[1]);
+  return { ms: n, s: n * 1e3, m: n * 60e3, h: n * 3600e3, d: n * 86400e3 }[m[2] as "ms" | "s" | "m" | "h" | "d"];
+}
+
+function createMemoryRateLimiter(
+  requests: number,
+  windowMs: number,
+): { limit: (id: string) => Promise<RateLimitResult> } {
+  const hits = new Map<string, number[]>();
+  return {
+    async limit(id: string): Promise<RateLimitResult> {
+      if (!warnedNoRedis) {
+        warnedNoRedis = true;
+        console.warn("[ratelimit] UPSTASH_REDIS_REST_URL/TOKEN not set — using per-instance memory limiter");
+      }
+      const now = Date.now();
+      const recent = (hits.get(id) ?? []).filter((t) => now - t < windowMs);
+      const success = recent.length < requests;
+      if (success) recent.push(now);
+      hits.set(id, recent);
+      // opportunistic cleanup so the map cannot grow without bound
+      if (hits.size > 5000) for (const [k, v] of hits) if (!v.some((t) => now - t < windowMs)) hits.delete(k);
+      return {
+        success,
+        limit: requests,
+        remaining: Math.max(0, requests - recent.length),
+        reset: (recent[0] ?? now) + windowMs,
+      };
+    },
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -70,9 +112,12 @@ function createRateLimiter(
   if (isDev) {
     return createMockRateLimiter();
   }
-
+  const redis = getRedis();
+  if (!redis) {
+    return createMemoryRateLimiter(requests, windowToMs(String(window)));
+  }
   const ratelimiter = new Ratelimit({
-    redis: getRedis(),
+    redis,
     limiter: Ratelimit.slidingWindow(requests, window),
     analytics: true,
     prefix: "@upstash/ratelimit",
