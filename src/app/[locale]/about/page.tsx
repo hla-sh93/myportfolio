@@ -7,7 +7,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Stats } from "@/components/sections/Stats";
 import type { TimelineEntry } from "@/types";
 import { getCertificates, getExperiences, getHighlights } from "@/lib/content";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { localizedPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -16,6 +16,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "about" });
   return localizedPageMetadata({
     locale,
@@ -33,6 +34,7 @@ export default async function AboutPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("about");
 
   // Career history — admin-managed (seeded from the CV), newest first.

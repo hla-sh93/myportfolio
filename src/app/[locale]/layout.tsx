@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ToastProvider } from "@/components/ui/Toast";
@@ -122,6 +122,11 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+
+  // Opts this subtree into static rendering. Without it next-intl reads the
+  // locale from the request, every page renders on demand, and Next answers
+  // with Cache-Control: no-store — which is why back/forward cache failed.
+  setRequestLocale(locale);
 
   const messages = await getMessages();
   const dir = locale === "ar" ? "rtl" : "ltr";

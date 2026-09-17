@@ -7,7 +7,7 @@ import { getCounters } from "@/lib/counters";
 import { format } from "date-fns";
 import { arSA, enUS } from "date-fns/locale";
 import { ArrowLeft, Calendar, Clock, Eye } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getPublicArticle, getPublicArticles } from "@/lib/content";
 import { renderMarkdown } from "@/lib/markdown";
 import { shareImage } from "@/lib/share";
@@ -21,6 +21,11 @@ import {
   breadcrumbSchema,
 } from "@/components/seo/JsonLd";
 
+
+export async function generateStaticParams() {
+  const articles = await getPublicArticles();
+  return articles.map((a) => ({ slug: a.slug }));
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string; locale: string }> }) {
   const { slug, locale } = await params;
@@ -66,6 +71,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string; locale: string }> }) {
   const { slug, locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("blog");
   const isRtl = locale === "ar";
 

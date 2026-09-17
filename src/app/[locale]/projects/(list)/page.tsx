@@ -4,7 +4,7 @@ import { CTABanner } from "@/components/sections/CTABanner";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { getPublicProjects, projectCard } from "@/lib/content";
 import { getCounters } from "@/lib/counters";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { localizedPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -13,6 +13,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "projects" });
   return localizedPageMetadata({
     locale,
@@ -25,7 +26,13 @@ export async function generateMetadata({
 }
 
 
-export default async function ProjectsPage() {
+export default async function ProjectsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("projects");
   // live engagement counters (views/likes) merged onto static content
   const counters = await getCounters("project");

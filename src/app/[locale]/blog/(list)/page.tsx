@@ -4,7 +4,7 @@ import { getCounters } from "@/lib/counters";
 import { articleCard, getPublicArticles } from "@/lib/content";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { localizedPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -13,6 +13,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "blog" });
   return localizedPageMetadata({
     locale,
@@ -30,6 +31,7 @@ export default async function BlogPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("blog");
   const counters = await getCounters("article");
   const articles = (await getPublicArticles()).map((a) =>

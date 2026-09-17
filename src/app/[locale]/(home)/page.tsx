@@ -1,3 +1,4 @@
+import { setRequestLocale } from "next-intl/server";
 import { ViewTracker } from "@/components/features/ViewTracker";
 import { ToolsMarquee } from "@/components/sections/ToolsMarquee";
 import { getCounters } from "@/lib/counters";
@@ -23,6 +24,7 @@ export default async function Home({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const [projCounters, artCounters] = await Promise.all([
     getCounters("project"),
     getCounters("article"),

@@ -2,7 +2,7 @@ import { ViewTracker } from "@/components/features/ViewTracker";
 import { ContactForm } from "@/components/features/ContactForm";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Globe, Mail, MapPin } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { localizedPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
@@ -11,6 +11,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "contact" });
   return localizedPageMetadata({
     locale,
@@ -28,6 +29,7 @@ export default async function ContactPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("contact");
   const isArabic = locale === "ar";
 

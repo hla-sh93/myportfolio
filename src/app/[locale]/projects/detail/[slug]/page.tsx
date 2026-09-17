@@ -9,7 +9,7 @@ import { getPublicProject, getPublicProjects } from "@/lib/content";
 import { DetailNav } from "@/components/features/DetailNav";
 import { SiteWall, getCollection } from "@/components/features/SiteWall";
 import { ProjectFacts } from "@/components/features/ProjectFacts";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { MediaGallery } from "@/components/features/MediaGallery";
 import { ViewTracker } from "@/components/features/ViewTracker";
 import { getCounters } from "@/lib/counters";
@@ -29,6 +29,14 @@ const categoryKeyMap: Record<string, string> = {
   UIUX: "uiux",
   WEBSITES: "websites",
 };
+
+export async function generateStaticParams() {
+  // Prerender every published case study. A slug added in the admin after the
+  // build still renders on demand (dynamicParams defaults to true) — this only
+  // decides what is ready before the first request.
+  const projects = await getPublicProjects();
+  return projects.map((p) => ({ slug: p.slug }));
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string; locale: string }> }) {
   const { slug, locale } = await params;
@@ -72,6 +80,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string; locale: string }> }) {
   const { slug, locale } = await params;
+  setRequestLocale(locale);
   const isRtl = locale === "ar";
 
   const project = await getPublicProject(slug);

@@ -2,9 +2,15 @@ import { BlogCard } from "@/components/features/BlogCard";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { Link } from "@/i18n/navigation";
 import { ArrowLeft, Tag } from "lucide-react";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getPublicArticles } from "@/lib/content";
 
+
+export async function generateStaticParams() {
+  const articles = await getPublicArticles();
+  const tags = new Set(articles.flatMap((a) => a.tags));
+  return [...tags].map((tag) => ({ tag: encodeURIComponent(tag) }));
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; tag: string }> }) {
   const { locale, tag } = await params;
@@ -18,6 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function BlogTagPage({ params }: { params: Promise<{ locale: string; tag: string }> }) {
   const { locale, tag } = await params;
+  setRequestLocale(locale);
   const decodedTag = decodeURIComponent(tag);
   const t = await getTranslations({ locale, namespace: "blog" });
   const isRtl = locale === "ar";
