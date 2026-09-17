@@ -10,6 +10,7 @@
  * Every function is async — the database path cannot be synchronous.
  */
 import "server-only";
+import { unstable_cache } from "next/cache";
 import fs from "node:fs";
 import path from "node:path";
 import { db } from "@/lib/db";
@@ -341,7 +342,7 @@ const toMessage = (m: any): StoredMessage => ({
 
 /* ── projects ─────────────────────────────────────────────────────────── */
 
-export async function getStoredProjects(): Promise<StoredProject[]> {
+async function readStoredProjects(): Promise<StoredProject[]> {
   try {
     const rows = await db.project.findMany({
       include: { media: true },
@@ -354,7 +355,7 @@ export async function getStoredProjects(): Promise<StoredProject[]> {
   return readFileCollection<StoredProject>("projects", seedProjects);
 }
 
-export async function getStoredProject(
+async function readStoredProject(
   idOrSlug: string
 ): Promise<StoredProject | null> {
   try {
@@ -433,7 +434,7 @@ export async function deleteProject(id: string) {
 
 /* ── articles ─────────────────────────────────────────────────────────── */
 
-export async function getStoredArticles(): Promise<StoredArticle[]> {
+async function readStoredArticles(): Promise<StoredArticle[]> {
   try {
     const rows = await db.article.findMany({ orderBy: { publishedAt: "desc" } });
     if (rows.length > 0) return rows.map(toArticle);
@@ -443,7 +444,7 @@ export async function getStoredArticles(): Promise<StoredArticle[]> {
   return readFileCollection<StoredArticle>("articles", seedArticles);
 }
 
-export async function getStoredArticle(
+async function readStoredArticle(
   idOrSlug: string
 ): Promise<StoredArticle | null> {
   try {
@@ -494,7 +495,7 @@ export async function deleteArticle(id: string) {
 
 /* ── experiences ──────────────────────────────────────────────────────── */
 
-export async function getStoredExperiences(): Promise<StoredExperience[]> {
+async function readStoredExperiences(): Promise<StoredExperience[]> {
   try {
     const rows = await db.experience.findMany({ orderBy: { order: "asc" } });
     if (rows.length > 0) {
@@ -554,7 +555,7 @@ export async function deleteExperience(id: string) {
 
 /* ── stats (key highlights) ───────────────────────────────────────────── */
 
-export async function getStoredStats(): Promise<StoredStat[]> {
+async function readStoredStats(): Promise<StoredStat[]> {
   try {
     const rows = await db.highlight.findMany({ orderBy: { order: "asc" } });
     if (rows.length > 0) {
@@ -605,7 +606,7 @@ export async function saveStats(stats: StoredStat[]) {
 
 /* ── certificates ─────────────────────────────────────────────────────── */
 
-export async function getStoredCertificates(): Promise<StoredCertificate[]> {
+async function readStoredCertificates(): Promise<StoredCertificate[]> {
   try {
     const rows = await db.certificate.findMany({ orderBy: { order: "asc" } });
     if (rows.length > 0) return rows.map(toCertificate);
@@ -709,3 +710,22 @@ export async function deleteMessage(id: string) {
     all.filter((m) => m.id !== id)
   );
 }
+
+/* ── cached readers ───────────────────────────────────────────────────────
+   Every public page used to query Postgres on every request — a ~300 ms
+   round trip per render, a multi-second cold start after idle, and no
+   back/forward cache because nothing could be marked cacheable. Reads are
+   now memoised for an hour under one tag; every admin write calls
+   revalidateTag(CONTENT_TAG), so a save is visible on the next request.
+   Engagement counters (views/likes) live in counter-store and stay live. */
+
+export const CONTENT_TAG = "content";
+const CACHE: { tags: string[]; revalidate: number } = { tags: [CONTENT_TAG], revalidate: 3600 };
+
+export const getStoredProjects = unstable_cache(readStoredProjects, ["content:projects"], CACHE);
+export const getStoredProject = unstable_cache(readStoredProject, ["content:project"], CACHE);
+export const getStoredArticles = unstable_cache(readStoredArticles, ["content:articles"], CACHE);
+export const getStoredArticle = unstable_cache(readStoredArticle, ["content:article"], CACHE);
+export const getStoredExperiences = unstable_cache(readStoredExperiences, ["content:experiences"], CACHE);
+export const getStoredStats = unstable_cache(readStoredStats, ["content:stats"], CACHE);
+export const getStoredCertificates = unstable_cache(readStoredCertificates, ["content:certificates"], CACHE);

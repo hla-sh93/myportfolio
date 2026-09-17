@@ -124,7 +124,7 @@ export function BlogExplorer({
                   delay: index * 0.03,
                 }}
               >
-                <BlogCard article={article} index={index} />
+                <BlogCard article={article} index={index} titleAs="h2" />
               </motion.div>
             ))}
           </AnimatePresence>

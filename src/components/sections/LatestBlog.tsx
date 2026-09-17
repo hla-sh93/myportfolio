@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@/i18n/navigation";
-import type { ArticleWithMeta } from "@/types";
+import type { ArticleCardData } from "@/types";
 import { format } from "date-fns";
 import { arSA, enUS } from "date-fns/locale";
 import { motion } from "framer-motion";
@@ -10,7 +10,7 @@ import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 
 interface LatestBlogProps {
-  articles: ArticleWithMeta[];
+  articles: ArticleCardData[];
 }
 
 /* Editorial article index: numbered rows, cover slides in on hover. */

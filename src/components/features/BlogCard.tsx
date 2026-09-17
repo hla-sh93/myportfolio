@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "@/i18n/navigation";
-import type { ArticleWithMeta } from "@/types";
+import type { ArticleCardData } from "@/types";
 import { format } from "date-fns";
 import { arSA, enUS } from "date-fns/locale";
 import { motion } from "framer-motion";
@@ -10,8 +10,10 @@ import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 
 interface BlogCardProps {
-  article: ArticleWithMeta;
+  article: ArticleCardData;
   index?: number;
+  /** h2 when the card sits directly under the page H1 (the blog index). */
+  titleAs?: "h2" | "h3";
 }
 
 /**
@@ -23,7 +25,7 @@ interface BlogCardProps {
  * — no underline: a rule under Arabic type crowds the descenders and reads
  * as a mistake.
  */
-export function BlogCard({ article, index = 0 }: BlogCardProps) {
+export function BlogCard({ article, index = 0, titleAs: TitleTag = "h3" }: BlogCardProps) {
   const locale = useLocale();
   const t = useTranslations("blog");
   const isRtl = locale === "ar";
@@ -63,7 +65,7 @@ export function BlogCard({ article, index = 0 }: BlogCardProps) {
           {/* Body */}
           <div className="flex flex-1 flex-col px-3 pb-2 pt-5">
             {/* Tag + date — one calm line */}
-            <div className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-text-tertiary">
+            <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-text-tertiary">
               {category && (
                 <span className="rounded-full bg-accent-light px-3 py-1 text-accent">
                   {category}
@@ -72,9 +74,9 @@ export function BlogCard({ article, index = 0 }: BlogCardProps) {
               <span>{publishDate}</span>
             </div>
 
-            <h3 className="mt-4 line-clamp-2 min-h-[3.2rem] font-display text-lg font-bold leading-snug text-text-primary transition-colors duration-300 group-hover:text-accent md:text-xl">
+            <TitleTag className="mt-4 line-clamp-2 min-h-[3.2rem] font-display text-lg font-bold leading-snug text-text-primary transition-colors duration-300 group-hover:text-accent md:text-xl">
               {title}
-            </h3>
+            </TitleTag>
 
             <p className="mb-5 mt-2.5 line-clamp-2 min-h-[2.6rem] text-sm leading-relaxed text-text-secondary">
               {excerpt}

@@ -2,10 +2,12 @@ import { ViewTracker } from "@/components/features/ViewTracker";
 import { ToolsMarquee } from "@/components/sections/ToolsMarquee";
 import { getCounters } from "@/lib/counters";
 import {
+  articleCard,
   getFeaturedProjects,
   getHighlights,
   getPublicArticles,
   getPublicProjects,
+  projectCard,
 } from "@/lib/content";
 import { ProfileCard } from "@/components/sections/ProfileCard";
 import { HomeIntro } from "@/components/sections/HomeIntro";
@@ -25,14 +27,12 @@ export default async function Home({
     getCounters("project"),
     getCounters("article"),
   ]);
-  const featured = (await getFeaturedProjects()).map((p) => ({
-    ...p,
-    views: projCounters[p.slug]?.views ?? 0,
-    likeCount: projCounters[p.slug]?.likes ?? 0,
-  }));
+  const featured = (await getFeaturedProjects()).map((p) =>
+    projectCard(p, projCounters[p.slug])
+  );
   const articles = (await getPublicArticles())
     .slice(0, 3)
-    .map((a) => ({ ...a, views: artCounters[a.slug]?.views ?? 0 }));
+    .map((a) => articleCard(a, artCounters[a.slug]));
   const stats = await getHighlights(locale);
 
   const categoryCounts = (await getPublicProjects()).reduce<Record<string, number>>(
@@ -51,7 +51,7 @@ export default async function Home({
           at xl; below that the card stacks on top at a comfortable width. */}
       <div className="mx-auto max-w-[1440px] px-4 pt-6 md:px-6 lg:px-8 xl:pt-10">
         <div className="xl:grid xl:grid-cols-[420px_minmax(0,1fr)] xl:items-start xl:gap-14 2xl:grid-cols-[460px_minmax(0,1fr)] 2xl:gap-16">
-          <div className="no-scrollbar mx-auto mb-12 w-full max-w-md xl:sticky xl:top-[calc(var(--navbar-height)+16px)] xl:mb-0 xl:max-h-[calc(100vh-var(--navbar-height)-32px)] xl:max-w-none xl:overflow-y-auto">
+          <div className="no-scrollbar mx-auto mb-8 w-full max-w-md xl:sticky xl:top-[calc(var(--navbar-height)+16px)] xl:mb-0 xl:max-h-[calc(100vh-var(--navbar-height)-32px)] xl:max-w-none xl:overflow-y-auto">
             <ProfileCard />
           </div>
 

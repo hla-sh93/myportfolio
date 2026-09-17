@@ -1,14 +1,14 @@
 "use client";
 
 import { Link } from "@/i18n/navigation";
-import type { ProjectWithStats } from "@/types";
+import type { ProjectCardData } from "@/types";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 
 interface FeaturedProjectsProps {
-  projects: ProjectWithStats[];
+  projects: ProjectCardData[];
 }
 
 const CATEGORY_LABEL_KEY: Record<string, string> = {

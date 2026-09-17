@@ -4,6 +4,7 @@
  * had with the static content files.
  */
 import "server-only";
+import type { ArticleCardData, ProjectCardData } from "@/types";
 import {
   getStoredArticles,
   getStoredCertificates,
@@ -44,6 +45,42 @@ function reviveArticle(a: StoredArticle) {
 
 export type PublicProject = ReturnType<typeof reviveProject>;
 export type PublicArticle = ReturnType<typeof reviveArticle>;
+
+type Counter = { views?: number; likes?: number } | undefined;
+
+/** The slice of a project a card renders; see ProjectCardData for why. */
+export function projectCard(p: PublicProject, counter?: Counter): ProjectCardData {
+  return {
+    id: p.id,
+    slug: p.slug,
+    titleEn: p.titleEn,
+    titleAr: p.titleAr,
+    descEn: p.descEn,
+    descAr: p.descAr,
+    category: p.category,
+    coverImage: p.coverImage,
+    blurDataUrl: p.blurDataUrl,
+    tools: p.tools,
+    views: counter?.views ?? 0,
+    likeCount: counter?.likes ?? 0,
+  };
+}
+
+export function articleCard(a: PublicArticle, counter?: Counter): ArticleCardData {
+  return {
+    id: a.id,
+    slug: a.slug,
+    titleEn: a.titleEn,
+    titleAr: a.titleAr,
+    excerptEn: a.excerptEn,
+    excerptAr: a.excerptAr,
+    coverImage: a.coverImage,
+    tags: a.tags,
+    readTime: a.readTime,
+    publishedAt: a.publishedAt,
+    views: counter?.views ?? 0,
+  };
+}
 
 export async function getPublicProjects(): Promise<PublicProject[]> {
   const all = await getStoredProjects();

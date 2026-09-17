@@ -2,7 +2,7 @@
 
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
-import type { ProjectWithStats } from "@/types";
+import type { ProjectCardData } from "@/types";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Eye } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -16,13 +16,15 @@ const categoryKeyMap: Record<string, string> = {
   WEBSITES: "websites",
 };
 
-type ProjectWithViews = ProjectWithStats & { views?: number };
+type ProjectWithViews = ProjectCardData;
 
 interface ProjectCardProps {
   project: ProjectWithViews;
   view?: "grid" | "list";
   className?: string;
   index?: number;
+  /** h2 when the card sits directly under the page H1 (grid pages). */
+  titleAs?: "h2" | "h3";
 }
 
 /* Drake portfolio item: 30px-radius cover with white category chips pinned
@@ -32,6 +34,7 @@ export function ProjectCard({
   view = "grid",
   className,
   index = 0,
+  titleAs: TitleTag = "h3",
 }: ProjectCardProps) {
   const locale = useLocale();
   const t = useTranslations("projects");
@@ -101,9 +104,9 @@ export function ProjectCard({
           <div className="flex items-start justify-between gap-3">
             {/* Hover recolours the title instead of underlining it — a rule
                 under Arabic type collides with the descenders. */}
-            <h3 className="line-clamp-1 font-display text-lg font-bold text-text-primary transition-colors duration-300 group-hover:text-accent md:text-xl">
+            <TitleTag className="line-clamp-1 font-display text-lg font-bold text-text-primary transition-colors duration-300 group-hover:text-accent md:text-xl">
               {title}
-            </h3>
+            </TitleTag>
             <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border-strong text-text-secondary transition-all duration-300 group-hover:rotate-45 group-hover:border-accent group-hover:text-accent rtl:-scale-x-100 rtl:group-hover:-rotate-45">
               <ArrowUpRight size={14} />
             </span>

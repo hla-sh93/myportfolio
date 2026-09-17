@@ -2,7 +2,7 @@
 
 import { Input } from "@/components/ui/Input";
 import { cn } from "@/lib/utils";
-import type { ProjectWithStats } from "@/types";
+import type { ProjectCardData } from "@/types";
 import { AnimatePresence, motion } from "framer-motion";
 import { LayoutGrid, List, Search } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -10,7 +10,7 @@ import { useMemo, useState } from "react";
 import { ProjectCard } from "./ProjectCard";
 
 interface ProjectGridProps {
-  projects: ProjectWithStats[];
+  projects: ProjectCardData[];
   initialCategory?: string;
 }
 
@@ -153,7 +153,7 @@ export function ProjectGrid({ projects, initialCategory = "ALL" }: ProjectGridPr
         >
           <AnimatePresence mode="popLayout" initial={false}>
             {filteredProjects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} view={view} index={index} />
+              <ProjectCard key={project.id} project={project} view={view} index={index} titleAs="h2" />
             ))}
           </AnimatePresence>
         </motion.div>

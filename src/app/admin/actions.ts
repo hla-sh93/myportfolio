@@ -27,9 +27,10 @@ import {
   type StoredExperience,
   type StoredProject,
   type StoredStat,
+  CONTENT_TAG,
 } from "@/lib/content-store";
 import { syncContentFromBundle } from "@/lib/content-sync";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, updateTag } from "next/cache";
 import { redirect } from "next/navigation";
 
 async function requireAdmin() {
@@ -39,8 +40,9 @@ async function requireAdmin() {
 }
 
 function revalidateAll() {
-  // Locale-prefixed public routes + admin lists. revalidatePath with
-  // "layout" walks the whole subtree — simplest correct choice here.
+  // Drop the memoised content reads first, then re-render every route that
+  // rendered from them. revalidatePath with "layout" walks the whole subtree.
+  updateTag(CONTENT_TAG);
   revalidatePath("/", "layout");
 }
 
