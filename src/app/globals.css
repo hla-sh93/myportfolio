@@ -1128,7 +1128,18 @@ html[data-intro="on"] {
   overflow: hidden;
 }
 
+/* Hidden until the inline script opts in by setting data-intro="on".
+   The default used to be the other way round — visible, with the script
+   responsible for removing it — which meant that anywhere the script did
+   not run the curtain stayed up forever. Next strips it from error pages,
+   so every 404 sat behind a frozen loading screen. Failing to the page is
+   always the right way round; the script runs synchronously during parse,
+   so nothing flashes on the pages that do show it. */
 .intro-loader {
+  display: none;
+}
+
+html[data-intro="on"] .intro-loader {
   position: fixed;
   inset: 0;
   z-index: 200; /* above grain (80) and navbar (50) */
@@ -1143,8 +1154,6 @@ html[data-intro="on"] {
   /* driven by the inline script: 0 → 1 */
   --p: 0;
 }
-/* NOTE: with JS disabled nothing could ever lift the curtain — the component
-   ships a <noscript> style block that hides it outright. */
 
 .intro-loader::before {
   content: "";

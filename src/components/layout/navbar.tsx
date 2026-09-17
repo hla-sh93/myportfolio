@@ -167,7 +167,7 @@ export function Navbar() {
           <button
             onClick={switchLocale}
             className={cn(controlBtn, "w-auto gap-1.5 px-3 text-sm font-semibold")}
-            aria-label="Switch language"
+            aria-label={locale === "en" ? "ع · Switch language" : "EN · Switch language"}
           >
             <Globe size={15} />
             <span>{locale === "en" ? "ع" : "EN"}</span>

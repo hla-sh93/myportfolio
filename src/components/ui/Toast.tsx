@@ -231,7 +231,7 @@ export function Toaster() {
 
   return createPortal(
     <div
-      aria-label="Notifications"
+      role="region" aria-label="Notifications"
       className="fixed bottom-6 end-6 z-[9999] flex flex-col-reverse gap-3"
     >
       <AnimatePresence mode="popLayout">

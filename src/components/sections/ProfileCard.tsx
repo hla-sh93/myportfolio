@@ -26,20 +26,20 @@ export function ProfileCard() {
   const year = new Date().getFullYear();
 
   return (
-    <aside className="card-line card-line-static relative p-7 md:p-8 xl:p-6 2xl:p-8">
+    <aside className="card-line card-line-static relative p-5 md:p-7 xl:p-6 2xl:p-8">
       {/* No header wordmark here: the navbar, the hero heading and the panel
           below already carry the name, and a fourth repeat in one viewport
           reads as a stutter. */}
 
       {/* Identity panel — typographic portrait window */}
-      <div className="relative mb-7 overflow-hidden rounded-[22px] border border-border bg-surface xl:mb-5 2xl:mb-7">
+      <div className="relative mb-5 overflow-hidden rounded-[22px] border border-border bg-surface xl:mb-5 2xl:mb-7">
         <div className="bg-grid absolute inset-0 opacity-60" aria-hidden />
         <div
           className="glow-accent absolute -top-16 start-1/2 h-56 w-[130%] -translate-x-1/2 rtl:translate-x-1/2"
           aria-hidden
         />
-        <div className="relative flex aspect-[4/3] flex-col items-center justify-center gap-3 xl:aspect-auto xl:h-[clamp(150px,24vh,260px)]">
-          <span className="font-display text-[5rem] font-black leading-none text-text-primary md:text-[5.75rem] xl:text-[clamp(3rem,7vh,5.5rem)]">
+        <div className="relative flex h-32 flex-col items-center justify-center gap-2 md:h-40 xl:h-[clamp(150px,24vh,260px)] xl:gap-3">
+          <span className="font-display text-[3rem] font-black leading-none text-text-primary md:text-[4rem] xl:text-[clamp(3rem,7vh,5.5rem)]">
             {isAr ? "حلا" : "Hla"}
             <span className="text-accent">.</span>
           </span>
@@ -51,7 +51,7 @@ export function ProfileCard() {
 
       {/* Name + contact. A <p>, not an <h1> — the hero heading beside it is
           the page's only H1, and two of them confuses search engines. */}
-      <div className="mb-7 text-center xl:mb-5 2xl:mb-7">
+      <div className="mb-5 text-center xl:mb-5 2xl:mb-7">
         <p className="mb-1 font-display text-2xl font-bold text-text-primary">
           {t("hero.name")}
         </p>
@@ -72,7 +72,7 @@ export function ProfileCard() {
       </div>
 
       {/* Socials */}
-      <ul className="mb-7 flex items-center justify-center gap-2.5 xl:mb-5 2xl:mb-7">
+      <ul className="mb-5 flex items-center justify-center gap-2.5 xl:mb-5 2xl:mb-7">
         {socials.map(({ icon: Icon, href, label }) => (
           <li key={label}>
             <a

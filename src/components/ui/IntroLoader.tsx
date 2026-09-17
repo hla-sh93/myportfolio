@@ -19,7 +19,10 @@ import { getLocale } from "next-intl/server";
  *  - skipped entirely for `prefers-reduced-motion`;
  *  - two independent time caps, so a slow network — or a background tab where
  *    requestAnimationFrame never fires — can't leave the page behind it;
- *  - hidden outright when JavaScript is off (see the <noscript> block).
+ *  - never shows unless this script runs: the stylesheet keeps the curtain
+ *    display:none until the script sets data-intro="on", so no-JS, a CSP
+ *    block, or a page Next strips the script from (error pages) all fail to
+ *    the content rather than to a curtain nothing can lift.
  */
 
 /** Floor: the curtain is never on screen for less than this (ms). */
@@ -99,11 +102,6 @@ export async function IntroLoader() {
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: curtain(locale === "ar") }}
       />
-
-      {/* No JS → nothing could ever lift the curtain, so it must not show. */}
-      <noscript>
-        <style>{`#intro-loader{display:none!important}`}</style>
-      </noscript>
 
       <script dangerouslySetInnerHTML={{ __html: script }} />
     </>
