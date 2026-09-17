@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageShareImage } from "@/lib/share";
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -385,4 +386,60 @@ export function getWebSiteSchema(): string {
   };
 
   return JSON.stringify(schema);
+}
+
+// ---------------------------------------------------------------------------
+// Locale-prefixed page metadata
+// ---------------------------------------------------------------------------
+
+/**
+ * Metadata for any locale-prefixed page other than the home page.
+ *
+ * The `[locale]` layout declares `alternates.canonical = /<locale>` for
+ * itself, and Next merges parent metadata into every child page. A page that
+ * only returns `{ title }` therefore inherits the home page's canonical,
+ * hreflang, description and Open Graph — and tells search engines it is a
+ * duplicate of the home page. Every page must declare its own; this is the
+ * one place that knows how.
+ */
+export function localizedPageMetadata(options: {
+  locale: string;
+  /** Path without the locale, e.g. "/projects". */
+  path: string;
+  title: string;
+  description: string;
+  /** Which pre-built share card to use. */
+  card: "home" | "projects" | "blog" | "about" | "contact";
+  ogType?: "website" | "article";
+}): Metadata {
+  const { locale, path, title, description, card, ogType = "website" } = options;
+  const clean = path.startsWith("/") ? path : `/${path}`;
+  const metaDescription = truncate(description, 160);
+  const url = `/${locale}${clean}`;
+
+  return {
+    title,
+    description: metaDescription,
+    alternates: {
+      canonical: url,
+      languages: {
+        ar: `/ar${clean}`,
+        en: `/en${clean}`,
+        "x-default": `/ar${clean}`,
+      },
+    },
+    openGraph: {
+      title,
+      description: metaDescription,
+      url,
+      type: ogType,
+      images: [pageShareImage(locale, card, title)],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: metaDescription,
+      images: [pageShareImage(locale, card, title).url],
+    },
+  };
 }

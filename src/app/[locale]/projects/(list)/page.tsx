@@ -2,13 +2,26 @@ import { ViewTracker } from "@/components/features/ViewTracker";
 import { ProjectGrid } from "@/components/features/ProjectGrid";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { getPublicProjects } from "@/lib/content";
+import { getPublicProjects, projectCard } from "@/lib/content";
 import { getCounters } from "@/lib/counters";
 import { getTranslations } from "next-intl/server";
+import { localizedPageMetadata } from "@/lib/seo";
 
-export async function generateMetadata() {
-  const t = await getTranslations("projects");
-  return { title: t("heading") };
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "projects" });
+  return localizedPageMetadata({
+    locale,
+    path: "/projects",
+    title: t("heading"),
+    description: t("description"),
+
+    card: "projects",
+  });
 }
 
 
@@ -16,11 +29,9 @@ export default async function ProjectsPage() {
   const t = await getTranslations("projects");
   // live engagement counters (views/likes) merged onto static content
   const counters = await getCounters("project");
-  const projectsWithStats = (await getPublicProjects()).map((p) => ({
-    ...p,
-    views: counters[p.slug]?.views ?? 0,
-    likeCount: counters[p.slug]?.likes ?? 0,
-  }));
+  const projectsWithStats = (await getPublicProjects()).map((p) =>
+    projectCard(p, counters[p.slug])
+  );
 
   return (
     <>

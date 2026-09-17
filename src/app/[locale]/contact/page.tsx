@@ -3,13 +3,23 @@ import { ContactForm } from "@/components/features/ContactForm";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Globe, Mail, MapPin } from "lucide-react";
 import { getTranslations } from "next-intl/server";
+import { localizedPageMetadata } from "@/lib/seo";
 
-export async function generateMetadata() {
-  const t = await getTranslations("contact");
-  return {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "contact" });
+  return localizedPageMetadata({
+    locale,
+    path: "/contact",
     title: t("title"),
     description: t("description"),
-  };
+
+    card: "contact",
+  });
 }
 
 export default async function ContactPage({

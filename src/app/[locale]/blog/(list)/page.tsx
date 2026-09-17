@@ -1,14 +1,27 @@
 import { ViewTracker } from "@/components/features/ViewTracker";
 import { BlogExplorer } from "@/components/features/BlogExplorer";
 import { getCounters } from "@/lib/counters";
-import { getPublicArticles } from "@/lib/content";
+import { articleCard, getPublicArticles } from "@/lib/content";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { getTranslations } from "next-intl/server";
+import { localizedPageMetadata } from "@/lib/seo";
 
-export async function generateMetadata() {
-  const t = await getTranslations("blog");
-  return { title: t("heading") };
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "blog" });
+  return localizedPageMetadata({
+    locale,
+    path: "/blog",
+    title: t("heading"),
+    description: t("description"),
+
+    card: "blog",
+  });
 }
 
 export default async function BlogPage({
@@ -19,10 +32,9 @@ export default async function BlogPage({
   const { locale } = await params;
   const t = await getTranslations("blog");
   const counters = await getCounters("article");
-  const articles = (await getPublicArticles()).map((a) => ({
-    ...a,
-    views: counters[a.slug]?.views ?? 0,
-  }));
+  const articles = (await getPublicArticles()).map((a) =>
+    articleCard(a, counters[a.slug])
+  );
 
   return (
     <>

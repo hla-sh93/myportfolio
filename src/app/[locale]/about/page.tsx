@@ -8,6 +8,24 @@ import { Stats } from "@/components/sections/Stats";
 import type { TimelineEntry } from "@/types";
 import { getCertificates, getExperiences, getHighlights } from "@/lib/content";
 import { getTranslations } from "next-intl/server";
+import { localizedPageMetadata } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "about" });
+  return localizedPageMetadata({
+    locale,
+    path: "/about",
+    title: t("title"),
+    description: t("description"),
+
+    card: "about",
+  });
+}
 
 export default async function AboutPage({
   params,

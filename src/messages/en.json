@@ -1,7 +1,8 @@
 {
   "metadata": {
     "title": "Hla Shindeah — Senior UI/UX Designer & Front-End Developer",
-    "description": "Hla Shindeah — Senior UI/UX designer and front-end developer with 7+ years of experience. UI/UX design, React & Next.js development, brand identity and motion design — from idea to launch."
+    "description": "Hla Shindeah — UI/UX designer and front-end developer since 2016. Product and web design, React & Next.js builds, brand identity and motion — from idea to launch.",
+    "siteName": "Hla Shindeah"
   },
   "nav": {
     "home": "Home",
@@ -25,7 +26,7 @@
       "graphic": "craft identities",
       "video": "animate stories"
     },
-    "description": "Seven years turning ideas into digital products people love — through design, code, and motion. From idea to code.",
+    "description": "Since 2016, turning ideas into digital products people actually use — through design, code and motion.",
     "cta": "View My Work",
     "contact": "Let's Talk",
     "available": "Available for new projects"
@@ -104,7 +105,7 @@
     "title": "About Me",
     "heading": "About Me",
     "subtitle": "My Story",
-    "description": "A creative developer and designer passionate about crafting digital experiences that merge aesthetics with functionality.",
+    "description": "Since 2016, between design and code — working with companies in Saudi Arabia, France and Syria on products that reached tens of thousands of users.",
     "downloadCV": "Download CV",
     "experience": {
       "title": "Experience",
@@ -308,5 +309,12 @@
     "light": "Light",
     "dark": "Dark",
     "system": "System"
+  },
+  "notFound": {
+    "label": "Error 404",
+    "title": "This page does not exist",
+    "description": "The address you followed leads nowhere — the content may have moved, or the link was mistyped.",
+    "home": "Back to home",
+    "projects": "Browse the work"
   }
 }

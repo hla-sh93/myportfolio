@@ -14,6 +14,7 @@ import {
   Space_Grotesk,
 } from "next/font/google";
 import { JsonLd, personSchema, websiteSchema } from "@/components/seo/JsonLd";
+import { pageShareImage } from "@/lib/share";
 import { CursorRing } from "@/components/ui/CursorRing";
 import { IntroLoader } from "@/components/ui/IntroLoader";
 import { RouteProgress } from "@/components/ui/RouteProgress";
@@ -23,7 +24,7 @@ import "../globals.css";
 // Latin — display + body
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700", "900"],
   variable: "--font-poppins",
   display: "swap",
 });
@@ -31,7 +32,7 @@ const poppins = Poppins({
 // Latin display — geometric grotesk with real character (headlines only)
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-space-grotesk",
   display: "swap",
 });
@@ -39,7 +40,7 @@ const spaceGrotesk = Space_Grotesk({
 // Arabic — display + body (primary locale)
 const tajawal = Tajawal({
   subsets: ["arabic"],
-  weight: ["300", "400", "500", "700", "800", "900"],
+  weight: ["400", "500", "700", "900"],
   variable: "--font-tajawal",
   display: "swap",
   preload: false,
@@ -63,7 +64,7 @@ export async function generateMetadata({
   return {
     title: {
       default: t("title"),
-      template: `%s | ${t("title")}`,
+      template: `%s | ${t("siteName")}`,
     },
     description: t("description"),
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
@@ -78,22 +79,18 @@ export async function generateMetadata({
     openGraph: {
       title: t("title"),
       description: t("description"),
+      url: `/${locale}`,
       locale: locale === "ar" ? "ar_SA" : "en_US",
       alternateLocale: locale === "ar" ? "en_US" : "ar_SA",
       type: "website",
-      siteName: t("title"),
-      images: [
-        {
-          url: `/api/og?title=${encodeURIComponent(t("title"))}`,
-          width: 1200,
-          height: 630,
-        },
-      ],
+      siteName: t("siteName"),
+      images: [pageShareImage(locale, "home", t("title"))],
     },
     twitter: {
       card: "summary_large_image",
       title: t("title"),
       description: t("description"),
+      images: [pageShareImage(locale, "home", t("title")).url],
     },
     robots: {
       index: true,
