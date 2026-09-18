@@ -19,7 +19,12 @@ import {
 function reviveProject(p: StoredProject) {
   return {
     ...p,
-    year: p.year,
+    // 28 of 34 projects have no `year` stored, so the facts row on their case
+    // study showed a gap. The year was never actually missing — `publishedAt`
+    // carries it, and for all six projects that set both, the two agree
+    // exactly. Falling back here rather than copying the value into `year`
+    // keeps one source of truth: change the date and the year follows.
+    year: p.year ?? new Date(p.publishedAt).getUTCFullYear(),
     likeCount: 0,
     publishedAt: new Date(p.publishedAt),
     createdAt: new Date(p.publishedAt),
