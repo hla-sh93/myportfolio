@@ -33,6 +33,24 @@ const IMAGE_TYPES = [
 ];
 const VIDEO_TYPES = ["video/mp4", "video/webm", "video/quicktime"];
 
+/**
+ * The blurred stand-in `next/image` paints while the real file downloads.
+ * Sixteen pixels wide is enough to read as the picture's colour, and small
+ * enough that the base64 costs less than the HTML around it.
+ */
+async function blurPlaceholder(image: Buffer): Promise<string | null> {
+  try {
+    const tiny = await sharp(image)
+      .resize(16, 16, { fit: "inside" })
+      .webp({ quality: 45 })
+      .toBuffer();
+    return `data:image/webp;base64,${tiny.toString("base64")}`;
+  } catch {
+    // A missing placeholder costs a flash of empty space, never the upload.
+    return null;
+  }
+}
+
 export async function POST(req: Request) {
   const session = await auth();
   if (!session?.user) {
@@ -98,10 +116,9 @@ export async function POST(req: Request) {
     }
 
     const image = sharp(input, { animated: type === "image/gif" });
-    const meta = await image.metadata();
 
     // Only ever scale down; `withoutEnlargement` keeps small sources sharp.
-    const output = await image
+    const { data: output, info } = await image
       .rotate() // honour EXIF orientation before stripping it
       .resize({
         width: MAX_EDGE,
@@ -110,7 +127,7 @@ export async function POST(req: Request) {
         withoutEnlargement: true,
       })
       .webp({ quality: WEBP_QUALITY, effort: 5 })
-      .toBuffer();
+      .toBuffer({ resolveWithObject: true });
 
     const saved = await saveMedia(
       output,
@@ -122,8 +139,11 @@ export async function POST(req: Request) {
       ...saved,
       originalBytes,
       optimized: true,
-      width: meta.width ?? null,
-      height: meta.height ?? null,
+      // The dimensions of what was *stored*, not of the source — the gallery
+      // reserves space from these, so a stale source size would shift layout.
+      width: info.width,
+      height: info.height,
+      blurDataUrl: await blurPlaceholder(output),
       saved: originalBytes > 0
         ? Math.round((1 - output.byteLength / originalBytes) * 100)
         : 0,

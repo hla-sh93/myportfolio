@@ -1083,6 +1083,28 @@ html {
   background: rgba(234, 84, 85, 0.1);
 }
 
+/* Square icon-only control for dense toolbars — the media gallery tiles. */
+.panel-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  cursor: pointer;
+  color: var(--panel-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+.panel-icon-btn:hover:not(:disabled) {
+  background: var(--panel-hover);
+  color: var(--panel-text);
+}
+.panel-icon-btn:disabled {
+  cursor: default;
+}
+
 /* ─── Loading Layer ───
    Three pieces, all built on the same tokens as the rest of the site:
    1. `.skeleton`      — the placeholder block every route skeleton is made of

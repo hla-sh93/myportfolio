@@ -89,6 +89,13 @@ export type ProjectInput = {
   featured: boolean;
   published: boolean;
   mediaUrls: string; // one URL per line; .mp4 → VIDEO
+  /** What the uploader measured, keyed by URL. Absent for hand-typed URLs. */
+  mediaMeta?: Record<
+    string,
+    { width: number; height: number; blurDataUrl?: string }
+  >;
+  /** The placeholder for a cover picked in this edit. */
+  coverBlurDataUrl?: string;
 };
 
 const splitList = (s: string) =>
@@ -105,6 +112,7 @@ export async function saveProjectAction(input: ProjectInput) {
     .filter(Boolean)
     .map((url, i) => {
       const prev = existing?.media.find((m) => m.url === url);
+      const measured = input.mediaMeta?.[url];
       return {
         id: prev?.id ?? `${id}-m${i + 1}`,
         url,
@@ -112,8 +120,11 @@ export async function saveProjectAction(input: ProjectInput) {
         altEn: `${input.titleEn} — ${i + 1}`,
         altAr: `${input.titleAr} — ${i + 1}`,
         order: i,
-        width: prev?.width ?? 1600,
-        height: prev?.height ?? 1200,
+        // A freshly uploaded file knows its real size; anything else keeps
+        // what was stored, and 1600×1200 is the last resort for a URL typed
+        // in by hand.
+        width: measured?.width ?? prev?.width ?? 1600,
+        height: measured?.height ?? prev?.height ?? 1200,
       };
     });
 
@@ -132,7 +143,11 @@ export async function saveProjectAction(input: ProjectInput) {
     tags: splitList(input.tags),
     coverImage: input.coverImage || existing?.coverImage || "/images/placeholder.jpg",
     blurDataUrl:
-      input.coverImage === existing?.coverImage ? (existing?.blurDataUrl ?? null) : null,
+      input.coverImage === existing?.coverImage
+        ? (existing?.blurDataUrl ?? null)
+        : (input.coverBlurDataUrl ??
+          input.mediaMeta?.[input.coverImage]?.blurDataUrl ??
+          null),
     client: input.client.trim() || null,
     role: input.role.trim() || null,
     liveUrl: input.liveUrl?.trim() || null,

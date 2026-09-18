@@ -1,9 +1,8 @@
 "use client";
 
-import { MediaUpload } from "@/components/admin/MediaUpload";
+import { MediaManager, type MediaEntry } from "@/components/admin/MediaManager";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Save, Trash } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -56,13 +55,20 @@ export function EditProjectForm({
 }) {
   const router = useRouter();
   const [serverError, setServerError] = useState("");
+  // What an upload learned about a file. The form itself only carries URLs, so
+  // these ride alongside until save, where they spare the site a second pass
+  // over every picture just to find out how tall it is.
+  const [meta, setMeta] = useState<
+    Record<string, { width: number; height: number; blurDataUrl?: string }>
+  >({});
+  const [coverBlur, setCoverBlur] = useState<string | undefined>();
 
   const {
     register,
     handleSubmit,
     watch,
     setValue,
-    getValues,
+
     formState: { errors, isSubmitting },
   } = useForm<ProjectFormData>({
     resolver: zodResolver(projectSchema),
@@ -90,11 +96,23 @@ export function EditProjectForm({
   });
 
   const cover = watch("coverImage");
+  const mediaUrls = watch("mediaUrls");
+
+  const mediaItems: MediaEntry[] = mediaUrls
+    .split("\n")
+    .map((u) => u.trim())
+    .filter(Boolean)
+    .map((url) => ({ url, ...meta[url] }));
 
   const onSubmit = async (data: ProjectFormData) => {
     setServerError("");
     try {
-      await saveProjectAction({ ...data, id: projectId } as ProjectInput);
+      await saveProjectAction({
+        ...data,
+        id: projectId,
+        mediaMeta: meta,
+        coverBlurDataUrl: coverBlur,
+      } as ProjectInput);
       router.push("/admin/projects");
       router.refresh();
     } catch {
@@ -208,38 +226,58 @@ export function EditProjectForm({
           <input className="panel-field" placeholder="Web Design, RTL, Corporate" {...register("tags")} />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 items-start">
-          <div>
-            <label className={labelCls}>Cover Image URL</label>
-            <input className="panel-field" placeholder="/images/projects/my-project/mockup-1.webp" {...register("coverImage")} />
-            {errors.coverImage && <span className={errCls}>{errors.coverImage.message}</span>}
-            <div className="mt-2">
-              <MediaUpload
-                label="Upload cover"
-                onUploaded={([url]) =>
-                  url && setValue("coverImage", url, { shouldDirty: true })
-                }
-              />
-            </div>
-          </div>
-          {cover && (
-            <div className="relative h-28 w-40 overflow-hidden rounded-lg border border-[var(--panel-border)]">
-              {/* eslint-disable-next-line @next/next/no-img-element -- arbitrary preview URL */}
-              <img src={cover} alt="Cover preview" className="w-full h-full object-cover" />
-            </div>
-          )}
-        </div>
-
         <div>
-          <label className={labelCls}>
-            Gallery media — one URL per line (.mp4 becomes a video)
-          </label>
-          <textarea
-            {...register("mediaUrls")}
-            rows={5}
-            className={`${textareaCls} font-mono text-sm`}
-            placeholder={"/images/projects/my-project/mockup-1.webp\n/images/projects/my-project/mockup-2.webp\n/videos/my-project/clip-1.mp4"}
+          <label className={labelCls}>Pictures</label>
+          <MediaManager
+            items={mediaItems}
+            cover={cover}
+            onChange={({ items, cover: nextCover, coverBlur }) => {
+              setValue("mediaUrls", items.map((m) => m.url).join("\n"), {
+                shouldDirty: true,
+              });
+              setValue("coverImage", nextCover, { shouldDirty: true });
+              if (coverBlur !== undefined) setCoverBlur(coverBlur);
+              // Dimensions and placeholders only ever arrive with an upload, so
+              // merge rather than replace: reordering must not forget them.
+              setMeta((prev) => {
+                const next = { ...prev };
+                for (const m of items) {
+                  if (m.width && m.height) {
+                    next[m.url] = {
+                      width: m.width,
+                      height: m.height,
+                      blurDataUrl: m.blurDataUrl,
+                    };
+                  }
+                }
+                return next;
+              });
+            }}
           />
+          {errors.coverImage && (
+            <span className={errCls}>Add at least one picture — it becomes the cover.</span>
+          )}
+
+          <details className="mt-3">
+            <summary
+              className="cursor-pointer text-xs"
+              style={{ color: "var(--panel-muted)" }}
+            >
+              Edit the URLs as text
+            </summary>
+            <textarea
+              {...register("mediaUrls")}
+              rows={5}
+              className={`${textareaCls} mt-2 font-mono text-sm`}
+              placeholder={"/images/projects/my-project/mockup-1.webp\n/images/projects/my-project/mockup-2.webp\n/videos/my-project/clip-1.mp4"}
+            />
+            <label className={`${labelCls} mt-3`}>Cover URL</label>
+            <input
+              className="panel-field font-mono text-sm"
+              dir="ltr"
+              {...register("coverImage")}
+            />
+          </details>
         </div>
 
         <div className="flex flex-wrap items-center gap-6 border-t border-[var(--panel-border)] pt-4">
