@@ -40,6 +40,8 @@ export const SITES = {
   zambiaadmin: { url: "https://zambauth.org", name: "Zambia Maritime Administration" },
   zambiaservices: { url: "https://zamadmin.org", name: "Zambia Maritime Services" },
   alliance: { url: "https://clallianc.org", name: "Alliance Ship Certification Services" },
+  guatemala: { url: "https://guatadmin.org", name: "Guatemala Maritime Administration" },
+  highseas: { url: "https://highseasclass.org", name: "High Seas Classification" },
   sasmaa: { url: "https://sasmaaclub.org", name: "SASMAA" },
   asset: { url: "https://asset-uae.com", name: "ASSET" },
   rasael: { url: "https://rasaelapp.com", name: "Rasael" },
@@ -48,7 +50,7 @@ export const SITES = {
 const MAPPED = [
   "haiauthor.org", "zimadmin.org", "nicaradmin.org", "equguadmin.org",
   "sasmaaclub.org", "zambauth.org", "zamadmin.org", "chadminstra.org",
-  "cameadmin.org", "clallianc.org",
+  "cameadmin.org", "clallianc.org", "guatadmin.org", "highseasclass.org",
 ];
 const rules = MAPPED.flatMap((h) => [`MAP ${h} ${HOST_IP}`, `MAP www.${h} ${HOST_IP}`]).join(", ");
 

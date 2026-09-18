@@ -65,6 +65,24 @@
       "year": 2025
     },
     {
+      "key": "guatemala",
+      "nameEn": "Guatemala Maritime Administration",
+      "nameAr": "الإدارة البحرية — غواتيمالا",
+      "url": "https://guatadmin.org",
+      "image": "/images/projects/maritime-flag-administrations/site-guatemala.webp",
+      "live": true,
+      "year": 2026
+    },
+    {
+      "key": "highseas",
+      "nameEn": "High Seas Ship Registry",
+      "nameAr": "هاي سيز — سجل السفن الدولي",
+      "url": "https://highseasclass.org",
+      "image": "/images/projects/maritime-flag-administrations/site-highseas.webp",
+      "live": true,
+      "year": 2026
+    },
+    {
       "key": "cameroon",
       "nameEn": "Cameroon Ship Registry",
       "nameAr": "سجل السفن — الكاميرون",
