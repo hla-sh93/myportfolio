@@ -114,6 +114,7 @@ export function Navbar() {
         {/* Logo */}
         <Link
           href="/"
+          prefetch={false}
           className="font-display text-lg font-black tracking-tight text-text-primary"
         >
           {locale === "ar" ? "حلا" : "Hla"}
@@ -129,6 +130,7 @@ export function Navbar() {
               <li key={key}>
                 <Link
                   href={href}
+                  prefetch={false}
                   className={cn(
                     "relative block rounded-full px-4 py-2 text-sm font-semibold transition-colors",
                     isActive
@@ -176,6 +178,7 @@ export function Navbar() {
           {/* CTA — the one primary action (desktop) */}
           <Link
             href="/contact"
+            prefetch={false}
             className="shine ms-1 hidden items-center gap-1.5 rounded-full bg-accent px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-accent-hover lg:flex"
           >
             {tHero("contact")}
@@ -210,6 +213,7 @@ export function Navbar() {
                   <li key={key}>
                     <Link
                       href={href}
+                      prefetch={false}
                       onClick={() => setMobileOpen(false)}
                       className={cn(
                         "block rounded-2xl px-4 py-3 text-base font-semibold transition-colors",
@@ -226,6 +230,7 @@ export function Navbar() {
               <li className="mt-2 border-t border-border pt-3">
                 <Link
                   href="/contact"
+                  prefetch={false}
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center justify-center gap-2 rounded-2xl bg-accent px-4 py-3 text-base font-bold text-white"
                 >
