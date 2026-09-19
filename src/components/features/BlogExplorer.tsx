@@ -7,13 +7,16 @@ import { Search } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 
-/* The four content pillars — first tag of every article */
+/* The content pillars — first tag of every article.
+   "Craft" carries the pieces about the profession itself: taste, judgement,
+   constraints, and what stays human as the tooling changes. */
 const CATEGORIES = [
   "ALL",
   "UI/UX",
   "Front-End",
   "Graphic Design",
   "Product Design",
+  "Craft",
 ] as const;
 type Category = (typeof CATEGORIES)[number];
 
@@ -23,6 +26,7 @@ const CATEGORY_LABEL_AR: Record<Category, string> = {
   "Front-End": "فرونت-إند",
   "Graphic Design": "جرافيك",
   "Product Design": "تصميم منتج",
+  Craft: "الصنعة",
 };
 
 /* Whatever BlogCard accepts is what we filter — stays in sync automatically */

@@ -90,7 +90,7 @@ export default async function AboutPage({
               <div className="lg:sticky lg:top-28">
                 <SectionHeader
                   index="01"
-                  label={t("subtitle")}
+                  label={t("sections.career")}
                   title={t("experience.title")}
                   className="mb-0 md:mb-0"
                 />
@@ -106,7 +106,7 @@ export default async function AboutPage({
         <section className="border-t border-border py-16 md:py-24">
           <SectionHeader
             index="02"
-            label={t("subtitle")}
+            label={t("sections.toolkit")}
             title={t("skills.title")}
           />
           <SkillsGrid />

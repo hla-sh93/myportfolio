@@ -62,3 +62,7 @@ build.log
 
 # Local admin uploads — production uploads go to Vercel Blob
 /public/images/uploads/
+
+# Blog cover generator: cached webfonts + the review contact sheet
+scripts/.fontcache/
+blog-covers-contact-sheet.webp

@@ -111,7 +111,7 @@ export function Footer() {
 
           <div>
             <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-text-tertiary">
-              حلا شندية
+              {t("hero.name")}
             </h3>
             <p className="text-sm font-medium text-text-secondary">
               {t("footer.tagline")}
