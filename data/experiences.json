@@ -8,7 +8,7 @@
   "periodEn": "May 2024 – May 2025",
   "periodAr": "أيار 2024 – أيار 2025",
   "descEn": "Redesigned ERP systems and mobile applications with a user-first approach using Figma; built responsive interfaces with HTML, CSS, JavaScript, and Three.js, collaborating directly with the Customer Service Manager to translate client needs into functional, intuitive UI.",
-  "descAr": "إعادة تصميم أنظمة ERP وتطبيقات موبايل بنهج يضع المستخدم أولًا باستخدام Figma، وبناء واجهات متجاوبة بـ HTML وCSS وJavaScript وThree.js، بالتعاون المباشر مع إدارة خدمة العملاء لترجمة احتياجات العملاء إلى واجهات عملية وبديهية.",
+  "descAr": "إعادة تصميم أنظمة ERP وتطبيقات موبايل بنهج يضع المستخدم أولًا باستخدام Figma، وبناء واجهات متجاوبة بـ HTML, CSS, JavaScript & Three.js، بالتعاون المباشر مع إدارة خدمة العملاء لترجمة احتياجات العملاء إلى واجهات عملية وبديهية.",
   "order": 0
  },
  {
@@ -32,7 +32,7 @@
   "periodEn": "Jul 2019 – Jan 2023",
   "periodAr": "تموز 2019 – كانون الثاني 2023",
   "descEn": "Designed web and mobile UI using Next.js and MUI, and contributed to strategic decisions for a platform that reached 94,000+ users and 50,000+ downloads, working with 3,000+ publishers.",
-  "descAr": "تصميم واجهات الويب والموبايل باستخدام Next.js وMUI، والمساهمة في القرارات الاستراتيجية لمنصة وصلت إلى أكثر من 94,000 مستخدم و50,000 تحميل، والعمل مع أكثر من 3,000 ناشر.",
+  "descAr": "تصميم واجهات الويب والموبايل باستخدام Next.js & MUI، والمساهمة في القرارات الاستراتيجية لمنصة وصلت إلى أكثر من 94,000 مستخدم و50,000 تحميل، والعمل مع أكثر من 3,000 ناشر.",
   "order": 2
  },
  {
@@ -92,7 +92,7 @@
   "periodEn": "Aug 2016 – Jan 2019",
   "periodAr": "آب 2016 – كانون الثاني 2019",
   "descEn": "Created full web designs using Adobe XD, HTML, CSS, and Bootstrap; developed engaging front-end experiences for both mobile and web.",
-  "descAr": "تصميم مواقع كاملة باستخدام Adobe XD وHTML وCSS وBootstrap، وبناء تجارب واجهة أمامية جذابة للويب والموبايل.",
+  "descAr": "تصميم مواقع كاملة باستخدام Adobe XD, HTML, CSS & Bootstrap، وبناء تجارب واجهة أمامية جذابة للويب والموبايل.",
   "order": 7
  }
 ]

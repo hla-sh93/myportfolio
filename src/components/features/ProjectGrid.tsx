@@ -6,7 +6,7 @@ import type { ProjectCardData } from "@/types";
 import { AnimatePresence, motion } from "framer-motion";
 import { LayoutGrid, List, Search } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ProjectCard } from "./ProjectCard";
 
 interface ProjectGridProps {
@@ -16,6 +16,10 @@ interface ProjectGridProps {
 
 const CATEGORIES = ["ALL", "VIDEOS", "GRAPHIC_DESIGN", "UIUX", "WEBSITES"] as const;
 type Category = (typeof CATEGORIES)[number];
+
+/* Clears the fixed nav pill: 16px of top padding plus its 56px height,
+   then 8px of air. Keep in sync with layout/navbar.tsx. */
+const STICKY_TOP = 80;
 
 const categoryTranslationKey: Record<Category, string> = {
   ALL: "categories.all",
@@ -30,6 +34,23 @@ export function ProjectGrid({ projects, initialCategory = "ALL" }: ProjectGridPr
   const [activeCategory, setActiveCategory] = useState<Category>(initialCategory as Category);
   const [query, setQuery] = useState("");
   const [view, setView] = useState<"grid" | "list">("grid");
+
+  /* The controls bar sticks under the floating nav pill so the filters stay
+     reachable deep into a 55-card grid. The sentinel tells us when it has
+     actually stuck, so the acrylic backing only appears once it is needed. */
+  const sentinelRef = useRef<HTMLDivElement>(null);
+  const [stuck, setStuck] = useState(false);
+
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      ([entry]) => setStuck(!entry.isIntersecting),
+      { rootMargin: `-${STICKY_TOP + 1}px 0px 0px 0px`, threshold: 0 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   const filteredProjects = useMemo(() => {
     return projects.filter((project) => {
@@ -46,14 +67,26 @@ export function ProjectGrid({ projects, initialCategory = "ALL" }: ProjectGridPr
   return (
     <div className="flex flex-col gap-8 w-full">
       {/* Controls Bar */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div ref={sentinelRef} aria-hidden className="h-px w-full" />
+      <div
+        style={{ top: STICKY_TOP }}
+        className={cn(
+          // bleeds into the page gutter so cards never show at the edges
+          "sticky z-30 -mx-6 flex flex-col justify-between gap-4 px-6 py-3 transition-[background-color,border-color,box-shadow] duration-300 lg:-mx-8 lg:px-8 md:flex-row md:items-center",
+          stuck
+            ? "rounded-2xl border border-border bg-surface-acrylic shadow-lg backdrop-blur-2xl"
+            : "border border-transparent bg-transparent"
+        )}
+      >
         {/* Category filters — every one of them, at every width.
             These used to sit in a scroll rail with the scrollbar hidden, so on
             a narrow screen the last filter slid off the edge with nothing to
             say it was there and read as missing. They wrap now, like the blog
             and certificate filters do. */}
         <div className="flex-1">
-          <div className="flex flex-wrap items-center gap-2">
+          {/* isolate keeps the -z-10 active pill from sliding behind the
+              acrylic backing once the bar sticks */}
+          <div className="flex flex-wrap items-center gap-2 isolate">
             {CATEGORIES.map((category) => (
               <button
                 key={category}
@@ -78,8 +111,16 @@ export function ProjectGrid({ projects, initialCategory = "ALL" }: ProjectGridPr
           </div>
         </div>
 
-        {/* Search & View Toggle */}
-        <div className="flex items-center gap-4 shrink-0">
+        {/* Search & View Toggle. On a phone the whole bar is three rows tall,
+            so once it sticks these fold away and leave the filters, which are
+            what you actually reach for mid-scroll. An active query keeps them
+            on screen, otherwise there would be no way to see or clear it. */}
+        <div
+          className={cn(
+            "flex items-center gap-4 shrink-0",
+            stuck && !query && "max-md:hidden"
+          )}
+        >
           <div className="w-full md:w-64">
             <Input
               type="text"
