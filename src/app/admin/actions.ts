@@ -6,6 +6,7 @@
  * and revalidate the public pages that render the touched collection.
  */
 import { auth, signOut } from "@/auth";
+import { blurForUrl } from "@/lib/blur";
 import {
   deleteArticle as storeDeleteArticle,
   deleteCertificate as storeDeleteCertificate,
@@ -167,6 +168,24 @@ export async function saveProjectAction(input: ProjectInput) {
       };
     });
 
+  /* The placeholder follows the cover. A cover that did not change keeps the
+     one it had, and a freshly uploaded one arrives with its own. Choosing a
+     cover from pictures the project already holds brings neither, because a
+     media row carries width and height and never carried a placeholder, so
+     one is made from the picture itself rather than left empty.
+
+     Note this compares the resolved cover, not the submitted field: a form
+     that sends no cover at all falls back to the stored one, which is not a
+     change and must not cost the placeholder. */
+  const coverImage =
+    input.coverImage || existing?.coverImage || "/images/placeholder.jpg";
+  const blurDataUrl =
+    coverImage === existing?.coverImage
+      ? (existing?.blurDataUrl ?? null)
+      : (input.coverBlurDataUrl ??
+        input.mediaMeta?.[coverImage]?.blurDataUrl ??
+        (await blurForUrl(coverImage)));
+
   const record = {
     id,
     slug: input.slug,
@@ -180,13 +199,8 @@ export async function saveProjectAction(input: ProjectInput) {
     bodyAr: input.bodyAr === undefined ? (existing?.bodyAr ?? null) : input.bodyAr.trim() || null,
     category: input.category,
     tags: splitList(input.tags),
-    coverImage: input.coverImage || existing?.coverImage || "/images/placeholder.jpg",
-    blurDataUrl:
-      input.coverImage === existing?.coverImage
-        ? (existing?.blurDataUrl ?? null)
-        : (input.coverBlurDataUrl ??
-          input.mediaMeta?.[input.coverImage]?.blurDataUrl ??
-          null),
+    coverImage,
+    blurDataUrl,
     client: input.client.trim() || null,
     role: input.role.trim() || null,
     liveUrl: null, // superseded by links; upsertProject keeps it in step

@@ -1,4 +1,5 @@
 import { auth } from "@/auth";
+import { blurPlaceholder } from "@/lib/blur";
 import { safeName, saveMedia } from "@/lib/media-store";
 import { NextResponse } from "next/server";
 import sharp from "sharp";
@@ -32,24 +33,6 @@ const IMAGE_TYPES = [
   "image/tiff",
 ];
 const VIDEO_TYPES = ["video/mp4", "video/webm", "video/quicktime"];
-
-/**
- * The blurred stand-in `next/image` paints while the real file downloads.
- * Sixteen pixels wide is enough to read as the picture's colour, and small
- * enough that the base64 costs less than the HTML around it.
- */
-async function blurPlaceholder(image: Buffer): Promise<string | null> {
-  try {
-    const tiny = await sharp(image)
-      .resize(16, 16, { fit: "inside" })
-      .webp({ quality: 45 })
-      .toBuffer();
-    return `data:image/webp;base64,${tiny.toString("base64")}`;
-  } catch {
-    // A missing placeholder costs a flash of empty space, never the upload.
-    return null;
-  }
-}
 
 export async function POST(req: Request) {
   const session = await auth();
