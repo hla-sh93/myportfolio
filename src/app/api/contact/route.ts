@@ -1,6 +1,5 @@
 import { db } from "@/lib/db";
 import { addMessage } from "@/lib/content-store";
-import { sendContactNotification } from "@/lib/email";
 import { contactSchema } from "@/lib/validations";
 import {
   buildRateLimitResponse,
@@ -68,10 +67,6 @@ export async function POST(req: Request) {
     } catch {
       await addMessage(message);
     }
-
-    // 6. Forward it. The message is saved by now, so a mail failure must not
-    //    tell the visitor their enquiry did not go through — it did.
-    await sendContactNotification(message);
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
