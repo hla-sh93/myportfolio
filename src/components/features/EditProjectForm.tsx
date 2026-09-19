@@ -309,7 +309,7 @@ export function EditProjectForm({
               {...register("featured")}
               className="h-4 w-4 cursor-pointer accent-[var(--accent)]"
             />
-            Featured on home (max 4 shown)
+            Featured on home (the grid fits 5)
           </label>
         </div>
       </div>

@@ -92,9 +92,16 @@ export async function getPublicProjects(): Promise<PublicProject[]> {
   return all.filter((p) => p.published).map(reviveProject);
 }
 
+/**
+ * Five, not four: the home grid gives the first project the full row and
+ * fills two columns with the rest, so a fourth leaves the last cell empty.
+ * Feature fewer than five and the row simply ends early.
+ */
+export const FEATURED_ON_HOME = 5;
+
 export async function getFeaturedProjects(): Promise<PublicProject[]> {
   const all = await getPublicProjects();
-  return all.filter((p) => p.featured).slice(0, 4);
+  return all.filter((p) => p.featured).slice(0, FEATURED_ON_HOME);
 }
 
 export async function getPublicProject(
