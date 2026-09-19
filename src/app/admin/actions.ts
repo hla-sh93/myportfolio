@@ -126,15 +126,34 @@ export async function saveProjectAction(input: ProjectInput) {
   const id = input.id || newId("proj");
   const existing = input.id ? await getStoredProject(input.id) : null;
 
-  const media: MediaItem[] = input.mediaUrls
+  const urls = input.mediaUrls
     .split("\n")
     .map((x) => x.trim())
-    .filter(Boolean)
+    .filter(Boolean);
+
+  /* A picture that stays keeps its id wherever it moves to; a new one takes
+     the first number nothing else is using. Numbering purely by position
+     handed a new picture the id of one that had merely been reordered, the
+     two collided inside a single insert, and the gallery was lost. */
+  const taken = new Set(
+    urls
+      .map((url) => existing?.media.find((m) => m.url === url)?.id)
+      .filter((x): x is string => Boolean(x))
+  );
+  let counter = 0;
+  const freshId = () => {
+    let candidate = `${id}-m${++counter}`;
+    while (taken.has(candidate)) candidate = `${id}-m${++counter}`;
+    taken.add(candidate);
+    return candidate;
+  };
+
+  const media: MediaItem[] = urls
     .map((url, i) => {
       const prev = existing?.media.find((m) => m.url === url);
       const measured = input.mediaMeta?.[url];
       return {
-        id: prev?.id ?? `${id}-m${i + 1}`,
+        id: prev?.id ?? freshId(),
         url,
         type: url.toLowerCase().endsWith(".mp4") ? "VIDEO" : "IMAGE",
         altEn: `${input.titleEn} — ${i + 1}`,
@@ -148,7 +167,7 @@ export async function saveProjectAction(input: ProjectInput) {
       };
     });
 
-  await upsertProject({
+  const record = {
     id,
     slug: input.slug,
     titleEn: input.titleEn,
@@ -178,9 +197,22 @@ export async function saveProjectAction(input: ProjectInput) {
     published: input.published,
     publishedAt: existing?.publishedAt ?? new Date().toISOString(),
     media,
-  });
+  };
+
+  /* Report why a save failed. Next redacts a thrown server-action error in
+     production, so the form was left guessing and blamed the session for
+     what was really a rejected write. */
+  try {
+    await upsertProject(record);
+  } catch (e) {
+    console.error("[saveProjectAction] upsert failed", e);
+    return {
+      ok: false as const,
+      error: e instanceof Error ? e.message : "The database rejected the save.",
+    };
+  }
   revalidateAll();
-  return { ok: true, id };
+  return { ok: true as const, id };
 }
 
 export async function deleteProjectAction(id: string) {

@@ -420,13 +420,18 @@ export async function upsertProject(project: StoredProject) {
       create: { id: project.id, ...row },
       update: row,
     });
-    // replace the gallery wholesale — order and membership both come from the form
-    await db.media.deleteMany({ where: { projectId: project.id } });
-    if (media.length > 0) {
-      await db.media.createMany({
-        data: media.map((m) => ({ ...m, projectId: project.id })),
-      });
+    /* Order and membership both come from the form, but write the new
+       gallery before removing the old one. Deleting first meant a failed
+       insert left the project with no pictures and nothing to roll back to,
+       because the HTTP driver has no transaction to undo it with. */
+    for (const m of media) {
+      const row = { ...m, projectId: project.id };
+      await db.media.upsert({ where: { id: m.id }, create: row, update: row });
     }
+    const keep = media.map((m) => m.id);
+    await db.media.deleteMany({
+      where: { projectId: project.id, id: { notIn: keep.length ? keep : ["-"] } },
+    });
     return;
   } catch (e) {
     writeFailed("write", e);

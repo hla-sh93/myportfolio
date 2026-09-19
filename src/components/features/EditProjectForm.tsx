@@ -119,15 +119,20 @@ export function EditProjectForm({
   const onSubmit = async (data: ProjectFormData) => {
     setServerError("");
     try {
-      await saveProjectAction({
+      const res = await saveProjectAction({
         ...data,
         id: projectId,
         mediaMeta: meta,
         coverBlurDataUrl: coverBlur,
       } as ProjectInput);
+      if (!res.ok) {
+        setServerError(res.error);
+        return;
+      }
       router.push("/admin/projects");
       router.refresh();
     } catch {
+      // the action itself never ran — a dropped connection or an expired session
       setServerError("Saving failed — are you still signed in?");
     }
   };
