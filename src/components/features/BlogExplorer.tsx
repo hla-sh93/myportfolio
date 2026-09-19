@@ -1,33 +1,14 @@
 "use client";
 
 import { BlogCard } from "@/components/features/BlogCard";
+import { BLOG_CATEGORIES, blogCategoryLabel } from "@/lib/blog-categories";
 import { Input } from "@/components/ui/Input";
 import { AnimatePresence, motion } from "framer-motion";
 import { Search } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 
-/* The content pillars — first tag of every article.
-   "Craft" carries the pieces about the profession itself: taste, judgement,
-   constraints, and what stays human as the tooling changes. */
-const CATEGORIES = [
-  "ALL",
-  "UI/UX",
-  "Front-End",
-  "Graphic Design",
-  "Product Design",
-  "Craft",
-] as const;
-type Category = (typeof CATEGORIES)[number];
-
-const CATEGORY_LABEL_AR: Record<Category, string> = {
-  ALL: "الكل",
-  "UI/UX": "UI/UX",
-  "Front-End": "فرونت-إند",
-  "Graphic Design": "جرافيك",
-  "Product Design": "تصميم منتج",
-  Craft: "الصنعة",
-};
+type Category = (typeof BLOG_CATEGORIES)[number];
 
 /* Whatever BlogCard accepts is what we filter — stays in sync automatically */
 export type ExplorerArticle = React.ComponentProps<typeof BlogCard>["article"];
@@ -40,7 +21,6 @@ export function BlogExplorer({
   locale: string;
 }) {
   const t = useTranslations("blog");
-  const isAr = locale === "ar";
   const [category, setCategory] = useState<Category>("ALL");
   const [query, setQuery] = useState("");
 
@@ -62,7 +42,7 @@ export function BlogExplorer({
       {/* Filter rail — mirrors the projects explorer */}
       <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
         <div className="flex flex-wrap items-center gap-2">
-          {CATEGORIES.map((c) => {
+          {BLOG_CATEGORIES.map((c) => {
             const active = category === c;
             return (
               <button
@@ -82,7 +62,7 @@ export function BlogExplorer({
                   />
                 )}
                 <span className="relative">
-                  {isAr ? CATEGORY_LABEL_AR[c] : c === "ALL" ? "All" : c}
+                  {blogCategoryLabel(c, locale)}
                 </span>
               </button>
             );

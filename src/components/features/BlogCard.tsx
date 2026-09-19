@@ -1,6 +1,7 @@
 "use client";
 
 import { Link } from "@/i18n/navigation";
+import { blogCategoryLabel } from "@/lib/blog-categories";
 import type { ArticleCardData } from "@/types";
 import { format } from "date-fns";
 import { arSA, enUS } from "date-fns/locale";
@@ -70,7 +71,7 @@ export function BlogCard({ article, index = 0, titleAs: TitleTag = "h3" }: BlogC
             <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-text-tertiary">
               {category && (
                 <span className="rounded-full bg-accent-light px-3 py-1 text-accent">
-                  {category}
+                  {blogCategoryLabel(category, locale)}
                 </span>
               )}
               <span>{publishDate}</span>
