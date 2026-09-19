@@ -15,6 +15,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { db } from "@/lib/db";
 import { projects as staticProjects } from "@/content/projects";
+import { normaliseLinks as toLinks, type ProjectLink } from "@/lib/link-types";
 import staticCertificates from "@/content/certificates.json";
 import arMessages from "@/messages/ar.json";
 import enMessages from "@/messages/en.json";
@@ -34,6 +35,9 @@ export type MediaItem = {
   height: number;
 };
 
+export { LINK_TYPES, normaliseLinks } from "@/lib/link-types";
+export type { LinkType, ProjectLink } from "@/lib/link-types";
+
 export type StoredProject = {
   id: string;
   slug: string;
@@ -51,8 +55,10 @@ export type StoredProject = {
   role: string | null;
   tools: string[];
   year: number | null;
-  /** Public address of the delivered site, when there is one to visit. */
+  /** Superseded by `links`; read only when a row predates the change. */
   liveUrl: string | null;
+  /** Where the work can be visited. A project can have more than one. */
+  links: ProjectLink[];
   featured: boolean;
   published: boolean;
   publishedAt: string; // ISO
@@ -192,6 +198,7 @@ function seedProjects(): StoredProject[] {
     tools: p.tools,
     year: p.year ?? null,
     liveUrl: null,
+    links: toLinks((p as { links?: unknown }).links),
     featured: p.featured,
     published: p.published,
     publishedAt: new Date(p.publishedAt).toISOString(),
@@ -283,6 +290,7 @@ const toProject = (p: any): StoredProject => ({
   tools: p.tools ?? [],
   year: p.year,
   liveUrl: p.liveUrl ?? null,
+  links: toLinks(p.links, p.liveUrl),
   featured: p.featured,
   published: p.published,
   publishedAt: iso(p.publishedAt),
@@ -352,7 +360,7 @@ async function readStoredProjects(): Promise<StoredProject[]> {
   } catch {
     /* no database — fall through to the file store */
   }
-  return readFileCollection<StoredProject>("projects", seedProjects);
+  return readFileCollection<StoredProject>("projects", seedProjects).map(withLinks);
 }
 
 async function readStoredProject(
@@ -368,7 +376,17 @@ async function readStoredProject(
     /* fall through */
   }
   const all = readFileCollection<StoredProject>("projects", seedProjects);
-  return all.find((p) => p.id === idOrSlug || p.slug === idOrSlug) ?? null;
+  const found = all.find((p) => p.id === idOrSlug || p.slug === idOrSlug);
+  return found ? withLinks(found) : null;
+}
+
+/**
+ * A record written before `links` existed — in the JSON file, or sitting in a
+ * cache from an earlier deployment — has no such field, and the page maps over
+ * it. Filling it on read costs nothing and removes a whole class of crash.
+ */
+function withLinks(p: StoredProject): StoredProject {
+  return p.links ? p : { ...p, links: toLinks(undefined, p.liveUrl) };
 }
 
 export async function upsertProject(project: StoredProject) {
@@ -389,7 +407,9 @@ export async function upsertProject(project: StoredProject) {
     role: rest.role,
     tools: rest.tools,
     year: rest.year,
-    liveUrl: rest.liveUrl ?? null,
+    // the old column is kept truthful for anything still reading it
+    liveUrl: rest.links.find((l) => l.type === "site")?.url ?? rest.liveUrl ?? null,
+    links: rest.links,
     featured: rest.featured,
     published: rest.published,
     publishedAt: new Date(rest.publishedAt),

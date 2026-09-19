@@ -66,9 +66,9 @@ export default async function EditProjectPage({
             coverImage: project.coverImage,
             client: project.client ?? "",
             role: project.role ?? "",
-            // Without this the form loads an empty field and saving clears the
-            // stored address — the maritime portals all depend on it.
-            liveUrl: project.liveUrl ?? "",
+            // Without these the form loads empty and saving clears the stored
+            // addresses — the maritime portals all depend on them.
+            links: project.links.map((l) => `${l.type}|${l.url}`).join("\n"),
             tools: project.tools.join(", "),
             year: project.year ? String(project.year) : "",
             featured: project.featured,

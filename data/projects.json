@@ -26,7 +26,6 @@
       "Lenis"
     ],
     "year": 2026,
-    "liveUrl": "https://rasaelapp.com",
     "featured": true,
     "published": true,
     "publishedAt": "2026-06-30T21:00:00.000Z",
@@ -81,6 +80,12 @@
         "width": 1080,
         "height": 1350
       }
+    ],
+    "links": [
+      {
+        "url": "https://rasaelapp.com",
+        "type": "site"
+      }
     ]
   },
   {
@@ -107,7 +112,6 @@
       "React"
     ],
     "year": 2026,
-    "liveUrl": "https://zimadmin.org",
     "featured": true,
     "published": true,
     "publishedAt": "2026-05-31T21:00:00.000Z",
@@ -142,6 +146,12 @@
         "width": 1600,
         "height": 1200
       }
+    ],
+    "links": [
+      {
+        "url": "https://zimadmin.org",
+        "type": "site"
+      }
     ]
   },
   {
@@ -167,7 +177,6 @@
       "Figma"
     ],
     "year": 2025,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2025-07-22T00:00:00.000Z",
@@ -232,7 +241,8 @@
         "width": 2000,
         "height": 1300
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "ifaif-app",
@@ -257,7 +267,6 @@
       "Figma"
     ],
     "year": 2025,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2025-07-22T00:00:00.000Z",
@@ -312,7 +321,8 @@
         "width": 2400,
         "height": 1999
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "jadarat",
@@ -337,7 +347,6 @@
       "Figma"
     ],
     "year": null,
-    "liveUrl": "https://www.jadarat.net/",
     "featured": false,
     "published": true,
     "publishedAt": "2025-05-31T21:00:00.000Z",
@@ -412,6 +421,12 @@
         "width": 2400,
         "height": 1792
       }
+    ],
+    "links": [
+      {
+        "url": "https://www.jadarat.net/",
+        "type": "site"
+      }
     ]
   },
   {
@@ -438,7 +453,6 @@
       "Illustrator"
     ],
     "year": null,
-    "liveUrl": "https://solareva.ae/",
     "featured": false,
     "published": true,
     "publishedAt": "2025-05-04T21:00:00.000Z",
@@ -553,6 +567,12 @@
         "width": 1600,
         "height": 1200
       }
+    ],
+    "links": [
+      {
+        "url": "https://solareva.ae/",
+        "type": "site"
+      }
     ]
   },
   {
@@ -578,7 +598,6 @@
       "Figma"
     ],
     "year": null,
-    "liveUrl": "https://phoenitech.sy/",
     "featured": false,
     "published": true,
     "publishedAt": "2025-04-30T21:00:00.000Z",
@@ -673,6 +692,12 @@
         "width": 1600,
         "height": 1200
       }
+    ],
+    "links": [
+      {
+        "url": "https://phoenitech.sy/",
+        "type": "site"
+      }
     ]
   },
   {
@@ -699,7 +724,6 @@
       "Photoshop"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2025-04-30T21:00:00.000Z",
@@ -784,7 +808,8 @@
         "width": 1600,
         "height": 1200
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "crenny",
@@ -809,7 +834,6 @@
       "Figma"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2025-04-09T21:00:00.000Z",
@@ -894,7 +918,8 @@
         "width": 1600,
         "height": 1200
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "saab",
@@ -919,7 +944,6 @@
       "Figma"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2025-03-31T21:00:00.000Z",
@@ -1004,7 +1028,8 @@
         "width": 1600,
         "height": 1200
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "lamasat-web",
@@ -1029,7 +1054,6 @@
       "Figma"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2025-03-19T21:00:00.000Z",
@@ -1114,7 +1138,8 @@
         "width": 1600,
         "height": 1200
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "lamasat-app",
@@ -1139,7 +1164,6 @@
       "Figma"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2025-03-14T21:00:00.000Z",
@@ -1234,7 +1258,8 @@
         "width": 1600,
         "height": 1200
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "border-ports",
@@ -1259,7 +1284,6 @@
       "Figma"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2025-03-04T21:00:00.000Z",
@@ -1324,7 +1348,8 @@
         "width": 2400,
         "height": 1792
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "akhdar",
@@ -1349,7 +1374,6 @@
       "Figma"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2025-02-11T21:00:00.000Z",
@@ -1424,7 +1448,8 @@
         "width": 2400,
         "height": 1792
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "turki",
@@ -1434,7 +1459,7 @@
     "descEn": "Buying meat online is a trust problem before it is a design problem. For this Saudi butcher we mapped 28 screens that let the customer see exactly what they are getting: whole carcasses or cuts by the kilo, ready-to-cook boxes, poultry, sacrificial animals, and custom cutting on request. The RTL journey runs from browsing to a donation basket to home delivery without a single dead end.",
     "descAr": "شراء اللحم أونلاين مسألة ثقة قبل أن يكون مسألة تصميم. صمّمنا لهذا المتجر السعودي ثماني وعشرين شاشة تُري الزبون بالضبط ما سيصله: ذبائح كاملة أو تقطيع بالكيلو، وبوكسات جاهزة للطهي، ودواجن، وأضاحٍ، مع خدمة تقطيع حسب الطلب. وتمتد رحلة الشراء العربية من التصفّح إلى سلة التبرعات إلى التوصيل للمنزل بلا طريق مسدود.",
     "bodyEn": "## Buying meat online is a trust problem first\n\nEverything difficult about this project comes from one fact: the customer cannot see, touch or smell what they are buying, in a category where those three things are how people have always decided. Design cannot replace them. What it can do is remove every ambiguity about what is actually being ordered.\n\nSo the 28 screens we mapped for this Saudi butcher are built around one rule — the customer should never be uncertain about what will arrive.\n\n## What the customer can order\n\n- **Whole carcasses** — with the cutting specified rather than assumed\n- **Cuts by the kilo** — priced and described individually\n- **Ready-to-cook boxes** — prepared selections for people who do not want to choose\n- **Poultry** — its own range\n- **Sacrificial animals** — for Eid and other occasions, which is a booking rather than a purchase\n- **Custom cutting on request** — the instruction a butcher's customer has always given at the counter\n- **Donation basket** — sacrificial meat given rather than delivered\n- **Home delivery** — the end of every path\n\n## Right-to-left, with no dead ends\n\nThe whole journey is Arabic and RTL by construction. We traced every route from browsing to confirmation to make sure none of them stops: every screen either completes the order or offers the next step, including the ones — like the donation basket — that leave the normal shopping path entirely.",
-    "bodyAr": "## شراء اللحم عبر الإنترنت مسألة ثقة قبل كل شيء\n\nكل ما هو صعب في هذا المشروع نابعٌ من حقيقة واحدة: الزبون لا يرى ما يشتريه ولا يلمسه ولا يشمّه، في صنفٍ ظلّ الناس يقرّرون فيه بهذه الحواسّ الثلاث. والتصميم لا يعوّضها، لكنه يستطيع أن يزيل كل التباس حول ما يُطلَب فعلًا.\n\nلذلك بُنيت الشاشات الثماني والعشرون التي رسمناها لهذه الملحمة السعودية على قاعدة واحدة: ألّا يبقى الزبون في شكّ ممّا سيصله.\n\n## ما يمكن للزبون طلبه\n\n- **ذبائح كاملة** — بتقطيع محدَّد لا مفترَض\n- **قطعيّات بالكيلو** — مسعَّرة وموصوفة كلٌّ على حدة\n- **صناديق جاهزة للطهي** — تشكيلات معدّة لمن لا يريد أن يختار\n- **الدواجن** — بتشكيلتها الخاصة\n- **الأضاحي** — للعيد وسواه، وهي حجزٌ لا شراء\n- **التقطيع حسب الطلب** — التعليمة التي ظلّ زبون الملحمة يعطيها عند الطاولة\n- **سلّة التبرّع** — أضحيةٌ تُهدى لا تُستلَم\n- **التوصيل إلى المنزل** — نهاية كل مسار\n\n## من اليمين إلى اليسار، وبلا طريق مسدود\n\nالمسار كلّه عربي ومن اليمين إلى اليسار بحكم البناء. وتتبّعت كل طريق من التصفّح إلى التأكيد للتأكّد من أن أيًّا منها لا يتوقّف: كل شاشة إمّا تُتمّ الطلب أو تعرض الخطوة التالية، بما فيها المسارات التي تغادر طريق الشراء المعتاد كلّيًّا مثل سلّة التبرّع.",
+    "bodyAr": "## شراء اللحم عبر الإنترنت مسألة ثقة قبل كل شيء\n\nكل ما هو صعب في هذا المشروع نابعٌ من حقيقة واحدة: الزبون لا يرى ما يشتريه ولا يلمسه ولا يشمّه، في صنفٍ ظلّ الناس يقرّرون فيه بهذه الحواسّ الثلاث. والتصميم لا يعوّضها، لكنه يستطيع أن يزيل كل التباس حول ما يُطلَب فعلًا.\n\nلذلك بُنيت الشاشات الثماني والعشرون التي رسمناها لهذه الملحمة السعودية على قاعدة واحدة: ألّا يبقى الزبون في شكّ ممّا سيصله.\n\n## ما يمكن للزبون طلبه\n\n- **ذبائح كاملة** — بتقطيع محدَّد لا مفترَض\n- **قطعيّات بالكيلو** — مسعَّرة وموصوفة كلٌّ على حدة\n- **صناديق جاهزة للطهي** — تشكيلات معدّة لمن لا يريد أن يختار\n- **الدواجن** — بتشكيلتها الخاصة\n- **الأضاحي** — للعيد وسواه، وهي حجزٌ لا شراء\n- **التقطيع حسب الطلب** — التعليمة التي ظلّ زبون الملحمة يعطيها عند الطاولة\n- **سلّة التبرّع** — أضحيةٌ تُهدى لا تُستلَم\n- **التوصيل إلى المنزل** — نهاية كل مسار\n\n## من اليمين إلى اليسار، وبلا طريق مسدود\n\nالمسار كلّه عربي ومن اليمين إلى اليسار بحكم البناء. وتتبّعنا كل طريق من التصفّح إلى التأكيد للتأكّد من أن أيًّا منها لا يتوقّف: كل شاشة إمّا تُتمّ الطلب أو تعرض الخطوة التالية، بما فيها المسارات التي تغادر طريق الشراء المعتاد كلّيًّا مثل سلّة التبرّع.",
     "category": "UIUX",
     "tags": [
       "E-Commerce",
@@ -1449,7 +1474,6 @@
       "Figma"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2025-01-31T21:00:00.000Z",
@@ -1534,7 +1558,8 @@
         "width": 1600,
         "height": 1200
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "emirates-sands",
@@ -1559,7 +1584,6 @@
       "Figma"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2025-01-14T21:00:00.000Z",
@@ -1644,7 +1668,8 @@
         "width": 1600,
         "height": 1200
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "fast-express",
@@ -1669,7 +1694,6 @@
       "Figma"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2025-01-09T21:00:00.000Z",
@@ -1754,7 +1778,8 @@
         "width": 1600,
         "height": 1200
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "kafoo",
@@ -1779,7 +1804,6 @@
       "Figma"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2024-11-30T21:00:00.000Z",
@@ -1864,7 +1888,8 @@
         "width": 1600,
         "height": 1200
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "tawseel",
@@ -1889,7 +1914,6 @@
       "Figma"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2024-11-19T21:00:00.000Z",
@@ -1994,7 +2018,8 @@
         "width": 1600,
         "height": 1200
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "cadeau",
@@ -2020,7 +2045,6 @@
       "Illustrator"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2024-10-14T21:00:00.000Z",
@@ -2125,7 +2149,8 @@
         "width": 2400,
         "height": 1600
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "menu-web",
@@ -2150,7 +2175,6 @@
       "Figma"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2024-09-30T21:00:00.000Z",
@@ -2225,7 +2249,8 @@
         "width": 2400,
         "height": 1792
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "bw-profile",
@@ -2251,7 +2276,6 @@
       "Photoshop"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2024-09-09T21:00:00.000Z",
@@ -2346,7 +2370,8 @@
         "width": 1600,
         "height": 1200
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "bigboss",
@@ -2371,7 +2396,6 @@
       "Figma"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2024-07-31T21:00:00.000Z",
@@ -2446,7 +2470,8 @@
         "width": 2400,
         "height": 1792
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "codxeon",
@@ -2471,7 +2496,6 @@
       "Figma"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2024-05-31T21:00:00.000Z",
@@ -2506,7 +2530,8 @@
         "width": 2400,
         "height": 1600
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "showreel",
@@ -2532,7 +2557,6 @@
       "Premiere Pro"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2024-05-31T21:00:00.000Z",
@@ -2547,7 +2571,8 @@
         "width": 1280,
         "height": 536
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "driver-app",
@@ -2572,7 +2597,6 @@
       "Figma"
     ],
     "year": 2024,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2024-05-16T00:00:00.000Z",
@@ -2607,7 +2631,8 @@
         "width": 2400,
         "height": 1824
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "ecommerce-concept-app",
@@ -2632,7 +2657,6 @@
       "Figma"
     ],
     "year": 2024,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2024-05-16T00:00:00.000Z",
@@ -2667,7 +2691,8 @@
         "width": 2400,
         "height": 1600
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "golden-horse-web",
@@ -2692,7 +2717,6 @@
       "Figma"
     ],
     "year": 2024,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2024-05-16T00:00:00.000Z",
@@ -2707,7 +2731,8 @@
         "width": 2400,
         "height": 1600
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "krsy",
@@ -2732,7 +2757,6 @@
       "Figma"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2024-03-31T21:00:00.000Z",
@@ -2797,7 +2821,8 @@
         "width": 2400,
         "height": 1768
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "living-app",
@@ -2822,7 +2847,6 @@
       "Figma"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2023-12-31T21:00:00.000Z",
@@ -2947,7 +2971,8 @@
         "width": 2400,
         "height": 1564
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "wasl-fx-brand",
@@ -2973,7 +2998,6 @@
       "Illustrator"
     ],
     "year": 2023,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2023-09-08T00:00:00.000Z",
@@ -2998,7 +3022,8 @@
         "width": 2400,
         "height": 1800
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "sunspire-brand",
@@ -3024,7 +3049,6 @@
       "Illustrator"
     ],
     "year": 2023,
-    "liveUrl": "https://sunspire.ae/",
     "featured": false,
     "published": true,
     "publishedAt": "2023-09-08T00:00:00.000Z",
@@ -3129,6 +3153,12 @@
         "width": 2400,
         "height": 1600
       }
+    ],
+    "links": [
+      {
+        "url": "https://sunspire.ae/",
+        "type": "site"
+      }
     ]
   },
   {
@@ -3155,7 +3185,6 @@
       "Illustrator"
     ],
     "year": 2023,
-    "liveUrl": "https://sari-consulting.com/",
     "featured": false,
     "published": true,
     "publishedAt": "2023-09-08T00:00:00.000Z",
@@ -3230,6 +3259,12 @@
         "width": 2400,
         "height": 1600
       }
+    ],
+    "links": [
+      {
+        "url": "https://sari-consulting.com/",
+        "type": "site"
+      }
     ]
   },
   {
@@ -3256,7 +3291,6 @@
       "Illustrator"
     ],
     "year": 2023,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2023-09-08T00:00:00.000Z",
@@ -3341,7 +3375,8 @@
         "width": 2400,
         "height": 1866
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "social-media-designs",
@@ -3367,7 +3402,6 @@
       "Illustrator"
     ],
     "year": 2023,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2023-09-08T00:00:00.000Z",
@@ -3412,7 +3446,8 @@
         "width": 2400,
         "height": 1600
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "asset-security-systems",
@@ -3438,7 +3473,6 @@
       "React"
     ],
     "year": 2023,
-    "liveUrl": "https://asset-uae.com",
     "featured": false,
     "published": true,
     "publishedAt": "2023-04-30T21:00:00.000Z",
@@ -3483,6 +3517,12 @@
         "width": 1600,
         "height": 1200
       }
+    ],
+    "links": [
+      {
+        "url": "https://asset-uae.com",
+        "type": "site"
+      }
     ]
   },
   {
@@ -3510,7 +3550,6 @@
       "Adobe XD"
     ],
     "year": 2023,
-    "liveUrl": "https://zanqa.app/",
     "featured": true,
     "published": true,
     "publishedAt": "2023-01-14T21:00:00.000Z",
@@ -3585,6 +3624,16 @@
         "width": 1600,
         "height": 2000
       }
+    ],
+    "links": [
+      {
+        "url": "https://zanqa.app/",
+        "type": "site"
+      },
+      {
+        "url": "https://play.google.com/store/apps/details?id=com.zanqa.zanqa",
+        "type": "play"
+      }
     ]
   },
   {
@@ -3611,7 +3660,6 @@
       "Illustrator"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": true,
     "published": true,
     "publishedAt": "2022-05-31T21:00:00.000Z",
@@ -3696,7 +3744,8 @@
         "width": 1600,
         "height": 1200
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "capriani-gelato-brand",
@@ -3722,7 +3771,6 @@
       "Illustrator"
     ],
     "year": 2022,
-    "liveUrl": "https://caprianigelato.com/",
     "featured": false,
     "published": true,
     "publishedAt": "2022-03-20T00:00:00.000Z",
@@ -3827,6 +3875,12 @@
         "width": 2400,
         "height": 1608
       }
+    ],
+    "links": [
+      {
+        "url": "https://caprianigelato.com/",
+        "type": "site"
+      }
     ]
   },
   {
@@ -3853,7 +3907,6 @@
       "Illustrator"
     ],
     "year": 2022,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2022-03-20T00:00:00.000Z",
@@ -3908,7 +3961,8 @@
         "width": 1448,
         "height": 1086
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "smartkids-montessori-brand",
@@ -3934,7 +3988,6 @@
       "Illustrator"
     ],
     "year": 2022,
-    "liveUrl": "https://www.smartkidsmontessori.com/",
     "featured": false,
     "published": true,
     "publishedAt": "2022-03-20T00:00:00.000Z",
@@ -4039,6 +4092,12 @@
         "width": 2400,
         "height": 1886
       }
+    ],
+    "links": [
+      {
+        "url": "https://www.smartkidsmontessori.com/",
+        "type": "site"
+      }
     ]
   },
   {
@@ -4065,7 +4124,6 @@
       "Illustrator"
     ],
     "year": 2022,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2022-03-20T00:00:00.000Z",
@@ -4150,7 +4208,8 @@
         "width": 2400,
         "height": 1600
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "casa-kai-print",
@@ -4176,7 +4235,6 @@
       "Illustrator"
     ],
     "year": 2022,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2022-03-20T00:00:00.000Z",
@@ -4241,7 +4299,8 @@
         "width": 2400,
         "height": 1559
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "piaget-presentation",
@@ -4266,7 +4325,6 @@
       "After Effects"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2022-02-28T21:00:00.000Z",
@@ -4281,7 +4339,8 @@
         "width": 1280,
         "height": 720
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "e-liefer",
@@ -4306,7 +4365,6 @@
       "Adobe XD"
     ],
     "year": 2021,
-    "liveUrl": null,
     "featured": true,
     "published": true,
     "publishedAt": "2021-10-22T21:00:00.000Z",
@@ -4341,7 +4399,8 @@
         "width": 1600,
         "height": 1200
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "zanqa-promo",
@@ -4367,7 +4426,6 @@
       "Premiere Pro"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2021-08-31T21:00:00.000Z",
@@ -4402,7 +4460,8 @@
         "width": 1600,
         "height": 1200
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "alakari-brand",
@@ -4428,7 +4487,6 @@
       "Illustrator"
     ],
     "year": 2021,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2021-06-12T00:00:00.000Z",
@@ -4493,7 +4551,8 @@
         "width": 2400,
         "height": 1600
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "albroker-brand",
@@ -4519,7 +4578,6 @@
       "Illustrator"
     ],
     "year": 2021,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2021-06-12T00:00:00.000Z",
@@ -4604,7 +4662,8 @@
         "width": 2400,
         "height": 1602
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "ngt-brand",
@@ -4630,7 +4689,6 @@
       "Illustrator"
     ],
     "year": 2021,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2021-06-12T00:00:00.000Z",
@@ -4695,7 +4753,8 @@
         "width": 2400,
         "height": 1602
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "m1-fashion-profile",
@@ -4721,7 +4780,6 @@
       "Illustrator"
     ],
     "year": 2021,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2021-06-12T00:00:00.000Z",
@@ -4776,7 +4834,8 @@
         "width": 2400,
         "height": 1600
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "travel-tent-profile",
@@ -4802,7 +4861,6 @@
       "Illustrator"
     ],
     "year": 2021,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2021-06-12T00:00:00.000Z",
@@ -4907,7 +4965,8 @@
         "width": 2400,
         "height": 1714
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "travel-agency",
@@ -4933,7 +4992,6 @@
       "Illustrator"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2020-04-30T21:00:00.000Z",
@@ -5148,7 +5206,8 @@
         "width": 1600,
         "height": 1200
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "albroker-promo",
@@ -5172,7 +5231,6 @@
       "After Effects"
     ],
     "year": null,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2019-05-31T21:00:00.000Z",
@@ -5247,7 +5305,8 @@
         "width": 1600,
         "height": 1067
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "jci-gala-print",
@@ -5273,7 +5332,6 @@
       "Illustrator"
     ],
     "year": 2018,
-    "liveUrl": null,
     "featured": false,
     "published": true,
     "publishedAt": "2018-11-15T00:00:00.000Z",
@@ -5318,7 +5376,8 @@
         "width": 2400,
         "height": 1752
       }
-    ]
+    ],
+    "links": []
   },
   {
     "id": "believe-in-syria",
@@ -5344,7 +5403,6 @@
       "Illustrator"
     ],
     "year": 2018,
-    "liveUrl": null,
     "featured": true,
     "published": true,
     "publishedAt": "2018-09-30T21:00:00.000Z",
@@ -5469,6 +5527,7 @@
         "width": 1192,
         "height": 532
       }
-    ]
+    ],
+    "links": []
   }
 ]

@@ -1,5 +1,6 @@
 "use client";
 
+import { LinksEditor, type LinkRow } from "@/components/admin/LinksEditor";
 import { MediaManager, type MediaEntry } from "@/components/admin/MediaManager";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Save, Trash } from "lucide-react";
@@ -32,7 +33,7 @@ const projectSchema = z.object({
   coverImage: z.string().min(1, "Required"),
   client: z.string(),
   role: z.string(),
-  liveUrl: z.string(),
+  links: z.string(),
   tools: z.string(),
   year: z.string(),
   featured: z.boolean(),
@@ -85,7 +86,7 @@ export function EditProjectForm({
       coverImage: "",
       client: "",
       role: "",
-      liveUrl: "",
+      links: "",
       tools: "",
       year: "",
       featured: false,
@@ -97,6 +98,17 @@ export function EditProjectForm({
 
   const cover = watch("coverImage");
   const mediaUrls = watch("mediaUrls");
+
+  const linkRows: LinkRow[] = watch("links")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line) => {
+      const at = line.indexOf("|");
+      return at === -1
+        ? { type: "site" as const, url: line }
+        : ({ type: line.slice(0, at) as LinkRow["type"], url: line.slice(at + 1) });
+    });
 
   const mediaItems: MediaEntry[] = mediaUrls
     .split("\n")
@@ -209,16 +221,18 @@ export function EditProjectForm({
             <label className={labelCls}>Tools (comma separated)</label>
             <input className="panel-field" placeholder="Figma, Photoshop" {...register("tools")} />
           </div>
-          <div>
-            <label className={labelCls}>Live URL</label>
-            <input
-              type="url"
-              dir="ltr"
-              className="panel-field"
-              placeholder="https://example.com (optional)"
-              {...register("liveUrl")}
-            />
-          </div>
+        </div>
+
+        <div>
+          <label className={labelCls}>Where it can be visited</label>
+          <LinksEditor
+            value={linkRows}
+            onChange={(rows) =>
+              setValue("links", rows.map((r) => `${r.type}|${r.url}`).join("\n"), {
+                shouldDirty: true,
+              })
+            }
+          />
         </div>
 
         <div>

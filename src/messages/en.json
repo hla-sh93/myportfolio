@@ -18,7 +18,7 @@
     "titleL1": "Senior UI/UX Designer",
     "titleL2": "& Front-End Developer",
     "badge": "Book a Call",
-    "tagline": "Clean, scalable, production-ready digital experiences.",
+    "tagline": "Interfaces that load fast and ship on time.",
     "iAm": "I",
     "roles": {
       "uiux": "design interfaces",
@@ -26,7 +26,7 @@
       "graphic": "craft identities",
       "video": "animate stories"
     },
-    "description": "Since 2016, turning ideas into digital products people actually use — through design, code and motion.",
+    "description": "Since 2016, turning ideas into digital products people actually use: design, code and motion.",
     "cta": "View My Work",
     "contact": "Let's Talk",
     "available": "Available for new projects"
@@ -38,74 +38,74 @@
     },
     "profile": {
       "location": "Lattakia, Syria",
-      "hireMe": "Hire Me"
+      "hireMe": "Request a Quote"
     },
     "intro": {
-      "label": "Introduce"
+      "label": "Introduction"
     },
     "about": {
-      "sectionTitle": "About Me",
+      "sectionTitle": "About",
       "heading": "Passionate About Crafting Digital Experiences",
-      "paragraph1": "I'm a creative developer and designer with a passion for building beautiful, functional digital experiences that make a real impact.",
-      "paragraph2": "With expertise spanning web development, UI/UX design, video production, and graphic design, I bring a holistic approach to every project.",
-      "cta": "Learn More About Me",
+      "paragraph1": "We work with both sides: designing the experience and the interface, then building it in React & Next.js, so nothing gets lost between the design file and the thing that ships.",
+      "paragraph2": "The work runs from mobile apps and online stores through to brand identity and motion. Keeping all of it in one place is what makes a project hold together, from the first screen to the last detail.",
+      "cta": "Read the full profile",
       "imageAlt": "Hla Shindeah",
-      "statement": "From an idea to a product in people's hands.",
+      "statement": "From an idea to a product.",
       "yearsBadge": "years of craft"
     },
     "featured": {
-      "sectionTitle": "Portfolio",
-      "heading": "Featured Projects",
-      "viewAll": "View All Projects"
+      "sectionTitle": "Selected Work",
+      "heading": "Projects delivered",
+      "viewAll": "All projects"
     },
     "services": {
-      "sectionTitle": "What I Do",
-      "heading": "Services I Offer",
-      "description": "From concept to completion, I deliver end-to-end creative solutions tailored to your needs.",
+      "sectionTitle": "Services",
+      "heading": "Services that cover the whole project",
+      "description": "From the first sketch to the first real user, it all happens in one place.",
       "websites": {
         "title": "Web Development",
-        "desc": "Modern, responsive websites built with Next.js, React, and cutting-edge technologies."
+        "desc": "Fast, responsive sites built in React & Next.js, set up for search engines and ready to grow with you."
       },
       "uiux": {
         "title": "UI/UX Design",
-        "desc": "User-centered interfaces that balance beauty with usability and accessibility."
+        "desc": "Clear screens and a flow that makes sense, based on how people actually behave rather than guesswork."
       },
       "branding": {
         "title": "Graphic Design",
-        "desc": "Visual identities, logos, social media assets, and print materials that stand out."
+        "desc": "Logos, identities, social media and print that make your brand easy to recognise and hard to forget."
       },
       "video": {
         "title": "Video Production",
-        "desc": "Cinematic video content from concept through post-production and motion graphics."
+        "desc": "Ad films and motion graphics, from writing the idea through to the final cut."
       },
       "projectsCount": "{count, plural, =0 {No projects} =1 {1 project} other {# projects}}",
-      "knowMore": "Know More"
+      "knowMore": "See the work"
     },
     "stats": {
       "yearsExperience": "Years of Experience",
-      "usersReached": "Users Across My Products",
+      "usersReached": "Users of delivered products",
       "appDownloads": "App Downloads",
-      "publishersServed": "Publishers Served"
+      "publishersServed": "Publishers"
     },
     "blog": {
       "sectionTitle": "From the Blog",
-      "heading": "Latest Articles",
-      "viewAll": "View All Articles"
+      "heading": "Writing on design and development",
+      "viewAll": "All articles"
     },
     "ctaBanner": {
-      "heading": "Let's Work Together",
-      "subheading": "Have a project in mind? Let's create something extraordinary together.",
-      "primaryButton": "Get in Touch",
-      "secondaryButton": "View My Work",
+      "heading": "Got an idea? Let's turn it into a product",
+      "subheading": "Tell us what you're building and you'll get back a clear direction and a plan.",
+      "primaryButton": "Start a project",
+      "secondaryButton": "See the work",
       "label": "Contact",
-      "directLabel": "Or reach me directly"
+      "directLabel": "Or email me directly"
     }
   },
   "about": {
-    "title": "About Me",
-    "heading": "About Me",
-    "subtitle": "My Story",
-    "description": "Since 2016, between design and code — working with companies in Saudi Arabia, France and Syria on products that reached tens of thousands of users.",
+    "title": "About",
+    "heading": "A designer who thinks like a developer, and a developer who sees like a designer",
+    "subtitle": "Profile",
+    "description": "Since 2016, work that spans design and code, with companies in Saudi Arabia, France and Syria, on products that reached tens of thousands of users.",
     "downloadCV": "Download CV",
     "experience": {
       "title": "Experience",
@@ -161,7 +161,7 @@
     "certificates": {
       "label": "Always Learning",
       "title": "Certificates & Courses",
-      "description": "Courses and certificates completed on platforms like Udemy and Coursera — because design is a craft that never stops learning."
+      "description": "Courses and certificates from Coursera, Udemy and elsewhere. This field changes every year, and standing still means falling behind."
     },
     "skills": {
       "title": "Skills & Tools",
@@ -180,15 +180,19 @@
         "commitment": "High Commitment",
         "adaptability": "Adaptability"
       }
+    },
+    "sections": {
+      "career": "Career",
+      "toolkit": "Toolkit"
     }
   },
   "projects": {
     "title": "Projects",
-    "heading": "My Projects",
-    "subtitle": "Selected Work",
-    "description": "Explore my latest work across web development, design, video, and more.",
+    "heading": "Work",
+    "subtitle": "Portfolio",
+    "description": "A collection of delivered projects: apps, online stores, websites, brand identities and films.",
     "viewAll": "View All",
-    "viewProject": "View Project",
+    "viewProject": "Open project",
     "categories": {
       "all": "All",
       "videos": "Videos",
@@ -197,7 +201,7 @@
       "websites": "Websites"
     },
     "filters": {
-      "search": "Search projects...",
+      "search": "Search projects…",
       "sortNewest": "Newest",
       "sortLiked": "Most Liked",
       "sortAZ": "A–Z"
@@ -207,13 +211,17 @@
     "detail": {
       "back": "Back to projects",
       "visit": "Visit the site",
+      "visitPlay": "Get it on Google Play",
+      "visitAppstore": "Get it on the App Store",
+      "visitBehance": "See it on Behance",
+      "visitYoutube": "Watch it on YouTube",
       "overview": "About the project",
       "caseStudy": "Inside the work",
       "gallery": "Project gallery",
       "labels": {
         "category": "Field",
         "client": "Client",
-        "role": "My role",
+        "role": "Role",
         "year": "Year",
         "scope": "Scope",
         "tools": "Built with",
@@ -235,10 +243,10 @@
   },
   "blog": {
     "title": "Blog",
-    "heading": "Blog",
-    "subtitle": "Thoughts & Insights",
-    "description": "Exploring ideas in design, development, and creative technology.",
-    "readMore": "Read More",
+    "heading": "Writing on design & code",
+    "subtitle": "Blog",
+    "description": "Practical lessons from designing interfaces, building for the web, and designing in Arabic. No filler.",
+    "readMore": "Keep reading",
     "minRead": "min read",
     "tags": "Tags",
     "search": "Search articles...",
@@ -252,25 +260,25 @@
   },
   "contact": {
     "title": "Contact",
-    "subtitle": "Let's Work Together",
-    "description": "Have a project in mind or just want to say hello? I'd love to hear from you.",
+    "subtitle": "Let's get started",
+    "description": "Got a project or a question? Write to us and you'll get a reply within one working day.",
     "form": {
       "name": "Your Name",
-      "namePlaceholder": "John Doe",
+      "namePlaceholder": "Your full name",
       "email": "Your Email",
-      "emailPlaceholder": "john@example.com",
+      "emailPlaceholder": "you@company.com",
       "subject": "Subject",
       "message": "Your Message",
-      "messagePlaceholder": "Tell me about your project...",
+      "messagePlaceholder": "Tell us about the project: the idea, who it's for, and the time you have…",
       "submit": "Send Message",
       "send": "Send Message",
       "sending": "Sending...",
-      "success": "Message sent successfully!",
+      "success": "Message sent",
       "error": "Something went wrong. Please try again.",
-      "successTitle": "Message Sent!",
-      "successDescription": "Thank you for reaching out. I'll get back to you soon.",
-      "errorTitle": "Failed to Send",
-      "errorDescription": "Something went wrong. Please try again later.",
+      "successTitle": "Your message arrived",
+      "successDescription": "Thanks for writing. You'll get a reply within one working day.",
+      "errorTitle": "Could not send",
+      "errorDescription": "Something went wrong on our end. Please try again.",
       "subjectOptions": {
         "projectInquiry": "Project Inquiry",
         "collaboration": "Collaboration",
@@ -291,14 +299,14 @@
   },
   "footer": {
     "rights": "All rights reserved.",
-    "tagline": "Turning ideas into digital experiences people love — design and code.",
-    "localTime": "My local time"
+    "tagline": "Design and front-end development, from Lattakia.",
+    "localTime": "Local time"
   },
   "common": {
     "loading": "Loading...",
     "error": "Something went wrong",
     "back": "Back",
-    "seeMore": "See More",
+    "seeMore": "See more",
     "share": "Share",
     "copyLink": "Copy Link",
     "copied": "Copied!",
@@ -313,7 +321,7 @@
   "notFound": {
     "label": "Error 404",
     "title": "This page does not exist",
-    "description": "The address you followed leads nowhere — the content may have moved, or the link was mistyped.",
+    "description": "This link does not lead to a page. The content may have moved, or the address was mistyped.",
     "home": "Back to home",
     "projects": "Browse the work"
   }

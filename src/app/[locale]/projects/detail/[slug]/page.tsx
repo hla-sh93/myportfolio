@@ -2,7 +2,8 @@ import { LikeButton } from "@/components/features/LikeButton";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { Badge } from "@/components/ui/Badge";
 import { Link } from "@/i18n/navigation";
-import { ArrowLeft, ExternalLink, Eye } from "lucide-react";
+import { ArrowLeft, ExternalLink, Eye, Play, Smartphone, Youtube } from "lucide-react";
+import type { LinkType } from "@/lib/link-types";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getPublicProject, getPublicProjects } from "@/lib/content";
@@ -22,6 +23,24 @@ import {
   breadcrumbSchema,
   creativeWorkSchema,
 } from "@/components/seo/JsonLd";
+
+/* A store button that says "visit the site" reads as a mistake, so the type
+   carries its own label and mark. */
+const LINK_ICON: Record<LinkType, typeof ExternalLink> = {
+  site: ExternalLink,
+  play: Play,
+  appstore: Smartphone,
+  behance: ExternalLink,
+  youtube: Youtube,
+};
+
+const LINK_LABEL_KEY: Record<LinkType, string> = {
+  site: "detail.visit",
+  play: "detail.visitPlay",
+  appstore: "detail.visitAppstore",
+  behance: "detail.visitBehance",
+  youtube: "detail.visitYoutube",
+};
 
 const categoryKeyMap: Record<string, string> = {
   VIDEOS: "videos",
@@ -176,17 +195,21 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <h1 className="mb-6 font-display text-3xl font-bold text-white drop-shadow-xl md:text-5xl lg:text-6xl">{title}</h1>
 
             <div className="flex flex-wrap items-center gap-4">
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-bold text-[#120409] transition-colors hover:bg-accent hover:text-white"
-                >
-                  <ExternalLink className="h-4 w-4" />
-                  {t("detail.visit")}
-                </a>
-              )}
+              {project.links.map((link) => {
+                const Icon = LINK_ICON[link.type];
+                return (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-bold text-[#120409] transition-colors hover:bg-accent hover:text-white"
+                  >
+                    <Icon className="h-4 w-4" />
+                    {t(LINK_LABEL_KEY[link.type])}
+                  </a>
+                );
+              })}
               <LikeButton
                 slug={project.slug}
                 initialCount={stats.likes}

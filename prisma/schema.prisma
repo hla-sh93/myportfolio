@@ -35,8 +35,12 @@ model Project {
   role        String?
   tools       String[]
   year        Int?
-  /// Public address of the delivered site, when there is one to visit.
+  /// Superseded by `links`. Kept so an older deployment reading this column
+  /// still finds the site address; nothing in the app writes it any more.
   liveUrl     String?
+  /// Where the delivered work can be visited: [{ type, url }]. A project can
+  /// have several — Zanqa is a website and a Play Store listing.
+  links       Json?
   likeCount   Int       @default(0)
   featured    Boolean   @default(false)
   published   Boolean   @default(false)

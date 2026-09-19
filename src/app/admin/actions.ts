@@ -21,7 +21,9 @@ import {
   upsertCertificate,
   upsertExperience,
   upsertProject,
+  normaliseLinks,
   type MediaItem,
+  type ProjectLink,
   type StoredArticle,
   type StoredCertificate,
   type StoredExperience,
@@ -85,7 +87,8 @@ export type ProjectInput = {
   role: string;
   tools: string; // comma separated
   year: string; // "" or number
-  liveUrl?: string; // "" or the delivered site's address
+  /** One "type|url" per line; see LINK_TYPES. */
+  links?: string;
   featured: boolean;
   published: boolean;
   mediaUrls: string; // one URL per line; .mp4 → VIDEO
@@ -97,6 +100,23 @@ export type ProjectInput = {
   /** The placeholder for a cover picked in this edit. */
   coverBlurDataUrl?: string;
 };
+
+/** "play|https://…" per line, from the textarea the panel renders. */
+function parseLinks(raw?: string): ProjectLink[] {
+  if (!raw) return [];
+  return normaliseLinks(
+    raw
+      .split("\n")
+      .map((line) => line.trim())
+      .filter(Boolean)
+      .map((line) => {
+        const at = line.indexOf("|");
+        return at === -1
+          ? { type: "site", url: line }
+          : { type: line.slice(0, at).trim(), url: line.slice(at + 1).trim() };
+      })
+  );
+}
 
 const splitList = (s: string) =>
   s.split(",").map((x) => x.trim()).filter(Boolean);
@@ -150,7 +170,8 @@ export async function saveProjectAction(input: ProjectInput) {
           null),
     client: input.client.trim() || null,
     role: input.role.trim() || null,
-    liveUrl: input.liveUrl?.trim() || null,
+    liveUrl: null, // superseded by links; upsertProject keeps it in step
+    links: parseLinks(input.links),
     tools: splitList(input.tools),
     year: input.year ? Number(input.year) : null,
     featured: input.featured,
