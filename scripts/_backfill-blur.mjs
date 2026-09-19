@@ -1,4 +1,5 @@
 import "dotenv/config";
+import { revalidateSite } from "./_revalidate.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
@@ -44,4 +45,5 @@ for (const p of file) {
 if (APPLY) await fs.writeFile("data/projects.json", JSON.stringify(file, null, 2) + "\n");
 console.log(`\n${n} covers ${APPLY ? "given a placeholder (file + database)" : "would get one"}`);
 console.log(APPLY ? "APPLIED" : "DRY RUN — re-run with --apply");
+if (APPLY) await revalidateSite();
 await db.$disconnect();

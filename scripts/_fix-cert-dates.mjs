@@ -1,4 +1,5 @@
 import "dotenv/config";
+import { revalidateSite } from "./_revalidate.mjs";
 import fs from "node:fs";
 import { PrismaClient } from "@prisma/client";
 import { PrismaNeon } from "@prisma/adapter-neon";
@@ -38,4 +39,5 @@ for (const c of certs) {
 if (APPLY) fs.writeFileSync("data/certificates.json", JSON.stringify(certs, null, 1));
 console.log(`\n${changed} dates ${APPLY ? "normalised (file + database)" : "would change"}${skipped ? `, ${skipped} left alone` : ""}`);
 console.log(APPLY ? "APPLIED" : "DRY RUN — re-run with --apply");
+if (APPLY) await revalidateSite();
 await db.$disconnect();

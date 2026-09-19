@@ -43,6 +43,18 @@ npx prisma db push && npm run dev
 
 Opens at `localhost:3000` → redirects to `/ar`.
 
+### Flushing the cache after a script
+
+Content reads are cached under the `content` tag for an hour, and the admin
+panel clears that tag on every save. A script writing straight to the database
+never passes through Next, so nothing clears it and the pages keep serving what
+they last rendered.
+
+Set `REVALIDATE_TOKEN` to the same value locally and on the deployment, and the
+scripts under `scripts/` will flush it themselves once a write succeeds. Without
+it they say so and the change waits for the hour to run out. `REVALIDATE_URL`
+overrides which deployment they call; it defaults to production.
+
 ---
 
 <div dir="rtl">

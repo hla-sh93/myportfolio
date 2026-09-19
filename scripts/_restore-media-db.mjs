@@ -1,4 +1,5 @@
 import "dotenv/config";
+import { revalidateSite } from "./_revalidate.mjs";
 import fs from "node:fs";
 import { PrismaClient } from "@prisma/client";
 import { PrismaNeon } from "@prisma/adapter-neon";
@@ -31,4 +32,5 @@ for (const p of projects) {
 console.log(`\n${n} media rows ${APPLY ? "inserted" : "would be inserted"}`);
 console.log(`db media now: ${await db.media.count()}`);
 console.log(APPLY ? "APPLIED" : "DRY RUN — re-run with --apply");
+if (APPLY) await revalidateSite();
 await db.$disconnect();

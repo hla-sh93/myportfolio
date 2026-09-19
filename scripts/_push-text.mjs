@@ -1,4 +1,5 @@
 import "dotenv/config";
+import { revalidateSite } from "./_revalidate.mjs";
 import fs from "node:fs";
 import { PrismaClient } from "@prisma/client";
 import { PrismaNeon } from "@prisma/adapter-neon";
@@ -56,4 +57,5 @@ for (const e of exps) {
 }
 console.log(`experiences: ${eRows} roleAr`);
 console.log(APPLY ? "\nAPPLIED" : "\nDRY RUN — nothing written. Re-run with --apply");
+if (APPLY) await revalidateSite();
 await db.$disconnect();
