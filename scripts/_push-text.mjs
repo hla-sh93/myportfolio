@@ -24,15 +24,26 @@ for (const p of projects) {
 console.log(`projects : ${pRows} rows, ${pFields} text fields`);
 
 const articles = JSON.parse(fs.readFileSync("data/articles.json", "utf8"));
-const liveA = new Map((await db.article.findMany({ select: { id: true, publishedAt: true } })).map((a) => [a.id, a]));
-let aRows = 0;
+const ATEXT = ["titleEn", "titleAr", "excerptEn", "excerptAr", "bodyEn", "bodyAr"];
+const liveA = new Map(
+  (
+    await db.article.findMany({
+      select: { id: true, publishedAt: true, titleEn: true, titleAr: true, excerptEn: true, excerptAr: true, bodyEn: true, bodyAr: true },
+    })
+  ).map((a) => [a.id, a])
+);
+let aRows = 0, aFields = 0;
 for (const a of articles) {
   const la = liveA.get(a.id); if (!la) continue;
-  if (la.publishedAt.toISOString() === a.publishedAt) continue;
+  const data = {};
+  if (la.publishedAt.toISOString() !== a.publishedAt) data.publishedAt = new Date(a.publishedAt);
+  for (const k of ATEXT) if ((a[k] ?? null) !== (la[k] ?? null)) { data[k] = a[k] ?? null; aFields++; }
+  if (!Object.keys(data).length) continue;
+  console.log(`  ${a.slug}: ${Object.keys(data).join(", ")}`);
   aRows++;
-  if (APPLY) await db.article.update({ where: { id: a.id }, data: { publishedAt: new Date(a.publishedAt) } });
+  if (APPLY) await db.article.update({ where: { id: a.id }, data });
 }
-console.log(`articles : ${aRows} publishedAt`);
+console.log(`articles : ${aRows} rows, ${aFields} text fields`);
 
 const exps = JSON.parse(fs.readFileSync("data/experiences.json", "utf8"));
 const liveE = new Map((await db.experience.findMany({ select: { id: true, roleAr: true } })).map((e) => [e.id, e]));
