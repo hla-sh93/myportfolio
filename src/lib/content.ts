@@ -111,11 +111,18 @@ export async function getPublicProject(
   return p && p.published ? reviveProject(p) : null;
 }
 
+/**
+ * A post dated in the future is scheduled, not published. It stays out of the
+ * listings and off its own URL until the day it is due.
+ */
+const isLive = (a: PublicArticle) => +a.publishedAt <= Date.now();
+
 export async function getPublicArticles(): Promise<PublicArticle[]> {
   const all = await getStoredArticles();
   return all
     .filter((a) => a.published)
     .map(reviveArticle)
+    .filter(isLive)
     .sort((a, b) => +b.publishedAt - +a.publishedAt);
 }
 
@@ -124,7 +131,9 @@ export async function getPublicArticle(
 ): Promise<PublicArticle | null> {
   const all = await getStoredArticles();
   const a = all.find((x) => x.slug === slug && x.published);
-  return a ? reviveArticle(a) : null;
+  if (!a) return null;
+  const article = reviveArticle(a);
+  return isLive(article) ? article : null;
 }
 
 export async function getExperiences(locale: string) {

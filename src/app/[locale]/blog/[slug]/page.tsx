@@ -87,7 +87,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   const dateLocale = isRtl ? arSA : enUS;
   const publishDate = article.publishedAt
-    ? format(new Date(article.publishedAt), "MMMM d, yyyy", { locale: dateLocale })
+    ? format(new Date(article.publishedAt), isRtl ? "d MMMM yyyy" : "MMMM d, yyyy", {
+        locale: dateLocale,
+      })
     : "";
 
   const counters = await getCounters("article");

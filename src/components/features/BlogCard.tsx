@@ -36,7 +36,9 @@ export function BlogCard({ article, index = 0, titleAs: TitleTag = "h3" }: BlogC
 
   const dateLocale = isRtl ? arSA : enUS;
   const publishDate = article.publishedAt
-    ? format(new Date(article.publishedAt), "d MMM yyyy", { locale: dateLocale })
+    ? format(new Date(article.publishedAt), isRtl ? "d MMMM yyyy" : "d MMM yyyy", {
+        locale: dateLocale,
+      })
     : "";
 
   return (
