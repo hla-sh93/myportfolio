@@ -103,8 +103,8 @@
       "Government",
       "UAE"
     ],
-    "coverImage": "/images/projects/maritime-flag-administrations/mockup-1.webp",
-    "blurDataUrl": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAQAgCdASoQAAwAA4BaJZACdAEf1fpryN1wAP62zP8yYBDV/nwdonOI+DcxaG2upehm15ptVxdHOm9OCRLI+T+jJWMXjO3tNVGV1tuj+qHg3qivaaE4j8ySYUM6WzTAQGpt0v8cAAA=",
+    "coverImage": "/images/projects/maritime-flag-administrations/portals-overview.webp",
+    "blurDataUrl": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoQAAcAAwBSJZwAAxam+YcyQAD+7lwXnlrwDNmQ2Jp+upnVcxrNbh1qK/r1es1mtkK1tW4bMnoU5l1e1EVHLWPwAAA=",
     "client": null,
     "role": "UI/UX Designer & Front-End Developer",
     "tools": [
@@ -118,33 +118,13 @@
     "media": [
       {
         "id": "maritime-flag-administrations-m1",
-        "url": "/images/projects/maritime-flag-administrations/mockup-1.webp",
+        "url": "/images/projects/maritime-flag-administrations/portals-overview.webp",
         "type": "IMAGE",
-        "altEn": "Maritime Flag Administrations — 1",
-        "altAr": "بوابات الإدارات البحرية — 1",
+        "altEn": "Maritime Flag Administrations",
+        "altAr": "بوابات الإدارات البحرية",
         "order": 0,
-        "width": 1600,
-        "height": 1200
-      },
-      {
-        "id": "maritime-flag-administrations-m2",
-        "url": "/images/projects/maritime-flag-administrations/mockup-2.webp",
-        "type": "IMAGE",
-        "altEn": "Maritime Flag Administrations — 2",
-        "altAr": "بوابات الإدارات البحرية — 2",
-        "order": 1,
-        "width": 1600,
-        "height": 1200
-      },
-      {
-        "id": "maritime-flag-administrations-m3",
-        "url": "/images/projects/maritime-flag-administrations/mockup-3.webp",
-        "type": "IMAGE",
-        "altEn": "Maritime Flag Administrations — 3",
-        "altAr": "بوابات الإدارات البحرية — 3",
-        "order": 2,
-        "width": 1600,
-        "height": 1200
+        "width": 2000,
+        "height": 857
       }
     ],
     "links": [
