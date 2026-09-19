@@ -46,7 +46,7 @@
     "about": {
       "sectionTitle": "About",
       "heading": "Passionate About Crafting Digital Experiences",
-      "paragraph1": "We work with both sides: designing the experience and the interface, then building it in React & Next.js, so nothing gets lost between the design file and the thing that ships.",
+      "paragraph1": "I work with both sides: designing the experience and the interface, then building it in React & Next.js, so nothing gets lost between the design file and the thing that ships.",
       "paragraph2": "The work runs from mobile apps and online stores through to brand identity and motion. Keeping all of it in one place is what makes a project hold together, from the first screen to the last detail.",
       "cta": "Read the full profile",
       "imageAlt": "Hla Shindeah",
@@ -61,7 +61,7 @@
     "services": {
       "sectionTitle": "Services",
       "heading": "Services that cover the whole project",
-      "description": "From the first sketch to the first real user, it all happens in one place.",
+      "description": "From the first sketch to the first real user: the design, the build and the identity, all done by me.",
       "websites": {
         "title": "Web Development",
         "desc": "Fast, responsive sites built in React & Next.js, set up for search engines and ready to grow with you."
@@ -94,7 +94,7 @@
     },
     "ctaBanner": {
       "heading": "Got an idea? Let's turn it into a product",
-      "subheading": "Tell us what you're building and you'll get back a clear direction and a plan.",
+      "subheading": "Tell me what you're building and you'll get back a clear direction and a plan.",
       "primaryButton": "Start a project",
       "secondaryButton": "See the work",
       "label": "Contact",
@@ -261,7 +261,7 @@
   "contact": {
     "title": "Contact",
     "subtitle": "Let's get started",
-    "description": "Got a project or a question? Write to us and you'll get a reply within one working day.",
+    "description": "Got a project or a question? Write to me and you'll get a reply within one working day.",
     "form": {
       "name": "Your Name",
       "namePlaceholder": "Your full name",
@@ -269,7 +269,7 @@
       "emailPlaceholder": "you@company.com",
       "subject": "Subject",
       "message": "Your Message",
-      "messagePlaceholder": "Tell us about the project: the idea, who it's for, and the time you have…",
+      "messagePlaceholder": "Tell me about the project: the idea, who it's for, and the time you have…",
       "submit": "Send Message",
       "send": "Send Message",
       "sending": "Sending...",
@@ -278,7 +278,7 @@
       "successTitle": "Your message arrived",
       "successDescription": "Thanks for writing. You'll get a reply within one working day.",
       "errorTitle": "Could not send",
-      "errorDescription": "Something went wrong on our end. Please try again.",
+      "errorDescription": "Something went wrong on my end. Please try again.",
       "subjectOptions": {
         "projectInquiry": "Project Inquiry",
         "collaboration": "Collaboration",
