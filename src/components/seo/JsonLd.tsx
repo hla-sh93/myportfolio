@@ -18,7 +18,7 @@ export function personSchema(locale: string) {
     name: isAr ? "حلا شندية" : "Hla Shindeah",
     alternateName: isAr ? "Hla Shindeah" : "حلا شندية",
     jobTitle: isAr
-      ? "مصممة UI/UX أولى ومطوّرة واجهات أمامية"
+      ? "مصممة UI/UX (Senior) ومطوّرة واجهات أمامية"
       : "Senior UI/UX Designer & Front-End Developer",
     url: `${BASE}/${locale}`,
     sameAs: [
