@@ -98,7 +98,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           <p
             id={`${id}-error`}
             role="alert"
-            className="flex items-center gap-1 text-xs text-red-400"
+            className="flex items-center gap-1 text-xs text-danger"
           >
             <svg
               viewBox="0 0 24 24"

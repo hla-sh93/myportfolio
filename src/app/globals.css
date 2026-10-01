@@ -6,6 +6,9 @@
   /* Accent — Burgundy / Wine Crimson (sampled from brand cover) */
   --accent: #B91942;
   --accent-hover: #9E1338;
+  /* Accent as text. The fill is fine as text on the light ground (6.0:1); the
+     dark theme needs a lighter one, see below. */
+  --accent-text: #B91942;
   --accent-deep: #6D061F;
   --accent-light: rgba(185, 25, 66, 0.08);
   --accent-glow: rgba(185, 25, 66, 0.28);
@@ -20,7 +23,11 @@
   /* Text */
   --text-primary: #1C1416;
   --text-secondary: #6E6367;
-  --text-tertiary: #9C9095;
+  /* Was #9C9095: 2.9:1 on the ground, under the 4.5:1 that body-size text
+     needs, and it set real text — timeline roles, captions, card metadata. */
+  --text-tertiary: #766B6F;
+  /* Form errors. Tailwind's red-400 was 2.6:1 here. */
+  --danger: #C81E1E;
 
   /* Borders — strong enough to read on the warm-white base (light-mode
      cards were near-invisible at 0.08) */
@@ -80,14 +87,20 @@
   --surface-acrylic: rgba(12, 10, 11, 0.88);
 
   --accent: #D62049;
-  --accent-hover: #E64A6E;
+  /* Hover darkens, as in the light theme: the lighter #E64A6E left white
+     button text at 3.8:1. */
+  --accent-hover: #B8163F;
+  /* #D62049 is 4.0:1 as small text on the dark ground; this reads at 5.4:1
+     and is the same hue, one step lighter. Fills keep --accent. */
+  --accent-text: #E64A6E;
   --accent-deep: #6D061F;
   --accent-light: rgba(214, 32, 73, 0.14);
   --accent-glow: rgba(214, 32, 73, 0.32);
 
   --text-primary: #F7F4F5;
   --text-secondary: #A39A9E;
-  --text-tertiary: #6B6266;
+  --text-tertiary: #8C8387; /* was #6B6266, 3.4:1 */
+  --danger: #F87171;
 
   --border: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.16);
@@ -117,6 +130,8 @@
   --color-border-focus: var(--border-focus);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-text: var(--accent-text);
+  --color-danger: var(--danger);
   --color-accent-light: var(--accent-light);
   --color-accent-glow: var(--accent-glow);
   --color-text-primary: var(--text-primary);
@@ -156,6 +171,17 @@
 select option {
   background: var(--surface);
   color: var(--text-primary);
+}
+
+/* Accent as text goes through --accent-text, whatever the theme. The fill
+   colour that bg-accent uses is too dark as small text on the dark ground;
+   this rule is unlayered on purpose so it beats the generated utility, and
+   bg-accent, border-accent and the rest keep --accent. */
+.text-accent,
+.hover\:text-accent:hover,
+.group:hover .group-hover\:text-accent,
+.prose-a\:text-accent a {
+  color: var(--accent-text);
 }
 
 /* ─── Base Styles ─── */
@@ -513,7 +539,7 @@ html {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .section-label::before {
   content: "";
@@ -751,7 +777,7 @@ html {
     border-color 0.3s var(--ease-expo);
 }
 .tech-badge:hover {
-  color: var(--accent);
+  color: var(--accent-text);
   border-color: var(--accent);
 }
 .tech-badge svg {
@@ -876,7 +902,7 @@ html {
     transform 0.3s var(--ease-expo);
 }
 .icon-ring:hover {
-  color: var(--accent);
+  color: var(--accent-text);
   border-color: var(--accent);
   transform: translateY(-2px);
 }
@@ -904,7 +930,7 @@ html {
 }
 .btn-pill:hover {
   background: transparent;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .btn-pill:active {
   transform: scale(0.97);
@@ -917,7 +943,7 @@ html {
 }
 .btn-pill-ghost:hover {
   background: transparent;
-  border-color: var(--accent);
+  border-color: var(--accent-text);
   color: var(--accent);
 }
 

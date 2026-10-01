@@ -183,7 +183,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           <div className="container absolute inset-0 mx-auto flex max-w-5xl flex-col justify-end px-6 pb-12 md:pb-16">
             <Link
               href="/projects"
-              className="group mb-8 inline-flex w-fit items-center gap-2 font-medium text-white/80 transition-colors hover:text-white"
+              className="group mb-8 inline-flex w-fit items-center gap-2 font-medium text-text-primary/80 transition-colors hover:text-text-primary"
             >
               <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1 rtl:rotate-180 rtl:group-hover:translate-x-1" />
               {t("detail.back")}
@@ -193,7 +193,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               <Badge category={project.category} />
             </div>
 
-            <h1 className="mb-6 font-display text-3xl font-bold text-white drop-shadow-xl md:text-5xl lg:text-6xl">{title}</h1>
+            <h1 className="mb-6 font-display text-3xl font-bold text-text-primary md:text-5xl lg:text-6xl">{title}</h1>
 
             <div className="flex flex-wrap items-center gap-4">
               {project.links.map((link) => {
@@ -204,7 +204,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-bold text-[#120409] transition-colors hover:bg-accent hover:text-white"
+                    className="flex items-center gap-2 rounded-full bg-text-primary px-5 py-2.5 text-sm font-bold text-background transition-colors hover:bg-accent hover:text-white"
                   >
                     <Icon className="h-4 w-4" />
                     {t(LINK_LABEL_KEY[link.type])}
@@ -214,9 +214,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               <LikeButton
                 slug={project.slug}
                 initialCount={stats.likes}
-                className="border-white/20 bg-white/10 text-white"
+                className="border-border-strong bg-surface/70 text-text-primary"
               />
-              <span className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-md">
+              <span className="flex items-center gap-2 rounded-full border border-border-strong bg-surface/70 px-4 py-2 text-sm font-semibold text-text-primary backdrop-blur-md">
                 <Eye className="h-4 w-4" />
                 <span className="tabular-nums">{formatNumber(stats.views, locale)}</span>
               </span>

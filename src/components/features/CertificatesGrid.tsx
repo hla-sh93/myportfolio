@@ -69,7 +69,7 @@ export function CertificatesGrid({ items }: { items: Certificate[] }) {
               )}
               <span className="relative">
                 {isAr ? LABELS[c].ar : LABELS[c].en}
-                <span className="ms-1.5 text-xs opacity-70">({countOf(c)})</span>
+                <span className="ms-1.5 text-xs font-normal">({countOf(c)})</span>
               </span>
             </button>
           );

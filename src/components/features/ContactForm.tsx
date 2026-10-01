@@ -176,7 +176,7 @@ export function ContactForm() {
           <option value={ContactSubject.GENERAL}>{t("subjectOptions.general")}</option>
         </select>
         {errors.subject && (
-          <p role="alert" className="text-xs text-red-400 mt-1">
+          <p role="alert" className="text-xs text-danger mt-1">
             {errors.subject.message}
           </p>
         )}
