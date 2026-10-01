@@ -29,6 +29,15 @@ function guardAdmin(req: NextRequest) {
 
 export default function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
+
+  // A malformed percent-escape ("/%E2%82") made Next answer 500. It is a bad
+  // address like any other, so it gets a 404.
+  try {
+    decodeURIComponent(pathname);
+  } catch {
+    return new NextResponse(null, { status: 404 });
+  }
+
   if (pathname === "/admin" || pathname.startsWith("/admin/")) {
     return guardAdmin(req);
   }
