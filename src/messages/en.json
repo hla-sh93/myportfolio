@@ -285,7 +285,19 @@
         "collaboration": "Collaboration",
         "general": "General Question"
       },
-      "verificationUnavailable": "Google verification could not load. Reload the page and try again."
+      "verificationUnavailable": "Google verification could not load. Reload the page and try again.",
+      "validation": {
+        "nameRequired": "Please enter your name",
+        "nameMin": "Name must be at least 2 characters",
+        "nameMax": "Name must be at most 100 characters",
+        "emailRequired": "Please enter your email",
+        "emailInvalid": "Please enter a valid email address",
+        "emailMax": "Email is too long",
+        "subjectInvalid": "Please choose a subject",
+        "messageRequired": "Please write a message",
+        "messageMin": "Message must be at least 10 characters",
+        "messageMax": "Message must be at most 5000 characters"
+      }
     },
     "info": {
       "email": "Email",

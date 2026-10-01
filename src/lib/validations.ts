@@ -19,48 +19,67 @@ export const ContactSubject = {
 export type ContactSubjectValue =
   (typeof ContactSubject)[keyof typeof ContactSubject];
 
-export const contactSchema = z.object({
-  name: z
-    .string({ error: "Name is required" })
-    .min(2, "Name must be at least 2 characters")
-    .max(100, "Name must be at most 100 characters")
-    .trim(),
+export interface ContactMessages {
+  nameRequired: string;
+  nameMin: string;
+  nameMax: string;
+  emailRequired: string;
+  emailInvalid: string;
+  emailMax: string;
+  subjectInvalid: string;
+  messageRequired: string;
+  messageMin: string;
+  messageMax: string;
+}
 
-  email: z
-    .string({ error: "Email is required" })
-    .email("Please enter a valid email address")
-    .max(254, "Email is too long")
-    .toLowerCase()
-    .trim(),
+/** The server's wording; the form passes the page language's instead. */
+export const contactMessagesEn: ContactMessages = {
+  nameRequired: "Name is required",
+  nameMin: "Name must be at least 2 characters",
+  nameMax: "Name must be at most 100 characters",
+  emailRequired: "Email is required",
+  emailInvalid: "Please enter a valid email address",
+  emailMax: "Email is too long",
+  subjectInvalid: "Subject must be one of: Project Inquiry, Collaboration, General",
+  messageRequired: "Message is required",
+  messageMin: "Message must be at least 10 characters",
+  messageMax: "Message must be at most 5000 characters",
+};
 
-  subject: z.enum(
-    [
-      ContactSubject.PROJECT_INQUIRY,
-      ContactSubject.COLLABORATION,
-      ContactSubject.GENERAL,
-    ],
-    {
-      error: "Subject must be one of: Project Inquiry, Collaboration, General",
-    },
-  ),
+/**
+ * Whitespace is trimmed before the lengths are checked: with the order the
+ * other way round, a name of three spaces passed as two characters and was
+ * stored empty, while an address with a trailing space was refused.
+ */
+export function buildContactSchema(m: ContactMessages = contactMessagesEn) {
+  return z.object({
+    name: z.string({ error: m.nameRequired }).trim().min(2, m.nameMin).max(100, m.nameMax),
 
-  message: z
-    .string({ error: "Message is required" })
-    .min(10, "Message must be at least 10 characters")
-    .max(5000, "Message must be at most 5000 characters")
-    .trim(),
+    email: z
+      .string({ error: m.emailRequired })
+      .trim()
+      .toLowerCase()
+      .email(m.emailInvalid)
+      .max(254, m.emailMax),
 
-  /** Honeypot field — must remain empty. Bot submissions are silently discarded. */
-  website: z
-    .string()
-    .max(0, "Bot detected")
-    .optional(),
+    subject: z.enum(
+      [ContactSubject.PROJECT_INQUIRY, ContactSubject.COLLABORATION, ContactSubject.GENERAL],
+      { error: m.subjectInvalid },
+    ),
 
-  // Present only when a site key is configured; the route verifies it only
-  // when the secret is. Requiring it here made the form send a literal
-  // "dummy-token" whenever reCAPTCHA was not set up.
-  recaptchaToken: z.string().optional(),
-});
+    message: z.string({ error: m.messageRequired }).trim().min(10, m.messageMin).max(5000, m.messageMax),
+
+    /** Honeypot field — must remain empty. Bot submissions are silently discarded. */
+    website: z.string().max(0, "Bot detected").optional(),
+
+    // Present only when a site key is configured; the route verifies it only
+    // when the secret is. Requiring it here made the form send a literal
+    // "dummy-token" whenever reCAPTCHA was not set up.
+    recaptchaToken: z.string().optional(),
+  });
+}
+
+export const contactSchema = buildContactSchema();
 
 export type ContactFormData = z.infer<typeof contactSchema>;
 

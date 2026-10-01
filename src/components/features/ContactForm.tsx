@@ -4,18 +4,16 @@ import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
 import { useToast } from "@/components/ui/Toast";
-import { contactSchema, ContactSubject } from "@/lib/validations";
-import type { z } from "zod";
+import { buildContactSchema, ContactSubject, type ContactFormData } from "@/lib/validations";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl";
+import { useEffect, useMemo, useState } from "react";
+import { useForm } from "react-hook-form";
 
 // The reCAPTCHA token is produced during submit, so the client-side resolver
 // must not require it — otherwise validation fails on an invisible field and
 // the form silently does nothing. The server still validates the full schema.
-const contactFormSchema = contactSchema.omit({ recaptchaToken: true });
-type ContactFormValues = z.infer<typeof contactFormSchema>;
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+type ContactFormValues = Omit<ContactFormData, "recaptchaToken">;
 
 declare global {
   interface Window {
@@ -25,8 +23,28 @@ declare global {
 
 export function ContactForm() {
   const t = useTranslations("contact.form");
+  const tv = useTranslations("contact.form.validation");
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  // The rules in the page's language; the server keeps its own wording.
+  const contactFormSchema = useMemo(
+    () =>
+      buildContactSchema({
+        nameRequired: tv("nameRequired"),
+        nameMin: tv("nameMin"),
+        nameMax: tv("nameMax"),
+        emailRequired: tv("emailRequired"),
+        emailInvalid: tv("emailInvalid"),
+        emailMax: tv("emailMax"),
+        subjectInvalid: tv("subjectInvalid"),
+        messageRequired: tv("messageRequired"),
+        messageMin: tv("messageMin"),
+        messageMax: tv("messageMax"),
+      }).omit({ recaptchaToken: true }),
+    [tv]
+  );
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
   const [recaptchaFailed, setRecaptchaFailed] = useState(false);
 
@@ -109,7 +127,7 @@ export function ContactForm() {
 
       if (!res.ok) {
         const errorData = await res.json().catch(() => ({}));
-        throw new Error(errorData.error || "Failed to send message");
+        throw new Error(errorData.error || t("errorDescription"));
       }
 
       toast({
@@ -117,7 +135,9 @@ export function ContactForm() {
         description: t("successDescription"),
         variant: "success",
       });
-      
+      // The toast leaves after four seconds; the confirmation stays until
+      // the next message is started.
+      setSent(true);
       reset();
     } catch (error: any) {
       toast({
@@ -131,7 +151,24 @@ export function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      onChange={() => sent && setSent(false)}
+      // The styled, translated errors do the job; the browser's own bubbles
+      // would pre-empt them in whatever language the browser speaks.
+      noValidate
+      className="space-y-6"
+    >
+      {sent && (
+        <div
+          role="status"
+          className="rounded-2xl border border-accent/30 bg-accent-light px-5 py-4"
+        >
+          <p className="font-semibold text-text-primary">{t("successTitle")}</p>
+          <p className="mt-1 text-sm text-text-secondary">{t("successDescription")}</p>
+        </div>
+      )}
+
       {/* Honeypot field (hidden from screen readers and visual layout) */}
       <div className="hidden" aria-hidden="true">
         <label htmlFor="website">Website URL (leave empty)</label>
@@ -149,6 +186,8 @@ export function ContactForm() {
           variant="line"
           label={t("name")}
           placeholder={t("namePlaceholder")}
+          autoComplete="name"
+          aria-required="true"
           error={errors.name?.message}
           {...register("name")}
           disabled={isSubmitting}
@@ -158,6 +197,9 @@ export function ContactForm() {
           label={t("email")}
           type="email"
           placeholder={t("emailPlaceholder")}
+          autoComplete="email"
+          inputMode="email"
+          aria-required="true"
           error={errors.email?.message}
           {...register("email")}
           disabled={isSubmitting}
@@ -193,6 +235,7 @@ export function ContactForm() {
         label={t("message")}
         placeholder={t("messagePlaceholder")}
         rows={5}
+        aria-required="true"
         error={errors.message?.message}
         {...register("message")}
         disabled={isSubmitting}

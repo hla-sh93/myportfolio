@@ -335,7 +335,19 @@
         "collaboration": "تعاون",
         "general": "سؤال عام"
       },
-      "verificationUnavailable": "تعذّر تحميل التحقّق من Google. أعد تحميل الصفحة وحاول مجددًا."
+      "verificationUnavailable": "تعذّر تحميل التحقّق من Google. أعد تحميل الصفحة وحاول مجددًا.",
+      "validation": {
+        "nameRequired": "اكتب اسمك",
+        "nameMin": "الاسم يجب أن يكون حرفين على الأقل",
+        "nameMax": "الاسم يجب ألا يتجاوز 100 حرف",
+        "emailRequired": "اكتب بريدك الإلكتروني",
+        "emailInvalid": "اكتب بريدًا إلكترونيًا صحيحًا",
+        "emailMax": "البريد الإلكتروني طويل جدًا",
+        "subjectInvalid": "اختر موضوع الرسالة",
+        "messageRequired": "اكتب رسالتك",
+        "messageMin": "الرسالة يجب أن تكون 10 أحرف على الأقل",
+        "messageMax": "الرسالة يجب ألا تتجاوز 5000 حرف"
+      }
     },
     "info": {
       "email": "البريد الإلكتروني",
