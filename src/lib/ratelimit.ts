@@ -25,9 +25,9 @@ export interface RateLimitResult {
  */
 const isDev = process.env.NODE_ENV === "development";
 
-function createMockRateLimiter(): { limit: (_id: string) => Promise<RateLimitResult> } {
+function createMockRateLimiter(): { limit: (id: string) => Promise<RateLimitResult> } {
   return {
-    async limit(_id: string): Promise<RateLimitResult> {
+    async limit(): Promise<RateLimitResult> {
       return {
         success: true,
         limit: Infinity,
@@ -100,10 +100,6 @@ function createMemoryRateLimiter(
 // ---------------------------------------------------------------------------
 // Rate limiter factory
 // ---------------------------------------------------------------------------
-
-type RateLimiterInstance = ReturnType<typeof Ratelimit.prototype.limit> extends Promise<infer R>
-  ? { limit: (id: string) => Promise<R> }
-  : never;
 
 function createRateLimiter(
   requests: number,

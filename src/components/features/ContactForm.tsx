@@ -15,9 +15,14 @@ import { useForm } from "react-hook-form";
 // the form silently does nothing. The server still validates the full schema.
 type ContactFormValues = Omit<ContactFormData, "recaptchaToken">;
 
+interface Grecaptcha {
+  ready(callback: () => void): void;
+  execute(siteKey: string, options: { action: string }): Promise<string>;
+}
+
 declare global {
   interface Window {
-    grecaptcha: any;
+    grecaptcha?: Grecaptcha;
   }
 }
 
@@ -96,12 +101,13 @@ export function ContactForm() {
    */
   const executeRecaptcha = async (): Promise<string | null> => {
     if (!siteKey) return null;
-    if (recaptchaFailed || !recaptchaLoaded || !window.grecaptcha) return "";
+    const api = window.grecaptcha;
+    if (recaptchaFailed || !recaptchaLoaded || !api) return "";
 
     return new Promise((resolve) => {
-      window.grecaptcha.ready(async () => {
+      api.ready(async () => {
         try {
-          const token = await window.grecaptcha.execute(siteKey, { action: "submit" });
+          const token = await api.execute(siteKey, { action: "submit" });
           resolve(token);
         } catch (error) {
           console.error("reCAPTCHA execution error:", error);
@@ -139,10 +145,10 @@ export function ContactForm() {
       // the next message is started.
       setSent(true);
       reset();
-    } catch (error: any) {
+    } catch (error) {
       toast({
         title: t("errorTitle"),
-        description: error.message || t("errorDescription"),
+        description: (error instanceof Error && error.message) || t("errorDescription"),
         variant: "error",
       });
     } finally {

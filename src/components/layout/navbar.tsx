@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useHydrated } from "@/hooks/useHydrated";
 import { flushSync } from "react-dom";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
@@ -28,9 +29,7 @@ export function Navbar() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  const mounted = useHydrated();
 
   // Escape closes the menu, as it does any popup.
   useEffect(() => {

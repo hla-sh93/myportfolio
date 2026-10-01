@@ -14,8 +14,7 @@ import { auth } from "@/auth";
  * contact inbox. A page that checks for itself has no such gap.
  */
 export function isAdmin(session: Session | null): session is Session {
-  const role = (session?.user as { role?: string } | undefined)?.role;
-  return role === "ADMIN";
+  return session?.user?.role === "ADMIN";
 }
 
 /** For pages: no admin session, no render. */

@@ -9,7 +9,6 @@ import {
   getStoredArticles,
   getStoredCertificates,
   getStoredExperiences,
-  getStoredProject,
   getStoredProjects,
   getStoredStats,
   type StoredArticle,

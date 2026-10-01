@@ -9,7 +9,7 @@ import { arSA, enUS } from "date-fns/locale";
 import { ArrowLeft, Calendar, Clock, Eye } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getPublicArticle, getPublicArticles } from "@/lib/content";
-import { renderMarkdown } from "@/lib/markdown";
+import { renderMarkdown, extractHeadings } from "@/lib/markdown";
 import { shareImage } from "@/lib/share";
 import { truncate, openGraphLocale } from "@/lib/seo";
 import { DetailNav } from "@/components/features/DetailNav";
@@ -85,6 +85,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const title = isRtl ? article.titleAr : article.titleEn;
   const body = isRtl ? article.bodyAr : article.bodyEn;
   const bodyHtml = await renderMarkdown(body);
+  const headings = extractHeadings(bodyHtml);
 
   const dateLocale = isRtl ? arSA : enUS;
   const publishDate = article.publishedAt
@@ -197,7 +198,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               />
             </div>
 
-            <TableOfContents />
+            <TableOfContents headings={headings} />
           </div>
         </div>
       </article>

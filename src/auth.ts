@@ -1,6 +1,6 @@
 import { db } from "@/lib/db";
 import bcrypt from "bcryptjs";
-import NextAuth, { CredentialsSignin } from "next-auth";
+import NextAuth, { CredentialsSignin, type DefaultSession } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { z } from "zod";
 import {
@@ -8,6 +8,26 @@ import {
   loginEmailRateLimit,
   loginIpRateLimit,
 } from "@/lib/ratelimit";
+
+type Role = "ADMIN" | "EDITOR";
+
+/* The role travels user → token → session. These used to live in an unused
+   copy of this config (src/lib/auth.ts), which is why the callbacks here
+   cast through `any`. */
+declare module "next-auth" {
+  interface User {
+    role?: Role;
+  }
+  interface Session {
+    user: { id: string; role?: Role } & DefaultSession["user"];
+  }
+}
+declare module "@auth/core/jwt" {
+  interface JWT {
+    id?: string;
+    role?: Role;
+  }
+}
 
 /** Thrown when sign-in is rate limited; the login form reads the code. */
 class RateLimited extends CredentialsSignin {
@@ -108,14 +128,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id ?? token.sub ?? "";
-        token.role = (user as any).role;
+        token.role = user.role;
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
-        session.user.id = token.id as string;
-        (session.user as any).role = token.role;
+        session.user.id = token.id ?? "";
+        session.user.role = token.role;
       }
       return session;
     },

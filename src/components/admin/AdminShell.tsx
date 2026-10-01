@@ -5,6 +5,7 @@ import { AdminSidebar } from "@/components/admin/AdminSidebar";
 import { LogOut, Menu, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
+import { useHydrated } from "@/hooks/useHydrated";
 
 /**
  * Dashboard chrome: fixed sidebar + sticky topbar, with the sidebar
@@ -22,11 +23,9 @@ export function AdminShell({
 }) {
   const [drawer, setDrawer] = useState(false);
   const [menu, setMenu] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useHydrated();
   const { resolvedTheme, setTheme } = useTheme();
   const menuRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     if (!menu) return;

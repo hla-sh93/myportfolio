@@ -34,7 +34,7 @@ async function main() {
   }
 
   // 2. Create Dummy Projects
-  const project1 = await prisma.project.upsert({
+  await prisma.project.upsert({
     where: { slug: "fintech-dashboard" },
     update: {},
     create: {
@@ -53,7 +53,7 @@ async function main() {
     },
   });
 
-  const project2 = await prisma.project.upsert({
+  await prisma.project.upsert({
     where: { slug: "brand-identity" },
     update: {},
     create: {
@@ -75,7 +75,7 @@ async function main() {
   console.log("Demo projects created.");
 
   // 3. Create Dummy Articles
-  const article1 = await prisma.article.upsert({
+  await prisma.article.upsert({
     where: { slug: "mastering-framer-motion" },
     update: {},
     create: {

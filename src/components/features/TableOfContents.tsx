@@ -7,31 +7,24 @@ import { ListCollapse, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { GlassCard } from "@/components/ui/GlassCard";
 
-interface TocItem {
+export interface TocItem {
   id: string;
   text: string;
   level: number;
 }
 
-export function TableOfContents() {
+/**
+ * The headings come from the page, read out of the rendered article HTML on
+ * the server, so the list is in the first paint and not assembled from the
+ * DOM after hydration.
+ */
+export function TableOfContents({ headings }: { headings: TocItem[] }) {
   const t = useTranslations("blog");
   const tA = useTranslations("a11y");
-  const [headings, setHeadings] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState<string>("");
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // Collect all h2 and h3 elements inside the article content
-    const elements = Array.from(document.querySelectorAll("article h2, article h3"))
-      .map((element) => ({
-        id: element.id,
-        text: element.textContent || "",
-        level: Number(element.tagName.charAt(1)),
-      }))
-      .filter((item) => item.id); // Only include headings with IDs
-      
-    setHeadings(elements);
-
     // Intersection Observer to track active section
     const observer = new IntersectionObserver(
       (entries) => {
@@ -44,13 +37,13 @@ export function TableOfContents() {
       { rootMargin: "0px 0px -80% 0px" } // Trigger when near top
     );
 
-    elements.forEach(({ id }) => {
+    headings.forEach(({ id }) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [headings]);
 
   // Escape closes the mobile panel.
   useEffect(() => {

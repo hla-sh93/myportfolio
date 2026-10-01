@@ -10,6 +10,7 @@ import React, {
   useState,
 } from "react";
 import { createPortal } from "react-dom";
+import { useHydrated } from "@/hooks/useHydrated";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -228,8 +229,7 @@ export function Toaster() {
   const { toasts, dismiss } = useToast();
   // Portal only after mount — server and first client render both output
   // null, avoiding a hydration mismatch.
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useHydrated();
 
   if (!mounted) return null;
 

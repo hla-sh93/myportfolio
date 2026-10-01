@@ -6,7 +6,7 @@ import {
   useReducedMotion,
   useSpring,
 } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 
 /**
  * Custom cursor — accent dot + lazy trailing ring that swells over
@@ -14,9 +14,17 @@ import { useEffect, useState } from "react";
  * prefers-reduced-motion. The native cursor stays visible (no cursor:none)
  * so usability never depends on the effect.
  */
+const subscribePointer = (onChange: () => void) => {
+  const query = window.matchMedia("(pointer: fine)");
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
+};
+const finePointer = () => window.matchMedia("(pointer: fine)").matches;
+const noPointer = () => false;
+
 export function CursorRing() {
   const reduced = useReducedMotion();
-  const [enabled, setEnabled] = useState(false);
+  const enabled = useSyncExternalStore(subscribePointer, finePointer, noPointer) && !reduced;
   const [active, setActive] = useState(false);
 
   const x = useMotionValue(-100);
@@ -25,9 +33,7 @@ export function CursorRing() {
   const ringY = useSpring(y, { stiffness: 260, damping: 24, mass: 0.5 });
 
   useEffect(() => {
-    if (reduced) return;
-    if (!window.matchMedia("(pointer: fine)").matches) return;
-    setEnabled(true);
+    if (!enabled) return;
 
     const move = (e: MouseEvent) => {
       x.set(e.clientX);
@@ -37,7 +43,7 @@ export function CursorRing() {
     };
     window.addEventListener("mousemove", move, { passive: true });
     return () => window.removeEventListener("mousemove", move);
-  }, [reduced, x, y]);
+  }, [enabled, x, y]);
 
   if (!enabled) return null;
 

@@ -23,3 +23,24 @@ export async function renderMarkdown(md: string): Promise<string> {
     .process(md);
   return String(file);
 }
+
+const ENTITIES: Record<string, string> = { amp: "&", lt: "<", gt: ">", quot: '"', "#39": "'", apos: "'" };
+
+/**
+ * The h2/h3 headings of rendered article HTML, with the ids rehype-slug gave
+ * them, for a table of contents built on the server.
+ */
+export function extractHeadings(html: string): { id: string; text: string; level: number }[] {
+  const out: { id: string; text: string; level: number }[] = [];
+  const re = /<h([23])\b([^>]*)>([\s\S]*?)<\/h\1>/g;
+  for (const match of html.matchAll(re)) {
+    const id = /\sid="([^"]+)"/.exec(match[2])?.[1];
+    if (!id) continue;
+    const text = match[3]
+      .replace(/<[^>]+>/g, "")
+      .replace(/&(#?\w+);/g, (_, e: string) => ENTITIES[e] ?? `&${e};`)
+      .trim();
+    out.push({ id, text, level: Number(match[1]) });
+  }
+  return out;
+}

@@ -14,6 +14,13 @@ import { unstable_cache } from "next/cache";
 import fs from "node:fs";
 import path from "node:path";
 import { db } from "@/lib/db";
+import type {
+  Article as ArticleRow,
+  Certificate as CertificateRow,
+  ContactMessage as MessageRow,
+  Media as MediaRow,
+  Project as ProjectRow,
+} from "@prisma/client";
 import { projects as staticProjects } from "@/content/projects";
 import { normaliseLinks as toLinks, type ProjectLink } from "@/lib/link-types";
 import staticCertificates from "@/content/certificates.json";
@@ -220,8 +227,8 @@ function seedProjects(): StoredProject[] {
 type ExpMsg = { role: string; company: string; period: string; desc: string };
 
 function seedExperiences(): StoredExperience[] {
-  const ar = (arMessages as Record<string, any>).about.experience;
-  const en = (enMessages as Record<string, any>).about.experience;
+  const ar = arMessages.about.experience as unknown as Record<string, ExpMsg>;
+  const en = enMessages.about.experience as unknown as Record<string, ExpMsg>;
   const keys = Object.keys(ar).filter((k) => /^e\d+$/.test(k));
   return keys.map((k, i) => {
     const a = ar[k] as ExpMsg;
@@ -242,8 +249,8 @@ function seedExperiences(): StoredExperience[] {
 }
 
 function seedStats(): StoredStat[] {
-  const ar = (arMessages as Record<string, any>).home.stats;
-  const en = (enMessages as Record<string, any>).home.stats;
+  const ar = arMessages.home.stats;
+  const en = enMessages.home.stats;
   // Real numbers from the CV (Zanqa Education Platform + career span)
   return [
     { id: "years", value: 7, suffix: "+", labelEn: en.yearsExperience, labelAr: ar.yearsExperience },
@@ -253,8 +260,19 @@ function seedStats(): StoredStat[] {
   ];
 }
 
+type SeedCertificate = {
+  url: string;
+  title: string;
+  issuer?: string | null;
+  date?: string | null;
+  category?: string;
+  width?: number;
+  height?: number;
+  blurDataUrl?: string | null;
+};
+
 function seedCertificates(): StoredCertificate[] {
-  return (staticCertificates as any[]).map((c, i) => ({
+  return (staticCertificates as SeedCertificate[]).map((c, i) => ({
     id: `cert-${path.basename(c.url).replace(/\.[a-z0-9]+$/i, "")}`,
     title: c.title,
     issuer: c.issuer ?? null,
@@ -274,7 +292,7 @@ function seedArticles(): StoredArticle[] {
 
 /* ── row mappers (Prisma → Stored) ────────────────────────────────────── */
 
-const toProject = (p: any): StoredProject => ({
+const toProject = (p: ProjectRow & { media?: MediaRow[] }): StoredProject => ({
   id: p.id,
   slug: p.slug,
   titleEn: p.titleEn,
@@ -298,8 +316,8 @@ const toProject = (p: any): StoredProject => ({
   publishedAt: iso(p.publishedAt),
   media: (p.media ?? [])
     .slice()
-    .sort((a: any, b: any) => a.order - b.order)
-    .map((m: any) => ({
+    .sort((a, b) => a.order - b.order)
+    .map((m) => ({
       id: m.id,
       url: m.url,
       type: m.type,
@@ -311,7 +329,7 @@ const toProject = (p: any): StoredProject => ({
     })),
 });
 
-const toArticle = (a: any): StoredArticle => ({
+const toArticle = (a: ArticleRow): StoredArticle => ({
   id: a.id,
   slug: a.slug,
   titleEn: a.titleEn,
@@ -327,7 +345,7 @@ const toArticle = (a: any): StoredArticle => ({
   publishedAt: iso(a.publishedAt),
 });
 
-const toCertificate = (c: any): StoredCertificate => ({
+const toCertificate = (c: CertificateRow): StoredCertificate => ({
   id: c.id,
   title: c.title,
   issuer: c.issuer,
@@ -340,7 +358,7 @@ const toCertificate = (c: any): StoredCertificate => ({
   order: c.order,
 });
 
-const toMessage = (m: any): StoredMessage => ({
+const toMessage = (m: MessageRow): StoredMessage => ({
   id: m.id,
   name: m.name,
   email: m.email,
