@@ -54,8 +54,11 @@ export function ProjectCard({
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
+      // Its own transition: an exit used to inherit the enter stagger, so
+      // after a filter the 55th card took 3s to leave and the grid looked
+      // unfiltered meanwhile. The cascade in is capped for the same reason.
+      exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.2, delay: 0 } }}
+      transition={{ duration: 0.4, delay: Math.min(index, 8) * 0.05 }}
       layout
       className={cn("relative", className)}
     >

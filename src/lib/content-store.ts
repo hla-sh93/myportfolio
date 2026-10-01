@@ -147,12 +147,14 @@ function readFileCollection<T>(name: string, seed: () => T[]): T[] {
   }
 }
 
-function writeFileCollection<T>(name: string, data: T[]) {
+/** False when the write did not happen: a read-only filesystem (serverless). */
+function writeFileCollection<T>(name: string, data: T[]): boolean {
   try {
     fs.mkdirSync(DATA_DIR, { recursive: true });
     fs.writeFileSync(file(name), JSON.stringify(data, null, 1));
+    return true;
   } catch {
-    /* read-only FS (serverless) — writes are dev/local only */
+    return false;
   }
 }
 
@@ -377,6 +379,31 @@ async function readStoredProject(
   }
   const all = readFileCollection<StoredProject>("projects", seedProjects);
   const found = all.find((p) => p.id === idOrSlug || p.slug === idOrSlug);
+  return found ? withLinks(found) : null;
+}
+
+/**
+ * The public lookup: by slug only, and a database that answers "no such
+ * row" is believed. readStoredProject above is the admin's id-or-slug
+ * lookup; used publicly it gave every project a second URL under its id,
+ * and when a project was deleted or renamed the file copy kept answering
+ * at the old address with published: true.
+ */
+async function readStoredProjectBySlug(slug: string): Promise<StoredProject | null> {
+  if (dbConfigured()) {
+    try {
+      const row = await db.project.findUnique({ where: { slug }, include: { media: true } });
+      if (row) return toProject(row);
+      // An empty table is a database not yet seeded; the files stand in,
+      // as they do for the listings.
+      if ((await db.project.count()) > 0) return null;
+    } catch {
+      /* unreachable — fall through to the file store */
+    }
+  }
+  const found = readFileCollection<StoredProject>("projects", seedProjects).find(
+    (p) => p.slug === slug
+  );
   return found ? withLinks(found) : null;
 }
 
@@ -690,12 +717,13 @@ export async function getStoredMessages(): Promise<StoredMessage[]> {
   );
 }
 
+/** True when the message is stored somewhere durable; the route tells the visitor otherwise. */
 export async function addMessage(
   msg: Omit<StoredMessage, "id" | "read" | "createdAt">
-) {
+): Promise<boolean> {
   try {
     await db.contactMessage.create({ data: { ...msg, read: false } });
-    return;
+    return true;
   } catch (e) {
     writeFailed("write", e);
   }
@@ -706,7 +734,7 @@ export async function addMessage(
     read: false,
     createdAt: new Date().toISOString(),
   });
-  writeFileCollection("messages", all);
+  return writeFileCollection("messages", all);
 }
 
 export async function setMessageRead(id: string, read: boolean) {
@@ -749,6 +777,7 @@ const CACHE: { tags: string[]; revalidate: number } = { tags: [CONTENT_TAG], rev
 
 export const getStoredProjects = unstable_cache(readStoredProjects, ["content:projects"], CACHE);
 export const getStoredProject = unstable_cache(readStoredProject, ["content:project"], CACHE);
+export const getStoredProjectBySlug = unstable_cache(readStoredProjectBySlug, ["content:project-by-slug"], CACHE);
 export const getStoredArticles = unstable_cache(readStoredArticles, ["content:articles"], CACHE);
 export const getStoredArticle = unstable_cache(readStoredArticle, ["content:article"], CACHE);
 export const getStoredExperiences = unstable_cache(readStoredExperiences, ["content:experiences"], CACHE);

@@ -6,7 +6,7 @@ import type { ProjectCardData } from "@/types";
 import { AnimatePresence, motion } from "framer-motion";
 import { LayoutGrid, List, Search } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { ProjectCard } from "./ProjectCard";
 
 interface ProjectGridProps {
@@ -29,10 +29,24 @@ const categoryTranslationKey: Record<Category, string> = {
   WEBSITES: "categories.websites",
 };
 
+/* The home page's service cards link here with ?category=…. The page is
+   static, so the parameter is read in the browser: nothing on the server,
+   the URL's value after hydration, until the visitor picks for themselves. */
+const subscribeToUrl = (onChange: () => void) => {
+  window.addEventListener("popstate", onChange);
+  return () => window.removeEventListener("popstate", onChange);
+};
+const readUrlCategory = (): Category | null => {
+  const value = new URLSearchParams(window.location.search).get("category");
+  return value && (CATEGORIES as readonly string[]).includes(value) ? (value as Category) : null;
+};
+
 export function ProjectGrid({ projects, initialCategory = "ALL" }: ProjectGridProps) {
   const t = useTranslations("projects");
   const tA = useTranslations("a11y");
-  const [activeCategory, setActiveCategory] = useState<Category>(initialCategory as Category);
+  const urlCategory = useSyncExternalStore(subscribeToUrl, readUrlCategory, () => null);
+  const [picked, setPicked] = useState<Category | null>(null);
+  const activeCategory: Category = picked ?? urlCategory ?? (initialCategory as Category);
   const [query, setQuery] = useState("");
   const [view, setView] = useState<"grid" | "list">("grid");
 
@@ -91,7 +105,8 @@ export function ProjectGrid({ projects, initialCategory = "ALL" }: ProjectGridPr
             {CATEGORIES.map((category) => (
               <button
                 key={category}
-                onClick={() => setActiveCategory(category)}
+                onClick={() => setPicked(category)}
+                aria-pressed={activeCategory === category}
                 className={cn(
                   "relative px-4 py-2 text-sm font-medium rounded-full transition-colors whitespace-nowrap",
                   activeCategory === category

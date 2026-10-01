@@ -14,6 +14,7 @@ import {
   getStoredStats,
   type StoredArticle,
   type StoredProject,
+  getStoredProjectBySlug,
 } from "@/lib/content-store";
 import { siteDay } from "@/lib/format";
 
@@ -110,7 +111,7 @@ export async function getFeaturedProjects(): Promise<PublicProject[]> {
 export async function getPublicProject(
   slug: string
 ): Promise<PublicProject | null> {
-  const p = await getStoredProject(slug);
+  const p = await getStoredProjectBySlug(slug);
   return p && p.published ? reviveProject(p) : null;
 }
 

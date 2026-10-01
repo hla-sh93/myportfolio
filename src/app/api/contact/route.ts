@@ -1,4 +1,3 @@
-import { db } from "@/lib/db";
 import { addMessage } from "@/lib/content-store";
 import { contactSchema } from "@/lib/validations";
 import {
@@ -62,10 +61,11 @@ export async function POST(req: Request) {
       subject: data.subject,
       message: data.message,
     };
-    try {
-      await db.contactMessage.create({ data: message });
-    } catch {
-      await addMessage(message);
+    // A save that fails is the visitor's business: the form used to say
+    // "sent" while the message went nowhere (no database, read-only disk).
+    const saved = await addMessage(message);
+    if (!saved) {
+      return NextResponse.json({ ok: false }, { status: 500 });
     }
 
     return NextResponse.json({ success: true }, { status: 200 });
