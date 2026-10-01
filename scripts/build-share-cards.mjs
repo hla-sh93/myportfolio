@@ -44,15 +44,21 @@ const backdrop = Buffer.from(`<svg width="${W}" height="${H}" xmlns="http://www.
 </svg>`);
 
 async function card(srcPath, outName) {
+  const out = path.join(OUT_DIR, `${outName}.jpg`);
   const src = path.join("public", srcPath);
-  if (!fs.existsSync(src)) return { outName, skipped: "missing source" };
+  if (!fs.existsSync(src)) {
+    // A cover that moved to Blob storage has no local file to build from.
+    // A card made from it earlier is still right; dropping it from the
+    // manifest sent the page back to the untitled fallback.
+    if (fs.existsSync(out)) return { outName, kept: true };
+    return { outName, skipped: "missing source" };
+  }
 
   // `contain` keeps the whole board visible; the ground fills the letterbox.
   const art = await sharp(src)
     .resize(W - PAD * 2, H - PAD * 2, { fit: "inside", withoutEnlargement: false })
     .toBuffer({ resolveWithObject: true });
 
-  const out = path.join(OUT_DIR, `${outName}.jpg`);
   await sharp({
     create: { width: W, height: H, channels: 3, background: GROUND },
   })
@@ -82,6 +88,11 @@ for (const [items, prefix] of [
     const r = await card(item.coverImage, `${prefix}-${item.slug}`);
     if (r.skipped) {
       console.error(`skip ${r.outName}: ${r.skipped}`);
+      continue;
+    }
+    if (r.kept) {
+      console.error(`keep ${r.outName}: source not local, existing card kept`);
+      manifest.push(`${prefix}-${item.slug}`);
       continue;
     }
     made++;

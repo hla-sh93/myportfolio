@@ -7,7 +7,10 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
+        // /api/og is the share card for anything added since the last card
+        // build; a crawler that honours robots.txt would otherwise show no
+        // image at all for those pages. The longer rule wins the tie.
+        allow: ["/", "/api/og"],
         disallow: ["/admin", "/api/"],
       },
     ],
