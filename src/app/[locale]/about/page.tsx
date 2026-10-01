@@ -77,7 +77,7 @@ export default async function AboutPage({
 
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         {/* Experience — a decade drifting behind the timeline */}
-        <section className="relative border-t border-border py-16 md:py-24">
+        <section className="relative overflow-x-clip border-t border-border py-16 md:py-24">
           <span
             aria-hidden
             className="pointer-events-none absolute -end-8 top-24 select-none font-display text-[9rem] font-black leading-none text-text-primary opacity-[0.04] md:text-[13rem]"

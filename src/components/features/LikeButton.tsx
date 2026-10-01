@@ -4,6 +4,7 @@ import { readStorage, removeStorage, writeStorage } from "@/lib/safe-storage";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { Heart } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 interface LikeButtonProps {
@@ -26,6 +27,7 @@ export function LikeButton({
   variant = "pill",
   className,
 }: LikeButtonProps) {
+  const t = useTranslations("a11y");
   const [liked, setLiked] = useState(false);
   const [count, setCount] = useState(initialCount);
   const [loading, setLoading] = useState(false);
@@ -35,7 +37,7 @@ export function LikeButton({
   }, [type, slug]);
 
   const toggleLike = async (e: React.MouseEvent) => {
-    e.preventDefault(); // cards wrap this in a Link
+    e.preventDefault();
     e.stopPropagation();
     if (loading) return;
     setLoading(true);
@@ -99,7 +101,8 @@ export function LikeButton({
       <button
         onClick={toggleLike}
         disabled={loading}
-        aria-label={liked ? "Unlike" : "Like"}
+        aria-label={liked ? t("unlike") : t("like")}
+        aria-pressed={liked}
         className={cn(
           "group/like flex h-10 w-10 cursor-pointer items-center justify-center rounded-full",
           "bg-white/95 shadow-md backdrop-blur-sm transition-all duration-200",

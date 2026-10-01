@@ -333,5 +333,27 @@
     "description": "Something went wrong while loading it. Try again, and if it keeps happening, head back home.",
     "retry": "Try again",
     "home": "Back to home"
+  },
+  "a11y": {
+    "skipToContent": "Skip to content",
+    "mainNav": "Main",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "theme": "Theme",
+    "switchLanguage": "Switch to Arabic",
+    "like": "Like",
+    "unlike": "Unlike",
+    "gridView": "Grid view",
+    "listView": "List view",
+    "previous": "Previous",
+    "next": "Next",
+    "close": "Close",
+    "lightbox": "Image viewer",
+    "openImage": "Open image",
+    "pauseMarquee": "Pause the scrolling list",
+    "playMarquee": "Resume the scrolling list",
+    "tools": "Tools & technologies",
+    "moreWork": "Previous and next",
+    "tocToggle": "Table of contents"
   }
 }

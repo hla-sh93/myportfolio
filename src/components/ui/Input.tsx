@@ -66,7 +66,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           {icon && (
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute left-3 flex items-center text-text-tertiary"
+              className="pointer-events-none absolute start-3 flex items-center text-text-tertiary"
             >
               {icon}
             </span>
@@ -93,7 +93,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                     "focus:border-accent focus:ring-2 focus:ring-accent/30"
                   ),
               // Leading icon padding offset
-              icon && "pl-10",
+              icon && "ps-10",
               // Error state
               hasError &&
                 (variant === "line"

@@ -15,6 +15,7 @@ interface TocItem {
 
 export function TableOfContents() {
   const t = useTranslations("blog");
+  const tA = useTranslations("a11y");
   const [headings, setHeadings] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState<string>("");
   const [isOpen, setIsOpen] = useState(false);
@@ -51,6 +52,16 @@ export function TableOfContents() {
     return () => observer.disconnect();
   }, []);
 
+  // Escape closes the mobile panel.
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [isOpen]);
+
   if (headings.length === 0) return null;
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -65,23 +76,23 @@ export function TableOfContents() {
   };
 
   const desktopToc = (
-    <nav className="hidden xl:block sticky top-32 w-64 shrink-0">
+    <nav aria-label={t("tableOfContents")} className="hidden xl:block sticky top-32 w-64 shrink-0">
       <h3 className="text-sm font-bold uppercase tracking-wider text-text-tertiary mb-4">
         {t("tableOfContents")}
       </h3>
-      <ul className="space-y-3 border-l-2 border-border pl-4 relative">
+      <ul className="space-y-3 border-s-2 border-border ps-4 relative">
         {headings.map((heading) => {
           const isActive = activeId === heading.id;
           return (
             <li
               key={heading.id}
               className={cn("transition-colors relative", isActive ? "text-accent" : "text-text-secondary hover:text-text-primary")}
-              style={{ marginLeft: `${(heading.level - 2)}rem` }}
+              style={{ marginInlineStart: `${(heading.level - 2)}rem` }}
             >
               {isActive && (
                 <motion.div
                   layoutId="toc-indicator"
-                  className="absolute -left-[18px] top-1.5 w-2 h-2 rounded-full bg-accent"
+                  className="absolute -start-[18px] top-1.5 w-2 h-2 rounded-full bg-accent"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.2 }}
@@ -102,14 +113,15 @@ export function TableOfContents() {
   );
 
   const mobileToc = (
-    <div className="xl:hidden fixed bottom-6 left-6 z-40">
+    <div className="xl:hidden fixed bottom-6 start-6 z-40">
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="toc-mobile"
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="absolute bottom-16 left-0 w-72 origin-bottom-left"
+            className="absolute bottom-16 start-0 w-72 origin-bottom-left rtl:origin-bottom-right"
           >
             <GlassCard padding="md" className="max-h-[60vh] overflow-y-auto scrollbar-thin shadow-2xl">
               <h3 className="text-sm font-bold uppercase tracking-wider text-text-tertiary mb-4">
@@ -117,7 +129,7 @@ export function TableOfContents() {
               </h3>
               <ul className="space-y-3">
                 {headings.map((heading) => (
-                  <li key={heading.id} style={{ marginLeft: `${(heading.level - 2)}rem` }}>
+                  <li key={heading.id} style={{ marginInlineStart: `${(heading.level - 2)}rem` }}>
                     <a
                       href={`#${heading.id}`}
                       onClick={(e) => scrollToSection(e, heading.id)}
@@ -139,7 +151,9 @@ export function TableOfContents() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-12 h-12 flex items-center justify-center rounded-full bg-accent text-white shadow-xl hover:scale-105 active:scale-95 transition-transform"
-        aria-label="Toggle table of contents"
+        aria-label={tA("tocToggle")}
+        aria-expanded={isOpen}
+        aria-controls="toc-mobile"
       >
         {isOpen ? <X className="w-5 h-5" /> : <ListCollapse className="w-5 h-5" />}
       </button>

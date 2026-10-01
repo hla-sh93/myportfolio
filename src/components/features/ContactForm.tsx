@@ -210,7 +210,7 @@ export function ContactForm() {
 
       {/* Google's required notice, and only when it is true. */}
       {siteKey && (
-      <p className="text-xs text-center sm:text-left text-text-tertiary mt-4">
+      <p className="text-xs text-center sm:text-start text-text-tertiary mt-4">
         This site is protected by reCAPTCHA and the Google{" "}
         <a href="https://policies.google.com/privacy" className="underline hover:text-text-secondary" target="_blank" rel="noreferrer">
           Privacy Policy

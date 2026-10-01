@@ -238,9 +238,18 @@ body {
   letter-spacing: 0;
 }
 
-/* Arabic display type: tighter tracking hurts Arabic ligatures — reset it */
+/* Arabic type: tracking in either direction pulls its ligatures apart, so
+   every tracked label — utilities and the pill/chip classes alike — loses
+   it in RTL. (Uppercase is a no-op on Arabic and can stay.) */
 [dir="rtl"] .tracking-tight,
-[dir="rtl"] .tracking-tighter {
+[dir="rtl"] .tracking-tighter,
+[dir="rtl"] .tracking-wide,
+[dir="rtl"] .tracking-wider,
+[dir="rtl"] .tracking-widest,
+[dir="rtl"] [class*="tracking-["],
+[dir="rtl"] .chip-label,
+[dir="rtl"] .btn-pill,
+[dir="rtl"] .section-label {
   letter-spacing: 0;
 }
 
@@ -307,11 +316,36 @@ body {
 /* ─── Selection ─── */
 ::selection { background: var(--accent); color: white; }
 
-/* ─── Focus ─── */
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
+/* ─── Focus ───
+   In the base layer, so a component's own focus utilities win over it; an
+   unlayered rule beat them all, which doubled the ring on cards. It also
+   set a border-radius, which turned every focused pill into a rectangle. */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+/* "Skip to content": the first thing Tab reaches, visible only then. */
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  inset-inline-start: 1rem;
+  z-index: 200;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  transform: translateY(-200%);
+  opacity: 0;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.skip-link:focus-visible {
+  transform: none;
+  opacity: 1;
+  outline-offset: 4px;
 }
 
 /* ─── Smooth Scroll ─── */
@@ -411,6 +445,13 @@ html {
     black 88%,
     transparent
   );
+}
+/* Auto-moving content must be stoppable: the button, a hover, or a focus
+   inside all hold it. */
+.marquee-paused,
+.marquee-mask:hover .animate-marquee,
+.marquee-mask:focus-within .animate-marquee {
+  animation-play-state: paused;
 }
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee { animation: none; }

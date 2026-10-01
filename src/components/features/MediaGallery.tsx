@@ -4,6 +4,7 @@ import type { Media } from "@prisma/client";
 import { AnimatePresence, motion } from "framer-motion";
 import { Play } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { Lightbox } from "./Lightbox";
 
@@ -14,6 +15,7 @@ interface MediaGalleryProps {
 }
 
 export function MediaGallery({ media, isRtl = false }: MediaGalleryProps) {
+  const t = useTranslations("a11y");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   if (!media || media.length === 0) return null;
@@ -58,8 +60,11 @@ export function MediaGallery({ media, isRtl = false }: MediaGalleryProps) {
               transition={{ delay: index * 0.1 }}
               className={isFirstOfMany ? "sm:col-span-2 lg:col-span-3" : undefined}
             >
-            <div
-              className={`relative overflow-hidden rounded-2xl cursor-zoom-in group ${
+            {/* A button, so the viewer opens from the keyboard as well. */}
+            <button
+              type="button"
+              aria-label={caption || t("openImage")}
+              className={`relative block w-full overflow-hidden rounded-2xl cursor-zoom-in group text-start ${
                 isFirstOfMany ? "aspect-[21/9]" : "aspect-[4/3]"
               } bg-gray-100 dark:bg-gray-800`}
               onClick={() => setLightboxIndex(index)}
@@ -71,7 +76,6 @@ export function MediaGallery({ media, isRtl = false }: MediaGalleryProps) {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes={isFirstOfMany ? "100vw" : "(max-width: 768px) 100vw, 33vw"}
-                  priority={index < 2}
                 />
               ) : (
                 <div className="relative w-full h-full bg-black">
@@ -81,6 +85,7 @@ export function MediaGallery({ media, isRtl = false }: MediaGalleryProps) {
                     muted
                     loop
                     playsInline
+                    preload="metadata"
                     onMouseEnter={(e) => {
                       const v = e.target as HTMLVideoElement;
                       v.play().catch(() => {});
@@ -100,7 +105,7 @@ export function MediaGallery({ media, isRtl = false }: MediaGalleryProps) {
               
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-            </div>
+            </button>
 
               {showCaption(caption) && (
                 <figcaption className="mt-3 px-1 text-sm leading-relaxed text-text-tertiary">

@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export interface DetailNavItem {
   slug: string;
@@ -28,6 +29,7 @@ export function DetailNav({
   prevLabel: string;
   nextLabel: string;
 }) {
+  const tA = useTranslations("a11y");
   if (!prev && !next) return null;
 
   const card = (item: DetailNavItem, label: string, isNext: boolean) => (
@@ -81,7 +83,7 @@ export function DetailNav({
   );
 
   return (
-    <nav aria-label="More" className="mx-auto max-w-6xl px-6 py-14 lg:px-8">
+    <nav aria-label={tA("moreWork")} className="mx-auto max-w-6xl px-6 py-14 lg:px-8">
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {prev && card(prev, prevLabel, false)}
         {next && card(next, nextLabel, true)}

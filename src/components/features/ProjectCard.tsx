@@ -57,7 +57,7 @@ export function ProjectCard({
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
       layout
-      className={className}
+      className={cn("relative", className)}
     >
       <Link
         href={`/projects/detail/${project.slug}`}
@@ -93,11 +93,6 @@ export function ProjectCard({
           <span className="absolute bottom-4 start-4 rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-black transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
             {categoryLabel}
           </span>
-
-          {/* Favorite — icon only, on the image */}
-          <span className="absolute end-3 top-3 z-10">
-            <LikeButton slug={project.slug} variant="overlay" />
-          </span>
         </div>
 
         {/* Content */}
@@ -124,6 +119,12 @@ export function ProjectCard({
           </div>
         </div>
       </Link>
+
+      {/* Favorite — beside the link, not inside it: a button in an anchor is
+          invalid and reads as one control. Pinned over the cover's corner. */}
+      <span className={cn("absolute z-10", isGrid ? "end-3 top-3" : "start-7 top-7")}>
+        <LikeButton slug={project.slug} variant="overlay" />
+      </span>
     </motion.div>
   );
 }

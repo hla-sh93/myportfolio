@@ -157,6 +157,10 @@ const variantConfig: Record<
 function ToastItem({ toast, onDismiss }: { toast: ToastData; onDismiss: () => void }) {
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const config = variantConfig[toast.variant ?? "info"];
+  // Rendered after mount only (see Toaster), so the document is there. The
+  // provider also serves the admin, outside next-intl, hence no t() here.
+  const rtl = document.documentElement.dir === "rtl";
+  const arabic = document.documentElement.lang === "ar";
 
   useEffect(() => {
     if (!toast.duration || toast.duration <= 0) return;
@@ -169,18 +173,18 @@ function ToastItem({ toast, onDismiss }: { toast: ToastData; onDismiss: () => vo
   return (
     <motion.li
       layout
-      initial={{ opacity: 0, x: 50, scale: 0.95 }}
+      initial={{ opacity: 0, x: rtl ? -50 : 50, scale: 0.95 }}
       animate={{ opacity: 1, x: 0, scale: 1 }}
-      exit={{ opacity: 0, x: 50, scale: 0.95 }}
+      exit={{ opacity: 0, x: rtl ? -50 : 50, scale: 0.95 }}
       transition={{ type: "spring", stiffness: 320, damping: 28 }}
       role="alert"
       aria-live="assertive"
-      className="glass relative w-80 overflow-hidden rounded-xl shadow-lg"
+      className="glass relative w-[min(20rem,calc(100vw-3rem))] overflow-hidden rounded-xl shadow-lg"
     >
       {/* Progress bar */}
       {toast.duration && toast.duration > 0 && (
         <motion.div
-          className={cn("absolute bottom-0 left-0 h-0.5", config.barColor)}
+          className={cn("absolute bottom-0 start-0 h-0.5", config.barColor)}
           initial={{ width: "100%" }}
           animate={{ width: "0%" }}
           transition={{ duration: toast.duration / 1000, ease: "linear" }}
@@ -204,9 +208,9 @@ function ToastItem({ toast, onDismiss }: { toast: ToastData; onDismiss: () => vo
         {/* Close */}
         <button
           type="button"
-          aria-label="Dismiss notification"
+          aria-label={arabic ? "إغلاق التنبيه" : "Dismiss notification"}
           onClick={onDismiss}
-          className="flex-shrink-0 rounded p-0.5 text-text-tertiary hover:text-text-primary transition-colors"
+          className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded text-text-tertiary hover:text-text-primary transition-colors"
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden="true">
             <line x1="18" y1="6" x2="6" y2="18" />
@@ -231,7 +235,8 @@ export function Toaster() {
 
   return createPortal(
     <div
-      role="region" aria-label="Notifications"
+      role="region"
+      aria-label={document.documentElement.lang === "ar" ? "التنبيهات" : "Notifications"}
       className="fixed bottom-6 end-6 z-[9999] flex flex-col-reverse gap-3"
     >
       <AnimatePresence mode="popLayout">

@@ -20,6 +20,8 @@ const navLinks = [
 export function Navbar() {
   const t = useTranslations("nav");
   const tHero = useTranslations("hero");
+  const tA = useTranslations("a11y");
+  const tTheme = useTranslations("theme");
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
@@ -29,6 +31,16 @@ export function Navbar() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
+
+  // Escape closes the menu, as it does any popup.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [mobileOpen]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -104,6 +116,7 @@ export function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
       {/* Floating pill nav */}
       <nav
+        aria-label={tA("mainNav")}
         className={cn(
           "mx-auto flex h-14 max-w-5xl items-center justify-between rounded-full border px-2.5 ps-6 transition-all duration-300",
           scrolled || mobileOpen
@@ -129,6 +142,7 @@ export function Navbar() {
               <li key={key}>
                 <Link
                   href={href}
+                  aria-current={isActive ? "page" : undefined}
                   className={cn(
                     "relative block rounded-full px-4 py-2 text-sm font-semibold transition-colors",
                     isActive
@@ -159,7 +173,9 @@ export function Navbar() {
           <button
             onClick={cycleTheme}
             className={controlBtn}
-            aria-label={`Theme: ${mounted ? theme : "system"}`}
+            aria-label={`${tA("theme")}: ${tTheme(
+              (mounted && theme ? theme : "system") as "light" | "dark" | "system"
+            )}`}
           >
             <ThemeIcon size={17} />
           </button>
@@ -167,7 +183,7 @@ export function Navbar() {
           <button
             onClick={switchLocale}
             className={cn(controlBtn, "w-auto gap-1.5 px-3 text-sm font-semibold")}
-            aria-label={locale === "en" ? "ع · Switch language" : "EN · Switch language"}
+            aria-label={tA("switchLanguage")}
           >
             <Globe size={15} />
             <span>{locale === "en" ? "ع" : "EN"}</span>
@@ -185,7 +201,9 @@ export function Navbar() {
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className={cn(controlBtn, "md:hidden")}
-            aria-label="Menu"
+            aria-label={mobileOpen ? tA("closeMenu") : tA("openMenu")}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
           >
             {mobileOpen ? <X size={19} /> : <Menu size={19} />}
           </button>
@@ -196,6 +214,7 @@ export function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, y: -8, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.98 }}
@@ -211,6 +230,7 @@ export function Navbar() {
                     <Link
                       href={href}
                       onClick={() => setMobileOpen(false)}
+                      aria-current={isActive ? "page" : undefined}
                       className={cn(
                         "block rounded-2xl px-4 py-3 text-base font-semibold transition-colors",
                         isActive

@@ -257,7 +257,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                   prose-li:my-2 prose-li:leading-[1.8] prose-li:text-text-secondary
                   prose-li:marker:text-accent
                   prose-strong:text-text-primary
-                  prose-a:font-semibold prose-a:text-accent prose-a:no-underline hover:prose-a:underline
+                  prose-a:font-semibold prose-a:text-accent prose-a:underline prose-a:decoration-accent/40 prose-a:underline-offset-4 hover:prose-a:decoration-accent
                   prose-hr:border-border`}
                 dangerouslySetInnerHTML={{ __html: bodyHtml }}
               />

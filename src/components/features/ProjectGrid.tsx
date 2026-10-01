@@ -31,6 +31,7 @@ const categoryTranslationKey: Record<Category, string> = {
 
 export function ProjectGrid({ projects, initialCategory = "ALL" }: ProjectGridProps) {
   const t = useTranslations("projects");
+  const tA = useTranslations("a11y");
   const [activeCategory, setActiveCategory] = useState<Category>(initialCategory as Category);
   const [query, setQuery] = useState("");
   const [view, setView] = useState<"grid" | "list">("grid");
@@ -134,7 +135,8 @@ export function ProjectGrid({ projects, initialCategory = "ALL" }: ProjectGridPr
               on a phone, so the toggle still does something there. */}
           <div className="flex shrink-0 items-center bg-surface rounded-full p-1 border border-border isolate">
             <button
-              aria-label="Grid view"
+              aria-label={tA("gridView")}
+              aria-pressed={view === "grid"}
               onClick={() => setView("grid")}
               className={cn(
                 "relative p-2 rounded-full transition-colors",
@@ -151,7 +153,8 @@ export function ProjectGrid({ projects, initialCategory = "ALL" }: ProjectGridPr
               <LayoutGrid className="w-4 h-4" />
             </button>
             <button
-              aria-label="List view"
+              aria-label={tA("listView")}
+              aria-pressed={view === "list"}
               onClick={() => setView("list")}
               className={cn(
                 "relative p-2 rounded-full transition-colors",

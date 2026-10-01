@@ -139,6 +139,7 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   const messages = await getMessages();
+  const tA11y = await getTranslations({ locale, namespace: "a11y" });
   const dir = locale === "ar" ? "rtl" : "ltr";
   const isArabic = locale === "ar";
 
@@ -156,6 +157,9 @@ export default async function LocaleLayout({
         {/* First in the body so the curtain paints on the very first frame,
             before any of the providers below have hydrated. */}
         <IntroLoader />
+        <a href="#main" className="skip-link">
+          {tA11y("skipToContent")}
+        </a>
         <JsonLd data={personSchema(locale)} />
         <JsonLd data={websiteSchema(locale)} />
         <NextIntlClientProvider messages={messages}>
@@ -167,7 +171,7 @@ export default async function LocaleLayout({
               <div className="grain-overlay" aria-hidden />
               <div className="relative flex min-h-screen flex-col">
                 <Navbar />
-                <main className="flex-1 pt-[var(--navbar-height)]">
+                <main id="main" tabIndex={-1} className="flex-1 pt-[var(--navbar-height)] outline-none">
                   {children}
                 </main>
                 <Footer />

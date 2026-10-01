@@ -63,9 +63,9 @@ export function Footer() {
         {/* Link rails */}
         <div className="grid gap-10 border-t border-border pt-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-text-tertiary">
+            <h2 className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-text-tertiary">
               {t("nav.home")}
-            </h3>
+            </h2>
             <ul className="space-y-2.5">
               {navLinks.map(({ href, key }) => (
                 <li key={key}>
@@ -81,9 +81,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-text-tertiary">
+            <h2 className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-text-tertiary">
               {t("contact.title")}
-            </h3>
+            </h2>
             <div className="flex gap-3">
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a
@@ -101,18 +101,18 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-text-tertiary">
+            <h2 className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-text-tertiary">
               {t("footer.localTime")}
-            </h3>
+            </h2>
             <p className="text-sm font-medium text-text-secondary">
               <LocalTime />
             </p>
           </div>
 
           <div>
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-text-tertiary">
+            <h2 className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-text-tertiary">
               {t("hero.name")}
-            </h3>
+            </h2>
             <p className="text-sm font-medium text-text-secondary">
               {t("footer.tagline")}
             </p>
