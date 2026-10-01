@@ -4,11 +4,13 @@ import { Plus } from "lucide-react";
 import Link from "next/link";
 import { ProjectsTable, type ProjectRow } from "./ProjectsTable";
 import { SyncContentButton } from "./SyncContentButton";
+import { requireAdminPage } from "@/lib/admin-guard";
 
 export const metadata = { title: "Projects | Admin" };
 export const dynamic = "force-dynamic";
 
 export default async function AdminProjectsPage() {
+  await requireAdminPage();
   const [projects, counters] = await Promise.all([
     getStoredProjects(),
     getCounters("project"),

@@ -1,10 +1,12 @@
 import { getStoredExperiences } from "@/lib/content-store";
 import { ExperiencesEditor } from "./ExperiencesEditor";
+import { requireAdminPage } from "@/lib/admin-guard";
 
 export const metadata = { title: "Experience | Admin" };
 export const dynamic = "force-dynamic";
 
 export default async function AdminExperiencesPage() {
+  await requireAdminPage();
   const experiences = await getStoredExperiences();
 
   return (

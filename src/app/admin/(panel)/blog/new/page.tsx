@@ -1,10 +1,12 @@
 import { EditArticleForm } from "@/components/features/EditArticleForm";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { requireAdminPage } from "@/lib/admin-guard";
 
 export const metadata = { title: "New Article | Admin" };
 
-export default function NewArticlePage() {
+export default async function NewArticlePage() {
+  await requireAdminPage();
   return (
     <div className="mx-auto max-w-[1100px] space-y-5">
       <header className="flex items-center gap-3">

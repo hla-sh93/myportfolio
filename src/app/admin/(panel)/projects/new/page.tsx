@@ -1,10 +1,12 @@
 import { EditProjectForm } from "@/components/features/EditProjectForm";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { requireAdminPage } from "@/lib/admin-guard";
 
 export const metadata = { title: "New Project | Admin" };
 
-export default function NewProjectPage() {
+export default async function NewProjectPage() {
+  await requireAdminPage();
   return (
     <div className="mx-auto max-w-[1100px] space-y-5">
       <header className="flex items-center gap-3">

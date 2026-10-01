@@ -22,6 +22,7 @@ import {
   Users,
 } from "lucide-react";
 import Link from "next/link";
+import { requireAdminPage } from "@/lib/admin-guard";
 
 export const metadata = { title: "Overview | Admin" };
 export const dynamic = "force-dynamic";
@@ -124,6 +125,7 @@ function EmptyRow({ children }: { children: React.ReactNode }) {
 }
 
 export default async function AdminOverviewPage() {
+  await requireAdminPage();
   const [
     projects,
     articles,

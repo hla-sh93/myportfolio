@@ -6,6 +6,7 @@
  * and revalidate the public pages that render the touched collection.
  */
 import { auth, signOut } from "@/auth";
+import { isAdmin } from "@/lib/admin-guard";
 import { blurForUrl } from "@/lib/blur";
 import {
   deleteArticle as storeDeleteArticle,
@@ -38,7 +39,7 @@ import { redirect } from "next/navigation";
 
 async function requireAdmin() {
   const session = await auth();
-  if (!session?.user) throw new Error("Unauthorized");
+  if (!isAdmin(session)) throw new Error("Unauthorized");
   return session;
 }
 

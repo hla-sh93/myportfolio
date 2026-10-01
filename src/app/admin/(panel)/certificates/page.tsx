@@ -1,10 +1,12 @@
 import { getStoredCertificates } from "@/lib/content-store";
 import { CertificatesEditor } from "./CertificatesEditor";
+import { requireAdminPage } from "@/lib/admin-guard";
 
 export const metadata = { title: "Certificates | Admin" };
 export const dynamic = "force-dynamic";
 
 export default async function AdminCertificatesPage() {
+  await requireAdminPage();
   const certificates = await getStoredCertificates();
 
   return (

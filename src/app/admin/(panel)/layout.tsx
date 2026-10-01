@@ -1,15 +1,13 @@
-import { auth } from "@/auth";
 import { AdminShell } from "@/components/admin/AdminShell";
 import { getStoredMessages } from "@/lib/content-store";
-import { redirect } from "next/navigation";
+import { requireAdminPage } from "@/lib/admin-guard";
 
 export default async function AdminPanelLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const session = await auth();
-  if (!session?.user) redirect("/admin/login");
+  const session = await requireAdminPage();
 
   const messages = await getStoredMessages();
   const unread = messages.filter((m) => !m.read).length;

@@ -1,10 +1,12 @@
 import { getStoredMessages } from "@/lib/content-store";
 import { MessagesList } from "./MessagesList";
+import { requireAdminPage } from "@/lib/admin-guard";
 
 export const metadata = { title: "Messages | Admin" };
 export const dynamic = "force-dynamic";
 
 export default async function AdminMessagesPage() {
+  await requireAdminPage();
   const messages = await getStoredMessages();
   const unread = messages.filter((m) => !m.read).length;
 

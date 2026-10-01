@@ -1,4 +1,5 @@
 import { auth } from "@/auth";
+import { isAdmin } from "@/lib/admin-guard";
 import { blurPlaceholder } from "@/lib/blur";
 import { safeName, saveMedia } from "@/lib/media-store";
 import { NextResponse } from "next/server";
@@ -36,7 +37,7 @@ const VIDEO_TYPES = ["video/mp4", "video/webm", "video/quicktime"];
 
 export async function POST(req: Request) {
   const session = await auth();
-  if (!session?.user) {
+  if (!isAdmin(session)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

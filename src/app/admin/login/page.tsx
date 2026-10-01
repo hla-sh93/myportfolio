@@ -1,4 +1,5 @@
 import { auth } from "@/auth";
+import { isAdmin } from "@/lib/admin-guard";
 import { redirect } from "next/navigation";
 import { AdminLoginForm } from "./LoginForm";
 
@@ -6,7 +7,7 @@ export const metadata = { title: "Admin Login" };
 
 export default async function AdminLoginPage() {
   const session = await auth();
-  if (session?.user) redirect("/admin");
+  if (isAdmin(session)) redirect("/admin");
 
   return (
     <div className="console-shell flex min-h-screen items-center justify-center p-6">

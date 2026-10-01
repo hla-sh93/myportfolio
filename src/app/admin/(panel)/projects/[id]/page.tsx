@@ -3,6 +3,7 @@ import { getStoredProject } from "@/lib/content-store";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { requireAdminPage } from "@/lib/admin-guard";
 
 export const metadata = { title: "Edit Project | Admin" };
 export const dynamic = "force-dynamic";
@@ -12,6 +13,7 @@ export default async function EditProjectPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
+  await requireAdminPage();
   const { id } = await params;
   const project = await getStoredProject(id);
   if (!project) notFound();

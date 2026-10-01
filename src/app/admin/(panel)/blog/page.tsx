@@ -3,11 +3,13 @@ import { getStoredArticles } from "@/lib/content-store";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import { ArticlesTable, type ArticleRow } from "./ArticlesTable";
+import { requireAdminPage } from "@/lib/admin-guard";
 
 export const metadata = { title: "Articles | Admin" };
 export const dynamic = "force-dynamic";
 
 export default async function AdminBlogPage() {
+  await requireAdminPage();
   const [articles, counters] = await Promise.all([
     getStoredArticles(),
     getCounters("article"),

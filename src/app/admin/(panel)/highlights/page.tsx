@@ -1,10 +1,12 @@
 import { getStoredStats } from "@/lib/content-store";
 import { HighlightsEditor } from "./HighlightsEditor";
+import { requireAdminPage } from "@/lib/admin-guard";
 
 export const metadata = { title: "Highlights | Admin" };
 export const dynamic = "force-dynamic";
 
 export default async function AdminHighlightsPage() {
+  await requireAdminPage();
   const stats = await getStoredStats();
 
   return (
