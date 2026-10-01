@@ -31,17 +31,18 @@ function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
 }
 
 /* Drake hero: chip → oversized light heading with a burgundy line →
-   description → CTAs → giant accent facts. */
+   description → CTAs → giant accent facts.
+
+   The entrance is a CSS animation (.rise-in), not framer-motion. The motion
+   version server-rendered the heading at opacity:0 and it stayed that way
+   until hydration, so the largest text on the page — the LCP element — was
+   painted seconds late on a slow phone, and never without JavaScript. */
 export function HomeIntro({ stats }: HomeIntroProps) {
   const t = useTranslations();
 
   return (
     <section className="relative pb-16 pt-4 md:pb-24 md:pt-8">
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      >
+      <div className="rise-in">
         <span className="chip-label">{t("home.intro.label")}</span>
 
         <h1 className="title-display mt-9 font-display text-[clamp(2rem,4.4vw,3.8rem)]">
@@ -63,21 +64,15 @@ export function HomeIntro({ stats }: HomeIntroProps) {
             {t("hero.contact")}
           </Link>
         </div>
-      </motion.div>
+      </div>
 
       {/* Facts — Drake's giant accent numerals */}
       <div className="mt-16 grid grid-cols-2 gap-x-8 gap-y-12 md:mt-20 xl:grid-cols-4">
         {stats.map((stat, index) => (
-          <motion.div
+          <div
             key={stat.label}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{
-              delay: index * 0.08,
-              duration: 0.55,
-              ease: [0.16, 1, 0.3, 1],
-            }}
+            className="rise-in"
+            style={{ animationDelay: `${0.15 + index * 0.08}s` }}
           >
             <span className="block font-display text-4xl font-bold leading-none text-accent md:text-5xl">
               <Counter value={stat.value} suffix={stat.suffix} />
@@ -85,7 +80,7 @@ export function HomeIntro({ stats }: HomeIntroProps) {
             <span className="mt-4 block max-w-[180px] text-xs font-medium uppercase leading-relaxed tracking-[0.1em] text-text-secondary">
               {stat.label}
             </span>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { MotionProvider } from "@/components/providers/motion-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ToastProvider } from "@/components/ui/Toast";
 import { Navbar } from "@/components/layout/navbar";
@@ -20,13 +21,20 @@ import { IntroLoader } from "@/components/ui/IntroLoader";
 import { RouteProgress } from "@/components/ui/RouteProgress";
 import "../globals.css";
 
-/* ─── Fonts ─── */
+/* ─── Fonts ───
+   None of them is preloaded. A preload is emitted for every face declared
+   here on every page, whichever locale is rendering, so /ar fetched eleven
+   Latin files its text never uses, at the highest priority, ahead of the
+   scripts and images that matter. Without preloads a face is fetched only
+   when text is set in it; with display: swap the text paints at once in the
+   fallback and the LCP does not wait for the font either way. */
 // Latin — display + body
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "900"],
   variable: "--font-poppins",
   display: "swap",
+  preload: false,
 });
 
 // Latin display — geometric grotesk with real character (headlines only)
@@ -35,6 +43,7 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["400", "500", "600", "700"],
   variable: "--font-space-grotesk",
   display: "swap",
+  preload: false,
 });
 
 // Arabic — display + body (primary locale)
@@ -50,6 +59,7 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains-mono",
   display: "swap",
+  preload: false,
 });
 
 /* ─── Metadata ─── */
@@ -134,12 +144,12 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning>
+      {/* Each locale carries only its own faces: the RTL rules in globals.css
+          route every Latin variable to Tajawal anyway. */}
       <body
         className={`
-          ${poppins.variable}
-          ${spaceGrotesk.variable}
+          ${isArabic ? tajawal.variable : `${poppins.variable} ${spaceGrotesk.variable}`}
           ${jetbrainsMono.variable}
-          ${isArabic ? tajawal.variable : ""}
           antialiased
         `}
       >
@@ -149,6 +159,7 @@ export default async function LocaleLayout({
         <JsonLd data={personSchema(locale)} />
         <JsonLd data={websiteSchema(locale)} />
         <NextIntlClientProvider messages={messages}>
+          <MotionProvider>
           <ThemeProvider>
             <ToastProvider>
               <RouteProgress />
@@ -163,6 +174,7 @@ export default async function LocaleLayout({
               </div>
             </ToastProvider>
           </ThemeProvider>
+          </MotionProvider>
         </NextIntlClientProvider>
       </body>
     </html>

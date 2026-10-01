@@ -92,7 +92,10 @@ export function BlogExplorer({
         </div>
       ) : (
         <motion.div layout className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <AnimatePresence mode="popLayout">
+          {/* initial={false}: the cards arrive visible. With an entrance on
+              mount they were server-rendered at opacity:0 and the page's
+              largest image waited for hydration to appear. */}
+          <AnimatePresence mode="popLayout" initial={false}>
             {filtered.map((article, index) => (
               <motion.div
                 layout
