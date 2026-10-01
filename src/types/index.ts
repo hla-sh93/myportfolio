@@ -46,7 +46,7 @@ export type ArticleCardData = Pick<
   | "tags"
   | "readTime"
   | "publishedAt"
-> & { views: number };
+> & { views: number; readTimeEn: number; readTimeAr: number };
 
 export type ContactMessageWithStatus = ContactMessage;
 

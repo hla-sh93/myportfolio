@@ -134,7 +134,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             </div>
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4 text-accent" />
-              <span>{article.readTime} {t("minRead")}</span>
+              <span>{isRtl ? article.readTimeAr : article.readTimeEn} {t("minRead")}</span>
             </div>
             <div className="flex items-center gap-2">
               <Eye className="w-4 h-4 text-accent" />

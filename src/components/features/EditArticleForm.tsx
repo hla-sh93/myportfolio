@@ -27,7 +27,6 @@ const articleSchema = z.object({
   bodyAr: z.string(),
   coverImage: z.string(),
   tags: z.string(),
-  readTime: z.string(),
   published: z.boolean(),
 });
 
@@ -64,7 +63,6 @@ export function EditArticleForm({
       bodyAr: "",
       coverImage: "",
       tags: "",
-      readTime: "5",
       published: true,
       ...initialData,
     },
@@ -149,10 +147,6 @@ export function EditArticleForm({
             <label className={labelCls}>Slug</label>
             <input className="panel-field" placeholder="my-article" {...register("slug")} />
             {errors.slug && <span className={errCls}>{errors.slug.message}</span>}
-          </div>
-          <div>
-            <label className={labelCls}>Read time (minutes)</label>
-            <input inputMode="numeric" className="panel-field" {...register("readTime")} />
           </div>
           <div>
             <label className={labelCls}>Cover Image URL</label>

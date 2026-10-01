@@ -65,7 +65,6 @@ export default async function EditArticlePage({
             bodyAr: article.bodyAr,
             coverImage: article.coverImage,
             tags: article.tags.join(", "),
-            readTime: String(article.readTime),
             published: article.published,
           }}
         />

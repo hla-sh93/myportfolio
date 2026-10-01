@@ -16,6 +16,7 @@ import {
   getStoredProjectBySlug,
 } from "@/lib/content-store";
 import { siteDay } from "@/lib/format";
+import readingTime from "reading-time";
 
 function reviveProject(p: StoredProject) {
   return {
@@ -41,9 +42,20 @@ function reviveProject(p: StoredProject) {
   };
 }
 
+/**
+ * Minutes to read a body, counted from the body. The stored readTime was
+ * typed by hand in the admin and said 8–10 minutes on sixteen articles of
+ * 400–500 words; it is no longer shown.
+ */
+export function readMinutes(body: string): number {
+  return Math.max(1, Math.round(readingTime(body ?? "").minutes));
+}
+
 function reviveArticle(a: StoredArticle) {
   return {
     ...a,
+    readTimeEn: readMinutes(a.bodyEn),
+    readTimeAr: readMinutes(a.bodyAr),
     views: 0,
     publishedAt: new Date(a.publishedAt),
     createdAt: new Date(a.publishedAt),
@@ -85,6 +97,8 @@ export function articleCard(a: PublicArticle, counter?: Counter): ArticleCardDat
     coverImage: a.coverImage,
     tags: a.tags,
     readTime: a.readTime,
+    readTimeEn: a.readTimeEn,
+    readTimeAr: a.readTimeAr,
     publishedAt: a.publishedAt,
     views: counter?.views ?? 0,
   };

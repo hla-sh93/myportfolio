@@ -9,21 +9,7 @@ import { auth, signOut } from "@/auth";
 import { isAdmin } from "@/lib/admin-guard";
 import { blurForUrl } from "@/lib/blur";
 import {
-  deleteArticle as storeDeleteArticle,
-  deleteCertificate as storeDeleteCertificate,
-  deleteExperience as storeDeleteExperience,
-  deleteMessage as storeDeleteMessage,
-  deleteProject as storeDeleteProject,
-  getStoredArticle,
-  getStoredProject,
-  newId,
-  saveStats as storeSaveStats,
-  setMessageRead,
-  upsertArticle,
-  upsertCertificate,
-  upsertExperience,
-  upsertProject,
-  normaliseLinks,
+  CONTENT_TAG,
   type MediaItem,
   type ProjectLink,
   type StoredArticle,
@@ -31,8 +17,24 @@ import {
   type StoredExperience,
   type StoredProject,
   type StoredStat,
-  CONTENT_TAG,
+  deleteArticle as storeDeleteArticle,
+  deleteCertificate as storeDeleteCertificate,
+  deleteExperience as storeDeleteExperience,
+  deleteMessage as storeDeleteMessage,
+  deleteProject as storeDeleteProject,
+  getStoredArticle,
+  getStoredCertificates,
+  getStoredProject,
+  newId,
+  normaliseLinks,
+  saveStats as storeSaveStats,
+  setMessageRead,
+  upsertArticle,
+  upsertCertificate,
+  upsertExperience,
+  upsertProject,
 } from "@/lib/content-store";
+import { readMinutes } from "@/lib/content";
 import { syncContentFromBundle } from "@/lib/content-sync";
 import { revalidatePath, updateTag } from "next/cache";
 import { redirect } from "next/navigation";
@@ -262,7 +264,6 @@ export type ArticleInput = {
   bodyAr: string;
   coverImage: string;
   tags: string;
-  readTime: string;
   published: boolean;
 };
 
@@ -281,7 +282,8 @@ export async function saveArticleAction(input: ArticleInput) {
     bodyAr: input.bodyAr,
     coverImage: input.coverImage || "/images/placeholder.jpg",
     tags: splitList(input.tags),
-    readTime: Number(input.readTime) || 5,
+    // Counted from the body; the field that took it by hand is gone.
+    readTime: readMinutes(input.bodyEn),
     published: input.published,
     publishedAt: existing?.publishedAt ?? new Date().toISOString(),
   };
@@ -353,16 +355,25 @@ export async function saveCertificateAction(input: {
 }) {
   await requireAdmin();
   const id = input.id || newId("cert");
+  const url = input.url.trim();
+  // The picture's size and placeholder belong to its url: an edit that keeps
+  // the picture keeps them. Saving used to reset every certificate to
+  // 1200×900 with no placeholder, which one edit of a date would have done
+  // to all seventeen.
+  const existing = input.id
+    ? (await getStoredCertificates()).find((c) => c.id === input.id)
+    : undefined;
+  const samePicture = existing !== undefined && existing.url === url;
   const cert: StoredCertificate = {
     id,
     title: input.title.trim(),
     issuer: input.issuer.trim() || null,
     date: input.date.trim() || null,
     category: input.category || "uiux",
-    url: input.url.trim(),
-    width: 1200,
-    height: 900,
-    blurDataUrl: null,
+    url,
+    width: samePicture ? existing.width : 1200,
+    height: samePicture ? existing.height : 900,
+    blurDataUrl: samePicture ? existing.blurDataUrl : await blurForUrl(url),
     order: Number(input.order) || 0,
   };
   await upsertCertificate(cert);

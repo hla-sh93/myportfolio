@@ -91,7 +91,7 @@ export function BlogCard({ article, index = 0, titleAs: TitleTag = "h3" }: BlogC
               <div className="flex items-center gap-4 text-xs font-semibold text-text-tertiary">
                 <span className="flex items-center gap-1.5">
                   <Clock className="h-3.5 w-3.5" />
-                  {article.readTime} {t("minRead")}
+                  {isRtl ? article.readTimeAr : article.readTimeEn} {t("minRead")}
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Eye className="h-3.5 w-3.5" />
