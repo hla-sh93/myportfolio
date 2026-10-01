@@ -256,7 +256,8 @@
     "noResults": "No matching articles",
     "noResultsHint": "Try another keyword or category",
     "prevArticle": "Previous article",
-    "nextArticle": "Next article"
+    "nextArticle": "Next article",
+    "tagDescription": "Every article tagged “{tag}”, by Hla Shindeah."
   },
   "contact": {
     "title": "Contact",

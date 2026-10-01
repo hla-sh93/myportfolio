@@ -3,36 +3,66 @@ import { CTABanner } from "@/components/sections/CTABanner";
 import { Link } from "@/i18n/navigation";
 import { ArrowLeft, Tag } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 import { getPublicArticles } from "@/lib/content";
+import { localizedPageMetadata } from "@/lib/seo";
 
+/**
+ * A tag is one path segment, and Next hands it over decoded: "UI%2FUX" is
+ * already "UI/UX" here. The second decode only matters for a tag that
+ * contains a percent sign itself, and a malformed one must not become a 500.
+ */
+function tagFromParam(param: string): string {
+  try {
+    return decodeURIComponent(param);
+  } catch {
+    return param;
+  }
+}
+
+async function articlesTagged(tag: string) {
+  return (await getPublicArticles()).filter((a) => a.tags.includes(tag));
+}
 
 export async function generateStaticParams() {
   const articles = await getPublicArticles();
   const tags = new Set(articles.flatMap((a) => a.tags));
-  return [...tags].map((tag) => ({ tag: encodeURIComponent(tag) }));
+  // Raw values: Next percent-encodes them itself, so "UI/UX" becomes the one
+  // segment "UI%2FUX". Encoding here as well prerendered "UI%252FUX".
+  return [...tags].map((tag) => ({ tag }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; tag: string }> }) {
-  const { locale, tag } = await params;
-  const decodedTag = decodeURIComponent(tag);
+  const { locale, tag: param } = await params;
+  const tag = tagFromParam(param);
+
+  // An unknown tag is a 404, not an empty page that answers 200. The call is
+  // made here because metadata resolves before the response starts; by the
+  // time the page body runs, loading.tsx has already sent a 200.
+  if ((await articlesTagged(tag)).length === 0) notFound();
+
   const t = await getTranslations({ locale, namespace: "blog" });
 
-  return {
-    title: `${decodedTag} | ${t("heading")}`,
-  };
+  // Its own canonical and hreflang: with only a title here, every tag page
+  // inherited the layout's, and told search engines it was the home page.
+  return localizedPageMetadata({
+    locale,
+    path: `/blog/tag/${encodeURIComponent(tag)}`,
+    title: `${tag} | ${t("heading")}`,
+    description: t("tagDescription", { tag }),
+    card: "blog",
+  });
 }
 
 export default async function BlogTagPage({ params }: { params: Promise<{ locale: string; tag: string }> }) {
-  const { locale, tag } = await params;
+  const { locale, tag: param } = await params;
   setRequestLocale(locale);
-  const decodedTag = decodeURIComponent(tag);
-  const t = await getTranslations({ locale, namespace: "blog" });
+  const decodedTag = tagFromParam(param);
   const isRtl = locale === "ar";
 
-  // Filter mock articles by tag
-  const articles = (await getPublicArticles()).filter(
-    (a) => a.published && a.tags.includes(decodedTag)
-  );
+  // An unknown tag is a 404, not an empty page that answers 200.
+  const articles = await articlesTagged(decodedTag);
+  if (articles.length === 0) notFound();
 
   return (
     <>
@@ -61,19 +91,11 @@ export default async function BlogTagPage({ params }: { params: Promise<{ locale
           </p>
         </header>
 
-        {articles.length === 0 ? (
-          <div className="py-20 text-center">
-            <p className="text-text-secondary">
-              {isRtl ? "لا توجد مقالات لهذا الوسم" : "No articles found for this tag"}
-            </p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {articles.map((article, index) => (
-              <BlogCard key={article.id} article={article} index={index} />
-            ))}
-          </div>
-        )}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {articles.map((article, index) => (
+            <BlogCard key={article.id} article={article} index={index} />
+          ))}
+        </div>
       </div>
 
       <CTABanner />

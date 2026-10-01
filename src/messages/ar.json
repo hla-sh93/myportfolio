@@ -306,7 +306,8 @@
     "noResults": "لا توجد مقالات مطابقة",
     "noResultsHint": "يمكن تجربة كلمة أخرى أو تصنيف مختلف.",
     "prevArticle": "المقال السابق",
-    "nextArticle": "المقال التالي"
+    "nextArticle": "المقال التالي",
+    "tagDescription": "كل المقالات الموسومة بـ «{tag}» — من حلا شندية."
   },
   "contact": {
     "title": "تواصل",
