@@ -1,8 +1,25 @@
 import { db } from "@/lib/db";
 import bcrypt from "bcryptjs";
-import NextAuth from "next-auth";
+import NextAuth, { CredentialsSignin } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { z } from "zod";
+import {
+  getRateLimitIdentifier,
+  loginEmailRateLimit,
+  loginIpRateLimit,
+} from "@/lib/ratelimit";
+
+/** Thrown when sign-in is rate limited; the login form reads the code. */
+class RateLimited extends CredentialsSignin {
+  code = "rate_limited";
+}
+
+/**
+ * A bcrypt hash of a random secret nobody holds. An unknown address is
+ * compared against it so that it costs the same time as a wrong password,
+ * and the admin address cannot be picked out by timing the response.
+ */
+const DUMMY_HASH = "$2b$12$a9GSvC/hw4FfOkMO0pdzAuP6wdDzdAMjgEVF75iPFDd95ayAx9QF.";
 
 const credentialsSchema = z.object({
   email: z.string().email(),
@@ -17,11 +34,20 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials) {
+      async authorize(credentials, request) {
         const parsed = credentialsSchema.safeParse(credentials);
         if (!parsed.success) return null;
 
         const { email, password } = parsed.data;
+
+        // 0. Rate limit before any password work. Until now nothing stood
+        //    between a script and unlimited guesses.
+        const ip = getRateLimitIdentifier(request);
+        const [byIp, byEmail] = await Promise.all([
+          loginIpRateLimit.limit(`login:ip:${ip}`),
+          loginEmailRateLimit.limit(`login:email:${email.toLowerCase()}`),
+        ]);
+        if (!byIp.success || !byEmail.success) throw new RateLimited();
 
         // 1. Database user (production path)
         try {
@@ -60,8 +86,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
               role: "ADMIN",
             };
           }
+          return null;
         }
 
+        // 3. Unknown address: spend the time a real comparison would.
+        await bcrypt.compare(password, DUMMY_HASH);
         return null;
       },
     }),

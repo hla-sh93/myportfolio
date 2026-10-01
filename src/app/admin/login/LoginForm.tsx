@@ -29,7 +29,11 @@ export function AdminLoginForm() {
       });
 
       if (result?.error) {
-        setError("Invalid email or password");
+        setError(
+          result.code === "rate_limited"
+            ? "Too many attempts. Wait a few minutes, then try again."
+            : "Invalid email or password"
+        );
       } else {
         router.push("/admin");
         router.refresh();

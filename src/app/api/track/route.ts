@@ -1,5 +1,12 @@
 import { bump } from "@/lib/counter-store";
 import { recordHit } from "@/lib/analytics-store";
+import { getPublicArticles, getPublicProjects } from "@/lib/content";
+import {
+  apiRateLimit,
+  buildRateLimitResponse,
+  getRateLimitIdentifier,
+  likeRateLimit,
+} from "@/lib/ratelimit";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
@@ -31,6 +38,20 @@ const bodySchema = z.object({
   newSession: z.boolean().optional(),
 });
 
+/** The routes that report a page view; see the <ViewTracker type="page"> sites. */
+const PAGE_SLUGS = new Set(["home", "about", "projects", "blog", "contact"]);
+
+/**
+ * Only published content gets counted. Any slug that matched the pattern
+ * used to create counter and daily-stat rows, and so a place on the
+ * dashboard's top list.
+ */
+async function isKnown(type: "project" | "article" | "page", slug: string) {
+  if (type === "page") return PAGE_SLUGS.has(slug);
+  const items = type === "project" ? await getPublicProjects() : await getPublicArticles();
+  return items.some((item) => item.slug === slug);
+}
+
 export async function POST(req: NextRequest) {
   let body: unknown;
   try {
@@ -44,6 +65,21 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }
   const { type, slug, action, newSession } = parsed.data;
+
+  // Per IP: 100 views a minute, 10 likes a minute. There was no limit, so a
+  // loop could inflate any counter at will.
+  const ip = getRateLimitIdentifier(req);
+  const limited = buildRateLimitResponse(
+    action === "view"
+      ? await apiRateLimit.limit(`track:${ip}`)
+      : await likeRateLimit.limit(`like:${ip}`),
+    "track"
+  );
+  if (limited) return limited;
+
+  if (!(await isKnown(type, slug))) {
+    return NextResponse.json({ error: "Unknown content" }, { status: 404 });
+  }
 
   // Traffic aggregate — views only; likes are engagement, not traffic.
   if (action === "view") {

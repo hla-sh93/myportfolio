@@ -38,13 +38,24 @@ export async function bump(
   action: "view" | "like" | "unlike"
 ): Promise<CounterValue> {
   const delta =
-    action === "view"
-      ? { views: { increment: 1 } }
-      : action === "like"
-        ? { likes: { increment: 1 } }
-        : { likes: { decrement: 1 } };
+    action === "view" ? { views: { increment: 1 } } : { likes: { increment: 1 } };
 
   try {
+    if (action === "unlike") {
+      // Never below zero, and no row for something never liked. A run of
+      // unlikes used to park the stored count in the negatives, where the
+      // next real likes vanished without showing.
+      await db.counter.updateMany({
+        where: { type, slug, likes: { gt: 0 } },
+        data: { likes: { decrement: 1 } },
+      });
+      const row = await db.counter.findUnique({
+        where: { type_slug: { type, slug } },
+        select: { views: true, likes: true },
+      });
+      return { views: row?.views ?? 0, likes: Math.max(0, row?.likes ?? 0) };
+    }
+
     const counter = await db.counter.upsert({
       where: { type_slug: { type, slug } },
       create: {

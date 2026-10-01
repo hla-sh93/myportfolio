@@ -158,6 +158,15 @@ export const likeRateLimit = createRateLimiter(10, "1 m");
  */
 export const apiRateLimit = createRateLimiter(100, "1 m");
 
+/**
+ * Admin sign-in: 10 attempts per IP per quarter hour, and 20 per address per
+ * hour from anywhere. The second caps a distributed guess at the one admin
+ * address; its cost is that a flood aimed at that address locks the real
+ * admin out for up to an hour.
+ */
+export const loginIpRateLimit = createRateLimiter(10, "15 m");
+export const loginEmailRateLimit = createRateLimiter(20, "1 h");
+
 // ---------------------------------------------------------------------------
 // Helper — get client identifier for rate limiting
 // ---------------------------------------------------------------------------
