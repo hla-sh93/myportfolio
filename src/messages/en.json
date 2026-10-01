@@ -284,7 +284,8 @@
         "projectInquiry": "Project Inquiry",
         "collaboration": "Collaboration",
         "general": "General Question"
-      }
+      },
+      "verificationUnavailable": "Google verification could not load. Reload the page and try again."
     },
     "info": {
       "email": "Email",

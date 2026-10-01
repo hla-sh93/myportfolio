@@ -28,6 +28,7 @@ export function ContactForm() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
+  const [recaptchaFailed, setRecaptchaFailed] = useState(false);
 
   const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
@@ -62,6 +63,7 @@ export function ContactForm() {
     script.async = true;
     script.defer = true;
     script.onload = () => setRecaptchaLoaded(true);
+    script.onerror = () => setRecaptchaFailed(true);
     document.body.appendChild(script);
 
     return () => {
@@ -69,11 +71,14 @@ export function ContactForm() {
     };
   }, [siteKey]);
 
-  const executeRecaptcha = async (): Promise<string> => {
-    if (!siteKey || !window.grecaptcha || !recaptchaLoaded) {
-      // Return dummy token if recaptcha isn't configured, so we don't block development
-      return "dummy-token";
-    }
+  /**
+   * null: reCAPTCHA is not configured, nothing to send. "": configured but
+   * unavailable (blocked, offline, not loaded yet) — the submit stops with a
+   * message rather than sending a token the route is bound to refuse.
+   */
+  const executeRecaptcha = async (): Promise<string | null> => {
+    if (!siteKey) return null;
+    if (recaptchaFailed || !recaptchaLoaded || !window.grecaptcha) return "";
 
     return new Promise((resolve) => {
       window.grecaptcha.ready(async () => {
@@ -93,12 +98,13 @@ export function ContactForm() {
     try {
       // 1. Get fresh token (added here because it's not a form field)
       const token = await executeRecaptcha();
+      if (token === "") throw new Error(t("verificationUnavailable"));
 
       // 2. Submit to API
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, recaptchaToken: token }),
+        body: JSON.stringify({ ...data, ...(token ? { recaptchaToken: token } : {}) }),
       });
 
       if (!res.ok) {
@@ -202,6 +208,8 @@ export function ContactForm() {
         {t("submit")}
       </Button>
 
+      {/* Google's required notice, and only when it is true. */}
+      {siteKey && (
       <p className="text-xs text-center sm:text-left text-text-tertiary mt-4">
         This site is protected by reCAPTCHA and the Google{" "}
         <a href="https://policies.google.com/privacy" className="underline hover:text-text-secondary" target="_blank" rel="noreferrer">
@@ -213,6 +221,7 @@ export function ContactForm() {
         </a>{" "}
         apply.
       </p>
+      )}
     </form>
   );
 }

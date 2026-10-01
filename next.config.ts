@@ -5,6 +5,16 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const isDev = process.env.NODE_ENV === "development";
 
+/**
+ * reCAPTCHA is wired only when its site key is set at build time, and the
+ * policy opens for it only then. With the hosts always closed, a configured
+ * key loaded a script the CSP blocked, the form fell back to a dummy token,
+ * and the route refused every message.
+ */
+const recaptcha = Boolean(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY);
+const RECAPTCHA_SCRIPT = "https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/";
+const RECAPTCHA_FRAME = "https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/";
+
 /** Hosts that may serve images/media (admin uploads land in Blob or R2). */
 const MEDIA_HOSTS =
   "https://*.public.blob.vercel-storage.com https://*.r2.cloudflarestorage.com";
@@ -26,19 +36,19 @@ const MEDIA_HOSTS =
  */
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}${recaptcha ? ` ${RECAPTCHA_SCRIPT}` : ""}`,
   // Tailwind/next inject <style> tags, and framer-motion writes inline styles.
   "style-src 'self' 'unsafe-inline'",
   `img-src 'self' data: blob: ${MEDIA_HOSTS}`,
   `media-src 'self' blob: ${MEDIA_HOSTS}`,
   "font-src 'self' data:",
   // ws: is the dev-server hot-reload socket.
-  `connect-src 'self'${isDev ? " ws: wss:" : ""} ${MEDIA_HOSTS}`,
+  `connect-src 'self'${isDev ? " ws: wss:" : ""} ${MEDIA_HOSTS}${recaptcha ? " https://www.google.com/recaptcha/" : ""}`,
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
   "frame-ancestors 'none'",
-  "frame-src 'none'",
+  `frame-src ${recaptcha ? RECAPTCHA_FRAME : "'none'"}`,
   "manifest-src 'self'",
   ...(isDev ? [] : ["upgrade-insecure-requests"]),
 ].join("; ");

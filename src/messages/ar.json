@@ -334,7 +334,8 @@
         "projectInquiry": "استفسار عن مشروع",
         "collaboration": "تعاون",
         "general": "سؤال عام"
-      }
+      },
+      "verificationUnavailable": "تعذّر تحميل التحقّق من Google. أعد تحميل الصفحة وحاول مجددًا."
     },
     "info": {
       "email": "البريد الإلكتروني",

@@ -56,9 +56,10 @@ export const contactSchema = z.object({
     .max(0, "Bot detected")
     .optional(),
 
-  recaptchaToken: z
-    .string({ error: "reCAPTCHA token is required" })
-    .min(1, "reCAPTCHA token is required"),
+  // Present only when a site key is configured; the route verifies it only
+  // when the secret is. Requiring it here made the form send a literal
+  // "dummy-token" whenever reCAPTCHA was not set up.
+  recaptchaToken: z.string().optional(),
 });
 
 export type ContactFormData = z.infer<typeof contactSchema>;
