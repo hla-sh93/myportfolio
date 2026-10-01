@@ -7,6 +7,7 @@ import { format } from "date-fns";
 import { arSA, enUS } from "date-fns/locale";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Clock, Eye } from "lucide-react";
+import { formatNumber, siteDay } from "@/lib/format";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 
@@ -37,7 +38,7 @@ export function BlogCard({ article, index = 0, titleAs: TitleTag = "h3" }: BlogC
 
   const dateLocale = isRtl ? arSA : enUS;
   const publishDate = article.publishedAt
-    ? format(new Date(article.publishedAt), isRtl ? "d MMMM yyyy" : "d MMM yyyy", {
+    ? format(siteDay(article.publishedAt), isRtl ? "d MMMM yyyy" : "d MMM yyyy", {
         locale: dateLocale,
       })
     : "";
@@ -95,7 +96,7 @@ export function BlogCard({ article, index = 0, titleAs: TitleTag = "h3" }: BlogC
                 <span className="flex items-center gap-1.5">
                   <Eye className="h-3.5 w-3.5" />
                   <span className="tabular-nums">
-                    {(article.views ?? 0).toLocaleString()}
+                    {formatNumber(article.views ?? 0, locale)}
                   </span>
                 </span>
               </div>

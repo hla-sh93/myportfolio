@@ -1,31 +1,10 @@
 "use client";
 
-import { motion, useInView, useSpring, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { Counter } from "@/components/ui/Counter";
+import { motion } from "framer-motion";
 
 interface StatsProps {
   stats: { value: number; suffix?: string; label: string }[];
-}
-
-function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
-
-  const spring = useSpring(0, { stiffness: 50, damping: 20, mass: 1 });
-  const display = useTransform(spring, (current) =>
-    Math.round(current).toLocaleString()
-  );
-
-  useEffect(() => {
-    if (inView) spring.set(value);
-  }, [inView, spring, value]);
-
-  return (
-    <span ref={ref} dir="ltr" className="tabular-nums">
-      <motion.span>{display}</motion.span>
-      {suffix}
-    </span>
-  );
 }
 
 /* Agency-style proof strip: giant gradient numerals on hairline rails.

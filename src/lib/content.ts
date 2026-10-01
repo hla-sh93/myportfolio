@@ -15,6 +15,7 @@ import {
   type StoredArticle,
   type StoredProject,
 } from "@/lib/content-store";
+import { siteDay } from "@/lib/format";
 
 function reviveProject(p: StoredProject) {
   return {
@@ -24,7 +25,9 @@ function reviveProject(p: StoredProject) {
     // carries it, and for all six projects that set both, the two agree
     // exactly. Falling back here rather than copying the value into `year`
     // keeps one source of truth: change the date and the year follows.
-    year: p.year ?? new Date(p.publishedAt).getUTCFullYear(),
+    // On the site's calendar, not UTC: projects are stamped at Damascus
+    // midnight, which is 21:00Z the evening before — living-app-ui said 2023.
+    year: p.year ?? siteDay(p.publishedAt).getFullYear(),
     likeCount: 0,
     publishedAt: new Date(p.publishedAt),
     createdAt: new Date(p.publishedAt),

@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
+import { siteDay } from "@/lib/format";
 
 interface LatestBlogProps {
   articles: ArticleCardData[];
@@ -55,7 +56,7 @@ export function LatestBlog({ articles }: LatestBlogProps) {
             const title = isAr ? article.titleAr : article.titleEn;
             const excerpt = isAr ? article.excerptAr : article.excerptEn;
             const date = article.publishedAt
-              ? format(new Date(article.publishedAt), "d MMMM yyyy", {
+              ? format(siteDay(article.publishedAt), "d MMMM yyyy", {
                   locale: dateLocale,
                 })
               : null;

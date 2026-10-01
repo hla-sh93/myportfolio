@@ -23,6 +23,7 @@ import {
   breadcrumbSchema,
   creativeWorkSchema,
 } from "@/components/seo/JsonLd";
+import { formatNumber } from "@/lib/format";
 
 /* A store button that says "visit the site" reads as a mistake, so the type
    carries its own label and mark. */
@@ -217,7 +218,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               />
               <span className="flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-md">
                 <Eye className="h-4 w-4" />
-                <span className="tabular-nums">{stats.views.toLocaleString()}</span>
+                <span className="tabular-nums">{formatNumber(stats.views, locale)}</span>
               </span>
             </div>
           </div>

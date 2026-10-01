@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import type { ProjectCardData } from "@/types";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Eye } from "lucide-react";
+import { formatNumber } from "@/lib/format";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { LikeButton } from "./LikeButton";
@@ -118,7 +119,7 @@ export function ProjectCard({
           <div className="mt-auto flex items-center gap-1.5 pt-3 text-text-tertiary">
             <Eye className="h-4 w-4" />
             <span className="text-xs font-semibold tabular-nums">
-              {views.toLocaleString()}
+              {formatNumber(views, locale)}
             </span>
           </div>
         </div>

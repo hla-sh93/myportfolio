@@ -20,6 +20,7 @@ import {
   articleSchema,
   breadcrumbSchema,
 } from "@/components/seo/JsonLd";
+import { formatNumber, siteDay } from "@/lib/format";
 
 
 export async function generateStaticParams() {
@@ -87,7 +88,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   const dateLocale = isRtl ? arSA : enUS;
   const publishDate = article.publishedAt
-    ? format(new Date(article.publishedAt), isRtl ? "d MMMM yyyy" : "MMMM d, yyyy", {
+    ? format(siteDay(article.publishedAt), isRtl ? "d MMMM yyyy" : "MMMM d, yyyy", {
         locale: dateLocale,
       })
     : "";
@@ -136,7 +137,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             </div>
             <div className="flex items-center gap-2">
               <Eye className="w-4 h-4 text-accent" />
-              <span className="tabular-nums">{views.toLocaleString()}</span>
+              <span className="tabular-nums">{formatNumber(views, locale)}</span>
             </div>
           </div>
 

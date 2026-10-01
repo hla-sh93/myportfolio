@@ -1,33 +1,12 @@
 "use client";
 
+import { Counter } from "@/components/ui/Counter";
 import { Link } from "@/i18n/navigation";
-import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { ArrowDownRight } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useEffect, useRef } from "react";
 
 interface HomeIntroProps {
   stats: { value: number; suffix?: string; label: string }[];
-}
-
-function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
-  const spring = useSpring(0, { stiffness: 50, damping: 20, mass: 1 });
-  const display = useTransform(spring, (current) =>
-    Math.round(current).toLocaleString()
-  );
-
-  useEffect(() => {
-    if (inView) spring.set(value);
-  }, [inView, spring, value]);
-
-  return (
-    <span ref={ref} dir="ltr" className="tabular-nums">
-      <motion.span>{display}</motion.span>
-      {suffix}
-    </span>
-  );
 }
 
 /* Drake hero: chip → oversized light heading with a burgundy line →
