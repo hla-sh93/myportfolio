@@ -16,7 +16,7 @@ import { ViewTracker } from "@/components/features/ViewTracker";
 import { getCounters } from "@/lib/counters";
 import { renderMarkdown } from "@/lib/markdown";
 import { shareImage } from "@/lib/share";
-import { truncate } from "@/lib/seo";
+import { truncate, openGraphLocale } from "@/lib/seo";
 import type { Media as PrismaMedia } from "@prisma/client";
 import {
   JsonLd,
@@ -81,12 +81,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       },
     },
     openGraph: {
+      ...openGraphLocale(locale),
       title,
       description,
       // The share preview shows the work itself, not a generated title card.
       url,
       type: "article",
-      locale: locale === "ar" ? "ar_SA" : "en_US",
       images: [shareImage("project", slug, title)],
     },
     twitter: {

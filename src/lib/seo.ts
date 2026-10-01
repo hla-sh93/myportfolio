@@ -1,5 +1,22 @@
 import type { Metadata } from "next";
 import { pageShareImage } from "@/lib/share";
+import arMessages from "@/messages/ar.json";
+import enMessages from "@/messages/en.json";
+
+/**
+ * The Open Graph fields that name the site and its language. Next replaces
+ * `openGraph` per route rather than merging it, so a page that set its own
+ * lost og:site_name and og:locale:alternate from the layout, and Facebook
+ * read Arabic pages as en_US.
+ */
+export function openGraphLocale(locale: string) {
+  const isAr = locale === "ar";
+  return {
+    siteName: (isAr ? arMessages : enMessages).metadata.siteName,
+    locale: isAr ? "ar_SA" : "en_US",
+    alternateLocale: isAr ? "en_US" : "ar_SA",
+  };
+}
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -429,6 +446,7 @@ export function localizedPageMetadata(options: {
       },
     },
     openGraph: {
+      ...openGraphLocale(locale),
       title,
       description: metaDescription,
       url,

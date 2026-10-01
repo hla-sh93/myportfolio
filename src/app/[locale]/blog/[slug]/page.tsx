@@ -11,7 +11,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getPublicArticle, getPublicArticles } from "@/lib/content";
 import { renderMarkdown } from "@/lib/markdown";
 import { shareImage } from "@/lib/share";
-import { truncate } from "@/lib/seo";
+import { truncate, openGraphLocale } from "@/lib/seo";
 import { DetailNav } from "@/components/features/DetailNav";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -51,12 +51,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       },
     },
     openGraph: {
+      ...openGraphLocale(locale),
       title,
       description,
       // The article's own cover, letterboxed to 1200×630 — not a title card.
       url,
       type: "article",
-      locale: locale === "ar" ? "ar_SA" : "en_US",
       publishedTime: new Date(article.publishedAt).toISOString(),
       tags: article.tags,
       images: [shareImage("article", slug, title)],
