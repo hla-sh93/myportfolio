@@ -324,5 +324,12 @@
     "description": "This link does not lead to a page. The content may have moved, or the address was mistyped.",
     "home": "Back to home",
     "projects": "Browse the work"
+  },
+  "error": {
+    "label": "Unexpected error",
+    "title": "This page could not be shown",
+    "description": "Something went wrong while loading it. Try again, and if it keeps happening, head back home.",
+    "retry": "Try again",
+    "home": "Back to home"
   }
 }

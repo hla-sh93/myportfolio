@@ -1,8 +1,12 @@
 "use client";
 
 import { useEffect } from "react";
+import { readStorage, writeStorage } from "@/lib/safe-storage";
 
 const SESSION_FLAG = "session:started";
+
+/** Dedup for this tab when sessionStorage is unavailable (blocked storage). */
+const seenInTab = new Set<string>();
 
 /**
  * Fires one "view" per browser session per slug (sessionStorage dedup) and
@@ -18,11 +22,14 @@ export function ViewTracker({
 }) {
   useEffect(() => {
     const key = `viewed:${type}:${slug}`;
-    if (sessionStorage.getItem(key)) return;
-    sessionStorage.setItem(key, "1");
+    if (seenInTab.has(key) || readStorage("session", key)) return;
+    seenInTab.add(key);
+    writeStorage("session", key, "1");
 
-    const newSession = !sessionStorage.getItem(SESSION_FLAG);
-    if (newSession) sessionStorage.setItem(SESSION_FLAG, "1");
+    const newSession =
+      !seenInTab.has(SESSION_FLAG) && !readStorage("session", SESSION_FLAG);
+    seenInTab.add(SESSION_FLAG);
+    if (newSession) writeStorage("session", SESSION_FLAG, "1");
 
     fetch("/api/track", {
       method: "POST",

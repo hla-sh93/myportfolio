@@ -1,5 +1,6 @@
 "use client";
 
+import { readStorage, removeStorage, writeStorage } from "@/lib/safe-storage";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { Heart } from "lucide-react";
@@ -30,7 +31,7 @@ export function LikeButton({
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem(`liked:${type}:${slug}`)) setLiked(true);
+    if (readStorage("local", `liked:${type}:${slug}`)) setLiked(true);
   }, [type, slug]);
 
   const toggleLike = async (e: React.MouseEvent) => {
@@ -57,8 +58,10 @@ export function LikeButton({
       if (!res.ok) throw new Error("track failed");
       const data = await res.json();
       setCount(data.likes);
-      if (!prevLiked) localStorage.setItem(`liked:${type}:${slug}`, "1");
-      else localStorage.removeItem(`liked:${type}:${slug}`);
+      // A failed write (blocked storage) must not roll the like back: the
+      // server already counted it, and a second click would count it twice.
+      if (!prevLiked) writeStorage("local", `liked:${type}:${slug}`, "1");
+      else removeStorage("local", `liked:${type}:${slug}`);
     } catch {
       setLiked(prevLiked);
       setCount(prevCount);
