@@ -6,20 +6,32 @@ const prisma = new PrismaClient();
 async function main() {
   console.log("Seeding database...");
 
-  // 1. Create Admin User
-  const passwordHash = await bcrypt.hash("admin123", 10);
-  const admin = await prisma.user.upsert({
-    where: { email: "admin@example.com" },
-    update: {},
-    create: {
-      name: "Admin",
-      email: "admin@example.com",
-      password: passwordHash,
-      role: "ADMIN",
-    },
-  });
-
-  console.log("Admin user created:", admin.email);
+  // 1. Admin user — only when both values are supplied for this run.
+  // This used to create admin@example.com / admin123, a login anyone could
+  // guess on whichever database the seed was pointed at.
+  const adminEmail = process.env.SEED_ADMIN_EMAIL;
+  const adminPassword = process.env.SEED_ADMIN_PASSWORD;
+  if (adminEmail && adminPassword) {
+    if (adminPassword.length < 12) {
+      throw new Error("SEED_ADMIN_PASSWORD must be at least 12 characters.");
+    }
+    const passwordHash = await bcrypt.hash(adminPassword, 12);
+    const admin = await prisma.user.upsert({
+      where: { email: adminEmail },
+      update: {},
+      create: {
+        name: "Admin",
+        email: adminEmail,
+        password: passwordHash,
+        role: "ADMIN",
+      },
+    });
+    console.log("Admin user created:", admin.email);
+  } else {
+    console.log(
+      "No admin user created (set SEED_ADMIN_EMAIL and SEED_ADMIN_PASSWORD to add one)."
+    );
+  }
 
   // 2. Create Dummy Projects
   const project1 = await prisma.project.upsert({

@@ -63,7 +63,7 @@ export function AdminLoginForm() {
             type="email"
             autoComplete="username"
             className="panel-field"
-            placeholder="admin@example.com"
+            placeholder="you@domain.com"
             {...register("email")}
           />
           {errors.email && (
